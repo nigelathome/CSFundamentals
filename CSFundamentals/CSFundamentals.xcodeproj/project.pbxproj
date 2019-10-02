@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2677CD562344FF1900FC2463 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD552344FF1900FC2463 /* main.m */; };
+		2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD5E2344FFC700FC2463 /* ListNode.m */; };
+		2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD6623450A0100FC2463 /* LinkedListTopics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		2677CD522344FF1900FC2463 /* CSFundamentals */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSFundamentals; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677CD552344FF1900FC2463 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2677CD5D2344FFC700FC2463 /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
+		2677CD5E2344FFC700FC2463 /* ListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListNode.m; sourceTree = "<group>"; };
+		2677CD6523450A0100FC2463 /* LinkedListTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LinkedListTopics.h; sourceTree = "<group>"; };
+		2677CD6623450A0100FC2463 /* LinkedListTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkedListTopics.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,29 @@
 		2677CD542344FF1900FC2463 /* CSFundamentals */ = {
 			isa = PBXGroup;
 			children = (
+				2677CD602345069700FC2463 /* Algorithms */,
+				2677CD5C2344FF7300FC2463 /* DataStructures */,
 				2677CD552344FF1900FC2463 /* main.m */,
 			);
 			path = CSFundamentals;
+			sourceTree = "<group>";
+		};
+		2677CD5C2344FF7300FC2463 /* DataStructures */ = {
+			isa = PBXGroup;
+			children = (
+				2677CD5D2344FFC700FC2463 /* ListNode.h */,
+				2677CD5E2344FFC700FC2463 /* ListNode.m */,
+			);
+			path = DataStructures;
+			sourceTree = "<group>";
+		};
+		2677CD602345069700FC2463 /* Algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				2677CD6523450A0100FC2463 /* LinkedListTopics.h */,
+				2677CD6623450A0100FC2463 /* LinkedListTopics.m */,
+			);
+			path = Algorithms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2677CD562344FF1900FC2463 /* main.m in Sources */,
+				2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */,
+				2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,18 +267,24 @@
 		2677CD5A2344FF1900FC2463 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = M6EDV6DS4E;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				WARNING_CFLAGS = "-Wno-unused-variable ";
 			};
 			name = Debug;
 		};
 		2677CD5B2344FF1900FC2463 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6EDV6DS4E;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				WARNING_CFLAGS = "-Wno-unused-variable ";
 			};
 			name = Release;
 		};
