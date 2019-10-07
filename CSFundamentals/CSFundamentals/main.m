@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LinkedListTopics.h"
 #import "ListNode.h"
+#import "DPTopics.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -41,6 +42,9 @@ int main(int argc, const char * argv[]) {
             head = head.next;
         }
         
+        DPTopics *dPTopics = [[DPTopics alloc] init];
+        NSInteger total = [dPTopics climbStairs:4];
+        NSLog(@"%ld\n", (long)total);
         
     }
     return 0;
