@@ -15,7 +15,7 @@
     ListNode *new_head = nil;
     while(head) {
         ListNode *next = head.next;
-        head.next = new_head;
+        head.next = new_head; //逆转当前节点的指针
         new_head = head;
         head = next;
     }
