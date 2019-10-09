@@ -25,4 +25,11 @@
     return [dp[n] integerValue];
 }
 
+#pragma test-code
+/*
+ DPTopics *dPTopics = [[DPTopics alloc] init];
+ NSInteger total = [dPTopics climbStairs:4];
+ NSLog(@"%ld\n", (long)total);
+ */
+
 @end

@@ -36,4 +36,13 @@
     return [stack empty] ? @"/" : result;
 }
 
+# pragma test-code
+/*
+StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
+NSString *path = @"//";
+//        @"//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录"
+NSString *simplifyPath = [stackQueueTopics simplifyPath:path];
+NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
+ */
+
 @end

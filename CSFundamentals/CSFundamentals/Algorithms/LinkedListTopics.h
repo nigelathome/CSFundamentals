@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 //反转链表
 - (ListNode *)reverseList:(ListNode*)head;
 
+//反转链表[m,n]个节点的部分
+- (ListNode *)reverseList:(ListNode*)head between:(NSInteger)m and:(NSInteger)n;
+
 @end
 
 NS_ASSUME_NONNULL_END

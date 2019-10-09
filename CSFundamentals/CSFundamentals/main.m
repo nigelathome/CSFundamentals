@@ -35,7 +35,8 @@ int main(int argc, const char * argv[]) {
         }
         
         LinkedListTopics *linkedListTopics = [[LinkedListTopics alloc] init];
-        head = [linkedListTopics reverseList:a];
+//        head = [linkedListTopics reverseList:a];
+        head = [linkedListTopics reverseList:a between:1 and:5]; //[1,4], [2,4], [1,5]
         
         NSLog(@"After reverse:\n");
         while(head) {
@@ -43,15 +44,6 @@ int main(int argc, const char * argv[]) {
             head = head.next;
         }
         
-        DPTopics *dPTopics = [[DPTopics alloc] init];
-        NSInteger total = [dPTopics climbStairs:4];
-        NSLog(@"%ld\n", (long)total);
-        
-        StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
-        NSString *path = @"//";
-//        @"//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录"
-        NSString *simplifyPath = [stackQueueTopics simplifyPath:path];
-        NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
     }
     return 0;
 }
