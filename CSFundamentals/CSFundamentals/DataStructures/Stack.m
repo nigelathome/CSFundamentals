@@ -42,8 +42,14 @@
     return [self.stackArray count];
 }
 
+//- (void)enumerateObjectsFromBottom:(StackBlock)block {
+//    [self.stackArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        block ? block(obj) : nil;
+//    }];
+//}
+
 - (void)enumerateObjectsFromBottom:(StackBlock)block {
-    [self.stackArray enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.stackArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         block ? block(obj) : nil;
     }];
 }

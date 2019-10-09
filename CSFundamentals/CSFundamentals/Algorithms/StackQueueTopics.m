@@ -7,16 +7,33 @@
 //
 
 #import "StackQueueTopics.h"
+#import "Stack.h"
 
 @implementation StackQueueTopics
 
-//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录
 - (NSString *)simplifyPath:(NSString *)path {
-//    return @"";
+    Stack *stack = [Stack new];
+    NSArray *pathArray = [path componentsSeparatedByString:@"/"];
+    NSMutableString *result = [NSMutableString new];
     
-    NSArray *paths = [path componentsSeparatedByString:@"/"];
+    for (id component in pathArray){
+        if ([component isEqualToString:@"."]) continue; //'.'不做任何操作
+        
+        if ([component isEqualToString:@".."]) //'..'表示返回上一层目录,栈顶元素出栈
+            if (![stack empty]) {
+                [stack pop];
+                continue;
+            }
+        
+        if(![component isEqualToString:@""]) //其他非空元素入栈
+            [stack push:component];
+    }
     
-    return @"";
+    [stack enumerateObjectsFromBottom:^(id obj) {
+        [result appendString:[NSString stringWithFormat:@"/%@", (NSString *)obj]];
+    }];
+    
+    return [stack empty] ? @"/" : result;
 }
 
 @end

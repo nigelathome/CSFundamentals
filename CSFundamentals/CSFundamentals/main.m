@@ -10,6 +10,7 @@
 #import "LinkedListTopics.h"
 #import "ListNode.h"
 #import "DPTopics.h"
+#import "StackQueueTopics.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -46,6 +47,11 @@ int main(int argc, const char * argv[]) {
         NSInteger total = [dPTopics climbStairs:4];
         NSLog(@"%ld\n", (long)total);
         
+        StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
+        NSString *path = @"//";
+//        @"//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录"
+        NSString *simplifyPath = [stackQueueTopics simplifyPath:path];
+        NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
     }
     return 0;
 }
