@@ -11,6 +11,7 @@
 #import "ListNode.h"
 #import "DPTopics.h"
 #import "StackQueueTopics.h"
+#import "StringTopics.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -44,6 +45,9 @@ int main(int argc, const char * argv[]) {
             head = head.next;
         }
         
+        StringTopics *stringTopics = [StringTopics new];
+        NSString *handled = [stringTopics recordLetterAndCount:@"abbcdaac"];
+        NSLog(@"%@", handled);
     }
     return 0;
 }
