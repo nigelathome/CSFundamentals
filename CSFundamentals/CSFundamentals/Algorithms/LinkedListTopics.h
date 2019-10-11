@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 //反转链表[m,n]个节点的部分
 - (ListNode *)reverseList:(ListNode*)head between:(NSInteger)m and:(NSInteger)n;
 
+//求两个链表是否相交，求交点
+- (ListNode *)getIntersectionNode:(ListNode*)headA and:(ListNode*)headB;
+
 @end
 
 NS_ASSUME_NONNULL_END

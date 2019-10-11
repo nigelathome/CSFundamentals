@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithValue:(NSInteger)val;
 - (instancetype)initListNode:(ListNode *)node;
 
+//求链表长度
+- (NSUInteger)get_list_length;
+
+//链表头指针向前移动n步
+- (ListNode *)forward_long_list_step:(NSInteger)step;
+
 @end
 
 NS_ASSUME_NONNULL_END

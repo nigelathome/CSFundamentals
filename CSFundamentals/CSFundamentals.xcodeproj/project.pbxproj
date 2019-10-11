@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261B3C68234EDECB001E6F93 /* StringTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B3C67234EDECB001E6F93 /* StringTopics.m */; };
 		2677CD562344FF1900FC2463 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD552344FF1900FC2463 /* main.m */; };
 		2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD5E2344FFC700FC2463 /* ListNode.m */; };
 		2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD6623450A0100FC2463 /* LinkedListTopics.m */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		261B3C66234EDECB001E6F93 /* StringTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringTopics.h; sourceTree = "<group>"; };
+		261B3C67234EDECB001E6F93 /* StringTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringTopics.m; sourceTree = "<group>"; };
 		2677CD522344FF1900FC2463 /* CSFundamentals */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSFundamentals; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677CD552344FF1900FC2463 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2677CD5D2344FFC700FC2463 /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				2677CD692345F51200FC2463 /* DPTopics.m */,
 				2677CEA0234AB1C400FC2463 /* StackQueueTopics.h */,
 				2677CEA1234AB1C400FC2463 /* StackQueueTopics.m */,
+				261B3C66234EDECB001E6F93 /* StringTopics.h */,
+				261B3C67234EDECB001E6F93 /* StringTopics.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261B3C68234EDECB001E6F93 /* StringTopics.m in Sources */,
 				2677CEA5234AB49F00FC2463 /* Stack.m in Sources */,
 				2677CD562344FF1900FC2463 /* main.m in Sources */,
 				2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */,

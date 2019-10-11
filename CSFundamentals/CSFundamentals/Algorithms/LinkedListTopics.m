@@ -52,4 +52,28 @@
     return result;
 }
 
+- (ListNode *)getIntersectionNode:(ListNode*)headA and:(ListNode*)headB {
+    NSInteger lenA = [headA get_list_length];
+    NSInteger lenB = [headB get_list_length];
+    ListNode *modifed_head = nil, *another_head = nil;
+    if (lenA > lenB) {//将长链表的头指针对齐短链表的头指针
+        modifed_head = [headA forward_long_list_step:(lenA-lenB)];
+        another_head = headB;
+    } else {
+        modifed_head = [headB forward_long_list_step:(lenB-lenA)];
+        another_head = headA;
+    }
+    
+    while (another_head && modifed_head) { //逐个比较找第一个相交节点
+        if (another_head == modifed_head)
+            return modifed_head;
+        else {
+            modifed_head = modifed_head.next;
+            another_head = another_head.next;
+        }
+    }
+    
+    return nil;
+}
+
 @end
