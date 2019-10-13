@@ -18,36 +18,26 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         NSLog(@"Hello, World!");
         
-        ListNode *a = [[ListNode alloc] initWithValue:1];
-        ListNode *b = [[ListNode alloc] initWithValue:2];
-        ListNode *c = [[ListNode alloc] initWithValue:3];
-        ListNode *d = [[ListNode alloc] initWithValue:4];
-        ListNode *e = [[ListNode alloc] initWithValue:5];
-        a.next = b;
-        b.next = c;
-        c.next = d;
-        d.next = e;
+        //     a1->a2->
+        //             c1->c2->c3
+        // b1->b2->b3->
+        ListNode *a1 = [[ListNode alloc] initWithValue:1];
+        ListNode *a2 = [[ListNode alloc] initWithValue:2];
         
-        ListNode *head = [[ListNode alloc] initListNode:a];
-        NSLog(@"Before reverse:\n");
-        while(head) {
-            NSLog(@"%ld\n", (long)head.val);
-            head = head.next;
-        }
+        ListNode *b1 = [[ListNode alloc] initWithValue:3];
+        ListNode *b2 = [[ListNode alloc] initWithValue:4];
+        ListNode *b3 = [[ListNode alloc] initWithValue:5];
+        
+        ListNode *c1 = [[ListNode alloc] initWithValue:6];
+        ListNode *c2 = [[ListNode alloc] initWithValue:7];
+        ListNode *c3 = [[ListNode alloc] initWithValue:8];
+        a1.next = a2;  a2.next = c1;
+        c1.next = c2;  c2.next = c3;
+        b1.next = b2;  b2.next = b3; b3.next = c1;
         
         LinkedListTopics *linkedListTopics = [[LinkedListTopics alloc] init];
-//        head = [linkedListTopics reverseList:a];
-        head = [linkedListTopics reverseList:a between:1 and:5]; //[1,4], [2,4], [1,5]
-        
-        NSLog(@"After reverse:\n");
-        while(head) {
-            NSLog(@"%ld\n", (long)head.val);
-            head = head.next;
-        }
-        
-        StringTopics *stringTopics = [StringTopics new];
-        NSString *handled = [stringTopics recordLetterAndCount:@"abbcdaac"];
-        NSLog(@"%@", handled);
+        ListNode *intersection = [linkedListTopics getIntersectionNode:a1 and:b1];
+        NSLog(@"%d\n", (int)intersection.val);
     }
     return 0;
 }

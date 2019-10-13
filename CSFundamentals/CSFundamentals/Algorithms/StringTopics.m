@@ -34,4 +34,11 @@
     return result;
 }
 
+#pragma test-code
+/*
+StringTopics *stringTopics = [StringTopics new];
+NSString *compressed = [stringTopics compress:@"abbcdaac"];
+NSLog(@"%@", compressed);
+ */
+
 @end
