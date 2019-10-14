@@ -11,6 +11,8 @@
 
 @implementation StackQueueTopics
 
+#pragma mark - <Solutions>
+
 - (NSString *)simplifyPath:(NSString *)path {
     Stack *stack = [Stack new];
     NSArray *pathArray = [path componentsSeparatedByString:@"/"];
@@ -36,7 +38,33 @@
     return [stack empty] ? @"/" : result;
 }
 
-# pragma test-code
+- (BOOL)isValidParentheses:(NSString *)parentheses {
+    if([parentheses length] == 0) return YES;
+    if([parentheses length] == 1) return NO;
+    Stack *stack = [Stack new];
+    for(NSInteger i=0; i<[parentheses length]; i++) {
+        unichar parChar = [parentheses characterAtIndex:i];
+        NSString *par = [NSString stringWithFormat:@"%c", parChar];
+        if ([@"([{" rangeOfString: par].location != NSNotFound) {
+           [stack push:par];
+        } else {
+            if ([stack empty]) return NO;
+            else {
+                NSString *top = (NSString *)[stack top];
+                if (([par isEqualToString:@")"] && [top isEqualToString:@"("])
+                     ||([par isEqualToString:@"]"] && [top isEqualToString:@"["])
+                    ||([par isEqualToString:@"}"] && [top isEqualToString:@"{"])
+                     )
+                    [stack pop];
+                else
+                    return NO;
+            }
+        }
+    }
+    return [stack empty];
+}
+
+#pragma mark - <Test-code>
 /*
 StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
 NSString *path = @"//";

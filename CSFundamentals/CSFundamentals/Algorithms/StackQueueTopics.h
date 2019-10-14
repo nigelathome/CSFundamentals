@@ -14,7 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录
 - (NSString *)simplifyPath:(NSString *)path;
-    
+
+//是否是合法的括号序列，例如"{}[]()"->true, "{{{}]]"->false
+- (BOOL)isValidParentheses:(NSString *)parentheses;
+
 @end
 
 NS_ASSUME_NONNULL_END
