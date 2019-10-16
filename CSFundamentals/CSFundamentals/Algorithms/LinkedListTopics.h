@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 //求两个链表是否相交，求交点
 - (ListNode *)getIntersectionNode:(ListNode*)headA and:(ListNode*)headB;
 
+//链表是否有环
+- (BOOL)hasCycle:(ListNode*)head;
+
+//有环链表的环头结点
+- (ListNode *)detectCycle:(ListNode*)head;
+
 @end
 
 NS_ASSUME_NONNULL_END

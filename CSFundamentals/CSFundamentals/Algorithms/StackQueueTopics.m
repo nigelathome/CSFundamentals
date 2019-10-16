@@ -11,7 +11,7 @@
 
 @implementation StackQueueTopics
 
-#pragma mark - <Solutions>
+#pragma mark - solutions
 
 - (NSString *)simplifyPath:(NSString *)path {
     Stack *stack = [Stack new];
@@ -64,13 +64,20 @@
     return [stack empty];
 }
 
-#pragma mark - <Test-code>
+#pragma mark - test-code
 /*
 StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
 NSString *path = @"//";
 //        @"//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录"
 NSString *simplifyPath = [stackQueueTopics simplifyPath:path];
 NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
+ 
+ //        NSString *parenthesese = @"{}[]()";
+ //        NSString *parenthesese = @"{{{}]]";
+ NSString *parenthesese = @"]";
+ BOOL valid = [stackQueueTopics isValidParentheses:parenthesese];
+ NSLog(@"isValid=%@",valid?@"YES":@"NO");
  */
+
 
 @end

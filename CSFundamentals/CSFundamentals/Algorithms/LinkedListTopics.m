@@ -11,6 +11,8 @@
 
 @implementation LinkedListTopics
 
+#pragma mark solutions
+
 - (ListNode *)reverseList:(ListNode*)head {
     ListNode *new_head = nil;
     while(head) {
@@ -41,7 +43,6 @@
         head = next;//循环结束之后，head会指向原先第n个节点的下一个节点
         change_len--;
     }
-    
     pre_m.next = new_head;
     tail.next = head;
 
@@ -76,7 +77,18 @@
     return nil;
 }
 
-#pragma test-code
+- (BOOL)hasCycle:(ListNode*)head {
+    if (!head) return NO;
+    ListNode *fast = head, *slow = head;
+    do {
+        fast = fast.next.next;
+        slow = slow.next;
+    } while (fast && slow && fast!=slow);
+
+    return (slow == fast);
+}
+
+#pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];
  ListNode *b = [[ListNode alloc] initWithValue:2];
@@ -106,6 +118,32 @@
  head = head.next;
  }
  
+ }
+ 
+ //     a1->a2->
+ //             c1->c2->c3
+ // b1->b2->b3->
+ ListNode *a1 = [[ListNode alloc] initWithValue:1];
+ ListNode *a2 = [[ListNode alloc] initWithValue:2];
+ 
+ ListNode *b1 = [[ListNode alloc] initWithValue:3];
+ ListNode *b2 = [[ListNode alloc] initWithValue:4];
+ ListNode *b3 = [[ListNode alloc] initWithValue:5];
+ 
+ ListNode *c1 = [[ListNode alloc] initWithValue:6];
+ ListNode *c2 = [[ListNode alloc] initWithValue:7];
+ ListNode *c3 = [[ListNode alloc] initWithValue:8];
+ a1.next = a2;  a2.next = c1;
+ c1.next = c2;  c2.next = c3;
+ b1.next = b2;  b2.next = b3;
+ //        b3.next = c1;
+ 
+ LinkedListTopics *linkedListTopics = [[LinkedListTopics alloc] init];
+ ListNode *intersection = [linkedListTopics getIntersectionNode:a1 and:b1];
+ if (intersection) {
+ NSLog(@"%d\n", (int)intersection.val);
+ } else {
+ NSLog(@"No Intersection\n");
  }
  */
 
