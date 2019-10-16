@@ -37,12 +37,14 @@ int main(int argc, const char * argv[]) {
         a1.next = a2;  a2.next = a3;
         a3.next = a4;  a4.next = a5;
         a5.next = a6;  a6.next = a7;
-        a7.next = a8;  a8.next = a4;
+        a7.next = a8;  a8.next = a1;
 
         ListNode *head = a1;
         ListNode *firstNode = [linkedListTopics detectCycleWithSet:head];
+//        BOOL firstNode = [linkedListTopics hasCycle:head];
         if (firstNode) {
             NSLog(@"has cycle!\nfirstNode: %d\n", (int)firstNode.val);
+            NSLog(@"has cycle!\n");
         } else {
             NSLog(@"has no cycle!\n");
         }

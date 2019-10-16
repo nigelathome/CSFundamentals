@@ -29,11 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 //链表是否有环
 - (BOOL)hasCycle:(ListNode*)head;
 
-//有环链表的环头结点
+//求有环链表的环头结点
 - (ListNode *)detectCycle:(ListNode*)head;
 
 //求有环链表的环头结点 NSSet方法
 - (ListNode *)detectCycleWithSet:(ListNode*)head;
+
 @end
 
 NS_ASSUME_NONNULL_END

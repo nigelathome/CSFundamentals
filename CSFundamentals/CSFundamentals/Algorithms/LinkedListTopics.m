@@ -98,11 +98,39 @@
     if (!head) return NO;
     ListNode *fast = head, *slow = head;
     do {
-        fast = fast.next.next;
+        fast = fast.next;
         slow = slow.next;
+        if (!fast) {
+            return NO;
+        }
+        fast = fast.next;
     } while (fast && slow && fast!=slow);
 
     return (slow == fast);
+}
+
+- (ListNode *)detectCycle:(ListNode*)head {
+    ListNode *fast = head, *slow = head, *meet = nil;
+    do {
+        fast = fast.next;
+        slow = slow.next;
+        if (!fast){
+            return nil; //没有环
+        }
+        fast = fast.next;
+    } while (fast && slow && fast!=slow);
+    
+    meet = fast;
+    if (!meet) {
+        return nil;
+    }
+    
+    while(head && meet && meet != head) {
+        meet = meet.next;
+        head = head.next;
+    }
+    
+    return meet;
 }
 
 - (ListNode *)detectCycleWithSet:(ListNode *)head {
@@ -169,7 +197,7 @@
  //        b3.next = c1;
  
  LinkedListTopics *linkedListTopics = [[LinkedListTopics alloc] init];
- ListNode *intersection = [linkedListTopics getIntersectionNode:a1 and:b1];
+ ListNode *intersection = [linkedListTopics getIntersectionNodeWithSet:a1 and:b1];
  if (intersection) {
  NSLog(@"%d\n", (int)intersection.val);
  } else {
