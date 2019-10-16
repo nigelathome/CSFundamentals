@@ -77,6 +77,23 @@
     return nil;
 }
 
+- (ListNode *)getIntersectionNodeWithSet:(ListNode*)headA and:(ListNode*)headB {
+    NSMutableSet *nodeSet = [NSMutableSet new];
+    while(headA){
+        [nodeSet addObject:headA];
+        headA = headA.next;
+    }
+    
+    while(headB){
+        if ([nodeSet containsObject:headB]) {
+            return headB;
+        };
+        headB = headB.next;
+    }
+    
+    return nil;
+}
+
 - (BOOL)hasCycle:(ListNode*)head {
     if (!head) return NO;
     ListNode *fast = head, *slow = head;
