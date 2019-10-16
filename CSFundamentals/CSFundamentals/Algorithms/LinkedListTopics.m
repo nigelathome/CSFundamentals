@@ -105,6 +105,19 @@
     return (slow == fast);
 }
 
+- (ListNode *)detectCycleWithSet:(ListNode *)head {
+    NSMutableSet *nodeSet = [NSMutableSet new];
+    while(head){
+        if([nodeSet containsObject:head]){
+            return head;
+        }
+        [nodeSet addObject:head];
+        head = head.next;
+    }
+    
+    return nil;
+}
+
 #pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];
