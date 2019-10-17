@@ -186,6 +186,27 @@
     return nodeArray[0];
 }
 
+- (ListNode *)mergeTwoLists:(ListNode*)l1 and:(ListNode*)l2 {
+    ListNode *preHead = [ListNode new];
+    ListNode *head = preHead;
+    while(l1 && l2){
+        if (l1.val < l2.val){
+            head.next = l1;
+            l1 = l1.next;
+        } else {
+            head.next = l2;
+            l2 = l2.next;
+        }
+        head = head.next;
+    }
+    if (l1){
+        head.next = l1;
+    } else {
+        head.next = l2;
+    }
+    return preHead.next;
+}
+
 #pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];
@@ -208,7 +229,6 @@
  LinkedListTopics *linkedListTopics = [[LinkedListTopics alloc] init];
  //        head = [linkedListTopics reverseList:a];
  //        head = [linkedListTopics reverseList:a between:1 and:5]; //[1,4], [2,4], [1,5]
- 
  
  NSLog(@"After reverse:\n");
  while(head) {
@@ -256,6 +276,37 @@
  a3.next = a4;  a4.next = a5;
  a5.next = a6;  a6.next = a7;
  a7.next = a8;  a8.next = a1;
+ 
+ // create a linked list that has a cycle
+ RandomListNode *a = [[RandomListNode alloc] initWithValue:1];
+ RandomListNode *b = [[RandomListNode alloc] initWithValue:2];
+ RandomListNode *c = [[RandomListNode alloc] initWithValue:3];
+ RandomListNode *d = [[RandomListNode alloc] initWithValue:4];
+ RandomListNode *e = [[RandomListNode alloc] initWithValue:5];
+ 
+ a.next = b; b.next = c; c.next = d; d.next = e;
+ a.random = nil; b.random = d; c.random = b; d.random = a; e.random = e;
+ 
+ RandomListNode *head = a;
+ RandomListNode *copyHead = [linkedListTopics copyRandomList:head];
+ NSLog(@"original link list:\n");
+ while(head) {
+ if(head.random){
+ NSLog(@"val = %ld random = %ld\n", (long)head.val, (long)head.random.val);
+ } else {
+ NSLog(@"val = %ld random = nil\n", (long)copyHead.val);
+ }
+ head = (RandomListNode*)head.next;
+ }
+ NSLog(@"copied link list:\n");
+ while(copyHead) {
+ if(copyHead.random){
+ NSLog(@"val = %ld random = %ld\n", (long)copyHead.val, (long)copyHead.random.val);
+ } else {
+ NSLog(@"val = %ld random = nil\n", (long)copyHead.val);
+ }
+ copyHead = (RandomListNode*)copyHead.next;
+ }
  */
 
 @end

@@ -39,6 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 //复制复杂链表
 - (RandomListNode *)copyRandomList:(RandomListNode*)head;
 
+//合并两个有序链表
+- (ListNode *)mergeTwoLists:(ListNode*)l1 and:(ListNode*)l2;
+
 @end
 
 NS_ASSUME_NONNULL_END
