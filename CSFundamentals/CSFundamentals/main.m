@@ -28,31 +28,26 @@ int main(int argc, const char * argv[]) {
         // create a linked list that has a cycle
         ListNode *a = [[ListNode alloc] initWithValue:1];
         ListNode *b = [[ListNode alloc] initWithValue:4];
-        ListNode *c = [[ListNode alloc] initWithValue:6];
-        ListNode *d = [[ListNode alloc] initWithValue:0];
+        ListNode *c = [[ListNode alloc] initWithValue:3];
+        ListNode *d = [[ListNode alloc] initWithValue:2];
         ListNode *e = [[ListNode alloc] initWithValue:5];
-        ListNode *f = [[ListNode alloc] initWithValue:7];
+        ListNode *f = [[ListNode alloc] initWithValue:2];
         
         a.next = b; b.next = c; c.next = nil;
         d.next = e; e.next = f; f.next = nil;
 
         ListNode *head = a;
-        NSLog(@"l1 list:\n");
+        NSLog(@"list:\n");
         while(head) {
             NSLog(@"val = %ld\n", (long)head.val);
             head = head.next;
         }
-        head = d;
-        NSLog(@"l2 list:\n");
-        while(head) {
-            NSLog(@"val = %ld\n", (long)head.val);
-            head = head.next;
-        }
-        head = [linkedListTopics mergeTwoLists:a and:d];
-        NSLog(@"merge list:\n");
-        while(head) {
-            NSLog(@"val = %ld\n", (long)head.val);
-            head = head.next;
+        
+        ListNode *newHead = [linkedListTopics partition:a withTarget:3];
+        NSLog(@"partition list:\n");
+        while(newHead) {
+            NSLog(@"val = %ld\n", (long)newHead.val);
+            newHead = newHead.next;
         }
     }
     return 0;

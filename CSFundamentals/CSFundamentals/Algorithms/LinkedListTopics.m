@@ -207,6 +207,25 @@
     return preHead.next;
 }
 
+- (ListNode *)partition:(ListNode*)head withTarget:(NSUInteger)target {
+    if (!head) return nil;
+    ListNode *lessHead = [ListNode new], *lessPtr = lessHead;
+    ListNode *moreHead = [ListNode new], *morePtr = moreHead;
+    while(head){
+        if (head.val < target){
+            lessPtr.next = head;
+            lessPtr = lessPtr.next;
+        } else {
+            morePtr.next = head;
+            morePtr = morePtr.next;
+        }
+        head = head.next;
+    }
+    morePtr.next = nil;
+    lessPtr.next = moreHead.next;
+    return lessHead.next;
+}
+
 #pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];
@@ -306,6 +325,36 @@
  NSLog(@"val = %ld random = nil\n", (long)copyHead.val);
  }
  copyHead = (RandomListNode*)copyHead.next;
+ }
+ 
+ // create a linked list that has a cycle
+ ListNode *a = [[ListNode alloc] initWithValue:1];
+ ListNode *b = [[ListNode alloc] initWithValue:4];
+ ListNode *c = [[ListNode alloc] initWithValue:6];
+ ListNode *d = [[ListNode alloc] initWithValue:0];
+ ListNode *e = [[ListNode alloc] initWithValue:5];
+ ListNode *f = [[ListNode alloc] initWithValue:7];
+ 
+ a.next = b; b.next = c; c.next = nil;
+ d.next = e; e.next = f; f.next = nil;
+ 
+ ListNode *head = a;
+ NSLog(@"l1 list:\n");
+ while(head) {
+ NSLog(@"val = %ld\n", (long)head.val);
+ head = head.next;
+ }
+ head = d;
+ NSLog(@"l2 list:\n");
+ while(head) {
+ NSLog(@"val = %ld\n", (long)head.val);
+ head = head.next;
+ }
+ head = [linkedListTopics mergeTwoLists:a and:d];
+ NSLog(@"merge list:\n");
+ while(head) {
+ NSLog(@"val = %ld\n", (long)head.val);
+ head = head.next;
  }
  */
 
