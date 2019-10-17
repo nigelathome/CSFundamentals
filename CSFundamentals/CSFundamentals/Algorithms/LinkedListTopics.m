@@ -226,6 +226,27 @@
     return lessHead.next;
 }
 
+- (ListNode *)mergeKLists:(NSArray<ListNode *>*)lists {
+    if ([lists count] == 0) return nil;
+    if ([lists count] == 1) return lists[0];
+    if ([lists count] == 2) {
+        return [self mergeTwoLists:lists[0] and:lists[1]];
+    }
+    
+    NSUInteger mid = [lists count]/2;
+    NSMutableArray<ListNode*> *sub1Lists = [NSMutableArray new];
+    NSMutableArray<ListNode*> *sub2Lists = [NSMutableArray new];
+    for(NSUInteger i=0; i<mid; i++){
+        [sub1Lists addObject:lists[i]];
+    }
+    for(NSUInteger i=mid; i<[lists count]; i++){
+        [sub2Lists addObject:lists[i]];
+    }
+    ListNode *sub1Node = [self mergeKLists:sub1Lists];
+    ListNode *sub2Node = [self mergeKLists:sub2Lists];
+    return [self mergeTwoLists:sub1Node and:sub2Node];
+}
+
 #pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];
@@ -355,6 +376,31 @@
  while(head) {
  NSLog(@"val = %ld\n", (long)head.val);
  head = head.next;
+ }
+ 
+ // create a linked list that has a cycle
+ ListNode *a = [[ListNode alloc] initWithValue:1];
+ ListNode *b = [[ListNode alloc] initWithValue:4];
+ ListNode *c = [[ListNode alloc] initWithValue:3];
+ ListNode *d = [[ListNode alloc] initWithValue:2];
+ ListNode *e = [[ListNode alloc] initWithValue:5];
+ ListNode *f = [[ListNode alloc] initWithValue:2];
+ 
+ a.next = b; b.next = c; c.next = nil;
+ d.next = e; e.next = f; f.next = nil;
+ 
+ ListNode *head = a;
+ NSLog(@"list:\n");
+ while(head) {
+ NSLog(@"val = %ld\n", (long)head.val);
+ head = head.next;
+ }
+ 
+ ListNode *newHead = [linkedListTopics partition:a withTarget:3];
+ NSLog(@"partition list:\n");
+ while(newHead) {
+ NSLog(@"val = %ld\n", (long)newHead.val);
+ newHead = newHead.next;
  }
  */
 
