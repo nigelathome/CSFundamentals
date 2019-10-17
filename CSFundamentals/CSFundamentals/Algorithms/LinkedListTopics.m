@@ -146,6 +146,46 @@
     return nil;
 }
 
+- (RandomListNode *)copyRandomList:(RandomListNode*)head {
+    if (!head) return nil;
+    RandomListNode *ptr = head;
+    NSMutableArray<RandomListNode*> *nodeArray = [NSMutableArray new];//新节点序号及地址
+    NSMapTable<RandomListNode*, RandomListNode*> *nodeMap = [NSMapTable new]; //key-value: 旧节点地址-新节点地址
+    while(ptr){
+        RandomListNode *copyNode = [RandomListNode new];
+        copyNode.val = ptr.val;
+        [nodeArray addObject:copyNode];
+        [nodeMap setObject:copyNode forKey:ptr];
+//        RandomListNode *cur = [nodeMap objectForKey:ptr];
+        ptr = (RandomListNode*)ptr.next;
+    }
+    
+    if([nodeArray count] == 0){
+        return nil;
+    } else {
+     [nodeArray addObject:[RandomListNode new]];//添加一个节点,否则nodeArray[index].next = nodeArray[index+1];//连接新链表next指针会数组越界
+    }
+    
+    ptr = head;
+    NSInteger index = 0;
+    while(ptr){
+        nodeArray[index].next = nodeArray[index+1];//连接新链表next指针
+        RandomListNode *randomValue = ptr.random;
+        if (randomValue){
+            RandomListNode *copyRandomValue = [nodeMap objectForKey:randomValue];
+            nodeArray[index].random = copyRandomValue;
+        }
+        index ++;
+        ptr = (RandomListNode*)ptr.next;
+    }
+    
+    //处理最后一个节点next
+    [nodeArray removeLastObject];
+    [nodeArray lastObject].next = nil;
+    
+    return nodeArray[0];
+}
+
 #pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];
@@ -203,6 +243,19 @@
  } else {
  NSLog(@"No Intersection\n");
  }
+ 
+ ListNode *a1 = [[ListNode alloc] initWithValue:1];
+ ListNode *a2 = [[ListNode alloc] initWithValue:2];
+ ListNode *a3 = [[ListNode alloc] initWithValue:3];
+ ListNode *a4 = [[ListNode alloc] initWithValue:4];
+ ListNode *a5 = [[ListNode alloc] initWithValue:5];
+ ListNode *a6 = [[ListNode alloc] initWithValue:6];
+ ListNode *a7 = [[ListNode alloc] initWithValue:7];
+ ListNode *a8 = [[ListNode alloc] initWithValue:8];
+ a1.next = a2;  a2.next = a3;
+ a3.next = a4;  a4.next = a5;
+ a5.next = a6;  a6.next = a7;
+ a7.next = a8;  a8.next = a1;
  */
 
 @end

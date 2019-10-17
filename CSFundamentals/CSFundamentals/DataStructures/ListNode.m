@@ -48,3 +48,16 @@
 }
 
 @end
+
+@implementation RandomListNode
+
+- (instancetype)initWithValue:(NSInteger)val {
+    if (self = [super init]) {
+        self.val = val;
+        self.next = nil;
+        self.random = nil;
+    }
+    return self;
+}
+
+@end

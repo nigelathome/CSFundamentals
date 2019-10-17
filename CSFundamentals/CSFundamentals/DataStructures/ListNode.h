@@ -29,4 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface RandomListNode : ListNode
+
+@property(nonatomic, strong, nullable)RandomListNode *random;
+
+@end
+
 NS_ASSUME_NONNULL_END

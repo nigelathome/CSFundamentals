@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class ListNode;
+@class RandomListNode;
 
 @interface LinkedListTopics : NSObject
 
@@ -34,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 //求有环链表的环头结点 NSSet方法
 - (ListNode *)detectCycleWithSet:(ListNode*)head;
+
+//复制复杂链表
+- (RandomListNode *)copyRandomList:(RandomListNode*)head;
 
 @end
 
