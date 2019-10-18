@@ -8,6 +8,7 @@
 
 #import "StackQueueTopics.h"
 #import "Stack.h"
+#import "Queue.h"
 
 @implementation StackQueueTopics
 
@@ -79,5 +80,54 @@ NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
  NSLog(@"isValid=%@",valid?@"YES":@"NO");
  */
 
+
+@end
+
+@interface MyStack()
+
+@property(nonatomic)Queue *data;
+
+@end
+
+@implementation MyStack
+
+- (void)push:(id)obj {
+    if ([self.data size] == 0) {
+        [self.data push:obj];
+        return;
+    }
+    Queue *tempQueue = [Queue new];
+    [tempQueue push:obj];
+    while (![self.data empty]) {//依次将data中的元素插入tempQueue
+        [tempQueue push:[self.data front]];
+        [self.data pop];
+    }
+    while (![tempQueue empty]) {//依次将tempQueue中的元素插入data
+        [self.data push:[tempQueue front]];
+        [tempQueue pop];
+    }
+}
+
+- (nullable id)pop {
+    id top = [self.data front];
+    [self.data pop];
+    return top;
+}
+
+- (nullable id)top {
+    return [self.data front];
+}
+
+- (BOOL)empty {
+    return [self.data empty];
+}
+
+- (Queue *)data {//data构造函数
+    if (!_data){
+        _data = [Queue new];
+    }
+    return _data;
+        
+}
 
 @end

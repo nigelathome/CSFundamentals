@@ -24,36 +24,16 @@ int main(int argc, const char * argv[]) {
         LinkedListTopics *linkedListTopics = [LinkedListTopics new];
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
-        
-        // create a linked list that has a cycle
-        ListNode *a = [[ListNode alloc] initWithValue:1];
-        ListNode *b = [[ListNode alloc] initWithValue:6];
-        ListNode *c = [[ListNode alloc] initWithValue:8];
-        ListNode *d = [[ListNode alloc] initWithValue:0];
-        ListNode *e = [[ListNode alloc] initWithValue:5];
-        ListNode *f = [[ListNode alloc] initWithValue:7];
-        ListNode *g = [[ListNode alloc] initWithValue:2];
-        ListNode *h = [[ListNode alloc] initWithValue:3];
-        ListNode *i = [[ListNode alloc] initWithValue:4];
-        ListNode *j = [[ListNode alloc] initWithValue:9];
-        ListNode *k = [[ListNode alloc] initWithValue:10];
-        
-        a.next = b; b.next = c; c.next = nil;
-        d.next = e; e.next = f; f.next = nil;
-        g.next = h; h.next = nil;
-        i.next = j; j.next = k; k.next = nil;
-
-        NSMutableArray<ListNode*> *lists = [NSMutableArray new];
-        [lists addObject:a];
-        [lists addObject:d];
-        [lists addObject:g];
-        [lists addObject:i];
-        NSLog(@"list:\n");
-        ListNode *head = [linkedListTopics mergeKListsBySort:lists];
-        while(head) {
-            NSLog(@"val = %ld\n", (long)head.val);
-            head = head.next;
-        }
+        MyStack *myStack = [MyStack new];
+        [myStack push:[NSNumber numberWithInteger:1]];
+        [myStack push:[NSNumber numberWithInteger:2]];
+        [myStack push:[NSNumber numberWithInteger:3]];
+        [myStack push:[NSNumber numberWithInteger:4]];
+        NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+        [myStack pop];
+        NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+        [myStack push:[NSNumber numberWithInteger:5]];
+        NSLog(@"%d\n", (int)[[myStack top] integerValue]);
     }
     return 0;
 }
