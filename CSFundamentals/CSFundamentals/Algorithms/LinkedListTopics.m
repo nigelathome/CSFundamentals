@@ -247,6 +247,35 @@
     return [self mergeTwoLists:sub1Node and:sub2Node];
 }
 
+- (ListNode *)mergeKListsBySort:(NSArray<ListNode *>*)lists {
+    if ([lists count] == 0) return nil;
+    NSMutableArray<ListNode*> *nodeArray = [NSMutableArray new];
+    ListNode *head = nil;
+    for(NSUInteger i=0; i<[lists count]; i++){
+        head = lists[i];
+        while(head){
+            [nodeArray addObject:head];
+            head = head.next;
+        }
+    }
+    
+    [nodeArray sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        ListNode *node1 = (ListNode*)obj1;
+        ListNode *node2 = (ListNode*)obj2;
+        if (node1.val < node2.val){//从小到大排序
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedDescending;
+        }
+    }];
+    
+    for(NSInteger i=1; i<[nodeArray count]; i++){//重新建立指向关系
+        nodeArray[i-1].next = nodeArray[i];
+    }
+    [nodeArray lastObject].next = nil;
+    return nodeArray[0];
+}
+
 #pragma mark test-code
 /*
  ListNode *a = [[ListNode alloc] initWithValue:1];

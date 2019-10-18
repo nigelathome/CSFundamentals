@@ -42,10 +42,13 @@ NS_ASSUME_NONNULL_BEGIN
 //合并两个有序链表
 - (ListNode *)mergeTwoLists:(ListNode*)l1 and:(ListNode*)l2;
 
-//合并K个有序链表
+//合并k个有序链表
 - (ListNode *)mergeKLists:(NSArray<ListNode *>*)lists;
 
-//合并K个有序链表 排序法
+//合并k个有序链表 sort方法
+- (ListNode *)mergeKListsBySort:(NSArray<ListNode *>*)lists;
+
+//合并k个有序链表 排序法
 - (ListNode *)mergeKListsWithSort:(NSArray<ListNode *>*)lists;
 
 //划分链表

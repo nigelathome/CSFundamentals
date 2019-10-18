@@ -49,7 +49,7 @@ int main(int argc, const char * argv[]) {
         [lists addObject:g];
         [lists addObject:i];
         NSLog(@"list:\n");
-        ListNode *head = [linkedListTopics mergeKLists:lists];
+        ListNode *head = [linkedListTopics mergeKListsBySort:lists];
         while(head) {
             NSLog(@"val = %ld\n", (long)head.val);
             head = head.next;
