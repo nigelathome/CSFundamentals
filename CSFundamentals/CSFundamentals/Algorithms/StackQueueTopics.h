@@ -22,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+//用队列实现栈, 队头作为栈的top，即栈顶元素
 @interface MyStack : NSObject
 
-//用队列实现栈, 队头作为栈的top，即栈顶元素
 - (void)push:(id)obj;
 
 - (nullable id)pop;
@@ -34,5 +34,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)empty;
 
 @end
+
+//用栈实现队列
+@interface MyQueue : NSObject
+
+- (void)push:(id)obj;
+
+- (nullable id)pop;//移除队头元素
+
+- (nullable id)peek;//获取队头元素
+
+- (BOOL)empty;
+
+@end
+
 
 NS_ASSUME_NONNULL_END

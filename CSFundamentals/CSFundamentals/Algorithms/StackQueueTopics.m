@@ -65,13 +65,15 @@
     return [stack empty];
 }
 
-#pragma mark - test-code
+@end
+
+#pragma mark test-code
 /*
-StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
-NSString *path = @"//";
-//        @"//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录"
-NSString *simplifyPath = [stackQueueTopics simplifyPath:path];
-NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
+ StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
+ NSString *path = @"//";
+ //        @"//简化linux路径格式，例如将/home/->/home, /a/b/./c->/a/b/c, /a/b/../-> /a, '.'和'..'分别代表当前路径和返回上一个目录"
+ NSString *simplifyPath = [stackQueueTopics simplifyPath:path];
+ NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
  
  //        NSString *parenthesese = @"{}[]()";
  //        NSString *parenthesese = @"{{{}]]";
@@ -79,9 +81,6 @@ NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
  BOOL valid = [stackQueueTopics isValidParentheses:parenthesese];
  NSLog(@"isValid=%@",valid?@"YES":@"NO");
  */
-
-
-@end
 
 @interface MyStack()
 
@@ -97,7 +96,7 @@ NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
         return;
     }
     Queue *tempQueue = [Queue new];
-    [tempQueue push:obj];
+    [tempQueue push:obj];//obj先入临时队列
     while (![self.data empty]) {//依次将data中的元素插入tempQueue
         [tempQueue push:[self.data front]];
         [self.data pop];
@@ -127,7 +126,68 @@ NSLog(@"original path: %@, simpfied path: %@", path, simplifyPath);
         _data = [Queue new];
     }
     return _data;
-        
 }
 
 @end
+
+@interface MyQueue()
+
+@property(nonatomic)Stack *data;
+
+@end
+
+@implementation MyQueue
+
+- (void)push:(id)obj {
+    if ([self.data empty]){
+        [self.data push:obj];
+        return;
+    }
+    Stack *tempStack = [Stack new];
+    while(![self.data empty]){
+        [tempStack push:[self.data top]];
+        [self.data pop];
+    }
+    [tempStack push:obj];
+    while (![tempStack empty]) {
+        [self.data push:[tempStack top]];
+        [tempStack pop];
+    }
+}
+
+- (nullable id)pop {
+    id top = [self.data top];
+    [self.data pop];
+    return top;
+}
+
+- (nullable id)peek {
+    return [self.data top];
+}
+
+- (BOOL)empty {
+    return [self.data empty];
+}
+
+- (Stack *)data {
+    if (!_data){
+        _data = [Stack new];
+    }
+    return _data;
+}
+
+# pragma mark test-code
+/*
+ MyStack *myStack = [MyStack new];
+ [myStack push:[NSNumber numberWithInteger:1]];
+ [myStack push:[NSNumber numberWithInteger:2]];
+ [myStack push:[NSNumber numberWithInteger:3]];
+ [myStack push:[NSNumber numberWithInteger:4]];
+ NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ [myStack pop];
+ NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ [myStack push:[NSNumber numberWithInteger:5]];
+ NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ */
+@end
+

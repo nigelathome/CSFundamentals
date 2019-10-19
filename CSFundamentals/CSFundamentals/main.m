@@ -24,16 +24,14 @@ int main(int argc, const char * argv[]) {
         LinkedListTopics *linkedListTopics = [LinkedListTopics new];
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
-        MyStack *myStack = [MyStack new];
-        [myStack push:[NSNumber numberWithInteger:1]];
-        [myStack push:[NSNumber numberWithInteger:2]];
-        [myStack push:[NSNumber numberWithInteger:3]];
-        [myStack push:[NSNumber numberWithInteger:4]];
-        NSLog(@"%d\n", (int)[[myStack top] integerValue]);
-        [myStack pop];
-        NSLog(@"%d\n", (int)[[myStack top] integerValue]);
-        [myStack push:[NSNumber numberWithInteger:5]];
-        NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+        MyQueue *myQueue = [MyQueue new];
+        [myQueue push:[NSNumber numberWithInteger:1]];
+        [myQueue push:[NSNumber numberWithInteger:2]];
+        [myQueue push:[NSNumber numberWithInteger:3]];
+        [myQueue push:[NSNumber numberWithInteger:4]];
+        NSLog(@"%d\n", (int)[[myQueue peek] integerValue]);
+        [myQueue pop];
+        NSLog(@"%d\n", (int)[[myQueue peek] integerValue]);
     }
     return 0;
 }
