@@ -48,5 +48,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface MinStack : NSObject
+
+- (void)push:(id)obj;
+
+- (nullable id)pop;
+
+- (nullable id)top;
+
+- (nullable id)getMin;
+
+@end
+
 
 NS_ASSUME_NONNULL_END

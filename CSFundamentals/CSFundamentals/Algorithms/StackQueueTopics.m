@@ -130,6 +130,20 @@
 
 @end
 
+#pragma mark test-code
+/*
+ MyStack *myStack = [MyStack new];
+ [myStack push:[NSNumber numberWithInteger:1]];
+ [myStack push:[NSNumber numberWithInteger:2]];
+ [myStack push:[NSNumber numberWithInteger:3]];
+ [myStack push:[NSNumber numberWithInteger:4]];
+ NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ [myStack pop];
+ NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ [myStack push:[NSNumber numberWithInteger:5]];
+ NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ */
+
 @interface MyQueue()
 
 @property(nonatomic)Stack *data;
@@ -176,18 +190,71 @@
     return _data;
 }
 
+@end
 # pragma mark test-code
 /*
- MyStack *myStack = [MyStack new];
- [myStack push:[NSNumber numberWithInteger:1]];
- [myStack push:[NSNumber numberWithInteger:2]];
- [myStack push:[NSNumber numberWithInteger:3]];
- [myStack push:[NSNumber numberWithInteger:4]];
- NSLog(@"%d\n", (int)[[myStack top] integerValue]);
- [myStack pop];
- NSLog(@"%d\n", (int)[[myStack top] integerValue]);
- [myStack push:[NSNumber numberWithInteger:5]];
- NSLog(@"%d\n", (int)[[myStack top] integerValue]);
+ MyQueue *myQueue = [MyQueue new];
+ [myQueue push:[NSNumber numberWithInteger:1]];
+ [myQueue push:[NSNumber numberWithInteger:2]];
+ [myQueue push:[NSNumber numberWithInteger:3]];
+ [myQueue push:[NSNumber numberWithInteger:4]];
+ NSLog(@"%d\n", (int)[[myQueue peek] integerValue]);
+ [myQueue pop];
+ NSLog(@"%d\n", (int)[[myQueue peek] integerValue]);
  */
+
+@interface MinStack()
+
+@property(nonatomic)Stack *data;//存储数据
+
+@property(nonatomic)Stack *mins;//保存当前栈中的最新元素
+
+@end
+
+@implementation MinStack
+
+- (void)push:(id)obj {
+    if ([self.data empty]){
+        [self.mins push:obj];
+    } else {//mins记录当前栈的最小元素
+        NSNumber *topValue = (NSNumber*)[self.mins top];
+        if ([(NSNumber*)obj integerValue] < [topValue integerValue]) {
+            [self.mins push:obj];
+        } else {
+            [self.mins push:[self.mins top]];
+        }
+    }
+    [self.data push:obj];
+}
+
+- (nullable id)pop {
+    id top = [self.data top];
+    [self.data pop];
+    [self.mins pop];//两个栈同时出栈
+    return top;
+}
+
+- (nullable id)top {
+    return [self.data top];
+}
+
+- (nullable id)getMin {
+    return [self.mins top];
+}
+
+- (Stack *)data {
+    if (!_data){
+        _data = [Stack new];
+    }
+    return _data;
+}
+
+- (Stack *)mins {
+    if (!_mins){
+        _mins = [Stack new];
+    }
+    return _mins;
+}
+
 @end
 
