@@ -6,11 +6,11 @@
 //  Copyright © 2019 Hui,Li. All rights reserved.
 //
 
-#import "StackQueueTopics.h"
+#import "StackQueueHeapTopics.h"
 #import "Stack.h"
 #import "Queue.h"
 
-@implementation StackQueueTopics
+@implementation StackQueueHeapTopics
 
 #pragma mark - solutions
 

@@ -12,7 +12,7 @@
 		2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD5E2344FFC700FC2463 /* ListNode.m */; };
 		2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD6623450A0100FC2463 /* LinkedListTopics.m */; };
 		2677CD6A2345F51200FC2463 /* DPTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD692345F51200FC2463 /* DPTopics.m */; };
-		2677CEA2234AB1C400FC2463 /* StackQueueTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CEA1234AB1C400FC2463 /* StackQueueTopics.m */; };
+		2677CEA2234AB1C400FC2463 /* StackQueueHeapTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CEA1234AB1C400FC2463 /* StackQueueHeapTopics.m */; };
 		2677CEA5234AB49F00FC2463 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CEA4234AB49F00FC2463 /* Stack.m */; };
 		26BA70262359E9610070426A /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BA70252359E9610070426A /* Queue.m */; };
 /* End PBXBuildFile section */
@@ -40,8 +40,8 @@
 		2677CD6623450A0100FC2463 /* LinkedListTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LinkedListTopics.m; sourceTree = "<group>"; };
 		2677CD682345F51200FC2463 /* DPTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DPTopics.h; sourceTree = "<group>"; };
 		2677CD692345F51200FC2463 /* DPTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPTopics.m; sourceTree = "<group>"; };
-		2677CEA0234AB1C400FC2463 /* StackQueueTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackQueueTopics.h; sourceTree = "<group>"; };
-		2677CEA1234AB1C400FC2463 /* StackQueueTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StackQueueTopics.m; sourceTree = "<group>"; };
+		2677CEA0234AB1C400FC2463 /* StackQueueHeapTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackQueueHeapTopics.h; sourceTree = "<group>"; };
+		2677CEA1234AB1C400FC2463 /* StackQueueHeapTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StackQueueHeapTopics.m; sourceTree = "<group>"; };
 		2677CEA3234AB49F00FC2463 /* Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		2677CEA4234AB49F00FC2463 /* Stack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		26BA70242359E9610070426A /* Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Queue.h; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 				2677CD6623450A0100FC2463 /* LinkedListTopics.m */,
 				2677CD682345F51200FC2463 /* DPTopics.h */,
 				2677CD692345F51200FC2463 /* DPTopics.m */,
-				2677CEA0234AB1C400FC2463 /* StackQueueTopics.h */,
-				2677CEA1234AB1C400FC2463 /* StackQueueTopics.m */,
+				2677CEA0234AB1C400FC2463 /* StackQueueHeapTopics.h */,
+				2677CEA1234AB1C400FC2463 /* StackQueueHeapTopics.m */,
 				261B3C66234EDECB001E6F93 /* StringTopics.h */,
 				261B3C67234EDECB001E6F93 /* StringTopics.m */,
 			);
@@ -174,7 +174,7 @@
 				2677CD562344FF1900FC2463 /* main.m in Sources */,
 				2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */,
 				2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */,
-				2677CEA2234AB1C400FC2463 /* StackQueueTopics.m in Sources */,
+				2677CEA2234AB1C400FC2463 /* StackQueueHeapTopics.m in Sources */,
 				2677CD6A2345F51200FC2463 /* DPTopics.m in Sources */,
 				26BA70262359E9610070426A /* Queue.m in Sources */,
 			);

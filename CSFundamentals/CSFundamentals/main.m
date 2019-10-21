@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LinkedListTopics.h"
 #import "DPTopics.h"
-#import "StackQueueTopics.h"
+#import "StackQueueHeapTopics.h"
 #import "StringTopics.h"
 #import "ListNode.h"
 #import "Stack.h"
@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Hello, US!");
         NSLog(@"Hello, CHINA!");
         
-        StackQueueTopics *stackQueueTopics = [StackQueueTopics new];
+        StackQueueHeapTopics *stackQueueHeadTopics = [StackQueueHeapTopics new];
         LinkedListTopics *linkedListTopics = [LinkedListTopics new];
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
