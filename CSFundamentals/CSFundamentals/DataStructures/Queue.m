@@ -106,7 +106,11 @@
 }
 
 - (BOOL)cmp:(NSNumber*)value1 with:(NSNumber*)value2 {
-    return [value1 integerValue] > [value2 integerValue];//小顶堆
+    if (self.isSmallHeap) {
+        return [value1 integerValue] > [value2 integerValue];//小顶堆
+    } else {
+        return [value1 integerValue] <= [value2 integerValue];//大顶堆
+    }
     //    return [value1 integerValue] < [value2 integerValue];//大顶堆
 }
 
@@ -209,6 +213,5 @@
  [priorityQueue printObjects];
  NSLog(@"=======================================================");
  */
-
 
 @end

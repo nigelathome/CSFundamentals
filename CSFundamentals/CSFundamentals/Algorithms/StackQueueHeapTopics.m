@@ -120,6 +120,21 @@
  NSArray *nums = @[@(3), @(2), @(1), @(5), @(6), @(4)];
  NSInteger result = [stackQueueHeadTopics findKthLargest:nums Kth:0];
  NSLog(@"%ld", result);
+ 
+ Queue *order = [Queue new];
+ //        [order push:[NSNumber numberWithInteger:3]];
+ //        [order push:[NSNumber numberWithInteger:2]];
+ //        [order push:[NSNumber numberWithInteger:5]];
+ //        [order push:[NSNumber numberWithInteger:4]];
+ //        [order push:[NSNumber numberWithInteger:1]];
+ 
+ [order push:[NSNumber numberWithInteger:5]];
+ [order push:[NSNumber numberWithInteger:1]];
+ [order push:[NSNumber numberWithInteger:2]];
+ [order push:[NSNumber numberWithInteger:4]];
+ [order push:[NSNumber numberWithInteger:3]];
+ BOOL isvalid = [stackQueueHeadTopics checkIsValidOrder:order];
+ NSLog(@"是否合法:%@", @(isvalid));
  */
 
 @interface MyStack()
@@ -315,3 +330,73 @@
 
 @end
 
+@interface MedianFinder()
+
+@property(nonatomic)PriorityQueue *big;
+@property(nonatomic)PriorityQueue *small;
+
+@end
+
+@implementation MedianFinder
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _big = [PriorityQueue new];
+        _small = [PriorityQueue new];
+        _big.isSmallHeap = NO;
+        _small.isSmallHeap = YES;
+    }
+    return self;
+}
+
+//分别将n个数分成相等两份,或者每份的个数之差不超过1,用大顶堆维护较小一摞的元素,用小顶堆维护大的一摞元素
+- (void)addNum:(NSInteger)num {
+    if ([self.big empty]) {//第一个元素先插入大顶堆,小顶堆也可
+        [self.big push:[NSNumber numberWithInteger:num]];
+        return;
+    }
+    //两个堆相等,那么将大的元素插入小顶堆,小的元素插入大顶堆
+    if (self.big.size == self.small.size){
+        NSInteger top = [(NSNumber*)[self.big front] integerValue];
+        if (top>num) {
+            [self.big push:[NSNumber numberWithInteger:num]];
+        } else {
+            [self.small push:[NSNumber numberWithInteger:num]];
+        }
+        
+    //大顶堆元素多,待插入的元素大就插入小顶堆;待插入的元素小,先把大顶堆并把堆顶元素插入小顶堆,再把元素插入大顶堆
+    } else if ((self.big.size > self.small.size)){
+        NSInteger top = [(NSNumber*)[self.big front] integerValue];
+        if (top>num) {
+            [self.small push:[self.big front]];
+            [self.big pop];
+            [self.big push:[NSNumber numberWithInteger:num]];
+        } else {
+            [self.small push:[NSNumber numberWithInteger:num]];
+        }
+    
+    //小顶堆元素多,待插入的元素小就插入大顶堆;待插入的元素大,先把小顶堆的堆顶元素插入大顶堆,再把元素插入小顶堆
+    } else {
+        NSInteger top = [(NSNumber*)[self.small front] integerValue];
+        if (top>num) {
+            [self.big push:[NSNumber numberWithInteger:num]];
+        } else {
+            [self.big push:[self.small front]];
+            [self.small pop];
+            [self.small push:[NSNumber numberWithInteger:num]];
+        }
+    }
+}
+
+- (double)findMedian {
+    if (self.big.size == self.small.size) {
+        return ((double)[[self.big front] integerValue] + [[self.small front] integerValue])/2;
+    }
+    if (self.big.size > self.small.size) {
+        return (double)[[self.big front] integerValue];
+    }
+    return (double)[[self.small front] integerValue];
+}
+
+@end

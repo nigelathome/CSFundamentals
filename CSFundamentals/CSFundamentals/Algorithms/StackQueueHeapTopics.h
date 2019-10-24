@@ -66,5 +66,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface MedianFinder : NSObject
+
+//添加数据
+- (void)addNum:(NSInteger)num;
+
+//找中位数
+- (double)findMedian;
+
+@end
 
 NS_ASSUME_NONNULL_END

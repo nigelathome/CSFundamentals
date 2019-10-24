@@ -61,6 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 //打印所有元素
 - (void)printObjects;
 
+@property(nonatomic, assign)BOOL isSmallHeap;//是否是小顶堆
+
 @end
 
 NS_ASSUME_NONNULL_END

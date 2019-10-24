@@ -25,21 +25,14 @@ int main(int argc, const char * argv[]) {
         LinkedListTopics *linkedListTopics = [LinkedListTopics new];
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
-    
-        Queue *order = [Queue new];
-//        [order push:[NSNumber numberWithInteger:3]];
-//        [order push:[NSNumber numberWithInteger:2]];
-//        [order push:[NSNumber numberWithInteger:5]];
-//        [order push:[NSNumber numberWithInteger:4]];
-//        [order push:[NSNumber numberWithInteger:1]];
         
-        [order push:[NSNumber numberWithInteger:5]];
-        [order push:[NSNumber numberWithInteger:1]];
-        [order push:[NSNumber numberWithInteger:2]];
-        [order push:[NSNumber numberWithInteger:4]];
-        [order push:[NSNumber numberWithInteger:3]];
-        BOOL isvalid = [stackQueueHeadTopics checkIsValidOrder:order];
-        NSLog(@"是否合法:%@", @(isvalid));
+        MedianFinder *medianFinder = [[MedianFinder alloc] init];
+        NSArray<NSNumber*> *nums = [NSArray arrayWithObjects:@(6), @(10), @(1), @(7), @(99), @(4), @(3), nil];
+        [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [medianFinder addNum:[obj integerValue]];
+            NSLog(@"%lf", [medianFinder findMedian]);
+        }];
+
     }
     return 0;
 }
