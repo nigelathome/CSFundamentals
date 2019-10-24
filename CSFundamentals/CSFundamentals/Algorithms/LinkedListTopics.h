@@ -45,11 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
 //合并k个有序链表
 - (ListNode *)mergeKLists:(NSArray<ListNode *>*)lists;
 
-//合并k个有序链表 sort方法
-- (ListNode *)mergeKListsBySort:(NSArray<ListNode *>*)lists;
-
 //合并k个有序链表 排序法
-- (ListNode *)mergeKListsWithSort:(NSArray<ListNode *>*)lists;
+- (ListNode *)mergeKListsBySort:(NSArray<ListNode *>*)lists;
 
 //划分链表
 - (ListNode *)partition:(ListNode*)head withTarget:(NSUInteger)target;

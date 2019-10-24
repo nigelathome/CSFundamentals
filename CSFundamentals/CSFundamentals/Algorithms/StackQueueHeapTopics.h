@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 //是否是合法的括号序列，例如"{}[]()"->true, "{{{}]]"->false
 - (BOOL)isValidParentheses:(NSString *)parentheses;
 
+//查找第K大的元素
+- (NSInteger)findKthLargest:(NSArray*)nums Kth:(NSInteger)Kth;
+
 @end
 
 //用队列实现栈, 队头作为栈的top，即栈顶元素

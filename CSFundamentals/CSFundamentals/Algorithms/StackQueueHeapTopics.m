@@ -65,6 +65,24 @@
     return [stack empty];
 }
 
+- (NSInteger)findKthLargest:(NSArray*)nums Kth:(NSInteger)k {
+    assert(k>0);
+    PriorityQueue *priorityQueue = [PriorityQueue new];
+    [nums enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(priorityQueue.size < k){
+            [priorityQueue push:obj];
+        } else {//堆中维护当前最大的k个数
+            NSInteger top = [[priorityQueue front] integerValue];//堆中最小的元素
+            NSInteger cur = [obj integerValue];
+            if (cur > top) {
+                [priorityQueue pop];
+                [priorityQueue push:obj];
+            }
+        }
+    }];
+    return [[priorityQueue front] integerValue];
+}
+
 @end
 
 #pragma mark test-code

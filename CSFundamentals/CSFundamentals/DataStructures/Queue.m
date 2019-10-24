@@ -166,5 +166,49 @@
     return _queueArray;
 }
 
+#pragma mark test-code
+/*
+ PriorityQueue *priorityQueue = [PriorityQueue new];
+ [priorityQueue push:[NSNumber numberWithInteger:4]];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue push:[NSNumber numberWithInteger:3]];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue push:[NSNumber numberWithInteger:2]];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue push:[NSNumber numberWithInteger:1]];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue pop];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue push:[NSNumber numberWithInteger:0]];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue pop];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ 
+ [priorityQueue pop];
+ NSLog(@"top = [%d]\n", (int)[[priorityQueue front] integerValue]);
+ [priorityQueue printObjects];
+ NSLog(@"=======================================================");
+ */
+
 
 @end
