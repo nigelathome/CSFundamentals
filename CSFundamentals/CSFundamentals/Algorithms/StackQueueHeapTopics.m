@@ -83,6 +83,24 @@
     return [[priorityQueue front] integerValue];
 }
 
+- (BOOL)checkIsValidOrder:(Queue*)order {
+    Stack *stack = [Stack new];
+    NSInteger size = order.size;
+    for(NSInteger i = 1; i<=size; ++i){ //进栈顺序1->n
+        [stack push:[NSNumber numberWithInteger:i]];
+        while (![stack empty] && ![order empty]
+               &&
+               [(NSNumber*)[stack top] integerValue] == [(NSNumber*)[order front] integerValue]) {
+            [stack pop];
+            [order pop];
+        }
+    }
+    if ([stack empty]) {
+        return YES;
+    }
+    return NO;
+}
+
 @end
 
 #pragma mark test-code
@@ -98,6 +116,10 @@
  NSString *parenthesese = @"]";
  BOOL valid = [stackQueueTopics isValidParentheses:parenthesese];
  NSLog(@"isValid=%@",valid?@"YES":@"NO");
+ 
+ NSArray *nums = @[@(3), @(2), @(1), @(5), @(6), @(4)];
+ NSInteger result = [stackQueueHeadTopics findKthLargest:nums Kth:0];
+ NSLog(@"%ld", result);
  */
 
 @interface MyStack()

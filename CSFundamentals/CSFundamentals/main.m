@@ -25,9 +25,21 @@ int main(int argc, const char * argv[]) {
         LinkedListTopics *linkedListTopics = [LinkedListTopics new];
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
-        NSArray *nums = @[@(3), @(2), @(1), @(5), @(6), @(4)];
-        NSInteger result = [stackQueueHeadTopics findKthLargest:nums Kth:0];
-        NSLog(@"%ld", result);
+    
+        Queue *order = [Queue new];
+//        [order push:[NSNumber numberWithInteger:3]];
+//        [order push:[NSNumber numberWithInteger:2]];
+//        [order push:[NSNumber numberWithInteger:5]];
+//        [order push:[NSNumber numberWithInteger:4]];
+//        [order push:[NSNumber numberWithInteger:1]];
+        
+        [order push:[NSNumber numberWithInteger:5]];
+        [order push:[NSNumber numberWithInteger:1]];
+        [order push:[NSNumber numberWithInteger:2]];
+        [order push:[NSNumber numberWithInteger:4]];
+        [order push:[NSNumber numberWithInteger:3]];
+        BOOL isvalid = [stackQueueHeadTopics checkIsValidOrder:order];
+        NSLog(@"是否合法:%@", @(isvalid));
     }
     return 0;
 }

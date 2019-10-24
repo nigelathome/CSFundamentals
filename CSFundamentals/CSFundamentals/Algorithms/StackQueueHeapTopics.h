@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 //查找第K大的元素
 - (NSInteger)findKthLargest:(NSArray*)nums Kth:(NSInteger)Kth;
 
+//1->n顺序入栈，判断一个出栈顺序是否合法。例如31245->NO, 32541->YES
+- (BOOL)checkIsValidOrder:(Queue*)order;
+
 @end
 
 //用队列实现栈, 队头作为栈的top，即栈顶元素
