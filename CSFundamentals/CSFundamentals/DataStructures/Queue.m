@@ -60,7 +60,14 @@
 
 @interface PriorityQueue()
 
-- (NSArray *)heaplifyFromUpToDown;//小顶堆
+//向下调整
+- (void)siftDown:(NSInteger)parent;
+
+//向上调整
+- (void)siftUp:(NSInteger)child;
+
+// value1是否大于value2
+- (BOOL)cmp:(NSNumber*)value1 with:(NSNumber*)value2; //小顶堆
 
 @property(nonatomic)NSMutableArray<NSNumber*> *queueArray;
     
@@ -68,28 +75,39 @@
 
 @implementation PriorityQueue
 
-- (NSMutableArray<NSNumber*> *)heaplifyFromUpToDown {
-    if ([self.queueArray count] == 0){
-        return nil;
-    }
-    NSMutableArray<NSNumber*> *heap = self.queueArray;
-    NSInteger i = 0, j = 2*i;
-    NSInteger len = [heap count];
-    while (j<=len) {
-        if (j+1 < len && [heap[j] integerValue] > [heap[j+1] integerValue]) j+=1;
-        if ([heap[i] integerValue] > [heap[j] integerValue]){
-            [self swap:heap[i] with:heap[j]];
+- (void)siftUp:(NSInteger)child {
+    assert(child>0 && child < [self.queueArray count]);
+    NSInteger parent = (child-1)/2; //下标从0开始
+    while(child>0){
+        if([self cmp:self.queueArray[parent] with:self.queueArray[child]]){
+            [self.queueArray exchangeObjectAtIndex:parent withObjectAtIndex:child];
+            child = parent;
+            parent = (child-1)/2;
+        } else {
+            break;
         }
-        i = j;
-        j = i*2;
     }
-    return heap;
 }
 
-- (void)swap:(NSNumber*)num1 with:(NSNumber*)num2 {
-    NSNumber *temp = num1;
-    num1= num2;
-    num2 = temp;
+- (void)siftDown:(NSInteger)parent {
+    NSInteger child = parent *2 +1;
+    while (child<[self.queueArray count]) {
+        if (child+1<[self.queueArray count] &&
+            [self cmp:self.queueArray[child] with:self.queueArray[child+1]])
+            child++;
+        if ([self cmp:self.queueArray[parent] with:self.queueArray[child]]){
+            [self.queueArray exchangeObjectAtIndex:parent withObjectAtIndex:child];
+            parent = child;
+            child = parent*2+1;
+        } else {
+            break;
+        }
+    }
+}
+
+- (BOOL)cmp:(NSNumber*)value1 with:(NSNumber*)value2 {
+    return [value1 integerValue] > [value2 integerValue];//小顶堆
+    //    return [value1 integerValue] < [value2 integerValue];//大顶堆
 }
 
 - (NSNumber*)back {
@@ -110,11 +128,15 @@
 
 - (void)pop {
     [self.queueArray removeObjectAtIndex:0];
+    [self siftDown:0];
 }
 
 - (void)push:(NSNumber*)obj {
     [self.queueArray addObject:obj];
-    [self heaplifyFromUpToDown];//调整堆
+    NSInteger size = [self.queueArray count];
+    if (size > 1) {
+        [self siftUp:(size-1)];
+    }
 }
 
 - (NSInteger)size {
@@ -123,6 +145,17 @@
 
 - (void)removeAllObjects {
     [self.queueArray removeAllObjects];
+}
+
+- (void)printObjects {
+    [self.queueArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx == 0) {
+            printf("%ld", (long)[obj integerValue]);
+        } else {
+            printf("->%ld", (long)[obj integerValue]);
+        }
+    }];
+    printf("\n");
 }
 
 #pragma mark - lazy

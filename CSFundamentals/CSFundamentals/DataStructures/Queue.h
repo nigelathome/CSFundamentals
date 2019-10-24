@@ -46,17 +46,20 @@ NS_ASSUME_NONNULL_BEGIN
 //返回第一个元素
 - (nullable id)front;
 
-//删除第一个元素
+//删除一个元素
 - (void)pop;
 
-//在末尾加入一个元素
+//加入一个元素
 - (void)push:(id)obj;
 
 //队列的元素个数
 - (NSInteger)size;
 
-//清空所以元素
+//清空所有元素
 - (void)removeAllObjects;
+
+//打印所有元素
+- (void)printObjects;
 
 @end
 

@@ -256,5 +256,22 @@
     return _mins;
 }
 
+#pragma mark test-code
+/*
+ MinStack *minStack = [MinStack new];
+ [minStack push:[NSNumber numberWithInteger:-2]];
+ NSLog(@"top = [%d]\n", (int)[[minStack top] integerValue]);
+ NSLog(@"min = [%d]\n\n", (int)[[minStack getMin] integerValue]);
+ [minStack push:[NSNumber numberWithInteger:0]];
+ NSLog(@"top = [%d]\n", (int)[[minStack top] integerValue]);
+ NSLog(@"min = [%d]\n\n", (int)[[minStack getMin] integerValue]);
+ [minStack push:[NSNumber numberWithInteger:-5]];
+ NSLog(@"top = [%d]\n", (int)[[minStack top] integerValue]);
+ NSLog(@"min = [%d]\n\n", (int)[[minStack getMin] integerValue]);
+ [minStack pop];
+ NSLog(@"top = [%d]\n", (int)[[minStack top] integerValue]);
+ NSLog(@"min = [%d]\n\n", (int)[[minStack getMin] integerValue]);
+ */
+
 @end
 
