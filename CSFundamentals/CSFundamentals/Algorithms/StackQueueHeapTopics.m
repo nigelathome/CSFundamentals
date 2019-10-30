@@ -399,4 +399,15 @@
     return (double)[[self.small front] integerValue];
 }
 
+# pragma mark test-code
+/*
+ MedianFinder *medianFinder = [[MedianFinder alloc] init];
+ NSArray<NSNumber*> *nums = [NSArray arrayWithObjects:@(6), @(10), @(1), @(7), @(99), @(4), @(3), nil];
+ [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [medianFinder addNum:[obj integerValue]];
+ NSLog(@"%lf", [medianFinder findMedian]);
+ }];
+
+ */
+
 @end

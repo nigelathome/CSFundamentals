@@ -14,6 +14,7 @@
 #import "ListNode.h"
 #import "Stack.h"
 #import "Queue.h"
+#import "GreedyTopics.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -25,14 +26,12 @@ int main(int argc, const char * argv[]) {
         LinkedListTopics *linkedListTopics = [LinkedListTopics new];
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
+        GreedyTopics *greedyTopics = [GreedyTopics new];
+        NSArray *g = @[@5, @10, @2, @9, @15, @9];
+        NSArray *s = @[@6, @1, @20, @3, @8];
+        NSUInteger count = [greedyTopics findCotentChildren:g withCookies:s];
+        NSLog(@"%ld", count);
         
-        MedianFinder *medianFinder = [[MedianFinder alloc] init];
-        NSArray<NSNumber*> *nums = [NSArray arrayWithObjects:@(6), @(10), @(1), @(7), @(99), @(4), @(3), nil];
-        [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [medianFinder addNum:[obj integerValue]];
-            NSLog(@"%lf", [medianFinder findMedian]);
-        }];
-
     }
     return 0;
 }
