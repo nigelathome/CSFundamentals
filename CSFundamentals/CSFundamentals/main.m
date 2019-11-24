@@ -27,10 +27,12 @@ int main(int argc, const char * argv[]) {
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
         GreedyTopics *greedyTopics = [GreedyTopics new];
-        NSArray *g = @[@5, @10, @2, @9, @15, @9];
-        NSArray *s = @[@6, @1, @20, @3, @8];
-        NSUInteger count = [greedyTopics findCotentChildren:g withCookies:s];
-        NSLog(@"%ld", count);
+//        NSArray<NSNumber*> *nums = @[@1, @17, @5, @10, @13, @15, @10, @5, @16, @8];
+//        NSArray<NSNumber*> *nums = @[@1, @7, @4, @9, @2, @5];
+//        NSArray<NSNumber*> *nums = @[@1, @4, @7, @2, @5];
+        NSArray<NSNumber*> *nums = @[@1, @7, @4, @5, @5];
+        NSUInteger maxLength = [greedyTopics wiggleMaxLength:nums];
+        NSLog(@"%ld", maxLength);
         
     }
     return 0;

@@ -34,7 +34,7 @@
     return result;
 }
 
-#pragma test-code
+#pragma mark test-code
 /*
 StringTopics *stringTopics = [StringTopics new];
 NSString *compressed = [stringTopics compress:@"abbcdaac"];
