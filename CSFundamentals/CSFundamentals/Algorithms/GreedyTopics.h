@@ -26,6 +26,9 @@ typedef NS_ENUM (NSInteger, STATE) {//定义字符变化的状态机
 //移除k个数字使得整数的值最小 (402)
 - (NSMutableString *)removeKdigitsFrom:(NSString*)nums withK:(NSUInteger)k;
 
+//能否跳跃到最后一个元素的位置 (55)
+- (BOOL)canJump:(NSArray<NSNumber*>*)nums;
+
 @end
 
 NS_ASSUME_NONNULL_END

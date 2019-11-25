@@ -28,11 +28,17 @@ int main(int argc, const char * argv[]) {
         StringTopics *stringTopics = [StringTopics new];
         GreedyTopics *greedyTopics = [GreedyTopics new];
         
-        NSMutableString *result1 = [greedyTopics removeKdigitsFrom:@"1432219" withK:3];
-        NSLog((NSString*)@"%@", result1);
+        NSArray<NSNumber*> *nums1 = @[@3, @2, @0, @4];
+        BOOL isCanJump = [greedyTopics canJump:nums1];
+        NSLog(@"%@", isCanJump ? @"YES" : @"NO");
         
-        NSMutableString *result2 = [greedyTopics removeKdigitsFrom:@"100200" withK:1];
-        NSLog((NSString*)@"%@", result2);
+        NSArray<NSNumber*> *nums2 = @[@2, @3, @1, @4];
+        BOOL isCanJump2 = [greedyTopics canJump:nums2];
+        NSLog(@"%@", isCanJump2 ? @"YES" : @"NO");
+        
+        NSArray<NSNumber*> *nums3 = @[@2, @3, @1, @1, @4];
+        BOOL isCanJump3 = [greedyTopics canJump:nums2];
+        NSLog(@"%@", isCanJump3 ? @"YES" : @"NO");
     }
     return 0;
 }

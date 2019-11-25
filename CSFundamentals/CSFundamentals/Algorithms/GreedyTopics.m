@@ -117,6 +117,22 @@
     return result;
 }
 
+- (BOOL)canJump:(NSArray<NSNumber*>*)nums {
+    NSMutableArray<NSNumber*> *indexArray = [NSMutableArray new];//记录每个位置能跳跃到的最远位置
+    for (NSUInteger i=0; i < nums.count; i++) {
+        [indexArray addObject:@([nums[i] integerValue] + i)];
+    }
+    NSUInteger maxIndex = [indexArray[0] integerValue];
+    NSUInteger jump = 0;
+    while (jump < maxIndex && jump < indexArray.count) {
+        if (maxIndex < [indexArray[jump] integerValue]) {
+            maxIndex = [indexArray[jump] integerValue];
+        }
+        jump++;
+    }
+    return maxIndex >= indexArray.count;
+}
+
 #pragma mark test-code
 /*
  445分糖果
@@ -135,6 +151,18 @@
  NSArray<NSNumber*> *nums = @[@1, @7, @4, @5, @5];
  NSUInteger maxLength = [greedyTopics wiggleMaxLength:nums];
  NSLog(@"%ld", maxLength);
+ */
+
+/*
+ 402异常k个数字
+ NSMutableString *result1 = [greedyTopics removeKdigitsFrom:@"1432219" withK:3];
+ NSLog((NSString*)@"%@", result1);
+ 
+ NSMutableString *result2 = [greedyTopics removeKdigitsFrom:@"100200" withK:1];
+ NSLog((NSString*)@"%@", result2);
+ 
+ NSMutableString *result3 = [greedyTopics removeKdigitsFrom:@"12345" withK:3];
+ NSLog((NSString*)@"%@", result3);
  */
  
 
