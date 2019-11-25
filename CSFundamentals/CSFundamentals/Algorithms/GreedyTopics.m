@@ -7,6 +7,8 @@
 //
 
 #import "GreedyTopics.h"
+#import "Stack.h"
+#import "Queue.h"
 
 @implementation GreedyTopics
 
@@ -80,13 +82,60 @@
     return maxLength;
 }
 
+- (NSMutableString *)removeKdigitsFrom:(NSString*)nums withK:(NSUInteger)k {
+    Stack *stack = [Stack new];
+    NSMutableString *result = [NSMutableString new];
+    
+    for (NSUInteger i = 0; i < nums.length; i++) {
+        unichar digit = [nums characterAtIndex:i];
+        NSUInteger num = digit - '0';//ASCII数字->int
+        
+        while (![stack empty] && k) {//k不等于0并且栈不空的时候，依次删除比当前数字大数字，即高位的数字
+            NSUInteger stackTopNum = [(NSString *)[stack top] characterAtIndex:0] - '0';
+            if (stackTopNum > num) {
+                [stack pop];
+                k--;
+            } else {
+                break;
+            }
+        }
+        
+        if (![stack empty] || num != 0) {//加入元素, 栈空则不加入0元素
+            [stack push:[NSString stringWithFormat:@"%c", digit]];
+        }
+    }
+    
+    while (![stack empty] && k) {//k还不为0，即还有删除的机会，则把低位的k个数字删除
+        [stack pop];
+        k--;
+    }
+    
+    [stack enumerateObjectsFromBottom:^(id obj) {
+        [result appendString:(NSString*)obj];
+    }];
+        
+    return result;
+}
+
 #pragma mark test-code
 /*
+ 445分糖果
  GreedyTopics *greedyTopics = [GreedyTopics new];
  NSArray *g = @[@5, @10, @2, @9, @15, @9];
  NSArray *s = @[@6, @1, @20, @3, @8];
  NSUInteger count = [greedyTopics findCotentChildren:g withCookies:s];
  NSLog(@"%ld", count);
  */
+
+/*
+ 376摇摆子序列
+ //        NSArray<NSNumber*> *nums = @[@1, @17, @5, @10, @13, @15, @10, @5, @16, @8];
+ //        NSArray<NSNumber*> *nums = @[@1, @7, @4, @9, @2, @5];
+ //        NSArray<NSNumber*> *nums = @[@1, @4, @7, @2, @5];
+ NSArray<NSNumber*> *nums = @[@1, @7, @4, @5, @5];
+ NSUInteger maxLength = [greedyTopics wiggleMaxLength:nums];
+ NSLog(@"%ld", maxLength);
+ */
+ 
 
 @end

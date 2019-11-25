@@ -27,13 +27,12 @@ int main(int argc, const char * argv[]) {
         DPTopics *dPTopics = [DPTopics new];
         StringTopics *stringTopics = [StringTopics new];
         GreedyTopics *greedyTopics = [GreedyTopics new];
-//        NSArray<NSNumber*> *nums = @[@1, @17, @5, @10, @13, @15, @10, @5, @16, @8];
-//        NSArray<NSNumber*> *nums = @[@1, @7, @4, @9, @2, @5];
-//        NSArray<NSNumber*> *nums = @[@1, @4, @7, @2, @5];
-        NSArray<NSNumber*> *nums = @[@1, @7, @4, @5, @5];
-        NSUInteger maxLength = [greedyTopics wiggleMaxLength:nums];
-        NSLog(@"%ld", maxLength);
         
+        NSMutableString *result1 = [greedyTopics removeKdigitsFrom:@"1432219" withK:3];
+        NSLog((NSString*)@"%@", result1);
+        
+        NSMutableString *result2 = [greedyTopics removeKdigitsFrom:@"100200" withK:1];
+        NSLog((NSString*)@"%@", result2);
     }
     return 0;
 }
