@@ -117,9 +117,13 @@
     return result;
 }
 
-- (BOOL)canJump:(NSArray<NSNumber*>*)nums {
+- (BOOL)canJump:(NSArray<NSNumber *> *)nums {
+    if (nums.count < 2) {
+        return YES;
+    }
+    
     NSMutableArray<NSNumber*> *indexArray = [NSMutableArray new];//记录每个位置能跳跃到的最远位置
-    for (NSUInteger i=0; i < nums.count; i++) {
+    for (NSUInteger i = 0; i < nums.count; i++) {
         [indexArray addObject:@([nums[i] integerValue] + i)];
     }
     NSUInteger maxIndex = [indexArray[0] integerValue];
@@ -131,6 +135,58 @@
         jump++;
     }
     return maxIndex >= indexArray.count;
+}
+
+- (NSUInteger)jump:(NSArray<NSNumber*>*)nums {
+    if (nums.count < 2) {
+        return 1;
+    }
+
+    NSUInteger minJumpCount = 1; //最少跳跃1次
+    NSUInteger maxIndex = [nums[0] integerValue]; //进行1次跳跃能达到的最远下标
+    NSUInteger currentMaxIndex = [nums[0] integerValue]; //在跳到nums[i]+i之前最大的跳跃下标
+    
+    for (NSUInteger i = 1; i < nums.count; i++) { //依次遍历每个下标, 不能达到该下标时才进行一次跳跃, 否则不进行跳跃, 以保证跳跃次数最少
+        if (i > maxIndex) { //不能抵达i则进行一次跳跃, 最远距离跟新为currentMaxIndex
+            minJumpCount++;
+            maxIndex = currentMaxIndex;
+        }
+        
+        if (currentMaxIndex < [nums[i] integerValue] + i) { //更新最大能跳跃的下标
+            currentMaxIndex = [nums[i] integerValue] + i;
+        }
+    }
+
+    return minJumpCount;
+}
+
+//jumpPath记录跳跃的路径
+- (NSUInteger)jump:(NSArray<NSNumber*>*)nums jumpPath:(NSMutableArray<NSNumber *> *)jumpPath {
+    if (nums.count < 2) {
+        [jumpPath addObject:@0];
+        [jumpPath addObject:@1];
+        return 1;
+    }
+    
+    [jumpPath addObject:@0];
+    NSUInteger minJumpCount = 1; //最少跳跃1次
+    NSUInteger maxIndex = [nums[0] integerValue]; //进行1次跳跃能达到的最远下标
+    NSUInteger currentMaxIndex = [nums[0] integerValue]; //在跳到nums[i]+i之前最大的跳跃下标
+    NSUInteger currentIndex = 0; //能达到更远距离的下标
+    for (NSUInteger i = 1; i < nums.count; i++) { //依次遍历每个下标, 不能达到该下标时才进行一次跳跃, 否则不进行跳跃, 以保证跳跃次数最少
+        if (i > maxIndex) { //不能抵达i则进行一次跳跃, 最远距离跟新为currentMaxIndex
+            minJumpCount++;
+            [jumpPath addObject:[NSNumber numberWithUnsignedInteger:currentIndex]];
+            maxIndex = currentMaxIndex;
+        }
+        
+        if (currentMaxIndex < [nums[i] integerValue] + i) { //更新最大能跳跃的下标
+            currentMaxIndex = [nums[i] integerValue] + i;
+            currentIndex = i;
+        }
+    }
+    [jumpPath addObject:[NSNumber numberWithUnsignedInteger:nums.count - 1]];
+    return minJumpCount;
 }
 
 #pragma mark test-code
@@ -163,6 +219,21 @@
  
  NSMutableString *result3 = [greedyTopics removeKdigitsFrom:@"12345" withK:3];
  NSLog((NSString*)@"%@", result3);
+ */
+
+/*
+ //能否跳跃到最后一个元素的位置 (55)
+ NSArray<NSNumber*> *nums1 = @[@3, @2, @0, @4];
+ BOOL isCanJump = [greedyTopics canJump:nums1];
+ NSLog(@"%@", isCanJump ? @"YES" : @"NO");
+ 
+ NSArray<NSNumber*> *nums2 = @[@2, @3, @1, @4];
+ BOOL isCanJump2 = [greedyTopics canJump:nums2];
+ NSLog(@"%@", isCanJump2 ? @"YES" : @"NO");
+ 
+ NSArray<NSNumber*> *nums3 = @[@2, @3, @1, @1, @4];
+ BOOL isCanJump3 = [greedyTopics canJump:nums2];
+ NSLog(@"%@", isCanJump3 ? @"YES" : @"NO");
  */
  
 

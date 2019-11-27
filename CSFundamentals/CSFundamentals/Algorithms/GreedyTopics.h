@@ -29,6 +29,11 @@ typedef NS_ENUM (NSInteger, STATE) {//定义字符变化的状态机
 //能否跳跃到最后一个元素的位置 (55)
 - (BOOL)canJump:(NSArray<NSNumber*>*)nums;
 
+//跳跃到终点需要的最少步数 (45)
+- (NSUInteger)jump:(NSArray<NSNumber*>*)nums;
+- (NSUInteger)jump:(NSArray<NSNumber*>*)nums jumpPath:(NSMutableArray<NSNumber *> *)jumpPath;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

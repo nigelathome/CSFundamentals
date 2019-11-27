@@ -28,17 +28,10 @@ int main(int argc, const char * argv[]) {
         StringTopics *stringTopics = [StringTopics new];
         GreedyTopics *greedyTopics = [GreedyTopics new];
         
-        NSArray<NSNumber*> *nums1 = @[@3, @2, @0, @4];
-        BOOL isCanJump = [greedyTopics canJump:nums1];
-        NSLog(@"%@", isCanJump ? @"YES" : @"NO");
-        
-        NSArray<NSNumber*> *nums2 = @[@2, @3, @1, @4];
-        BOOL isCanJump2 = [greedyTopics canJump:nums2];
-        NSLog(@"%@", isCanJump2 ? @"YES" : @"NO");
-        
-        NSArray<NSNumber*> *nums3 = @[@2, @3, @1, @1, @4];
-        BOOL isCanJump3 = [greedyTopics canJump:nums2];
-        NSLog(@"%@", isCanJump3 ? @"YES" : @"NO");
+        NSArray<NSNumber*> *nums1 = @[@2, @3, @1, @1, @4];
+        NSUInteger count = [greedyTopics jump:nums1];
+        NSLog(@"最少跳跃次数: %ld", count);
+
     }
     return 0;
 }
