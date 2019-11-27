@@ -189,6 +189,39 @@
     return minJumpCount;
 }
 
+- (NSUInteger)findMidArrowShots:(NSArray<NSValue *> *)points {
+    if ([points count] < 2) {
+        return 1;
+    }
+    
+    NSUInteger minArcherCount = 1;
+    [points sortedArrayUsingComparator:^NSComparisonResult(NSValue  * _Nonnull obj1, NSValue * _Nonnull obj2) {//对气球进行由小到大排序
+        Ballon v1, v2;
+        [obj1 getValue:&v1];
+        [obj2 getValue:&v2];
+        return v1.first < v2.first;
+    }];
+    
+    Ballon commonInterval; //定义射击范围区间并初始化
+    [points[0] getValue:&commonInterval];
+    
+    for (NSUInteger i = 1; i < [points count]; i++) {
+        Ballon currentBallon;
+        [points[i] getValue:&currentBallon];
+        //有重合则更新公共射击区间
+        if (commonInterval.second >= currentBallon.first) {
+            commonInterval.first = currentBallon.first;
+            if (commonInterval.second > currentBallon.second) {
+                commonInterval.second = currentBallon.second;
+            }
+        } else {
+            minArcherCount++;
+            [points[i] getValue:&commonInterval];
+        }
+    }
+    return minArcherCount;
+}
+
 #pragma mark test-code
 /*
  445分糖果
@@ -234,6 +267,13 @@
  NSArray<NSNumber*> *nums3 = @[@2, @3, @1, @1, @4];
  BOOL isCanJump3 = [greedyTopics canJump:nums2];
  NSLog(@"%@", isCanJump3 ? @"YES" : @"NO");
+ */
+
+/*
+ //跳跃到终点需要的最少步数 (45)
+ NSArray<NSNumber*> *nums1 = @[@2, @3, @1, @1, @4];
+ NSUInteger count = [greedyTopics jump:nums1];
+ NSLog(@"最少跳跃次数: %ld", count);
  */
  
 
