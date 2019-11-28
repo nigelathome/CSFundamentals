@@ -32,11 +32,14 @@ int main(int argc, const char * argv[]) {
         
         NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@1, @2, @3, nil];
         NSMutableArray *items = [[NSMutableArray alloc] init];
-        NSMutableArray<NSArray<NSNumber *> *> *result = [[NSMutableArray alloc] init];
-        [recBatkDivConqTopics generate:0 numArray:nums items:items result:result];
+        NSMutableArray *result = [recBatkDivConqTopics subsets:nums];
+        
         [result enumerateObjectsUsingBlock:^(NSArray *  _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (0 == [items count]) {
+                printf("[]\n");
+            }
             [items enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                printf("%ld ", (long)[obj integerValue]);
+                printf("[%ld]", (long)[obj integerValue]);
                 if ([items count] - 1 == idx) {
                     printf("\n");
                 }

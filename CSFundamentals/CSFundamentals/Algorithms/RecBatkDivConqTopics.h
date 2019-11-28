@@ -14,6 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //求无重复的一组数的全部子集 (78)
 - (NSMutableArray *)subsets:(NSArray<NSNumber *> *)nums;
+- (void)generateSubsets:(NSUInteger)index
+        numArray:(NSArray<NSNumber *> *)nums
+           items:(NSMutableArray *)items
+          result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
 
 //获取数组[1,2,3]的子集[1] [1,2] [1,2,3]
 - (void)generate:(NSUInteger)index
