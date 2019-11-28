@@ -40,6 +40,15 @@ typedef struct { //定义气球
 } Ballon;
 - (NSUInteger)findMidArrowShots:(NSArray<NSValue *> *)points;
 
+//抵达终点需要停站加油最少次数 (poj2431)
+typedef struct {
+    NSUInteger distance; //距离终点的距离
+    NSUInteger volume; //能够提供的油量
+} GasStation;
+- (NSInteger)getMinimumStopCntToDestination:(NSUInteger)distance //起点到终点的距离
+                         withGasolineVolume:(NSUInteger)gasolineVolume //初始汽油量
+                                gasStations:(NSArray<NSValue *> *)gasStations; //经过的加油站(含终点)
+
 @end
 
 NS_ASSUME_NONNULL_END

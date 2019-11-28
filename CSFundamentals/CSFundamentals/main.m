@@ -28,16 +28,21 @@ int main(int argc, const char * argv[]) {
         StringTopics *stringTopics = [StringTopics new];
         GreedyTopics *greedyTopics = [GreedyTopics new];
         
-        Ballon b1 = {10, 16}, b2 = {2, 8}, b3 = {1, 6}, b4 = {7, 12};
-        NSValue *pValue1 = [NSValue valueWithBytes:&b1 objCType:@encode(Ballon)];
-        NSValue *pValu2 = [NSValue valueWithBytes:&b2 objCType:@encode(Ballon)];
-        NSValue *pValu3 = [NSValue valueWithBytes:&b3 objCType:@encode(Ballon)];
-        NSValue *pValu4 = [NSValue valueWithBytes:&b4 objCType:@encode(Ballon)];
-        NSArray *points = @[pValue1, pValu2, pValu3, pValu4];
-//        [arr[0] getValue:&b2];
-//        NSLog(@"%ld, %ld", b2.first, b2.second);
-        NSUInteger num = [greedyTopics findMidArrowShots:points];
-        NSLog(@"最少需要: %ld", num);
+//        GasStation a = {4, 4}, b = {5, 2}, c = {11, 5}, d = {15, 10};
+//        NSUInteger distance = 25, gasVolume = 10;
+        GasStation a = {4, 4}, b = {10, 3}, c = {11, 5}, d = {15, 2};
+        NSUInteger distance = 25, gasVolume = 16;
+        NSValue *A = [NSValue valueWithBytes:&a objCType:@encode(GasStation)];
+        NSValue *B = [NSValue valueWithBytes:&b objCType:@encode(GasStation)];
+        NSValue *C = [NSValue valueWithBytes:&c objCType:@encode(GasStation)];
+        NSValue *D = [NSValue valueWithBytes:&d objCType:@encode(GasStation)];
+        
+        GasStation destinationPoint = {0, 0}; //需要将终点作为一个加油站, 距离终点是0, 可加油量是0
+        NSValue *E = [NSValue valueWithBytes:&destinationPoint objCType:@encode(GasStation)];
+
+        NSArray *gasStations = @[A, B, C, D, E];
+        NSInteger cnt = [greedyTopics getMinimumStopCntToDestination:distance withGasolineVolume:gasVolume gasStations:gasStations];
+        NSLog(@"最少需要加油次数: %ld", cnt);
     }
     return 0;
 }

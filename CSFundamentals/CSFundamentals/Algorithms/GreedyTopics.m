@@ -222,6 +222,63 @@
     return minArcherCount;
 }
 
+- (NSInteger)getMinimumStopCntToDestination:(NSUInteger)distance
+                         withGasolineVolume:(NSUInteger)gasolineVolume
+                                gasStations:(NSArray<NSValue *> *)gasStations {
+    NSUInteger minStop = 0;
+    [gasStations enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        GasStation g;
+        [obj getValue:&g];
+        if (idx != [gasStations count]-1) {
+            printf("%lu->", (unsigned long)g.distance);
+        } else {
+            printf("%lu\n", (unsigned long)g.distance);
+        }
+    }];
+    NSMutableArray<NSValue *> *stopPoints = (NSMutableArray *)[gasStations sortedArrayUsingComparator:^NSComparisonResult(NSValue * _Nonnull obj1, NSValue *  _Nonnull obj2) {
+        GasStation g1, g2;
+        [obj1 getValue:&g1];
+        [obj2 getValue:&g2];
+        if (g1.distance > g2.distance) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedDescending;
+    }]; //对加油站离起点的距离由小到大排序
+    
+    [stopPoints enumerateObjectsUsingBlock:^(NSValue * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        GasStation g;
+        [obj getValue:&g];
+        if (idx != [stopPoints count]-1) {
+            printf("%lu->", (unsigned long)g.distance);
+        } else {
+            printf("%lu\n", (unsigned long)g.distance);
+        }
+    }];
+    GasStation currentGasStation;
+    NSUInteger remainGasolineVolume = gasolineVolume; //剩余的油量
+    PriorityQueue *stationQueue = [[PriorityQueue alloc] init]; //保存经过的加油站油量
+    stationQueue.isSmallHeap = NO; //堆顶元素是油量最大的加油站的油量
+    for (NSUInteger i = 0; i < [stopPoints count]; i++) {
+        [stopPoints[i] getValue:&currentGasStation];
+        NSUInteger needGasolineVolume = distance - currentGasStation.distance; //抵达这个加油站需要的油量
+        while (![stationQueue empty] && remainGasolineVolume < needGasolineVolume) { //油量不足以到达就加油
+            minStop++;
+            remainGasolineVolume += [(NSNumber *)[stationQueue front] integerValue];
+            [stationQueue pop];
+        }
+        
+        if (remainGasolineVolume < needGasolineVolume) { //加完所能加的油之后还不能达到i那么也不可能到终点
+            return -1;
+        }
+        
+        [stationQueue push:[NSNumber numberWithUnsignedInteger:currentGasStation.volume]];
+        remainGasolineVolume -= needGasolineVolume ; //达到加油站以后更新剩余的油量
+        distance = currentGasStation.distance; //到达i之后离终点的距离
+    }
+    
+    return minStop;
+}
+
 #pragma mark test-code
 /*
  445分糖果
@@ -274,6 +331,23 @@
  NSArray<NSNumber*> *nums1 = @[@2, @3, @1, @1, @4];
  NSUInteger count = [greedyTopics jump:nums1];
  NSLog(@"最少跳跃次数: %ld", count);
+ */
+
+/*
+ //射击全部气球需要的弓箭手数目 (452)
+ //        Ballon b1 = {10, 16}, b2 = {2, 8}, b3 = {1, 6}, b4 = {7, 12};
+ Ballon b1 = {1, 4}, b2 = {2, 5}, b3 = {3, 7}, b4 = {6, 10}, b5 = {7, 8}, b6 = {9, 11};
+ NSValue *pValue1 = [NSValue valueWithBytes:&b1 objCType:@encode(Ballon)];
+ NSValue *pValue2 = [NSValue valueWithBytes:&b2 objCType:@encode(Ballon)];
+ NSValue *pValue3 = [NSValue valueWithBytes:&b3 objCType:@encode(Ballon)];
+ NSValue *pValue4 = [NSValue valueWithBytes:&b4 objCType:@encode(Ballon)];
+ NSValue *pValue5 = [NSValue valueWithBytes:&b5 objCType:@encode(Ballon)];
+ NSValue *pValue6 = [NSValue valueWithBytes:&b6 objCType:@encode(Ballon)];
+ NSArray *points = @[pValue1, pValue2, pValue3, pValue4, pValue5, pValue6];
+ //        [arr[0] getValue:&b2];
+ //        NSLog(@"%ld, %ld", b2.first, b2.second);
+ NSUInteger num = [greedyTopics findMidArrowShots:points];
+ NSLog(@"最少需要: %ld", num);
  */
  
 

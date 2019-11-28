@@ -43,10 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
 //判断队列是否为空
 - (BOOL)empty;
 
-//返回第一个元素
+//返回第一个元素, 即堆顶元素
 - (nullable id)front;
 
-//删除一个元素
+//删除第一个元素, 即堆顶元素
 - (void)pop;
 
 //加入一个元素
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 //打印所有元素
 - (void)printObjects;
 
-@property(nonatomic, assign)BOOL isSmallHeap;//是否是小顶堆
+@property(nonatomic, assign)BOOL isSmallHeap; //是否是小顶堆
 
 @end
 
