@@ -15,6 +15,7 @@
 #import "Stack.h"
 #import "Queue.h"
 #import "GreedyTopics.h"
+#import "RecBatkDivConqTopics.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -22,27 +23,25 @@ int main(int argc, const char * argv[]) {
         NSLog(@"Hello, US!");
         NSLog(@"Hello, CHINA!");
         
-        StackQueueHeapTopics *stackQueueHeadTopics = [StackQueueHeapTopics new];
-        LinkedListTopics *linkedListTopics = [LinkedListTopics new];
-        DPTopics *dPTopics = [DPTopics new];
-        StringTopics *stringTopics = [StringTopics new];
-        GreedyTopics *greedyTopics = [GreedyTopics new];
+        StackQueueHeapTopics *stackQueueHeadTopics = [[StackQueueHeapTopics alloc] init];
+        LinkedListTopics *linkedListTopics = [[LinkedListTopics alloc] init];
+        DPTopics *dPTopics = [[DPTopics alloc] init];
+        StringTopics *stringTopics = [[StringTopics alloc] init];
+        GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
+        RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-//        GasStation a = {4, 4}, b = {5, 2}, c = {11, 5}, d = {15, 10};
-//        NSUInteger distance = 25, gasVolume = 10;
-        GasStation a = {4, 4}, b = {10, 3}, c = {11, 5}, d = {15, 2};
-        NSUInteger distance = 25, gasVolume = 16;
-        NSValue *A = [NSValue valueWithBytes:&a objCType:@encode(GasStation)];
-        NSValue *B = [NSValue valueWithBytes:&b objCType:@encode(GasStation)];
-        NSValue *C = [NSValue valueWithBytes:&c objCType:@encode(GasStation)];
-        NSValue *D = [NSValue valueWithBytes:&d objCType:@encode(GasStation)];
-        
-        GasStation destinationPoint = {0, 0}; //需要将终点作为一个加油站, 距离终点是0, 可加油量是0
-        NSValue *E = [NSValue valueWithBytes:&destinationPoint objCType:@encode(GasStation)];
-
-        NSArray *gasStations = @[A, B, C, D, E];
-        NSInteger cnt = [greedyTopics getMinimumStopCntToDestination:distance withGasolineVolume:gasVolume gasStations:gasStations];
-        NSLog(@"最少需要加油次数: %ld", cnt);
+        NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@1, @2, @3, nil];
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        NSMutableArray<NSArray<NSNumber *> *> *result = [[NSMutableArray alloc] init];
+        [recBatkDivConqTopics generate:0 numArray:nums items:items result:result];
+        [result enumerateObjectsUsingBlock:^(NSArray *  _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
+            [items enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                printf("%ld ", (long)[obj integerValue]);
+                if ([items count] - 1 == idx) {
+                    printf("\n");
+                }
+            }];
+        }];
     }
     return 0;
 }

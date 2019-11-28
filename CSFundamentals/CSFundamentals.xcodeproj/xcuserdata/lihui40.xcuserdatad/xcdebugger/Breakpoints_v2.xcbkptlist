@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CSFundamentals/Algorithms/GreedyTopics.m"
-            timestampString = "596596532.084039"
+            timestampString = "596629002.148622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "262"
             endingLineNumber = "262"
             landmarkName = "-getMinimumStopCntToDestination:withGasolineVolume:gasStations:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CSFundamentals/Algorithms/RecBatkDivConqTopics.m"
+            timestampString = "596629002.148731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-generate:numArray:items:result:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
