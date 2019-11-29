@@ -30,20 +30,19 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-        NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@1, @2, @3, nil];
-        NSMutableArray *items = [[NSMutableArray alloc] init];
-        NSMutableArray *result = [recBatkDivConqTopics subsets:nums];
-        
-        [result enumerateObjectsUsingBlock:^(NSArray *  _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@2, @1, @2, @2, nil];
+        NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics subsetsWithDup:nums];
+        [result enumerateObjectsUsingBlock:^(NSArray * _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
             if (0 == [items count]) {
                 printf("[]\n");
             }
-            [items enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                printf("[%ld]", (long)[obj integerValue]);
+            [items enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                printf("[%ld]", [obj integerValue]);
                 if ([items count] - 1 == idx) {
                     printf("\n");
                 }
             }];
+//            printf("\n");
         }];
     }
     return 0;

@@ -25,6 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
            items:(NSMutableArray *)items
           result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
 
+//求有重复的一组数的全部子集 (90)
+- (NSMutableArray *)subsetsWithDup:(NSArray<NSNumber *> *)nums;
+- (void)generateSubsetsWithDup:(NSUInteger)index
+                      numArray:(NSArray<NSNumber *> *)nums
+                         items:(NSMutableArray *)items
+                           set:(NSMutableSet *)set
+                        result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
+    
 @end
 
 NS_ASSUME_NONNULL_END

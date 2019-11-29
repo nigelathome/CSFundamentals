@@ -12,12 +12,12 @@
 
 @implementation GreedyTopics
 
-- (NSUInteger)findCotentChildren:(NSArray<NSNumber*>*)g withCookies:(NSArray<NSNumber*>*)s {
+- (NSUInteger)findCotentChildren:(NSArray<NSNumber *> *)g withCookies:(NSArray<NSNumber *> *)s {
     //g元素代表能满足的糖果大小,s是每个糖果的大小
     //g/s依次有小到大排序
     NSArray *contentsArray = [g sortedArrayUsingComparator:^NSComparisonResult(NSNumber*  _Nonnull obj1, NSNumber*  _Nonnull obj2) {
-        NSNumber *num1 = (NSNumber*)obj1;
-        NSNumber *num2 = (NSNumber*)obj2;
+        NSNumber *num1 = (NSNumber *)obj1;
+        NSNumber *num2 = (NSNumber *)obj2;
         if ([num1 integerValue] < [num2 integerValue]) {
             return NSOrderedAscending;
         } else {

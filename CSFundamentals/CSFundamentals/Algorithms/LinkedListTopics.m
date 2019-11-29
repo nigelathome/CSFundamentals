@@ -79,12 +79,12 @@
 
 - (ListNode *)getIntersectionNodeWithSet:(ListNode*)headA and:(ListNode*)headB {
     NSMutableSet *nodeSet = [NSMutableSet new];
-    while(headA){
+    while(headA) {
         [nodeSet addObject:headA];
         headA = headA.next;
     }
     
-    while(headB){
+    while(headB) {
         if ([nodeSet containsObject:headB]) {
             return headB;
         };
