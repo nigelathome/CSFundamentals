@@ -144,20 +144,6 @@
     return result;
 }
 
-- (NSMutableArray<NSString *> *)generateParenthesis:(NSUInteger)n {
-    if (n == 0) {
-        return nil;
-    }
-    NSMutableArray<NSString *> *result = [[NSMutableArray alloc] init];
-    NSMutableString *parenthesis = [[NSMutableString alloc] init];
-    [self generateParenthesis:n items:parenthesis result:result];
-    return result;
-}
-
-- (void)generateParenthesis:(NSUInteger)n items:(NSMutableString *)items result:(NSMutableArray<NSString *> *)result {
-    return;
-}
-
 - (void)generateAllPossibleParenthesis:(NSUInteger)n items:(NSMutableString *)items result:(NSMutableArray<NSString *> *)result {
     if ([items length] == 2 * n) { //n组括号那么字符串长度是2n
         [result addObject:items];
@@ -172,6 +158,40 @@
     NSMutableString *nextItems2 = [NSMutableString stringWithString:items];
     [nextItems2 appendString:@")"]; //加入'）'的递归
     [self generateAllPossibleParenthesis:n items: nextItems2 result:result];
+}
+
+- (NSMutableArray<NSString *> *)generateParenthesis:(NSUInteger)n {
+    if (n == 0) {
+        return nil;
+    }
+    NSMutableArray<NSString *> *result = [[NSMutableArray alloc] init];
+    NSMutableString *items = [[NSMutableString alloc] init];
+    [self generateParenthesis:n leftCnt:0 rightCnt:0 items:items result:result];
+    return result;
+}
+
+- (void)generateParenthesis:(NSUInteger)n              //'()'括号的对数
+                    leftCnt:(NSUInteger)leftCnt        //'('的个数
+                   rightCnt:(NSUInteger)rightCnt       //')'的个数
+                      items:(NSMutableString *)items   //'('和')'的组合
+                     result:(NSMutableArray<NSString *> *)result {
+    if (rightCnt == n && rightCnt == n) { //合法的括号必须是'('和')'个数相同都是n
+        [result addObject:items];
+        return;
+    }
+    
+    if (leftCnt < n) { //'('不超过n个
+        //必须重新开辟新的字符串, 不能使用items, 否则会相互影响
+        NSMutableString *nextItems1 = [NSMutableString stringWithString:items];
+        [nextItems1 appendString:@"("]; //加入'('的递归
+        [self generateParenthesis:n leftCnt:leftCnt + 1 rightCnt:rightCnt items:nextItems1 result:result];
+    }
+
+    if (leftCnt > rightCnt ) { //只有'('个数大于')'时才能继续放置')';
+        NSMutableString *nextItems2 = [NSMutableString stringWithString:items];
+        [nextItems2 appendString:@")"]; //加入'）'的递归
+        [self generateParenthesis:n leftCnt:leftCnt rightCnt:rightCnt + 1 items:nextItems2 result:result];
+    }
 }
 
 #pragma mark test-code
@@ -212,7 +232,7 @@
  */
 
 /*
- //元素和等于target的不重复子集
+ //元素和等于target的不重复子集 (40)
  NSArray<NSNumber *> *candidates = [NSArray arrayWithObjects:@10, @1, @2, @7, @6, @1, @5, nil];
  NSInteger target = 8;
  NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics combinationSum2:candidates target:target];
@@ -226,6 +246,36 @@
  printf("\n");
  }
  }];
+ }];
+ */
+
+/*
+ //生成n组可能的括号 (22)
+ NSMutableArray<NSString *> *result = [recBatkDivConqTopics generateAllPossibleParenthesis:2];
+ [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ for (NSUInteger i = 0; i < [obj length]; i++) {
+ unichar ch = [obj characterAtIndex:i];
+ printf("%c", ch);
+ }
+ printf("\n");
+ }];
+ //        NSMutableString *items = [[NSMutableString alloc] init];
+ //        [items appendString:@"((("];
+ //        NSRange last = NSMakeRange([items length] - 1, 1); //将字符串最后一个字符换成')'
+ //        [items deleteCharactersInRange:last];
+ //        [items appendString:@")"];
+ //        NSLog(@"%@", (NSString *)items);
+ */
+
+/*
+ //生成n组合法的括号
+ NSMutableArray<NSString *> *result = [recBatkDivConqTopics generateParenthesis:3];
+ [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ for (NSUInteger i = 0; i < [obj length]; i++) {
+ unichar ch = [obj characterAtIndex:i];
+ printf("%c", ch);
+ }
+ printf("\n");
  }];
  */
 

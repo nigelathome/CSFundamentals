@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
                            set:(NSMutableSet *)set
                         result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
 
-//元素和等于target的不重复子集
+//元素和等于target的不重复子集 (40)
 - (NSMutableArray<NSArray<NSNumber *> *> *)combinationSum2:(NSArray<NSNumber *> *)candidates target:(NSInteger)target;
 - (void)generateSubsets:(NSUInteger)index
              candidates:(NSArray<NSNumber *> *)candidates
@@ -43,8 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
                  target:(NSInteger)target
                  result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
 
-//生成n组合法的括号
+//生成n组合法的括号 (22)
 - (NSMutableArray<NSString *> *)generateParenthesis:(NSUInteger)n;
+- (void)generateParenthesis:(NSUInteger)n              //'()'括号的对数
+                    leftCnt:(NSUInteger)leftCnt        //'('的个数
+                   rightCnt:(NSUInteger)rightCnt       //')'的个数
+                      items:(NSMutableString *)items   //'('和')'的组合
+                     result:(NSMutableArray<NSString *> *)result;
 
 //生成n组可能的括号
 - (NSMutableArray<NSString *> *)generateAllPossibleParenthesis:(NSUInteger)n;

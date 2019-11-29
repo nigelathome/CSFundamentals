@@ -30,20 +30,7 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-        NSMutableArray<NSString *> *result = [recBatkDivConqTopics generateAllPossibleParenthesis:2];
-        [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            for (NSUInteger i = 0; i < [obj length]; i++) {
-                unichar ch = [obj characterAtIndex:i];
-                printf("%c", ch);
-            }
-            printf("\n");
-        }];
-//        NSMutableString *items = [[NSMutableString alloc] init];
-//        [items appendString:@"((("];
-//        NSRange last = NSMakeRange([items length] - 1, 1); //将字符串最后一个字符换成')'
-//        [items deleteCharactersInRange:last];
-//        [items appendString:@")"];
-//        NSLog(@"%@", (NSString *)items);
+        
     }
     return 0;
 }
