@@ -43,6 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
                  target:(NSInteger)target
                  result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
 
+//生成n组合法的括号
+- (NSMutableArray<NSString *> *)generateParenthesis:(NSUInteger)n;
+
+//生成n组可能的括号
+- (NSMutableArray<NSString *> *)generateAllPossibleParenthesis:(NSUInteger)n;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -102,7 +102,7 @@
         }
         return NSOrderedDescending;
     }];
-    NSInteger *sum = 0;
+    NSInteger sum = 0;
     [self generateSubsets:0 candidates:sortedCandidated items:items set:set sum:sum target:target result:result];
     return result;
 }
@@ -133,6 +133,47 @@
     [items removeLastObject];
     [self generateSubsets:index + 1 candidates:candidates items:items set:set sum:sum target:target result:result];
 }
+
+- (NSMutableArray<NSString *> *)generateAllPossibleParenthesis:(NSUInteger)n {
+    if (n == 0) {
+        return nil;
+    }
+    NSMutableArray<NSString *> *result = [[NSMutableArray alloc] init];
+    NSMutableString *parenthesis = [[NSMutableString alloc] init];
+    [self generateAllPossibleParenthesis:n items:parenthesis result:result];
+    return result;
+}
+
+- (NSMutableArray<NSString *> *)generateParenthesis:(NSUInteger)n {
+    if (n == 0) {
+        return nil;
+    }
+    NSMutableArray<NSString *> *result = [[NSMutableArray alloc] init];
+    NSMutableString *parenthesis = [[NSMutableString alloc] init];
+    [self generateParenthesis:n items:parenthesis result:result];
+    return result;
+}
+
+- (void)generateParenthesis:(NSUInteger)n items:(NSMutableString *)items result:(NSMutableArray<NSString *> *)result {
+    return;
+}
+
+- (void)generateAllPossibleParenthesis:(NSUInteger)n items:(NSMutableString *)items result:(NSMutableArray<NSString *> *)result {
+    if ([items length] == 2 * n) { //n组括号那么字符串长度是2n
+        [result addObject:items];
+        return;
+    }
+    
+    //必须重新开辟新的字符串, 不能使用items, 否则会相互影响
+    NSMutableString *nextItems1 = [NSMutableString stringWithString:items];
+    [nextItems1 appendString:@"("]; //加入'('的递归
+    [self generateAllPossibleParenthesis:n items: nextItems1 result:result];
+    
+    NSMutableString *nextItems2 = [NSMutableString stringWithString:items];
+    [nextItems2 appendString:@")"]; //加入'）'的递归
+    [self generateAllPossibleParenthesis:n items: nextItems2 result:result];
+}
+
 #pragma mark test-code
 /*
  //求无重复的一组数的全部子集 (78)
@@ -157,6 +198,24 @@
  //求有重复的一组数的全部子集 (90)
  NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@2, @1, @2, @2, nil];
  NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics subsetsWithDup:nums];
+ [result enumerateObjectsUsingBlock:^(NSArray * _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
+ if (0 == [items count]) {
+ printf("[]\n");
+ }
+ [items enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", [obj integerValue]);
+ if ([items count] - 1 == idx) {
+ printf("\n");
+ }
+ }];
+ }];
+ */
+
+/*
+ //元素和等于target的不重复子集
+ NSArray<NSNumber *> *candidates = [NSArray arrayWithObjects:@10, @1, @2, @7, @6, @1, @5, nil];
+ NSInteger target = 8;
+ NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics combinationSum2:candidates target:target];
  [result enumerateObjectsUsingBlock:^(NSArray * _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
  if (0 == [items count]) {
  printf("[]\n");

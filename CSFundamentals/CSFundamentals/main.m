@@ -30,20 +30,20 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-        NSArray<NSNumber *> *candidates = [NSArray arrayWithObjects:@10, @1, @2, @7, @6, @1, @5, nil];
-        NSInteger target = 8;
-        NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics combinationSum2:candidates target:target];
-        [result enumerateObjectsUsingBlock:^(NSArray * _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (0 == [items count]) {
-                printf("[]\n");
+        NSMutableArray<NSString *> *result = [recBatkDivConqTopics generateAllPossibleParenthesis:2];
+        [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            for (NSUInteger i = 0; i < [obj length]; i++) {
+                unichar ch = [obj characterAtIndex:i];
+                printf("%c", ch);
             }
-            [items enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                printf("[%ld]", [obj integerValue]);
-                if ([items count] - 1 == idx) {
-                    printf("\n");
-                }
-            }];
+            printf("\n");
         }];
+//        NSMutableString *items = [[NSMutableString alloc] init];
+//        [items appendString:@"((("];
+//        NSRange last = NSMakeRange([items length] - 1, 1); //将字符串最后一个字符换成')'
+//        [items deleteCharactersInRange:last];
+//        [items appendString:@")"];
+//        NSLog(@"%@", (NSString *)items);
     }
     return 0;
 }
