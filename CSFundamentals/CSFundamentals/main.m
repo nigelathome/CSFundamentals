@@ -30,8 +30,9 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-        NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@2, @1, @2, @2, nil];
-        NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics subsetsWithDup:nums];
+        NSArray<NSNumber *> *candidates = [NSArray arrayWithObjects:@10, @1, @2, @7, @6, @1, @5, nil];
+        NSInteger target = 8;
+        NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics combinationSum2:candidates target:target];
         [result enumerateObjectsUsingBlock:^(NSArray * _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
             if (0 == [items count]) {
                 printf("[]\n");
@@ -42,7 +43,6 @@ int main(int argc, const char * argv[]) {
                     printf("\n");
                 }
             }];
-//            printf("\n");
         }];
     }
     return 0;

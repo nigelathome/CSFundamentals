@@ -89,6 +89,50 @@
     [self generateSubsetsWithDup:index + 1 numArray:nums items:items set:set result:result];
 }
 
+- (NSMutableArray<NSArray<NSNumber *> *> *)combinationSum2:(NSArray<NSNumber *> *)candidates target:(NSInteger)target {
+    if ([candidates count] == 0 || ([candidates count] == 1 && [candidates[0] integerValue] != target)) {
+        return nil;
+    }
+    NSMutableArray<NSArray<NSNumber *> *> *result = [[NSMutableArray alloc] init];
+    NSMutableArray<NSNumber *> *items = [[NSMutableArray alloc] init];
+    NSMutableSet *set = [[NSMutableSet alloc] init];
+    NSArray<NSNumber *> *sortedCandidated = [candidates sortedArrayUsingComparator:^NSComparisonResult(NSNumber * _Nonnull obj1, NSNumber * _Nonnull obj2) {
+        if ([obj1 integerValue] < [obj2 integerValue]) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedDescending;
+    }];
+    NSInteger *sum = 0;
+    [self generateSubsets:0 candidates:sortedCandidated items:items set:set sum:sum target:target result:result];
+    return result;
+}
+
+- (void)generateSubsets:(NSUInteger)index
+             candidates:(NSArray<NSNumber *> *)candidates
+                  items:(NSMutableArray *)items
+                    set:(NSMutableSet *)set
+                    sum:(NSInteger)sum
+                 target:(NSInteger)target
+                 result:(NSMutableArray<NSArray<NSNumber *> *> *)result {
+    if (index == [candidates count]) {
+        return;
+    }
+    if (sum > target) {//剪枝
+        return;
+    }
+    [items addObject:candidates[index]];
+    NSArray *currentItem = [NSArray arrayWithArray:items];
+    sum += [candidates[index] integerValue] ;
+    if (sum == target && ![set containsObject:currentItem]) {
+        [set addObject:currentItem];
+        [result addObject:currentItem]; //元素的和是target且是不重复的子集即是满足条件的子集
+    }
+    [self generateSubsets:index + 1 candidates:candidates items:items set:set sum:sum target:target result:result];
+    
+    sum -= [candidates[index] integerValue];
+    [items removeLastObject];
+    [self generateSubsets:index + 1 candidates:candidates items:items set:set sum:sum target:target result:result];
+}
 #pragma mark test-code
 /*
  //求无重复的一组数的全部子集 (78)
@@ -102,6 +146,23 @@
  }
  [items enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
  printf("[%ld]", (long)[obj integerValue]);
+ if ([items count] - 1 == idx) {
+ printf("\n");
+ }
+ }];
+ }];
+ */
+
+/*
+ //求有重复的一组数的全部子集 (90)
+ NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@2, @1, @2, @2, nil];
+ NSMutableArray<NSArray<NSNumber *> *> *result = [recBatkDivConqTopics subsetsWithDup:nums];
+ [result enumerateObjectsUsingBlock:^(NSArray * _Nonnull items, NSUInteger idx, BOOL * _Nonnull stop) {
+ if (0 == [items count]) {
+ printf("[]\n");
+ }
+ [items enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", [obj integerValue]);
  if ([items count] - 1 == idx) {
  printf("\n");
  }

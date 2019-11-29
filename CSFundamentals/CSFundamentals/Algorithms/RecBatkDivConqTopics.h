@@ -32,7 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
                          items:(NSMutableArray *)items
                            set:(NSMutableSet *)set
                         result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
-    
+
+//元素和等于target的不重复子集
+- (NSMutableArray<NSArray<NSNumber *> *> *)combinationSum2:(NSArray<NSNumber *> *)candidates target:(NSInteger)target;
+- (void)generateSubsets:(NSUInteger)index
+             candidates:(NSArray<NSNumber *> *)candidates
+                  items:(NSMutableArray *)items
+                    set:(NSMutableSet *)set
+                    sum:(NSInteger)sum
+                 target:(NSInteger)target
+                 result:(NSMutableArray<NSArray<NSNumber *> *> *)result;
+
 @end
 
 NS_ASSUME_NONNULL_END
