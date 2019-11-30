@@ -59,6 +59,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 //归并排序
 - (void)mergeSort:(NSMutableArray<NSNumber *> *)nums;
+
+//求逆序数 (315)
+- (NSMutableArray<NSNumber *> *)countSmaller:(NSArray<NSNumber *> *)nums;
+typedef struct {
+    NSInteger value; //元素的值
+    NSUInteger index; //该元素在数组中的下标
+} ArrayObjectPair;
+- (void)caculateSmallerCounts:(NSMutableArray<NSValue *> *)pairs smallerCounts:(NSMutableArray<NSNumber *> *)countsArray;
+- (void)mergeSmallerCounts:(NSMutableArray<NSValue *> *)pairs
+                 withArray:(NSMutableArray<NSValue *> *)array1
+                  andArray:(NSMutableArray<NSValue *> *)array2
+             smallerCounts:(NSMutableArray<NSNumber *> *)countsArray;
+
 @end
 
 NS_ASSUME_NONNULL_END

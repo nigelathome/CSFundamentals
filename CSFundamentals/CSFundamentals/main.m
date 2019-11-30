@@ -30,15 +30,12 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-        NSArray *arr1 = [NSArray arrayWithObjects:@5, @(-7), @ 9, @8, @1, @4, @(-3), @10, @2, @0, nil];
-        NSMutableArray<NSNumber *> *nums = [[NSMutableArray alloc] init];
-        [arr1 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [nums addObject:obj];
-        }];
-        [recBatkDivConqTopics mergeSort:nums];
-        [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        //求逆序数 (315)
+        NSArray *nums = [NSArray arrayWithObjects:@5, @(-7), @9, @1, @3, @5, @(-2), @1, nil];
+        NSMutableArray<NSNumber *> *counts = [recBatkDivConqTopics countSmaller:nums];
+        [counts enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             printf("[%ld]", (long)[obj integerValue]);
-            if ([nums count] - 1 == idx) {
+            if ([counts count] - 1 == idx) {
                 printf("\n");
             }
         }];

@@ -236,6 +236,71 @@
     [self mergeTwoSortedArray:arr1 andArray:arr2 sortedArray:nums];
 }
 
+- (NSMutableArray<NSNumber *> *)countSmaller:(NSArray<NSNumber *> *)nums {
+    if ([nums count] < 1) {
+        return nil;
+    }
+    NSMutableArray<NSValue *> *pairsArray = [[NSMutableArray alloc] init];
+    NSMutableArray<NSNumber *> *smallerCounts = [[NSMutableArray alloc] init];
+    [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        ArrayObjectPair objectPair = {[obj integerValue], idx};
+        NSValue *value = [NSValue valueWithBytes:&objectPair objCType:@encode(ArrayObjectPair)];
+        [pairsArray addObject:value]; //nums转换成(value, index)这样的数组, 对value分治的处理
+        [smallerCounts addObject:[NSNumber numberWithInteger:0]]; //初始化smallCounts
+    }];
+    [self caculateSmallerCounts:pairsArray smallerCounts:smallerCounts];
+    return smallerCounts;
+}
+
+- (void)caculateSmallerCounts:(NSMutableArray<NSValue *> *)pairs smallerCounts:(NSMutableArray<NSNumber *> *)countsArray {
+    if ([pairs count] < 2) {
+        return;
+    }
+    // divide
+    NSMutableArray<NSValue *> *arr1 = [[NSMutableArray alloc] init];
+    NSMutableArray<NSValue *> *arr2 = [[NSMutableArray alloc] init];
+    NSUInteger i = 0, j = 0, mid = [pairs count] / 2;
+    for (; i < mid; i++) {
+        [arr1 addObject:pairs[i]];
+    }
+    for (j = mid; j < [pairs count]; j++) {
+        [arr2 addObject:pairs[j]];
+    }
+    [self caculateSmallerCounts:arr1 smallerCounts:countsArray];
+    [self caculateSmallerCounts:arr2 smallerCounts:countsArray];
+    [pairs removeAllObjects];
+    // conquer
+    [self mergeSmallerCounts:pairs withArray:arr1 andArray:arr2 smallerCounts:countsArray];
+}
+
+- (void)mergeSmallerCounts:(NSMutableArray<NSValue *> *)pairs
+                 withArray:(NSMutableArray<NSValue *> *)array1
+                  andArray:(NSMutableArray<NSValue *> *)array2
+             smallerCounts:(NSMutableArray<NSNumber *> *)countsArray { //countsArray记录比该元素小的元素个数
+    NSUInteger i = 0, j = 0;
+    ArrayObjectPair p1, p2;
+    while (i < [array1 count] && j < [array2 count]) {
+        [array1[i] getValue:&p1];
+        [array2[j] getValue:&p2];
+        if (p1.value <= p2.value) { //p1的值比p2小（包括等于)就将p2插入数组中,并且更新c对应的count为j的值
+            NSInteger updatedCounts = [countsArray[p1.index] integerValue] + j;
+            countsArray[p1.index] = [NSNumber numberWithInteger:updatedCounts];
+            [pairs addObject:array1[i++]];
+        } else {
+            [pairs addObject:array2[j++]];
+        }
+    }
+    for (; i < [array1 count]; i++) {
+        [array1[i] getValue:&p1];
+        NSInteger newCounts = [countsArray[p1.index] integerValue] + j;
+        countsArray[p1.index] = [NSNumber numberWithInteger:newCounts];
+        [pairs addObject:array1[i]];
+    }
+    for (; j < [array2 count]; j++) {
+        [pairs addObject:array2[j]];
+    }
+}
+
 #pragma mark test-code
 /*
  //求无重复的一组数的全部子集 (78)
@@ -321,4 +386,45 @@
  }];
  */
 
+/*
+ //归并两个有序数组 -从小到大有序
+ NSArray *arr1 = [NSArray arrayWithObjects:@2, @5, @8, @20, nil];
+ NSArray *arr2 = [NSArray arrayWithObjects:@1, @3, @5, @7, @30, @50, nil];
+ NSMutableArray<NSNumber *> *sortedArray = [[NSMutableArray alloc] init];
+ [recBatkDivConqTopics mergeTwoSortedArray:arr1 andArray:arr2 sortedArray:sortedArray];
+ [sortedArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", (long)[obj integerValue]);
+ if ([sortedArray count] - 1 == idx) {
+ printf("\n");
+ }
+ }];
+ */
+
+/*
+ //归并排序
+ NSArray *arr1 = [NSArray arrayWithObjects:@5, @(-7), @ 9, @8, @1, @4, @(-3), @10, @2, @0, nil];
+ NSMutableArray<NSNumber *> *nums = [[NSMutableArray alloc] init];
+ [arr1 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [nums addObject:obj];
+ }];
+ [recBatkDivConqTopics mergeSort:nums];
+ [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", (long)[obj integerValue]);
+ if ([nums count] - 1 == idx) {
+ printf("\n");
+ }
+ }];
+ */
+
+/*
+ //求逆序数 (315)
+ NSArray *nums = [NSArray arrayWithObjects:@5, @(-7), @9, @1, @3, @5, @(-2), @1, nil];
+ NSMutableArray<NSNumber *> *counts = [recBatkDivConqTopics countSmaller:nums];
+ [counts enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", (long)[obj integerValue]);
+ if ([counts count] - 1 == idx) {
+ printf("\n");
+ }
+ }];
+ */
 @end
