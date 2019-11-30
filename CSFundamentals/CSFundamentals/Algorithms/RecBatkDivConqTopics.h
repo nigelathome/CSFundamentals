@@ -57,6 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 //归并两个有序数组 -从小到大有序
 - (void)mergeTwoSortedArray:(NSArray<NSNumber *> *)arr1 andArray:(NSArray<NSNumber *> *)arr2 sortedArray:(NSMutableArray<NSNumber *> *)sortedArray;
 
+//归并排序
+- (void)mergeSort:(NSMutableArray<NSNumber *> *)nums;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -211,6 +211,31 @@
     }
 }
 
+- (void)mergeSort:(NSMutableArray<NSNumber *> *)nums {
+    if ([nums count] < 2) {
+        return;
+    }
+    NSMutableArray *arr1 = [[NSMutableArray alloc] init];
+    NSMutableArray *arr2 = [[NSMutableArray alloc] init];
+    NSUInteger i = 0, j = 0, mid = [nums count] / 2;
+    
+    //原问题分解成子问题
+    for (i = 0; i < mid; i++) {
+        [arr1 addObject:nums[i]];
+    }
+    for (j = mid; j < [nums count]; j++) {
+        [arr2 addObject:nums[j]];
+    }
+    
+    //子问题分别处理
+    [self mergeSort:arr1];
+    [self mergeSort:arr2];
+    [nums removeAllObjects]; //必须要清空nums在进行合并,否则会增加新元素
+    
+    //合并子问题并处理
+    [self mergeTwoSortedArray:arr1 andArray:arr2 sortedArray:nums];
+}
+
 #pragma mark test-code
 /*
  //求无重复的一组数的全部子集 (78)
