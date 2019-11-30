@@ -30,7 +30,16 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         
-        
+        NSArray *arr1 = [NSArray arrayWithObjects:@2, @5, @8, @20, nil];
+        NSArray *arr2 = [NSArray arrayWithObjects:@1, @3, @5, @7, @30, @50, nil];
+        NSMutableArray<NSNumber *> *sortedArray = [[NSMutableArray alloc] init];
+        [recBatkDivConqTopics mergeTwoSortedArray:arr1 andArray:arr2 sortedArray:sortedArray];
+        [sortedArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("[%ld]", (long)[obj integerValue]);
+            if ([sortedArray count] - 1 == idx) {
+                printf("\n");
+            }
+        }];
     }
     return 0;
 }

@@ -54,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 //生成n组可能的括号
 - (NSMutableArray<NSString *> *)generateAllPossibleParenthesis:(NSUInteger)n;
 
+//归并两个有序数组 -从小到大有序
+- (void)mergeTwoSortedArray:(NSArray<NSNumber *> *)arr1 andArray:(NSArray<NSNumber *> *)arr2 sortedArray:(NSMutableArray<NSNumber *> *)sortedArray;
+
 @end
 
 NS_ASSUME_NONNULL_END
