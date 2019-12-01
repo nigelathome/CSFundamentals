@@ -301,6 +301,79 @@
     }
 }
 
+- (NSMutableArray<NSArray<NSString *> *> *)solveNQueens:(NSUInteger)n {
+    NSMutableArray<NSArray<NSString *> *> *result = [[NSMutableArray alloc] init];
+    NSMutableArray<NSMutableArray<NSNumber *> *> *marks = [[NSMutableArray alloc] init];//Q可以摆放的区域
+    NSMutableArray<NSMutableString *> *locations = [[NSMutableArray alloc] init];//Q摆放的情况
+    for (NSUInteger i = 0; i < n; i++) {//初始化marks和locations
+        NSMutableArray<NSNumber *> *row = [[NSMutableArray alloc] init];
+        NSMutableString *position = [[NSMutableString alloc] init];
+        for (NSUInteger j = 0; j < n; j++) {
+            [row addObject:[NSNumber numberWithInteger:0]];
+            [position appendString:@"."];
+        }
+        [marks addObject:row];
+        [locations addObject:position];
+    }
+    [self generateNQueens:n currentPutdownQueens:0 marks:marks locations:locations result:result];
+    return result;
+}
+
+- (void)generateNQueens:(NSUInteger)n
+   currentPutdownQueens:(NSUInteger)currentRow
+                  marks:(NSMutableArray<NSMutableArray<NSNumber *> *> *)marks
+              locations:(NSMutableArray<NSMutableString *> *)locations  
+                 result:(NSMutableArray<NSArray<NSString *> *> *)result {
+    if (currentRow == n) {
+        NSMutableArray *valLocations = [[NSMutableArray alloc] init];
+        for (NSMutableArray *row in locations) {
+            NSArray *tempRow = [row mutableCopy]; //必须重新开辟空间
+            [valLocations addObject:tempRow];
+        }
+        [result addObject:valLocations];
+        return;
+    }
+    for (NSUInteger currentCol = 0; currentCol < n; currentCol++) { //按列来寻找放置queen的位置
+        if ([marks[currentRow][currentCol] integerValue] == 0) { //该位置可以放置queen
+            [locations[currentRow] replaceCharactersInRange:NSMakeRange(currentCol, 1) withString:@"Q"]; //放置queen在(currentRow, currentCol)
+            
+            //保存当前marks, 用于进行回溯操作下一列的尝试
+            NSMutableArray *currentMarks = [[NSMutableArray alloc] init];
+            for (NSMutableArray *row in marks) {
+                NSMutableArray *tempRow = [row mutableCopy];
+                [currentMarks addObject:tempRow];
+            }
+            
+            [self updateMarks:marks atPositionX:currentRow andPositionY:currentCol]; //更新可放置queen的标记
+            [self generateNQueens:n currentPutdownQueens:currentRow + 1 marks:marks locations:locations result:result];
+            
+            //回溯
+            [locations[currentRow] replaceCharactersInRange:NSMakeRange(currentCol, 1) withString:@"."]; //将该位置重置
+            marks = currentMarks; //回溯到递归前的棋盘
+        }
+    }
+}
+
+- (void)updateMarks:(NSMutableArray <NSMutableArray<NSNumber *> *> *)marks atPositionX:(NSInteger)x andPositionY:(NSInteger)y {
+    if ([marks[x][y] integerValue] == 1) { //该位置已经放了queen,不再处理
+        return;
+    }
+    marks[x][y] = [NSNumber numberWithInteger:1]; //更新(x,y)位置为1
+    //方向数组, 表示棋盘上某个位置四周8个方向, 依次是左、左上、正上、右上、右、右下、正下、左下
+    NSArray<NSNumber *> *dx = @[@(-1), @(-1), @0, @1, @1, @1, @0, @(-1)];
+    NSArray<NSNumber *> *dy = @[@0, @1, @1, @1, @0, @(-1), @(-1), @(-1)];
+    for (NSUInteger i = 1; i < [marks count]; i++) { //同一方向上的可能n个格子进行操作, 包括同一行、列、斜线
+        for (NSUInteger j = 0; j < 8; j++) { //八个方向
+            NSInteger newX = x + [dx[j] integerValue] * i;
+            NSInteger newY = y + [dy[j] integerValue] * i;
+            if (newX >= 0 && newX < [marks count]  && newY >= 0 && newY < [marks count]) { //棋盘区域是x:0-n,y:0-n
+                marks[newX][newY] = [NSNumber numberWithInteger:1];
+            }
+        }
+    }
+}
+
+
 #pragma mark test-code
 /*
  //求无重复的一组数的全部子集 (78)

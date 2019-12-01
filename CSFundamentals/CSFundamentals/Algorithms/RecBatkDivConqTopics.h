@@ -72,6 +72,17 @@ typedef struct {
                   andArray:(NSMutableArray<NSValue *> *)array2
              smallerCounts:(NSMutableArray<NSNumber *> *)countsArray;
 
+//N皇后问题 (51)
+- (NSMutableArray<NSArray<NSString *> *> *)solveNQueens:(NSUInteger)n;
+- (void)updateMarks:(NSMutableArray <NSMutableArray<NSNumber *> *> *)marks//mark标记当前可以放置的位置, 0是可放置, 1是不开放置
+        atPositionX:(NSInteger)x//将queen放在(x,y)后, 更新当前棋盘可放置的queen位置
+       andPositionY:(NSInteger)y;
+- (void)generateNQueens:(NSUInteger)n //问题规模n queens
+   currentPutdownQueens:(NSUInteger)currentRow //当前放置了几个queen
+                  marks:(NSMutableArray<NSMutableArray<NSNumber *> *> *)marks //标记棋盘上的位置是否可以放置queen
+              locations:(NSMutableArray<NSMutableString *> *)locations //当前棋盘上摆放的queen '.'和'Q'分别表示是否放置了queen
+                 result:(NSMutableArray<NSArray<NSString *> *> *)result; //保存结果
+    
 @end
 
 NS_ASSUME_NONNULL_END

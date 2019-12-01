@@ -17,6 +17,8 @@
 #import "GreedyTopics.h"
 #import "RecBatkDivConqTopics.h"
 
+#define DebugNSLog(formater,...) NSLog((@"\n====================\n >>> class: %s\n\n >>> method: %s\n\n" " >>> code line: %d 行\n\n >>> message: "  formater @"\n==================="),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__)
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -29,16 +31,29 @@ int main(int argc, const char * argv[]) {
         StringTopics *stringTopics = [[StringTopics alloc] init];
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
-        
-        //求逆序数 (315)
-        NSArray *nums = [NSArray arrayWithObjects:@5, @(-7), @9, @1, @3, @5, @(-2), @1, nil];
-        NSMutableArray<NSNumber *> *counts = [recBatkDivConqTopics countSmaller:nums];
-        [counts enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            printf("[%ld]", (long)[obj integerValue]);
-            if ([counts count] - 1 == idx) {
-                printf("\n");
+    
+        printf("N queens solutions:============================\n");
+        NSMutableArray<NSArray<NSString *> *> *result = [recBatkDivConqTopics solveNQueens:4];
+        [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("第%ld情况: \n", (long)idx);
+            for (NSString *row in obj) {
+                printf("[ ");
+                for (NSInteger i = 0; i < [row length]; i++) {
+                    printf("%c ", [row characterAtIndex:i]);
+                }
+                printf("]\n");
             }
+            printf("\n");
         }];
+        
+//        [stringArr enumerateObjectsUsingBlock:^(NSMutableString * _Nonnull _string, NSUInteger idx, BOOL * _Nonnull stop) {
+//            for
+//            printf("[");
+//            NSLog(@"%@", _string);
+//            printf(<#const char *restrict, ...#>)(@"%@", _string);
+//            printf("]\n");
+//        }];
+        
     }
     return 0;
 }
