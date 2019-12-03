@@ -47,9 +47,11 @@
     printf("[%ld]\n", node.val);
 }
 
-- (NSMutableArray<NSMutableArray<NSNumber *> *> *)pathSum:(TreeNode *)root sum:(NSInteger)sum {
-    NSMutableArray<NSMutableArray<NSNumber *> *> *result = [[NSMutableArray alloc] init];
-    
+- (NSMutableArray<NSMutableArray<TreeNode *> *> *)pathSum:(TreeNode *)node sum:(NSInteger)sum {
+    NSMutableArray<NSMutableArray<TreeNode *> *> *result = [[NSMutableArray alloc] init];
+    NSMutableArray<TreeNode *> *path = [[NSMutableArray alloc] init];
+    NSNumber *currentSum = [NSNumber numberWithInteger:0];
+    [self findPath:path fromNode:node currentSum:currentSum targetSum:sum result:result];
     return result;
 }
 
@@ -61,12 +63,17 @@
     if (!node) {
         return;
     }
-    if ([currentSum integerValue] == sum) {
-        [result addObject:path];
-    }
     [path addObject:node];
     currentSum = [NSNumber numberWithInteger:[currentSum integerValue] + node.val];
+    if (!node.left && !node.right && [currentSum integerValue] == sum) { //当前节点是叶子节点并且累加和等于sum
+        NSMutableArray<TreeNode *> *currentPath = (NSMutableArray<TreeNode *> *)[NSMutableArray arrayWithArray:path];
+        [result addObject:currentPath];
+    }
     [self findPath:path fromNode:node.left currentSum:currentSum targetSum:sum result:result];
+    [self findPath:path fromNode:node.right currentSum:currentSum targetSum:sum result:result];
+    //遍历完当前节点的左右子树之后, 该节点出栈, 且更新currentSum的值
+    currentSum = [NSNumber numberWithInteger:[currentSum integerValue] - node.val];
+    [path removeLastObject];
 }
 
 - (NSMutableArray<NSMutableArray<TreeNode *> *> *)findAllPathsFromNode:(TreeNode *)node {
@@ -89,8 +96,20 @@
     }
     [self findPath:possiblePath fromTree:node.left result:result];
     [self findPath:possiblePath fromTree:node.right result:result];
-    [possiblePath removeLastObject];
+    [possiblePath removeLastObject]; //当访问完该结点的左右子树后, 当前的node出栈
 }
 
+#pragma mark test-code
+/*
+ //找根节点到叶节点的全部路径
+ NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics findAllPathsFromNode:a];
+ printf("全部路径:\n");
+ [allPaths enumerateObjectsUsingBlock:^(NSMutableArray<TreeNode *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [obj enumerateObjectsUsingBlock:^(TreeNode * _Nonnull treeNode, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", (long)treeNode.val);
+ }];
+ printf("\n");
+ }];
+ */
 
 @end

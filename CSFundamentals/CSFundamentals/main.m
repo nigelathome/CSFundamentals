@@ -35,21 +35,21 @@ int main(int argc, const char * argv[]) {
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         
-        TreeNode *a = [[TreeNode alloc] initWithValue:1];
-        TreeNode *b = [[TreeNode alloc] initWithValue:2];
-        TreeNode *c = [[TreeNode alloc] initWithValue:5];
-        TreeNode *d = [[TreeNode alloc] initWithValue:3];
-        TreeNode *e = [[TreeNode alloc] initWithValue:4];
-        TreeNode *f = [[TreeNode alloc] initWithValue:6];
+        TreeNode *a = [[TreeNode alloc] initWithValue:5];
+        TreeNode *b = [[TreeNode alloc] initWithValue:4];
+        TreeNode *c = [[TreeNode alloc] initWithValue:8];
+        TreeNode *d = [[TreeNode alloc] initWithValue:11];
+        TreeNode *e = [[TreeNode alloc] initWithValue:13];
+        TreeNode *f = [[TreeNode alloc] initWithValue:4];
+        TreeNode *g = [[TreeNode alloc] initWithValue:7];
+        TreeNode *h = [[TreeNode alloc] initWithValue:2];
+        TreeNode *x = [[TreeNode alloc] initWithValue:5];
+        TreeNode *y = [[TreeNode alloc] initWithValue:1];
         a.left = b; a.right = c; b.left = d;
-        b.right = e; c.right = f;
-        printf("前序遍历打印:\n");
-        [bTreeGraphicTopics preorderPrint:a layer:0];
-        printf("中序遍历打印:\n");
-        [bTreeGraphicTopics inorderPrint:a layer:0];
-        printf("后序遍历打印:\n");
-        [bTreeGraphicTopics postorderPrint:a layer:0];
-        NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics findAllPathsFromNode:a];
+        b.right = e; c.right = f; c.left = e;
+        d.left = g; d.right = h; f.left = x;
+        f.right = y;
+        NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics pathSum:a sum:22];
         printf("全部路径:\n");
         [allPaths enumerateObjectsUsingBlock:^(NSMutableArray<TreeNode *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj enumerateObjectsUsingBlock:^(TreeNode * _Nonnull treeNode, NSUInteger idx, BOOL * _Nonnull stop) {

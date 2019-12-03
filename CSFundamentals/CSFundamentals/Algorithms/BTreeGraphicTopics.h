@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)postorderPrint:(TreeNode *)node layer:(NSUInteger)layer;
 
 //找根节点到叶节点的路径, 使得路径结点的值的和是sum (113)
-- (NSMutableArray<NSMutableArray<NSNumber *> *> *)pathSum:(TreeNode *)root sum:(NSInteger)sum;
+- (NSMutableArray<NSMutableArray<TreeNode *> *> *)pathSum:(TreeNode *)root sum:(NSInteger)sum;
 
 //找根节点到叶节点的全部路径
 - (NSMutableArray<NSMutableArray<TreeNode *> *> *)findAllPathsFromNode:(TreeNode *)node;
