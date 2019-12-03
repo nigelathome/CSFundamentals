@@ -23,6 +23,12 @@ NS_ASSUME_NONNULL_BEGIN
 //后序打印二叉树
 - (void)postorderPrint:(TreeNode *)node layer:(NSUInteger)layer;
 
+//找根节点到叶节点的路径, 使得路径结点的值的和是sum (113)
+- (NSMutableArray<NSMutableArray<NSNumber *> *> *)pathSum:(TreeNode *)root sum:(NSInteger)sum;
+
+//找根节点到叶节点的全部路径
+- (NSMutableArray<NSMutableArray<TreeNode *> *> *)findAllPathsFromNode:(TreeNode *)node;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -49,13 +49,14 @@ int main(int argc, const char * argv[]) {
         [bTreeGraphicTopics inorderPrint:a layer:0];
         printf("后序遍历打印:\n");
         [bTreeGraphicTopics postorderPrint:a layer:0];
-//        [stringArr enumerateObjectsUsingBlock:^(NSMutableString * _Nonnull _string, NSUInteger idx, BOOL * _Nonnull stop) {
-//            for
-//            printf("[");
-//            NSLog(@"%@", _string);
-//            printf(<#const char *restrict, ...#>)(@"%@", _string);
-//            printf("]\n");
-//        }];
+        NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics findAllPathsFromNode:a];
+        printf("全部路径:\n");
+        [allPaths enumerateObjectsUsingBlock:^(NSMutableArray<TreeNode *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj enumerateObjectsUsingBlock:^(TreeNode * _Nonnull treeNode, NSUInteger idx, BOOL * _Nonnull stop) {
+                printf("[%ld]", (long)treeNode.val);
+            }];
+            printf("\n");
+        }];
         
     }
     return 0;
