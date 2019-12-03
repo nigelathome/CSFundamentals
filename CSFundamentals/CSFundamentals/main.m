@@ -49,15 +49,13 @@ int main(int argc, const char * argv[]) {
         b.right = e; c.right = f; c.left = e;
         d.left = g; d.right = h; f.left = x;
         f.right = y;
-        NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics pathSum:a sum:22];
-        printf("全部路径:\n");
-        [allPaths enumerateObjectsUsingBlock:^(NSMutableArray<TreeNode *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj enumerateObjectsUsingBlock:^(TreeNode * _Nonnull treeNode, NSUInteger idx, BOOL * _Nonnull stop) {
-                printf("[%ld]", (long)treeNode.val);
-            }];
-            printf("\n");
+        TreeNode *node1 = a, *node2 = y;
+        NSMutableArray<TreeNode *> *result = [bTreeGraphicTopics findPathFromRoot:node1 toNode:node2];
+        printf("node1到node2的路径:\n");
+        [result enumerateObjectsUsingBlock:^(TreeNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("[%ld]", (long)node.val);
         }];
-        
+        printf("\n");
     }
     return 0;
 }

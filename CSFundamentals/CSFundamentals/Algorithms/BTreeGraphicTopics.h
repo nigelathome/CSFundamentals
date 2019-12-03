@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 //找根节点到叶节点的全部路径
 - (NSMutableArray<NSMutableArray<TreeNode *> *> *)findAllPathsFromNode:(TreeNode *)node;
 
+//找根节点到某个节点的路径
+- (NSMutableArray<TreeNode *> *)findPathFromRoot:(TreeNode *)root toNode:(TreeNode *)node;
+
 @end
 
 NS_ASSUME_NONNULL_END

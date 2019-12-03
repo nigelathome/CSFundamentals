@@ -63,6 +63,7 @@
     if (!node) {
         return;
     }
+    //当前节点压栈, 和进行累加
     [path addObject:node];
     currentSum = [NSNumber numberWithInteger:[currentSum integerValue] + node.val];
     if (!node.left && !node.right && [currentSum integerValue] == sum) { //当前节点是叶子节点并且累加和等于sum
@@ -72,8 +73,8 @@
     [self findPath:path fromNode:node.left currentSum:currentSum targetSum:sum result:result];
     [self findPath:path fromNode:node.right currentSum:currentSum targetSum:sum result:result];
     //遍历完当前节点的左右子树之后, 该节点出栈, 且更新currentSum的值
-    currentSum = [NSNumber numberWithInteger:[currentSum integerValue] - node.val];
     [path removeLastObject];
+    currentSum = [NSNumber numberWithInteger:[currentSum integerValue] - node.val];
 }
 
 - (NSMutableArray<NSMutableArray<TreeNode *> *> *)findAllPathsFromNode:(TreeNode *)node {
@@ -99,10 +100,66 @@
     [possiblePath removeLastObject]; //当访问完该结点的左右子树后, 当前的node出栈
 }
 
+- (NSMutableArray<TreeNode *> *)findPathFromRoot:(TreeNode *)root toNode:(TreeNode *)node {
+    NSMutableArray<TreeNode *> *result = [[NSMutableArray alloc] init];
+    NSMutableArray<TreeNode *> *currentPath = [[NSMutableArray alloc] init];
+    NSNumber *isCompleted = [NSNumber numberWithBool:NO];
+    [self findPathFromNode:root toNode:node currentPath:currentPath isCompleted:isCompleted result:result];
+    return result;
+}
+
+- (void)findPathFromNode:(TreeNode *)node1
+                  toNode:(TreeNode *)node2
+             currentPath:(NSMutableArray<TreeNode *> *)currentPath
+             isCompleted:(NSNumber *)isCompleted
+                  result:(NSMutableArray<TreeNode *> *)result {
+    if (!node1 || [isCompleted boolValue]) {
+        return;
+    }
+    [currentPath addObject:node1];
+    if (node1 == node2) {
+        for (TreeNode *node in currentPath) {
+            [result addObject:node];
+        }
+        isCompleted = [NSNumber numberWithBool:YES];
+        return;
+    }
+    [self findPathFromNode:node1.left toNode:node2 currentPath:currentPath isCompleted:isCompleted result:result];
+    [self findPathFromNode:node1.right toNode:node2 currentPath:currentPath isCompleted:isCompleted result:result];
+    [currentPath removeLastObject];
+}
+
+
 #pragma mark test-code
 /*
  //找根节点到叶节点的全部路径
  NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics findAllPathsFromNode:a];
+ printf("全部路径:\n");
+ [allPaths enumerateObjectsUsingBlock:^(NSMutableArray<TreeNode *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [obj enumerateObjectsUsingBlock:^(TreeNode * _Nonnull treeNode, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", (long)treeNode.val);
+ }];
+ printf("\n");
+ }];
+ */
+
+/*
+ //找根节点到叶节点的路径, 使得路径结点的值的和是sum (113)
+ TreeNode *a = [[TreeNode alloc] initWithValue:5];
+ TreeNode *b = [[TreeNode alloc] initWithValue:4];
+ TreeNode *c = [[TreeNode alloc] initWithValue:8];
+ TreeNode *d = [[TreeNode alloc] initWithValue:11];
+ TreeNode *e = [[TreeNode alloc] initWithValue:13];
+ TreeNode *f = [[TreeNode alloc] initWithValue:4];
+ TreeNode *g = [[TreeNode alloc] initWithValue:7];
+ TreeNode *h = [[TreeNode alloc] initWithValue:2];
+ TreeNode *x = [[TreeNode alloc] initWithValue:5];
+ TreeNode *y = [[TreeNode alloc] initWithValue:1];
+ a.left = b; a.right = c; b.left = d;
+ b.right = e; c.right = f; c.left = e;
+ d.left = g; d.right = h; f.left = x;
+ f.right = y;
+ NSMutableArray<NSMutableArray<TreeNode *> *> *allPaths = [bTreeGraphicTopics pathSum:a sum:22];
  printf("全部路径:\n");
  [allPaths enumerateObjectsUsingBlock:^(NSMutableArray<TreeNode *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
  [obj enumerateObjectsUsingBlock:^(TreeNode * _Nonnull treeNode, NSUInteger idx, BOOL * _Nonnull stop) {
