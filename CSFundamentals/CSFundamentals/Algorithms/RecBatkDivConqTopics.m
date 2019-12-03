@@ -500,4 +500,22 @@
  }
  }];
  */
+
+/*
+ //N皇后问题 (51)
+ printf("N queens solutions:============================\n");
+ NSMutableArray<NSArray<NSString *> *> *result = [recBatkDivConqTopics solveNQueens:8];
+ [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("第%ld情况: \n", (long)idx);
+ for (NSString *row in obj) {
+ printf("[ ");
+ for (NSInteger i = 0; i < [row length]; i++) {
+ printf("%c ", [row characterAtIndex:i]);
+ }
+ printf("]\n");
+ }
+ printf("\n");
+ }];
+ */
+
 @end

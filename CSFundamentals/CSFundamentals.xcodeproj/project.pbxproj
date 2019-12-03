@@ -17,6 +17,8 @@
 		2698C5802369A84900AC5459 /* GreedyTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2698C57F2369A84900AC5459 /* GreedyTopics.m */; };
 		26BA70262359E9610070426A /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BA70252359E9610070426A /* Queue.m */; };
 		26BBF89B238F740B0098B376 /* RecBatkDivConqTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBF89A238F740B0098B376 /* RecBatkDivConqTopics.m */; };
+		26BBFB13239676CB0098B376 /* BTreeGraphicTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */; };
+		26BBFB16239677000098B376 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB15239677000098B376 /* TreeNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +54,10 @@
 		26BA70252359E9610070426A /* Queue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		26BBF899238F740B0098B376 /* RecBatkDivConqTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecBatkDivConqTopics.h; sourceTree = "<group>"; };
 		26BBF89A238F740B0098B376 /* RecBatkDivConqTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecBatkDivConqTopics.m; sourceTree = "<group>"; };
+		26BBFB11239676CB0098B376 /* BTreeGraphicTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTreeGraphicTopics.h; sourceTree = "<group>"; };
+		26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTreeGraphicTopics.m; sourceTree = "<group>"; };
+		26BBFB14239677000098B376 /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		26BBFB15239677000098B376 /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,8 @@
 				2677CEA4234AB49F00FC2463 /* Stack.m */,
 				26BA70242359E9610070426A /* Queue.h */,
 				26BA70252359E9610070426A /* Queue.m */,
+				26BBFB14239677000098B376 /* TreeNode.h */,
+				26BBFB15239677000098B376 /* TreeNode.m */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -119,6 +127,8 @@
 				2698C57F2369A84900AC5459 /* GreedyTopics.m */,
 				26BBF899238F740B0098B376 /* RecBatkDivConqTopics.h */,
 				26BBF89A238F740B0098B376 /* RecBatkDivConqTopics.m */,
+				26BBFB11239676CB0098B376 /* BTreeGraphicTopics.h */,
+				26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -187,8 +197,10 @@
 				2677CEA2234AB1C400FC2463 /* StackQueueHeapTopics.m in Sources */,
 				2698C5802369A84900AC5459 /* GreedyTopics.m in Sources */,
 				2677CD6A2345F51200FC2463 /* DPTopics.m in Sources */,
+				26BBFB13239676CB0098B376 /* BTreeGraphicTopics.m in Sources */,
 				26BA70262359E9610070426A /* Queue.m in Sources */,
 				26BBF89B238F740B0098B376 /* RecBatkDivConqTopics.m in Sources */,
+				26BBFB16239677000098B376 /* TreeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
