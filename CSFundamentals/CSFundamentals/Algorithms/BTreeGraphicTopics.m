@@ -129,6 +129,19 @@
     [currentPath removeLastObject];
 }
 
+- (TreeNode *)lowestCommonAncestor:(TreeNode *)root node1:(TreeNode *)node1 node2:(TreeNode *)node2 {
+    NSMutableArray<TreeNode *> *node1Path = [self findPathFromRoot:root toNode:node1];
+    NSMutableArray<TreeNode *> *node2Path = [self findPathFromRoot:root toNode:node2];
+    NSUInteger shortLenght = ([node1Path count] < [node2Path count]) ? [node1Path count] : [node2Path count];
+    TreeNode *result;
+    for (NSUInteger i = 0; i < shortLenght; i++) {
+        if (node1Path[i] == node2Path[i]) {//找最后一个相等的元素
+            result = node1Path[i];
+        }
+    }
+    return result;
+}
+
 
 #pragma mark test-code
 /*
@@ -167,6 +180,32 @@
  }];
  printf("\n");
  }];
+ */
+
+/*
+ //找根节点到某个节点的路径
+ TreeNode *a = [[TreeNode alloc] initWithValue:5];
+ TreeNode *b = [[TreeNode alloc] initWithValue:4];
+ TreeNode *c = [[TreeNode alloc] initWithValue:8];
+ TreeNode *d = [[TreeNode alloc] initWithValue:11];
+ TreeNode *e = [[TreeNode alloc] initWithValue:13];
+ TreeNode *f = [[TreeNode alloc] initWithValue:4];
+ TreeNode *g = [[TreeNode alloc] initWithValue:7];
+ TreeNode *h = [[TreeNode alloc] initWithValue:2];
+ TreeNode *x = [[TreeNode alloc] initWithValue:5];
+ TreeNode *y = [[TreeNode alloc] initWithValue:1];
+ a.left = b; a.right = c; b.left = d;
+ b.right = e; c.right = f; c.left = e;
+ d.left = g; d.right = h; f.left = x;
+ f.right = y;
+ TreeNode *node1 = a, *node2 = y;
+ NSMutableArray<TreeNode *> *result = [bTreeGraphicTopics findPathFromRoot:node1 toNode:node2];
+ printf("node1到node2的路径:\n");
+ [result enumerateObjectsUsingBlock:^(TreeNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", (long)node.val);
+ }];
+ printf("\n");
+ }
  */
 
 @end

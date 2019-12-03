@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 //找根节点到某个节点的路径
 - (NSMutableArray<TreeNode *> *)findPathFromRoot:(TreeNode *)root toNode:(TreeNode *)node;
 
+//最低公共祖先 (236)
+- (TreeNode *)lowestCommonAncestor:(TreeNode *)root node1:(TreeNode *)node1 node2:(TreeNode *)node2;
+
 @end
 
 NS_ASSUME_NONNULL_END

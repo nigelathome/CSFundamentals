@@ -35,26 +35,27 @@ int main(int argc, const char * argv[]) {
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         
-        TreeNode *a = [[TreeNode alloc] initWithValue:5];
-        TreeNode *b = [[TreeNode alloc] initWithValue:4];
-        TreeNode *c = [[TreeNode alloc] initWithValue:8];
-        TreeNode *d = [[TreeNode alloc] initWithValue:11];
-        TreeNode *e = [[TreeNode alloc] initWithValue:13];
-        TreeNode *f = [[TreeNode alloc] initWithValue:4];
-        TreeNode *g = [[TreeNode alloc] initWithValue:7];
-        TreeNode *h = [[TreeNode alloc] initWithValue:2];
-        TreeNode *x = [[TreeNode alloc] initWithValue:5];
-        TreeNode *y = [[TreeNode alloc] initWithValue:1];
+        TreeNode *a = [[TreeNode alloc] initWithValue:3];
+        TreeNode *b = [[TreeNode alloc] initWithValue:5];
+        TreeNode *c = [[TreeNode alloc] initWithValue:1];
+        TreeNode *d = [[TreeNode alloc] initWithValue:6];
+        TreeNode *e = [[TreeNode alloc] initWithValue:2];
+        TreeNode *f = [[TreeNode alloc] initWithValue:0];
+        TreeNode *x = [[TreeNode alloc] initWithValue:8];
+        TreeNode *y = [[TreeNode alloc] initWithValue:7];
+        TreeNode *z = [[TreeNode alloc] initWithValue:4];
         a.left = b; a.right = c; b.left = d;
-        b.right = e; c.right = f; c.left = e;
-        d.left = g; d.right = h; f.left = x;
-        f.right = y;
-        TreeNode *node1 = a, *node2 = y;
-        NSMutableArray<TreeNode *> *result = [bTreeGraphicTopics findPathFromRoot:node1 toNode:node2];
-        printf("node1到node2的路径:\n");
-        [result enumerateObjectsUsingBlock:^(TreeNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
-            printf("[%ld]", (long)node.val);
-        }];
+        b.right = e; c.left = f; c.right = x;
+        e.left = y; e.right = z;
+        TreeNode *node1 = b, *node2 = f;
+        TreeNode *result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
+        printf("node1和node2最低公共节点: %ld\n", result.val);
+        node1 = d; node2 = z;
+        result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
+        printf("node1和node2最低公共节点: %ld\n", result.val);
+        node1 = b; node2 = y;
+        result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
+        printf("node1和node2最低公共节点: %ld\n", result.val);
         printf("\n");
     }
     return 0;
