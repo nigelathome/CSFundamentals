@@ -17,6 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 //前序打印二叉树
 - (void)preorderPrint:(TreeNode *)node layer:(NSUInteger)layer;
 
+//中序打印二叉树
+- (void)inorderPrint:(TreeNode *)node layer:(NSUInteger)layer;
+
+//后序打印二叉树
+- (void)postorderPrint:(TreeNode *)node layer:(NSUInteger)layer;
+
 @end
 
 NS_ASSUME_NONNULL_END

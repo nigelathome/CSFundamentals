@@ -43,7 +43,12 @@ int main(int argc, const char * argv[]) {
         TreeNode *f = [[TreeNode alloc] initWithValue:6];
         a.left = b; a.right = c; b.left = d;
         b.right = e; c.right = f;
+        printf("前序遍历打印:\n");
         [bTreeGraphicTopics preorderPrint:a layer:0];
+        printf("中序遍历打印:\n");
+        [bTreeGraphicTopics inorderPrint:a layer:0];
+        printf("后序遍历打印:\n");
+        [bTreeGraphicTopics postorderPrint:a layer:0];
 //        [stringArr enumerateObjectsUsingBlock:^(NSMutableString * _Nonnull _string, NSUInteger idx, BOOL * _Nonnull stop) {
 //            for
 //            printf("[");
