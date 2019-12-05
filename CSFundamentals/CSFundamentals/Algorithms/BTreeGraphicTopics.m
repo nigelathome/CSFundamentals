@@ -142,6 +142,26 @@
     return result;
 }
 
+- (void)flattenTreeNotInPlace:(TreeNode *)root {
+    NSMutableArray<TreeNode *> *treeNodeArray = (NSMutableArray<TreeNode *> *)[[NSMutableArray alloc] init];
+    [self buildTreeNodeArray:root treeNodeArray:treeNodeArray];
+    for (NSUInteger i = 1; i < [treeNodeArray count]; i++) { //处理前n-1个节点
+        treeNodeArray[i-1].left = nil;
+        treeNodeArray[i-1].right = treeNodeArray[i];
+    }
+    treeNodeArray.lastObject.left = nil; //处理最后一个节点
+    treeNodeArray.lastObject.right = nil;
+    root = treeNodeArray.firstObject;
+}
+
+- (void)buildTreeNodeArray:(TreeNode *)root treeNodeArray:(NSMutableArray<TreeNode *> *)treeNodeArray {
+    if (!root) {
+        return;
+    }
+    [treeNodeArray addObject:root];
+    [self buildTreeNodeArray:root.left treeNodeArray:treeNodeArray];
+    [self buildTreeNodeArray:root.right treeNodeArray:treeNodeArray];
+}
 
 #pragma mark test-code
 /*

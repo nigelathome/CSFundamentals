@@ -124,25 +124,22 @@
     if (!meet) {
         return nil;
     }
-    
     while(head && meet && meet != head) {
         meet = meet.next;
         head = head.next;
     }
-    
     return meet;
 }
 
 - (ListNode *)detectCycleWithSet:(ListNode *)head {
     NSMutableSet *nodeSet = [NSMutableSet new];
-    while(head){
+    while (head) {
         if([nodeSet containsObject:head]){
             return head;
         }
         [nodeSet addObject:head];
         head = head.next;
     }
-    
     return nil;
 }
 
@@ -150,8 +147,8 @@
     if (!head) return nil;
     RandomListNode *ptr = head;
     NSMutableArray<RandomListNode*> *nodeArray = [NSMutableArray new];//新节点序号及地址
-    NSMapTable<RandomListNode*, RandomListNode*> *nodeMap = [NSMapTable new]; //key-value: 旧节点地址-新节点地址
-    while(ptr){
+    NSMapTable<RandomListNode *, RandomListNode *> *nodeMap = [NSMapTable new]; //key-value: 旧节点地址-新节点地址
+    while (ptr) {
         RandomListNode *copyNode = [RandomListNode new];
         copyNode.val = ptr.val;
         [nodeArray addObject:copyNode];

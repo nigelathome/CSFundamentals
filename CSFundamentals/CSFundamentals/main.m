@@ -47,16 +47,22 @@ int main(int argc, const char * argv[]) {
         a.left = b; a.right = c; b.left = d;
         b.right = e; c.left = f; c.right = x;
         e.left = y; e.right = z;
-        TreeNode *node1 = b, *node2 = f;
-        TreeNode *result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
-        printf("node1和node2最低公共节点: %ld\n", result.val);
-        node1 = d; node2 = z;
-        result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
-        printf("node1和node2最低公共节点: %ld\n", result.val);
-        node1 = b; node2 = y;
-        result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
-        printf("node1和node2最低公共节点: %ld\n", result.val);
-        printf("\n");
+        TreeNode *root = a;
+        [bTreeGraphicTopics flattenTreeNotInPlace:root];
+        @try {
+            while (root) {
+                printf("[%ld]", root.val);
+                if (root.left) {
+                    @throw e; //存在左子树抛出异常
+                }
+                root = root.right;
+            }
+            printf("\n");
+        } @catch (NSException *exception) {
+            printf("反转异常");
+        } @finally {
+            ;
+        }
     }
     return 0;
 }
