@@ -41,6 +41,9 @@ NS_ASSUME_NONNULL_BEGIN
 //将二叉树转化成单链表, left=nil, right指向下个节点, 单链表节点顺序是前序遍历的顺序 (114) 非就地转换
 - (void)flattenTreeNotInPlace:(TreeNode *)root;
 
+//层次打印二叉树
+- (void)BFSPrint:(TreeNode *)root;
+
 @end
 
 NS_ASSUME_NONNULL_END

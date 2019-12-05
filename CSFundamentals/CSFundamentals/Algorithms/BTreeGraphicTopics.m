@@ -8,6 +8,7 @@
 
 #import "BTreeGraphicTopics.h"
 #import "TreeNode.h"
+#import "Queue.h"
 
 @implementation BTreeGraphicTopics
 
@@ -192,6 +193,25 @@
     }
 }
 
+- (void)BFSPrint:(TreeNode *)root {
+    if (!root) {
+        return;
+    }
+    Queue *q = [[Queue alloc] init];
+    [q push:root];
+    while (![q empty]) {
+        TreeNode *node = (TreeNode *)[q front];
+        [q pop];
+        printf("[%ld]", node.val);
+        if (node.left) {
+            [q push:node.left];
+        }
+        if (node.right) {
+            [q push:node.right];
+        }
+    }
+    printf("\n");
+}
 #pragma mark test-code
 /*
  //找根节点到叶节点的全部路径

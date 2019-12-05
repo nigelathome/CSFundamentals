@@ -21,6 +21,13 @@
 
 #define DebugNSLog(formater,...) NSLog((@"\n====================\n >>> class: %s\n\n >>> method: %s\n\n" " >>> code line: %d 行\n\n >>> message: "  formater @"\n==================="),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__)
 
+void increase(int *x){
+    printf("&x:%p x:%p *x:%d\n",&x,x,*x); //与实参的地址一定不同！
+    int b = 2;
+    x = &b;
+    printf("&x:%p x:%p *x:%d\n",&x,x,*x);
+}
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -48,21 +55,23 @@ int main(int argc, const char * argv[]) {
         b.right = e; c.left = f; c.right = x;
         e.left = y; e.right = z;
         TreeNode *root = a;
-        [bTreeGraphicTopics flattenTreeNotInPlace:root];
-        @try {
-            while (root) {
-                printf("[%ld]", root.val);
-                if (root.left) {
-                    @throw e; //存在左子树抛出异常
-                }
-                root = root.right;
-            }
-            printf("\n");
-        } @catch (NSException *exception) {
-            printf("反转异常");
-        } @finally {
-            ;
-        }
+        [bTreeGraphicTopics BFSPrint:root];
+//        @try {
+//            while (root) {
+//                printf("[%ld]", root.val);
+//                if (root.left) {
+//                    @throw e; //存在左子树抛出异常
+//                }
+//                root = root.right;
+//            }
+//            printf("\n");
+//        } @catch (NSException *exception) {
+//            printf("反转异常");
+//        } @finally {
+//            ;
+//        }
     }
     return 0;
 }
+
+
