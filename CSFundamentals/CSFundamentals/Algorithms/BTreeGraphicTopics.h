@@ -35,8 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 //最低公共祖先 (236)
 - (TreeNode *)lowestCommonAncestor:(TreeNode *)root node1:(TreeNode *)node1 node2:(TreeNode *)node2;
 
+//将二叉树转化成单链表, left=nil, right指向下个节点, 单链表节点顺序是前序遍历的顺序 (114) 就地转换
+- (void)flattenTree:(TreeNode *)root;
+
 //将二叉树转化成单链表, left=nil, right指向下个节点, 单链表节点顺序是前序遍历的顺序 (114) 非就地转换
 - (void)flattenTreeNotInPlace:(TreeNode *)root;
+
 @end
 
 NS_ASSUME_NONNULL_END

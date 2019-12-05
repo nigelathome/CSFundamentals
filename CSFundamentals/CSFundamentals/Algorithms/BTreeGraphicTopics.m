@@ -163,6 +163,35 @@
     [self buildTreeNodeArray:root.right treeNodeArray:treeNodeArray];
 }
 
+- (void)flattenTree:(TreeNode *)root {
+    TreeNode *last = [[TreeNode alloc] init];
+    [self flattenTree:root lastNode:&last];
+}
+
+- (void)flattenTree:(TreeNode *)root lastNode:(TreeNode **)last {
+    //递归规律: root.left=nil, root.right=左子树根节点, 左子树的last节点指向root的右子树的根节点
+    if (!root) {
+        return;
+    }
+    if (!root.left && !root.right) { //叶子节点的last
+        *last = root;
+    }
+    TreeNode *left = root.left, *right = root.right; //保存左右子树的根节点
+    TreeNode *leftLast, *rightLast; //记录左右子树的last节点
+    if (left) {
+        [self flattenTree:left lastNode:&leftLast];
+        root.left = nil; root.right = left;
+        *last = leftLast; //如果有左子树last更新为左子树的最后一个节点
+    }
+    if (right) {
+        [self flattenTree:right lastNode:&rightLast];
+        if (leftLast) { //左子树的最后一个节点不空, 那么它的right指向右子树的根节点
+            leftLast.right = right;
+        }
+        *last = rightLast; //如果有右子树, last更新为右子树的最后一个节点
+    }
+}
+
 #pragma mark test-code
 /*
  //找根节点到叶节点的全部路径
@@ -225,6 +254,64 @@
  printf("[%ld]", (long)node.val);
  }];
  printf("\n");
+ }
+ */
+
+/*
+ //最低公共祖先 (236)
+ TreeNode *a = [[TreeNode alloc] initWithValue:3];
+ TreeNode *b = [[TreeNode alloc] initWithValue:5];
+ TreeNode *c = [[TreeNode alloc] initWithValue:1];
+ TreeNode *d = [[TreeNode alloc] initWithValue:6];
+ TreeNode *e = [[TreeNode alloc] initWithValue:2];
+ TreeNode *f = [[TreeNode alloc] initWithValue:0];
+ TreeNode *x = [[TreeNode alloc] initWithValue:8];
+ TreeNode *y = [[TreeNode alloc] initWithValue:7];
+ TreeNode *z = [[TreeNode alloc] initWithValue:4];
+ a.left = b; a.right = c; b.left = d;
+ b.right = e; c.left = f; c.right = x;
+ e.left = y; e.right = z;
+ TreeNode *node1 = b, *node2 = f;
+ TreeNode *result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
+ printf("node1和node2最低公共节点: %ld\n", result.val);
+ node1 = d; node2 = z;
+ result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
+ printf("node1和node2最低公共节点: %ld\n", result.val);
+ node1 = b; node2 = y;
+ result = [bTreeGraphicTopics lowestCommonAncestor:a node1:node1 node2:node2];
+ printf("node1和node2最低公共节点: %ld\n", result.val);
+ printf("\n");
+ */
+
+/*
+ //将二叉树转化成单链表, left=nil, right指向下个节点, 单链表节点顺序是前序遍历的顺序 (114) 非就地转换
+ TreeNode *a = [[TreeNode alloc] initWithValue:3];
+ TreeNode *b = [[TreeNode alloc] initWithValue:5];
+ TreeNode *c = [[TreeNode alloc] initWithValue:1];
+ TreeNode *d = [[TreeNode alloc] initWithValue:6];
+ TreeNode *e = [[TreeNode alloc] initWithValue:2];
+ TreeNode *f = [[TreeNode alloc] initWithValue:0];
+ TreeNode *x = [[TreeNode alloc] initWithValue:8];
+ TreeNode *y = [[TreeNode alloc] initWithValue:7];
+ TreeNode *z = [[TreeNode alloc] initWithValue:4];
+ a.left = b; a.right = c; b.left = d;
+ b.right = e; c.left = f; c.right = x;
+ e.left = y; e.right = z;
+ TreeNode *root = a;
+ [bTreeGraphicTopics flattenTreeNotInPlace:root];
+ @try {
+ while (root) {
+ printf("[%ld]", root.val);
+ if (root.left) {
+ @throw e; //存在左子树抛出异常
+ }
+ root = root.right;
+ }
+ printf("\n");
+ } @catch (NSException *exception) {
+ printf("反转异常");
+ } @finally {
+ ;
  }
  */
 
