@@ -18,6 +18,7 @@
 #import "RecBatkDivConqTopics.h"
 #import "BTreeGraphicTopics.h"
 #import "TreeNode.h"
+#import "GraphNode.h"
 
 #define DebugNSLog(formater,...) NSLog((@"\n====================\n >>> class: %s\n\n >>> method: %s\n\n" " >>> code line: %d 行\n\n >>> message: "  formater @"\n==================="),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__)
 
@@ -42,49 +43,29 @@ int main(int argc, const char * argv[]) {
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         
-//        TreeNode *a = [[TreeNode alloc] initWithValue:3];
-//        TreeNode *b = [[TreeNode alloc] initWithValue:5];
-//        TreeNode *c = [[TreeNode alloc] initWithValue:1];
-//        TreeNode *d = [[TreeNode alloc] initWithValue:6];
-//        TreeNode *e = [[TreeNode alloc] initWithValue:2];
-//        TreeNode *f = [[TreeNode alloc] initWithValue:0];
-//        TreeNode *x = [[TreeNode alloc] initWithValue:8];
-//        TreeNode *y = [[TreeNode alloc] initWithValue:7];
-//        TreeNode *z = [[TreeNode alloc] initWithValue:4];
-//        a.left = b; a.right = c; b.left = d;
-//        b.right = e; c.left = f; c.right = x;
-//        e.left = y; e.right = z;
-//        TreeNode *root = a;
-        TreeNode *a = [[TreeNode alloc] initWithValue:1];
-        TreeNode *b = [[TreeNode alloc] initWithValue:2];
-        TreeNode *c = [[TreeNode alloc] initWithValue:5];
-        TreeNode *d = [[TreeNode alloc] initWithValue:3];
-        TreeNode *e = [[TreeNode alloc] initWithValue:4];
-        TreeNode *f = [[TreeNode alloc] initWithValue:6];
-        a.left = b; a.right = c;
-        b.left = d; b.right = e;
-        c.right = f;
-        TreeNode *root = a;
-        NSMutableArray<NSNumber *> *result = [bTreeGraphicTopics rightSideView:root];
-        [result enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            printf("[%ld]", [obj integerValue]);
-        }];
-        printf("\n");
+        NSMutableArray<GraphNode *> *nodesArray = [[NSMutableArray alloc] init];
+        for (NSUInteger i = 0; i < 5; i++) { //构造节点
+            GraphNode *graphNode = [[GraphNode alloc] initWithValue:i];
+            [nodesArray addObject:graphNode];
+        }
+        //构造有向边
+        [nodesArray[0].neighbors addObject:nodesArray[2]];
+        [nodesArray[0].neighbors addObject:nodesArray[4]];
+        [nodesArray[1].neighbors addObject:nodesArray[0]];
+        [nodesArray[1].neighbors addObject:nodesArray[2]];
+        [nodesArray[2].neighbors addObject:nodesArray[3]];
+        [nodesArray[3].neighbors addObject:nodesArray[4]];
+        [nodesArray[4].neighbors addObject:nodesArray[3]];
         
-//        @try {
-//            while (root) {
-//                printf("[%ld]", root.val);
-//                if (root.left) {
-//                    @throw e; //存在左子树抛出异常
-//                }
-//                root = root.right;
-//            }
-//            printf("\n");
-//        } @catch (NSException *exception) {
-//            printf("反转异常");
-//        } @finally {
-//            ;
-//        }
+        printf("Graph: \n");
+        [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("%ld:", node.val);
+            [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                printf(" %ld ", obj.val);
+            }];
+            printf("\n");
+        }];
+
     }
     return 0;
 }

@@ -19,6 +19,7 @@
 		26BBF89B238F740B0098B376 /* RecBatkDivConqTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBF89A238F740B0098B376 /* RecBatkDivConqTopics.m */; };
 		26BBFB13239676CB0098B376 /* BTreeGraphicTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */; };
 		26BBFB16239677000098B376 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB15239677000098B376 /* TreeNode.m */; };
+		26BBFB192399587D0098B376 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB182399587D0098B376 /* GraphNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +59,8 @@
 		26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTreeGraphicTopics.m; sourceTree = "<group>"; };
 		26BBFB14239677000098B376 /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
 		26BBFB15239677000098B376 /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
+		26BBFB172399587D0098B376 /* GraphNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphNode.h; sourceTree = "<group>"; };
+		26BBFB182399587D0098B376 /* GraphNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				26BA70252359E9610070426A /* Queue.m */,
 				26BBFB14239677000098B376 /* TreeNode.h */,
 				26BBFB15239677000098B376 /* TreeNode.m */,
+				26BBFB172399587D0098B376 /* GraphNode.h */,
+				26BBFB182399587D0098B376 /* GraphNode.m */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				261B3C68234EDECB001E6F93 /* StringTopics.m in Sources */,
+				26BBFB192399587D0098B376 /* GraphNode.m in Sources */,
 				2677CEA5234AB49F00FC2463 /* Stack.m in Sources */,
 				2677CD562344FF1900FC2463 /* main.m in Sources */,
 				2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */,
