@@ -274,7 +274,25 @@
     }];
 }
 
-
+- (void)BFSGraph:(NSArray<GraphNode *> *)graph {
+    if (!graph) {
+        return;
+    }
+    [graph enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
+        printf("From vertex %ld: ", idx);
+        if (!node.isVisited) {
+            printf("[%ld]", node.val);
+            node.isVisited = YES;
+        }
+        [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (!obj.isVisited) {
+                printf("[%ld]", obj.val);
+                obj.isVisited = YES;
+            }
+        }];
+        printf("\n");
+    }];
+}
 
 #pragma mark test-code
 /*

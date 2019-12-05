@@ -52,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)DFSGraph:(NSArray<GraphNode *> *)graph;
 - (void)DFSGraphPrint:(GraphNode *)node;
 
+//广度遍历有向图
+- (void)BFSGraph:(NSArray<GraphNode *> *)graph;
+
 @end
 
 //记录节点和所在层数

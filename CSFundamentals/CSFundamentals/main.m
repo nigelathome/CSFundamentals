@@ -57,7 +57,8 @@ int main(int argc, const char * argv[]) {
         [nodesArray[3].neighbors addObject:nodesArray[4]];
         [nodesArray[4].neighbors addObject:nodesArray[3]];
         
-        [bTreeGraphicTopics DFSGraph:nodesArray];
+//        [bTreeGraphicTopics DFSGraph:nodesArray];
+        [bTreeGraphicTopics BFSGraph:nodesArray];
         
 //        printf("Graph: \n");
 //        [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
