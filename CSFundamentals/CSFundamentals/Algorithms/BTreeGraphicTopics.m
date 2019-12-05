@@ -212,6 +212,39 @@
     }
     printf("\n");
 }
+
+- (NSMutableArray<NSNumber *> *)rightSideView:(TreeNode *)root {
+    if (!root) {
+        return nil;
+    }
+    NSMutableArray<NSNumber *> *result = [[NSMutableArray alloc] init];
+    Queue *q = [[Queue alloc] init];
+    TreeNodePair *treeNodePair = [[TreeNodePair alloc] initWithNode:root andDepth:0];
+    [q push:treeNodePair];
+    while (![q empty]) {
+        TreeNodePair *current = (TreeNodePair *)[q front];
+        [q pop];
+        NSUInteger depth = current.depth;
+        NSUInteger value = current.node.val;
+        //通过result的个数判断每层的最后一个节点
+        if ([result count] <= depth) {
+            [result addObject:[NSNumber numberWithInteger:current.node.val]];
+        } else {
+            result[depth] = [NSNumber numberWithInteger:current.node.val]; //更新result[depth]的值为当前节点
+        }
+        if (current.node.left) {
+            TreeNodePair *leftPair = [[TreeNodePair alloc] initWithNode:current.node.left andDepth:depth + 1];
+            [q push:leftPair];
+
+        }
+        if (current.node.right) {
+            TreeNodePair *rightPair = [[TreeNodePair alloc] initWithNode:current.node.right andDepth:depth + 1];
+            [q push:rightPair];
+        }
+    }
+    return result;
+}
+
 #pragma mark test-code
 /*
  //找根节点到叶节点的全部路径
@@ -335,4 +368,36 @@
  }
  */
 
+/*
+ //层次打印二叉树
+ TreeNode *a = [[TreeNode alloc] initWithValue:3];
+ TreeNode *b = [[TreeNode alloc] initWithValue:5];
+ TreeNode *c = [[TreeNode alloc] initWithValue:1];
+ TreeNode *d = [[TreeNode alloc] initWithValue:6];
+ TreeNode *e = [[TreeNode alloc] initWithValue:2];
+ TreeNode *f = [[TreeNode alloc] initWithValue:0];
+ TreeNode *x = [[TreeNode alloc] initWithValue:8];
+ TreeNode *y = [[TreeNode alloc] initWithValue:7];
+ TreeNode *z = [[TreeNode alloc] initWithValue:4];
+ a.left = b; a.right = c; b.left = d;
+ b.right = e; c.left = f; c.right = x;
+ e.left = y; e.right = z;
+ TreeNode *root = a;
+ [bTreeGraphicTopics BFSPrint:root];
+ */
+
 @end
+
+@implementation TreeNodePair
+
+- (instancetype)initWithNode:(TreeNode *)node andDepth:(NSUInteger)depth {
+    self = [super init];
+    if (self) {
+        _node = node;
+        _depth = depth;
+    }
+    return self;
+}
+
+@end
+

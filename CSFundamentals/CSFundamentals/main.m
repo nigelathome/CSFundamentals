@@ -42,20 +42,35 @@ int main(int argc, const char * argv[]) {
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         
-        TreeNode *a = [[TreeNode alloc] initWithValue:3];
-        TreeNode *b = [[TreeNode alloc] initWithValue:5];
-        TreeNode *c = [[TreeNode alloc] initWithValue:1];
-        TreeNode *d = [[TreeNode alloc] initWithValue:6];
-        TreeNode *e = [[TreeNode alloc] initWithValue:2];
-        TreeNode *f = [[TreeNode alloc] initWithValue:0];
-        TreeNode *x = [[TreeNode alloc] initWithValue:8];
-        TreeNode *y = [[TreeNode alloc] initWithValue:7];
-        TreeNode *z = [[TreeNode alloc] initWithValue:4];
-        a.left = b; a.right = c; b.left = d;
-        b.right = e; c.left = f; c.right = x;
-        e.left = y; e.right = z;
+//        TreeNode *a = [[TreeNode alloc] initWithValue:3];
+//        TreeNode *b = [[TreeNode alloc] initWithValue:5];
+//        TreeNode *c = [[TreeNode alloc] initWithValue:1];
+//        TreeNode *d = [[TreeNode alloc] initWithValue:6];
+//        TreeNode *e = [[TreeNode alloc] initWithValue:2];
+//        TreeNode *f = [[TreeNode alloc] initWithValue:0];
+//        TreeNode *x = [[TreeNode alloc] initWithValue:8];
+//        TreeNode *y = [[TreeNode alloc] initWithValue:7];
+//        TreeNode *z = [[TreeNode alloc] initWithValue:4];
+//        a.left = b; a.right = c; b.left = d;
+//        b.right = e; c.left = f; c.right = x;
+//        e.left = y; e.right = z;
+//        TreeNode *root = a;
+        TreeNode *a = [[TreeNode alloc] initWithValue:1];
+        TreeNode *b = [[TreeNode alloc] initWithValue:2];
+        TreeNode *c = [[TreeNode alloc] initWithValue:5];
+        TreeNode *d = [[TreeNode alloc] initWithValue:3];
+        TreeNode *e = [[TreeNode alloc] initWithValue:4];
+        TreeNode *f = [[TreeNode alloc] initWithValue:6];
+        a.left = b; a.right = c;
+        b.left = d; b.right = e;
+        c.right = f;
         TreeNode *root = a;
-        [bTreeGraphicTopics BFSPrint:root];
+        NSMutableArray<NSNumber *> *result = [bTreeGraphicTopics rightSideView:root];
+        [result enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("[%ld]", [obj integerValue]);
+        }];
+        printf("\n");
+        
 //        @try {
 //            while (root) {
 //                printf("[%ld]", root.val);

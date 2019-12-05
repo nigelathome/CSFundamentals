@@ -44,6 +44,19 @@ NS_ASSUME_NONNULL_BEGIN
 //层次打印二叉树
 - (void)BFSPrint:(TreeNode *)root;
 
+//侧面观察二叉树 (199)
+- (NSMutableArray<NSNumber *> *)rightSideView:(TreeNode *)root;
+
+@end
+
+//记录节点和所在层数
+@interface TreeNodePair : NSObject
+
+@property (nonatomic, nullable) TreeNode *node;
+@property (nonatomic, assign) NSUInteger depth;
+
+- (instancetype)initWithNode:(TreeNode *)node andDepth:(NSUInteger)depth;
+
 @end
 
 NS_ASSUME_NONNULL_END
