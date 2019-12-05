@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, nullable) NSMutableArray<GraphNode *> *neighbors; //存储相邻的节点, 方向A->B
 @property (nonatomic, assign) NSUInteger val;
+@property (nonatomic, assign) BOOL isVisited;
 
 - (instancetype)initWithValue:(NSUInteger)value;
 

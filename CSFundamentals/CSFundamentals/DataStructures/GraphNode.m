@@ -15,6 +15,7 @@
     if (self = [super init]) {
         _val = value;
         _neighbors = [[NSMutableArray alloc] init];
+        _isVisited = NO;
     }
     return self;
 }

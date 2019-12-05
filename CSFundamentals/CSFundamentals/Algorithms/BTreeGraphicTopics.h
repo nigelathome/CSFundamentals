@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class TreeNode;
+@class GraphNode;
 
 @interface BTreeGraphicTopics : NSObject
 
@@ -42,10 +43,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)flattenTreeNotInPlace:(TreeNode *)root;
 
 //层次打印二叉树
-- (void)BFSPrint:(TreeNode *)root;
+- (void)BFSTreePrint:(TreeNode *)root;
 
 //侧面观察二叉树 (199)
 - (NSMutableArray<NSNumber *> *)rightSideView:(TreeNode *)root;
+
+//深度遍历有向图
+- (void)DFSGraph:(NSArray<GraphNode *> *)graph;
+- (void)DFSGraphPrint:(GraphNode *)node;
 
 @end
 

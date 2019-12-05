@@ -194,7 +194,7 @@
     }
 }
 
-- (void)BFSPrint:(TreeNode *)root {
+- (void)BFSTreePrint:(TreeNode *)root {
     if (!root) {
         return;
     }
@@ -245,6 +245,36 @@
     }
     return result;
 }
+
+- (void)DFSGraph:(NSArray<GraphNode *> *)graph {
+    if (!graph) {
+        return;
+    }
+    for (NSUInteger i = 0; i < [graph count]; i++) {
+        if (!graph[i].isVisited) {
+            printf("From vertex %ld: ", i);
+            [self DFSGraphPrint:graph[i]];
+            printf("\n");
+        }
+    }
+    printf("\n");
+}
+
+- (void)DFSGraphPrint:(GraphNode *)node {
+    if (!node && node.isVisited) {
+        return;
+    }
+    node.isVisited = YES;
+    printf("[%ld]", node.val);
+    [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.isVisited) {
+            [self DFSGraphPrint:obj];
+            *stop = YES;
+        }
+    }];
+}
+
+
 
 #pragma mark test-code
 /*

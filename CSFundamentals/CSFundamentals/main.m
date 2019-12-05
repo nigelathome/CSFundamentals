@@ -57,17 +57,16 @@ int main(int argc, const char * argv[]) {
         [nodesArray[3].neighbors addObject:nodesArray[4]];
         [nodesArray[4].neighbors addObject:nodesArray[3]];
         
-        printf("Graph: \n");
-        [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
-            printf("%ld:", node.val);
-            [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                printf(" %ld ", obj.val);
-            }];
-            printf("\n");
-        }];
-
+        [bTreeGraphicTopics DFSGraph:nodesArray];
+        
+//        printf("Graph: \n");
+//        [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
+//            printf("%ld:", node.val);
+//            [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                printf(" %ld ", obj.val);
+//            }];
+//            printf("\n");
+//        }];
     }
     return 0;
 }
-
-
