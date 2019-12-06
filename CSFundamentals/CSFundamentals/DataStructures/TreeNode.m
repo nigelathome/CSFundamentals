@@ -20,3 +20,16 @@
 }
 
 @end
+
+@implementation TreeNodePair
+
+- (instancetype)initWithNode:(TreeNode *)node andDepth:(NSUInteger)depth {
+    self = [super init];
+    if (self) {
+        _node = node;
+        _depth = depth;
+    }
+    return self;
+}
+
+@end

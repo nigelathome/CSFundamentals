@@ -294,6 +294,49 @@
     }];
 }
 
+- (BOOL)canFinish:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites {
+    __block BOOL result = YES;
+    NSMutableArray<Course *> *courseArray = [[NSMutableArray alloc] initWithCapacity:numCourses];
+    for (NSUInteger i = 0; i < numCourses; i++) { //构造课程节点
+        [courseArray addObject:[[Course alloc] initWithValue:i]];
+    }
+    
+    //生成相互依赖课程
+    [prerequisites enumerateObjectsUsingBlock:^(CoursePair * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        //依赖的课程作为根节点, 课程作为neighbor中的元素
+        [courseArray[obj.dependency].neighbors addObject:courseArray[obj.course]];
+    }];
+    
+    //深度遍历课程安排图, 如果出现环则课程安排不能完成
+    [courseArray enumerateObjectsUsingBlock:^(Course * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.visitStatus == -1) {
+            result = [self DFSCourseSchedule:obj];
+            if (!result) {
+                *stop = YES;
+            }
+        }
+    }];
+    return result;
+}
+
+- (BOOL)DFSCourseSchedule:(Course *)course {
+    course.visitStatus = 0;
+    BOOL result = YES; //YES代表没有环 NO则有环
+    //进行DFS, 如果当前节点在递归过程中重复被访问, 说明图中有环, 则不能完成课程学习
+    for (Course *co in course.neighbors) {
+        if (co.visitStatus == -1) {
+            result = [self DFSCourseSchedule:co]; //没有访问过的节点，递归进行访问
+            if (result == NO) {
+                return NO;
+            }
+        } else if (co.visitStatus == 0) { //已经在堆栈中, 即正在递归访问中的节点再次被访问到, 则有环
+            return NO;
+        }
+    }
+    course.visitStatus = 1;
+    return YES;
+}
+
 #pragma mark test-code
 /*
  //找根节点到叶节点的全部路径
@@ -466,18 +509,23 @@
  }];
  printf("\n");
  */
+
+/*
+ //广度遍历有向图
+ NSMutableArray<GraphNode *> *nodesArray = [[NSMutableArray alloc] init];
+ for (NSUInteger i = 0; i < 5; i++) { //构造节点
+ GraphNode *graphNode = [[GraphNode alloc] initWithValue:i];
+ [nodesArray addObject:graphNode];
+ }
+ //构造有向边
+ [nodesArray[0].neighbors addObject:nodesArray[2]];
+ [nodesArray[0].neighbors addObject:nodesArray[4]];
+ [nodesArray[1].neighbors addObject:nodesArray[0]];
+ [nodesArray[1].neighbors addObject:nodesArray[2]];
+ [nodesArray[2].neighbors addObject:nodesArray[3]];
+ [nodesArray[3].neighbors addObject:nodesArray[4]];
+ [nodesArray[4].neighbors addObject:nodesArray[3]];
+ 
+ [bTreeGraphicTopics BFSGraph:nodesArray];
+ */
 @end
-
-@implementation TreeNodePair
-
-- (instancetype)initWithNode:(TreeNode *)node andDepth:(NSUInteger)depth {
-    self = [super init];
-    if (self) {
-        _node = node;
-        _depth = depth;
-    }
-    return self;
-}
-
-@end
-

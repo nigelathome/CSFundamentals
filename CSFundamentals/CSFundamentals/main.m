@@ -43,31 +43,13 @@ int main(int argc, const char * argv[]) {
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         
-        NSMutableArray<GraphNode *> *nodesArray = [[NSMutableArray alloc] init];
-        for (NSUInteger i = 0; i < 5; i++) { //构造节点
-            GraphNode *graphNode = [[GraphNode alloc] initWithValue:i];
-            [nodesArray addObject:graphNode];
-        }
-        //构造有向边
-        [nodesArray[0].neighbors addObject:nodesArray[2]];
-        [nodesArray[0].neighbors addObject:nodesArray[4]];
-        [nodesArray[1].neighbors addObject:nodesArray[0]];
-        [nodesArray[1].neighbors addObject:nodesArray[2]];
-        [nodesArray[2].neighbors addObject:nodesArray[3]];
-        [nodesArray[3].neighbors addObject:nodesArray[4]];
-        [nodesArray[4].neighbors addObject:nodesArray[3]];
-        
-//        [bTreeGraphicTopics DFSGraph:nodesArray];
-        [bTreeGraphicTopics BFSGraph:nodesArray];
-        
-//        printf("Graph: \n");
-//        [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
-//            printf("%ld:", node.val);
-//            [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                printf(" %ld ", obj.val);
-//            }];
-//            printf("\n");
-//        }];
+        CoursePair *a = [[CoursePair alloc] initWithCourse:1 dependency:0];
+        CoursePair *b = [[CoursePair alloc] initWithCourse:2 dependency:0];
+        CoursePair *c = [[CoursePair alloc] initWithCourse:3 dependency:1];
+        CoursePair *d = [[CoursePair alloc] initWithCourse:3 dependency:2];
+        NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
+        BOOL result = [bTreeGraphicTopics canFinish:4 prerequisites:prerequisites];
+        NSLog(@"%@", result ? @"可以完成" : @"不可以完成");
     }
     return 0;
 }

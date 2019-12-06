@@ -22,4 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+//记录节点和所在层数
+@interface TreeNodePair : NSObject
+
+@property (nonatomic, nullable) TreeNode *node;
+@property (nonatomic, assign) NSUInteger depth;
+
+- (instancetype)initWithNode:(TreeNode *)node andDepth:(NSUInteger)depth;
+
+@end
+
 NS_ASSUME_NONNULL_END

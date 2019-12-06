@@ -21,3 +21,29 @@
 }
 
 @end
+
+@implementation CoursePair
+
+- (instancetype)initWithCourse:(NSUInteger)course dependency:(NSUInteger)dependency {
+    self = [super init];
+    if (self) {
+        _course = course;
+        _dependency = dependency;
+    }
+    return self;
+}
+
+@end
+
+@implementation Course
+
+- (instancetype)initWithValue:(NSUInteger)value {
+    self = [super initWithValue:value];
+    if (self) {
+        _visitStatus = -1;
+    }
+    return self;
+}
+
+@end
+
