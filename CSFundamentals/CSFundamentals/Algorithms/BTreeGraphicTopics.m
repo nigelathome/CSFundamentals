@@ -252,9 +252,7 @@
     }
     for (NSUInteger i = 0; i < [graph count]; i++) {
         if (!graph[i].isVisited) {
-            printf("From vertex %ld: ", i);
             [self DFSGraphPrint:graph[i]];
-            printf("\n");
         }
     }
     printf("\n");
@@ -278,20 +276,32 @@
     if (!graph) {
         return;
     }
-    [graph enumerateObjectsUsingBlock:^(GraphNode * _Nonnull node, NSUInteger idx, BOOL * _Nonnull stop) {
-        printf("From vertex %ld: ", idx);
-        if (!node.isVisited) {
-            printf("[%ld]", node.val);
-            node.isVisited = YES;
+    [graph enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (!obj.isVisited) {
+            obj.isVisited = YES;
+            printf("[%ld]", obj.val);
+            [self BFSGraphPrint:obj];
         }
-        [node.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    }];
+    printf("\n");
+}
+     
+- (void)BFSGraphPrint:(GraphNode *)node {
+    Queue *q = [[Queue alloc] init];
+    [q push:node];
+    while (![q empty]) {
+        GraphNode *current = [q front];
+        [q pop];
+        if (!current.isVisited) {
+            printf("[%ld]", current.val);
+            current.isVisited = YES;
+        }
+        [current.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (!obj.isVisited) {
-                printf("[%ld]", obj.val);
-                obj.isVisited = YES;
+                [q push:obj];
             }
         }];
-        printf("\n");
-    }];
+    }
 }
 
 - (BOOL)canFinish:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites {
@@ -588,6 +598,24 @@
  NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
  BOOL result = [bTreeGraphicTopics canFinish:4 prerequisites:prerequisites];
  NSLog(@"%@", result ? @"可以完成" : @"不可以完成");
+ */
+
+/*
+ //课程安排 (207) BFS
+//        CoursePair *a = [[CoursePair alloc] initWithCourse:1 dependency:0];
+//        CoursePair *b = [[CoursePair alloc] initWithCourse:2 dependency:0];
+//        CoursePair *c = [[CoursePair alloc] initWithCourse:3 dependency:1];
+//        CoursePair *d = [[CoursePair alloc] initWithCourse:3 dependency:2];
+//        NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
+//        BOOL result = [bTreeGraphicTopics canFinishBFS:4 prerequisites:prerequisites];
+
+CoursePair *a = [[CoursePair alloc] initWithCourse:1 dependency:0];
+CoursePair *b = [[CoursePair alloc] initWithCourse:3 dependency:1];
+CoursePair *c = [[CoursePair alloc] initWithCourse:2 dependency:3];
+CoursePair *d = [[CoursePair alloc] initWithCourse:0 dependency:2];
+NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
+BOOL result = [bTreeGraphicTopics canFinishBFS:5 prerequisites:prerequisites];
+NSLog(@"%@", result ? @"可以完成" : @"不可以完成");
  */
 
 @end

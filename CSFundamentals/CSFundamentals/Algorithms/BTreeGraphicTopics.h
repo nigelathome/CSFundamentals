@@ -49,17 +49,20 @@ NS_ASSUME_NONNULL_BEGIN
 //侧面观察二叉树 (199)
 - (NSMutableArray<NSNumber *> *)rightSideView:(TreeNode *)root;
 
-//深度遍历有向图
+//深度遍历有向图 使用递归的方法
 - (void)DFSGraph:(NSArray<GraphNode *> *)graph;
 - (void)DFSGraphPrint:(GraphNode *)node;
 
-//广度遍历有向图
+//广度遍历有向图 使用队列的方法
 - (void)BFSGraph:(NSArray<GraphNode *> *)graph;
+- (void)BFSGraphPrint:(GraphNode *)node;
 
-//课程安排 (207)
+//课程安排 (207) DFS方法
 - (BOOL)canFinish:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites;
-- (BOOL)DFSCourseSchedule:(GraphNode *)graphNode;//DFS方法
-- (BOOL)canFinishBFS:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites; //BFS方法 拓扑排序
+- (BOOL)DFSCourseSchedule:(GraphNode *)graphNode;
+
+//课程安排 (207) BFS方法 拓扑排序
+- (BOOL)canFinishBFS:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites;
 
 @end
 
