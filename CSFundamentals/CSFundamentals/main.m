@@ -19,6 +19,7 @@
 #import "BTreeGraphicTopics.h"
 #import "TreeNode.h"
 #import "GraphNode.h"
+#import "BinarySearchTopics.h"
 
 #define DebugNSLog(formater,...) NSLog((@"\n====================\n >>> class: %s\n\n >>> method: %s\n\n" " >>> code line: %d 行\n\n >>> message: "  formater @"\n==================="),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__)
 
@@ -42,27 +43,15 @@ int main(int argc, const char * argv[]) {
         GreedyTopics *greedyTopics = [[GreedyTopics alloc] init];
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
+        BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         
-        NSMutableArray<GraphNode *> *nodesArray = [[NSMutableArray alloc] init];
-        for (NSUInteger i = 0; i < 5; i++) { //构造节点
-            GraphNode *graphNode = [[GraphNode alloc] initWithValue:i];
-            [nodesArray addObject:graphNode];
-        }
-        //构造有向边
-        [nodesArray[0].neighbors addObject:nodesArray[2]];
-        [nodesArray[0].neighbors addObject:nodesArray[4]];
-        [nodesArray[1].neighbors addObject:nodesArray[0]];
-        [nodesArray[1].neighbors addObject:nodesArray[2]];
-        [nodesArray[2].neighbors addObject:nodesArray[3]];
-        [nodesArray[3].neighbors addObject:nodesArray[4]];
-        [nodesArray[4].neighbors addObject:nodesArray[3]];
-        printf("广度优先搜索:\n");
-        [bTreeGraphicTopics BFSGraph:nodesArray];
-        [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            obj.isVisited = NO;
-        }];
-        printf("深度优先搜索:\n");
-        [bTreeGraphicTopics DFSGraph:nodesArray];
+        NSArray<NSNumber *> *A = @[@(-1), @2, @5, @20, @90, @100, @207, @800];
+        NSArray<NSNumber *> *B = @[@50, @90, @3, @(-1), @207, @800];
+        NSInteger target = 202;
+        BOOL result = [binarySearchTopics binarySearch:A begin:0 end:[A count] - 1 target:target];
+        NSLog(@"%@ %ld", result ? @"找到" : @"没有找到", target);
+        result = [binarySearchTopics binarySearch:A target:target];
+        NSLog(@"%@ %ld", result ? @"找到" : @"没有找到", target);
     }
     return 0;
 }

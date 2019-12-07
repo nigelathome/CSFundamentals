@@ -20,6 +20,7 @@
 		26BBFB13239676CB0098B376 /* BTreeGraphicTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */; };
 		26BBFB16239677000098B376 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB15239677000098B376 /* TreeNode.m */; };
 		26BBFB192399587D0098B376 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB182399587D0098B376 /* GraphNode.m */; };
+		26BBFB1C239B55780098B376 /* BinarySearchTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB1B239B55780098B376 /* BinarySearchTopics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +62,8 @@
 		26BBFB15239677000098B376 /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 		26BBFB172399587D0098B376 /* GraphNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphNode.h; sourceTree = "<group>"; };
 		26BBFB182399587D0098B376 /* GraphNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
+		26BBFB1A239B55780098B376 /* BinarySearchTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinarySearchTopics.h; sourceTree = "<group>"; };
+		26BBFB1B239B55780098B376 /* BinarySearchTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinarySearchTopics.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				26BBF89A238F740B0098B376 /* RecBatkDivConqTopics.m */,
 				26BBFB11239676CB0098B376 /* BTreeGraphicTopics.h */,
 				26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */,
+				26BBFB1A239B55780098B376 /* BinarySearchTopics.h */,
+				26BBFB1B239B55780098B376 /* BinarySearchTopics.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */,
 				2677CEA2234AB1C400FC2463 /* StackQueueHeapTopics.m in Sources */,
 				2698C5802369A84900AC5459 /* GreedyTopics.m in Sources */,
+				26BBFB1C239B55780098B376 /* BinarySearchTopics.m in Sources */,
 				2677CD6A2345F51200FC2463 /* DPTopics.m in Sources */,
 				26BBFB13239676CB0098B376 /* BTreeGraphicTopics.m in Sources */,
 				26BA70262359E9610070426A /* Queue.m in Sources */,

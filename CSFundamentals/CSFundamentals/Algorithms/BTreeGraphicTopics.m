@@ -618,4 +618,30 @@ BOOL result = [bTreeGraphicTopics canFinishBFS:5 prerequisites:prerequisites];
 NSLog(@"%@", result ? @"可以完成" : @"不可以完成");
  */
 
+/*
+ //graph DFS BFS
+ NSMutableArray<GraphNode *> *nodesArray = [[NSMutableArray alloc] init];
+ for (NSUInteger i = 0; i < 5; i++) { //构造节点
+ GraphNode *graphNode = [[GraphNode alloc] initWithValue:i];
+ [nodesArray addObject:graphNode];
+ }
+ //构造有向边
+ [nodesArray[0].neighbors addObject:nodesArray[2]];
+ [nodesArray[0].neighbors addObject:nodesArray[4]];
+ [nodesArray[1].neighbors addObject:nodesArray[0]];
+ [nodesArray[1].neighbors addObject:nodesArray[2]];
+ [nodesArray[2].neighbors addObject:nodesArray[3]];
+ [nodesArray[3].neighbors addObject:nodesArray[4]];
+ [nodesArray[4].neighbors addObject:nodesArray[3]];
+ printf("广度优先搜索:\n");
+ [bTreeGraphicTopics BFSGraph:nodesArray];
+ [nodesArray enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ obj.isVisited = NO;
+ }];
+ printf("深度优先搜索:\n");
+ [bTreeGraphicTopics DFSGraph:nodesArray];
+ }
+
+ */
+
 @end
