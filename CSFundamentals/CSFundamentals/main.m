@@ -45,12 +45,12 @@ int main(int argc, const char * argv[]) {
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         
-//        NSArray<NSNumber *> *A = @[@(-1), @2, @5, @20, @90, @100, @207, @800];
-        NSArray<NSNumber *> *A = @[@1, @3, @5, @6];
-//        NSInteger target = 2;
-        NSInteger target = 1;
-        NSInteger index = [binarySearchTopics searchInsert:A target:target];
-        NSLog(@"插入位置: %ld", index);
+        NSArray<NSNumber *> *nums = @[@5, @7, @7, @8, @8, @8, @8, @10];
+        for (NSUInteger i = 0; i < 12; i++) {
+            NSMutableArray<NSNumber *> *range = [binarySearchTopics searchRange:nums target:i];
+            printf("%ld: [%ld, %ld]\n", i, [range[0] integerValue], [range[1] integerValue]);
+        }
+        
     }
     return 0;
 }

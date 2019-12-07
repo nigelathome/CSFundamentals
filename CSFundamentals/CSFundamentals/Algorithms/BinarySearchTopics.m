@@ -68,6 +68,53 @@
     return index;
 }
 
+- (NSMutableArray<NSNumber *> *)searchRange:(NSArray<NSNumber *> *)nums target:(NSInteger)target {
+    NSMutableArray<NSNumber *> *range = [[NSMutableArray alloc] init];
+    NSUInteger leftRange = [self searchLeftRange:nums target:target];
+    NSUInteger rightRange = [self searchRightRange:nums target:target];
+    [range addObject:[NSNumber numberWithInteger:leftRange]];
+    [range addObject:[NSNumber numberWithInteger:rightRange]];
+    return range;
+}
+
+- (NSUInteger)searchLeftRange:(NSArray<NSNumber *> *)sortArray target:(NSInteger)target {
+    NSInteger begin = 0, end = [sortArray count] - 1;
+    NSUInteger range = -1;
+    while (begin <= end) {
+        NSInteger mid = (begin + end) / 2;
+        if (target == [sortArray[mid] integerValue]) {
+            if (mid == 0 || target > [sortArray[mid - 1] integerValue] ) {
+                range = mid;
+            }
+            end = mid - 1;
+        } else if (target > [sortArray[mid] integerValue]) {
+            begin = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+    return range;
+}
+
+- (NSUInteger)searchRightRange:(NSArray<NSNumber *> *)sortArray target:(NSInteger)target {
+    NSInteger begin = 0, end = [sortArray count] - 1;
+    NSUInteger range = -1;
+    while (begin <= end) {
+        NSInteger mid = (begin + end) / 2;
+        if (target == [sortArray[mid] integerValue]) {
+            if (mid == [sortArray count] - 1 || target < [sortArray[mid + 1] integerValue] ) {
+                range = mid;
+            }
+            begin = mid + 1;
+        } else if (target > [sortArray[mid] integerValue]) {
+            begin = mid + 1;
+        } else {
+            end = mid - 1;
+        }
+    }
+    return range;
+}
+
 #pragma mark test-code
 /*
  //二分查找
@@ -80,6 +127,12 @@
  NSLog(@"%@ %ld", result ? @"找到" : @"没有找到", target);
  result = [binarySearchTopics binarySearch:A target:target];
  NSLog(@"%@ %ld", result ? @"找到" : @"没有找到", target);
+ 
+ NSArray<NSNumber *> *test = @[@1, @3, @5, @6];
+ for (NSUInteger i = 0; i < 8; i++) {
+ NSInteger index = [binarySearchTopics searchInsert:test target:i];
+ printf("i = %ld index = %ld\n", i, index);
+ }
  */
 
 @end

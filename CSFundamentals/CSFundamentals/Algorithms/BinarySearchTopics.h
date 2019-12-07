@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 //查找target的插入位置 (37)
 - (NSInteger)searchInsert:(NSArray<NSNumber *> *)sortArray target:(NSInteger)target;
 
+//区间查找 (34)
+- (NSMutableArray<NSNumber *> *)searchRange:(NSArray<NSNumber *> *)nums target:(NSInteger)target;
+
 @end
 
 NS_ASSUME_NONNULL_END
