@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Course : GraphNode
 
 @property (nonatomic, assign) NSInteger visitStatus; //-1未访问 0正在访问 1已经访问
+@property (nonatomic, assign) NSInteger degree; //节点人入度
 
 - (instancetype)initWithValue:(NSUInteger)value;
 

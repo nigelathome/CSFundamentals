@@ -41,6 +41,7 @@
     self = [super initWithValue:value];
     if (self) {
         _visitStatus = -1;
+        _degree = 0;
     }
     return self;
 }

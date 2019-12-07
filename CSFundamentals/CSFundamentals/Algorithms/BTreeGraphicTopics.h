@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class TreeNode;
 @class GraphNode;
+@class CoursePair;
 
 @interface BTreeGraphicTopics : NSObject
 
@@ -56,8 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)BFSGraph:(NSArray<GraphNode *> *)graph;
 
 //课程安排 (207)
-- (BOOL)canFinish:(NSUInteger)numCourses prerequisites:(NSArray *)prerequisites;
+- (BOOL)canFinish:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites;
 - (BOOL)DFSCourseSchedule:(GraphNode *)graphNode;//DFS方法
+- (BOOL)canFinishBFS:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites; //BFS方法 拓扑排序
 
 @end
 

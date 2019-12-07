@@ -43,12 +43,19 @@ int main(int argc, const char * argv[]) {
         RecBatkDivConqTopics *recBatkDivConqTopics = [[RecBatkDivConqTopics alloc] init];
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         
+//        CoursePair *a = [[CoursePair alloc] initWithCourse:1 dependency:0];
+//        CoursePair *b = [[CoursePair alloc] initWithCourse:2 dependency:0];
+//        CoursePair *c = [[CoursePair alloc] initWithCourse:3 dependency:1];
+//        CoursePair *d = [[CoursePair alloc] initWithCourse:3 dependency:2];
+//        NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
+//        BOOL result = [bTreeGraphicTopics canFinishBFS:4 prerequisites:prerequisites];
+
         CoursePair *a = [[CoursePair alloc] initWithCourse:1 dependency:0];
-        CoursePair *b = [[CoursePair alloc] initWithCourse:2 dependency:0];
-        CoursePair *c = [[CoursePair alloc] initWithCourse:3 dependency:1];
-        CoursePair *d = [[CoursePair alloc] initWithCourse:3 dependency:2];
+        CoursePair *b = [[CoursePair alloc] initWithCourse:3 dependency:1];
+        CoursePair *c = [[CoursePair alloc] initWithCourse:2 dependency:3];
+        CoursePair *d = [[CoursePair alloc] initWithCourse:0 dependency:2];
         NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
-        BOOL result = [bTreeGraphicTopics canFinish:4 prerequisites:prerequisites];
+        BOOL result = [bTreeGraphicTopics canFinishBFS:5 prerequisites:prerequisites];
         NSLog(@"%@", result ? @"可以完成" : @"不可以完成");
     }
     return 0;

@@ -320,8 +320,9 @@
 }
 
 - (BOOL)DFSCourseSchedule:(Course *)course {
-    course.visitStatus = 0;
+    course.visitStatus = 0; //更新该节点的访问状态是正在访问
     BOOL result = YES; //YES代表没有环 NO则有环
+    
     //进行DFS, 如果当前节点在递归过程中重复被访问, 说明图中有环, 则不能完成课程学习
     for (Course *co in course.neighbors) {
         if (co.visitStatus == -1) {
@@ -333,8 +334,57 @@
             return NO;
         }
     }
-    course.visitStatus = 1;
+    
+    course.visitStatus = 1; //更新该节点的访问状态是已完成
     return YES;
+}
+
+- (BOOL)canFinishBFS:(NSUInteger)numCourses prerequisites:(NSArray<CoursePair *> *)prerequisites {
+    __block BOOL result = YES;
+    NSMutableArray<Course *> *courseArray = [[NSMutableArray alloc] initWithCapacity:numCourses];
+    for (NSUInteger i = 0; i < numCourses; i++) { //构造课程节点
+        [courseArray addObject:[[Course alloc] initWithValue:i]];
+    }
+    //生成相互依赖课程, 并初始化degree
+    [prerequisites enumerateObjectsUsingBlock:^(CoursePair * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [courseArray[obj.dependency].neighbors addObject:courseArray[obj.course]];
+        courseArray[obj.course].degree++;
+    }];
+    
+    Queue *q = [[Queue alloc] init]; //可以开始进行课程遍历的最初课程列表
+    [courseArray enumerateObjectsUsingBlock:^(Course * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.degree == 0) {
+            [q push:obj];
+        }
+    }];
+    if ([q empty]) {
+        return NO;
+    }
+    
+    //广度遍历节点
+    while (![q empty]) {
+        Course *current = [q front];
+        [q pop];
+        [current.neighbors enumerateObjectsUsingBlock:^(GraphNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { //更新以current作为依赖课程的所有课程的入度
+            Course *neighbor = (Course *)obj;
+            if (neighbor.degree > 0) {
+                neighbor.degree--;
+            }
+            if (neighbor.degree == 0) { //如果课程的入度是0, 则可以作为基础课程进行遍历
+                [q push:obj];
+            }
+        }];
+    }
+    
+    //遍历完之后如果没有环, 则所有的节点的入度是0, 否则有环
+    [courseArray enumerateObjectsUsingBlock:^(Course * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.degree) {
+            result = NO;
+            *stop = YES;
+        }
+    }];
+    
+    return result;
 }
 
 #pragma mark test-code
@@ -528,4 +578,16 @@
  
  [bTreeGraphicTopics BFSGraph:nodesArray];
  */
+
+/*
+ //课程安排 (207)
+ CoursePair *a = [[CoursePair alloc] initWithCourse:1 dependency:0];
+ CoursePair *b = [[CoursePair alloc] initWithCourse:2 dependency:0];
+ CoursePair *c = [[CoursePair alloc] initWithCourse:3 dependency:1];
+ CoursePair *d = [[CoursePair alloc] initWithCourse:3 dependency:2];
+ NSArray<CoursePair *> *prerequisites = @[a, b, c, d];
+ BOOL result = [bTreeGraphicTopics canFinish:4 prerequisites:prerequisites];
+ NSLog(@"%@", result ? @"可以完成" : @"不可以完成");
+ */
+
 @end
