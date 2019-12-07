@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 //二分查找 循环实现
 - (BOOL)binarySearch:(NSArray<NSNumber *> *)sortArray target:(NSInteger)target;
 
+//查找target的插入位置 (37)
+- (NSInteger)searchInsert:(NSArray<NSNumber *> *)sortArray target:(NSInteger)target;
+
 @end
 
 NS_ASSUME_NONNULL_END
