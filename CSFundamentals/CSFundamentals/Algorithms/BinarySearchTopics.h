@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 //区间查找 (34)
 - (NSMutableArray<NSNumber *> *)searchRange:(NSArray<NSNumber *> *)nums target:(NSInteger)target;
 
+//旋转数组查找元素 (33)
+- (NSInteger)search:(NSArray<NSNumber *> *)nums target:(NSInteger)target;
+
 @end
 
 NS_ASSUME_NONNULL_END

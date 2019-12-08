@@ -115,6 +115,52 @@
     return range;
 }
 
+- (NSInteger)search:(NSArray<NSNumber *> *)nums target:(NSInteger)target {
+    //mid将数组分拆两个区间,一个是完全由大到小有序, 另一个一定是部分有序. 并且nums[begin] > nums[end]
+    NSInteger begin = 0, end = [nums count] - 1;
+    while (begin <= end) {
+        NSInteger mid = (begin + end) / 2 ;
+        if (target == [nums[mid] integerValue]) {
+            return mid;
+            
+        } else if (target > [nums[mid] integerValue]) {
+            //由于旋转数组的存在, 在mid的左半区可能存在target. 所以需要判断旋转区间出现在左还是右半区
+            if ([nums[begin] integerValue] > [nums[mid] integerValue]) { //[4 5 1 2 3] 左半区是旋转区间
+                if (target > [nums[begin] integerValue]) { //查找5, 由于nums[mid]->nums[end]递增, 而nums[begin]>nums[end], 所以只可能在左半区找
+                    end = mid - 1;
+                } else if (target < [nums[begin] integerValue]) { //查找2
+                    begin = mid + 1;
+                } else if (target == [nums[begin] integerValue]) {
+                    return begin;
+                }
+            } else if ([nums[begin] integerValue] < [nums[mid] integerValue]) { //[2 3 4 5  1]右半区是旋转区间, 左半区一定是递增, 而target > nums[mid], 那么target一定不在左半区
+                begin = mid + 1;
+            } else if ([nums[begin] integerValue] == [nums[mid] integerValue]) {//[6 7]
+                begin = mid + 1;
+            }
+            
+        } else if (target < [nums[mid] integerValue]) {
+            if ([nums[begin] integerValue] < [nums[mid] integerValue]) {
+                // [3 4 5 6 1 2] 左半区是有序
+                if (target < [nums[begin] integerValue]) { //eg查找2, 则在右半区间
+                    begin = mid + 1;
+                } else if (target > [nums[begin] integerValue]) { //target比nums[begin]大,又比nums[mid]小, 说明在左半区.eg查找3
+                    end = mid - 1;
+                } else if (target == [nums[begin] integerValue]) {
+                    return begin;
+                }
+            } else if ([nums[begin] integerValue] > [nums[mid] integerValue]) {
+                // [7 1 2 3 4 5 6] 右半区有序递增, 而target<nums[mid]所以只可能出现左半区.eg查找1
+                end = mid - 1;
+            } else if ([nums[begin] integerValue] == [nums[mid] integerValue]) {
+                // [6 5]
+                begin = mid + 1;
+            }
+        }
+    }
+    return -1;
+}
+
 #pragma mark test-code
 /*
  //二分查找
@@ -132,6 +178,15 @@
  for (NSUInteger i = 0; i < 8; i++) {
  NSInteger index = [binarySearchTopics searchInsert:test target:i];
  printf("i = %ld index = %ld\n", i, index);
+ }
+ */
+
+/*
+ //区间查找 (34)
+ NSArray<NSNumber *> *nums = @[@5, @7, @7, @8, @8, @8, @8, @10];
+ for (NSUInteger i = 0; i < 12; i++) {
+ NSMutableArray<NSNumber *> *range = [binarySearchTopics searchRange:nums target:i];
+ printf("%ld: [%ld, %ld]\n", i, [range[0] integerValue], [range[1] integerValue]);
  }
  */
 
