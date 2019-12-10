@@ -7,6 +7,7 @@
 //
 
 #import "BinarySearchTopics.h"
+#import "TreeNode.h"
 
 @implementation BinarySearchTopics
 
@@ -214,5 +215,61 @@
  }];
  [bTreeGraphicTopics preorderPrint:root layer:0];
  */
+
+/*
+ //BST中查找节点
+ BST *bst = [[BST alloc] init];
+ TreeNode *root = [[TreeNode alloc] initWithValue:8];
+ NSArray<NSNumber *> *valArray = [NSArray arrayWithObjects:@3, @10, @1, @6, @15, nil];
+ NSMutableArray *nodeArray = [[NSMutableArray alloc] init];
+ [valArray enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ TreeNode *node = [[TreeNode alloc] initWithValue: [obj integerValue]];
+ [nodeArray addObject:node];
+ }];
+ [nodeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [bst BST:root insert:obj];
+ }];
+ for (NSUInteger i = 0; i < 20; i++) {
+ TreeNode *node = [[TreeNode alloc] initWithValue:i];
+ printf("%ld %s in the BST.\n", i, [bst BST:root search:node] ? "is" : "is not");
+ }
+ */
+
+@end
+
+@implementation Codec
+
+- (NSString *)serialize:(TreeNode *)root {
+    //对BST前序遍历之后得到的序列,在进行依次插入构建BST, 可以实现还原.而中序和后序遍历均不行
+    NSMutableString *data = [[NSMutableString alloc] init];
+    [self preorderBST:root data:data];
+    return data;
+}
+
+- (void)preorderBST:(TreeNode *)root data:(NSMutableString *)data {
+    if (!root) {
+        return;
+    }
+    NSString *value = [NSString stringWithFormat:@"%ld#", root.val];
+    [data appendString:value];
+    [self preorderBST:root.left data:data];
+    [self preorderBST:root.right data:data];
+}
+
+- (TreeNode *)deserialize:(NSString *)data {
+    NSArray<NSString *> *dataArray = [data componentsSeparatedByString:@"#"]; //将data按#划分成每个BST节点的val
+    if ([dataArray count] < 1) {
+        return nil;
+    }
+    
+    BST *bst = [[BST alloc] init];
+    TreeNode *root = [[TreeNode alloc] initWithValue:[(NSString *)dataArray[0] intValue]];
+    for (NSUInteger i = 1; i < [dataArray count]; i++) {
+        TreeNode *node = [[TreeNode alloc] initWithValue:[(NSString *)dataArray[i] intValue]];
+        [bst BST:root insert:node];
+    }
+    
+    return root;
+}
 
 @end

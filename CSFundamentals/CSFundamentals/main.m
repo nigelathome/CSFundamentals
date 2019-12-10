@@ -56,10 +56,11 @@ int main(int argc, const char * argv[]) {
         [nodeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [bst BST:root insert:obj];
         }];
-        for (NSUInteger i = 0; i < 20; i++) {
-            TreeNode *node = [[TreeNode alloc] initWithValue:i];
-            printf("%ld %s in the BST.\n", i, [bst BST:root search:node] ? "is" : "is not");
-        }
+        Codec *codec = [[Codec alloc] init];
+        NSString *data = [codec serialize:root];
+        printf("%s\n", [data UTF8String]); //NSLog(@"%@", data);
+        TreeNode *newBST = [codec deserialize:data];
+        [bTreeGraphicTopics preorderPrint:newBST layer:0];
     }
     return 0;
 }

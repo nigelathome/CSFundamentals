@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TreeNode;
+
 @interface BinarySearchTopics : NSObject
 
 //二分查找 递归实现
@@ -29,6 +31,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 //旋转数组查找元素 (33)
 - (NSInteger)search:(NSArray<NSNumber *> *)nums target:(NSInteger)target;
+
+@end
+
+//二叉排序树BST实现编码和解码 (449)
+@interface Codec : NSObject
+
+//BST编码
+- (NSString *)serialize:(TreeNode *)root;
+
+//BST解码
+- (TreeNode *)deserialize:(NSString *)data;
 
 @end
 

@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 //节点插入根节点是node的BST中
 - (void)BST:(TreeNode *)root insert:(TreeNode *)node;
 
-//BST是否包含节点节点
+//BST中查找节点
 - (BOOL)BST:(TreeNode *)root search:(TreeNode *)node;
 
 @end
