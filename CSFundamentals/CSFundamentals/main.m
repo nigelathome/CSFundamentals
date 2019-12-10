@@ -45,11 +45,18 @@ int main(int argc, const char * argv[]) {
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         
-        NSArray<NSNumber *> *nums = @[@9, @12, @15, @20, @1, @3, @6, @7];
-        for (NSUInteger i = 0; i < 22; i++) {
-            NSInteger result = [binarySearchTopics search:nums target:i];
-            printf("%ld: %ld\n", i, result);
-        }
+        BST *bst = [[BST alloc] init];
+        TreeNode *root = [[TreeNode alloc] initWithValue:8];
+        NSArray<NSNumber *> *valArray = [NSArray arrayWithObjects:@3, @10, @1, @6, @15, nil];
+        NSMutableArray *nodeArray = [[NSMutableArray alloc] init];
+        [valArray enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            TreeNode *node = [[TreeNode alloc] initWithValue: [obj integerValue]];
+            [nodeArray addObject:node];
+        }];
+        [nodeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [bst insertNode:obj toNode:root];
+        }];
+        [bTreeGraphicTopics preorderPrint:root layer:0];
         
     }
     return 0;

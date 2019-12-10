@@ -32,4 +32,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface BST : NSObject //BST二叉查找树
+
+//节点插入根节点是node的BST中
+- (void)insertNode:(TreeNode *)insertNode toNode:(TreeNode *)node;
+
+//BST是否包含节点节点
+- (BOOL)BST:(TreeNode *)root containNode:(TreeNode *)node;
+
+@end
+
 NS_ASSUME_NONNULL_END

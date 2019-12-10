@@ -33,3 +33,39 @@
 }
 
 @end
+
+@implementation BST
+
+- (void)insertNode:(TreeNode *)insertNode toNode:(TreeNode *)node {
+    if (insertNode.val < node.val) {
+        if (node.left) {
+            [self insertNode:insertNode toNode:node.left];
+        } else {
+            node.left = insertNode;
+        }
+    } else {
+        if (node.right) {
+            [self insertNode:insertNode toNode:node.right];
+        } else {
+            node.right = insertNode;
+        }
+    }
+}
+
+- (BOOL)BST:(TreeNode *)root containNode:(TreeNode *)node {
+    if (node.val == root.val) {
+        return YES;
+    } else if (node.val < root.val) { //在左子树中查找
+        if (root.left) {
+            return [self BST:root.left containNode:node];
+        }
+        
+    } else { //在右子树中查找
+        if (root.right) {
+            return [self BST:root.right containNode:node];
+        }
+    }
+    return NO;
+}
+
+@end
