@@ -15,6 +15,7 @@
         self.val = val;
         self.left = nil;
         self.right = nil;
+        self.count = 0;
     }
     return self;
 }

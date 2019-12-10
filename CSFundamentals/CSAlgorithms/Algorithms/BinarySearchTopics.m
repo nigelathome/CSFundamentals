@@ -162,6 +162,44 @@
     return -1;
 }
 
+- (NSArray *)countSmaller:(NSArray<NSNumber *> *)nums {
+    if ([nums count] == 1) {
+        return @[@0];
+    }
+    //通过构造一个BST, 在插入元素的时候, 如果比根节点大, 则当前元素的countSmaller等于比根节点大的元素个数+1, 再遍历右子树. 如果比根节点小, 那么根节点的countSmaller+1, 再遍历左子树。每个节点的count维护在插入过程中比它自身小的节点个数
+    NSArray<NSNumber *> *reversedNums = [[nums reverseObjectEnumerator] allObjects];
+    NSMutableArray<NSNumber *> *countSmallerArray = [[NSMutableArray alloc] init];
+    TreeNode *root = [[TreeNode alloc] initWithValue:[reversedNums[0] integerValue]];
+    [countSmallerArray addObject:[NSNumber numberWithInt:0]];
+    for (NSUInteger i = 1; i < [reversedNums count]; i++) {
+        NSNumber *val = [NSNumber numberWithInteger:[reversedNums[i] integerValue]];
+        TreeNode *currenNode = [[TreeNode alloc] initWithValue:[val integerValue]];
+        NSUInteger smallerCnt = 0, *pSmallerCnt = &smallerCnt;
+        [self BST:root insert:currenNode smallerCnt:pSmallerCnt];
+        [countSmallerArray addObject:[NSNumber numberWithInteger:*pSmallerCnt]];
+    }
+    return (NSArray *)[[countSmallerArray reverseObjectEnumerator] allObjects];
+}
+
+- (void)BST:(TreeNode *)root insert:(TreeNode *)node smallerCnt:(NSUInteger *)smallerCnt {//smallerCnt从外面传入, 记录在array中
+    if (node.val <= root.val) {
+        root.count++;
+        if (root.left) {
+            [self BST:root.left insert:node smallerCnt:smallerCnt];
+        } else {
+            root.left = node;
+        }
+    } else {
+        //大于根节点, 那么smallerCnt更新为根节点的count+1, 即包含根节点
+        *smallerCnt += root.count + 1;
+        if (root.right) {
+            [self BST:root.right insert:node smallerCnt:smallerCnt];
+        } else {
+            root.right = node;
+        }
+    }
+}
+
 #pragma mark test-code
 /*
  //二分查找
@@ -233,6 +271,26 @@
  TreeNode *node = [[TreeNode alloc] initWithValue:i];
  printf("%ld %s in the BST.\n", i, [bst BST:root search:node] ? "is" : "is not");
  }
+ */
+
+/*
+ //二叉排序树BST实现编码和解码 (449)
+ BST *bst = [[BST alloc] init];
+ TreeNode *root = [[TreeNode alloc] initWithValue:8];
+ NSArray<NSNumber *> *valArray = [NSArray arrayWithObjects:@3, @10, @1, @6, @15, nil];
+ NSMutableArray *nodeArray = [[NSMutableArray alloc] init];
+ [valArray enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ TreeNode *node = [[TreeNode alloc] initWithValue: [obj integerValue]];
+ [nodeArray addObject:node];
+ }];
+ [nodeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [bst BST:root insert:obj];
+ }];
+ Codec *codec = [[Codec alloc] init];
+ NSString *data = [codec serialize:root];
+ printf("%s\n", [data UTF8String]); //NSLog(@"%@", data);
+ TreeNode *newBST = [codec deserialize:data];
+ [bTreeGraphicTopics preorderPrint:newBST layer:0];
  */
 
 @end

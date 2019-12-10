@@ -45,22 +45,14 @@ int main(int argc, const char * argv[]) {
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         
-        BST *bst = [[BST alloc] init];
-        TreeNode *root = [[TreeNode alloc] initWithValue:8];
-        NSArray<NSNumber *> *valArray = [NSArray arrayWithObjects:@3, @10, @1, @6, @15, nil];
-        NSMutableArray *nodeArray = [[NSMutableArray alloc] init];
-        [valArray enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            TreeNode *node = [[TreeNode alloc] initWithValue: [obj integerValue]];
-            [nodeArray addObject:node];
+        NSArray *nums = @[@5, @(-7), @9, @1, @3, @5, @(-2), @1];
+//        NSArray *nums = @[@5, @3, @5, @4];
+//        counts = @[@3, @0, @1, @0];
+        NSArray<NSNumber *> *counts = [binarySearchTopics countSmaller:nums];
+        [counts enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("[%ld]", [obj integerValue]);
         }];
-        [nodeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [bst BST:root insert:obj];
-        }];
-        Codec *codec = [[Codec alloc] init];
-        NSString *data = [codec serialize:root];
-        printf("%s\n", [data UTF8String]); //NSLog(@"%@", data);
-        TreeNode *newBST = [codec deserialize:data];
-        [bTreeGraphicTopics preorderPrint:newBST layer:0];
+        printf("\n");
     }
     return 0;
 }

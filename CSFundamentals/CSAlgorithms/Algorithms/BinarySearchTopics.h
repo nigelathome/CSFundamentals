@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 //旋转数组查找元素 (33)
 - (NSInteger)search:(NSArray<NSNumber *> *)nums target:(NSInteger)target;
 
+//逆序数 (315)
+- (NSMutableArray *)countSmaller:(NSArray *)nums;
+- (void)BST:(TreeNode *)root insert:(TreeNode *)nums smallerCnt:(NSUInteger *)smallerCnt;
+
 @end
 
 //二叉排序树BST实现编码和解码 (449)

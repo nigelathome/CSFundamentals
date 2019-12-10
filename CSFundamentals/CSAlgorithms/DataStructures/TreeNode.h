@@ -15,8 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 //左右子树
 @property (nonatomic, nullable) TreeNode *left;
 @property (nonatomic, nullable) TreeNode *right;
-//结点值
+
+//结点
 @property (nonatomic, assign) NSInteger val;
+
+//比该节点小的节点个数, 即左子树节点的个数
+@property (nonatomic, assign) NSInteger count;
 
 - (instancetype)initWithValue:(NSInteger)val;
 
@@ -32,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface BST : NSObject //BST二叉查找树
+@interface BST : NSObject //BST二叉查找树 比根节点小的元素位于左子树, 大于或者等于根节点的元素位于右子树
 
 //节点插入根节点是node的BST中
 - (void)BST:(TreeNode *)root insert:(TreeNode *)node;

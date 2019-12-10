@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		261B3C66234EDECB001E6F93 /* StringTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringTopics.h; sourceTree = "<group>"; };
 		261B3C67234EDECB001E6F93 /* StringTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringTopics.m; sourceTree = "<group>"; };
-		2677CD522344FF1900FC2463 /* CSFundamentals */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSFundamentals; sourceTree = BUILT_PRODUCTS_DIR; };
+		2677CD522344FF1900FC2463 /* CSAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
 		2677CD552344FF1900FC2463 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2677CD5D2344FFC700FC2463 /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
 		2677CD5E2344FFC700FC2463 /* ListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListNode.m; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		2677CD492344FF1900FC2463 = {
 			isa = PBXGroup;
 			children = (
-				2677CD542344FF1900FC2463 /* CSFundamentals */,
+				2677CD542344FF1900FC2463 /* CSAlgorithms */,
 				2677CD532344FF1900FC2463 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,19 +88,19 @@
 		2677CD532344FF1900FC2463 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2677CD522344FF1900FC2463 /* CSFundamentals */,
+				2677CD522344FF1900FC2463 /* CSAlgorithms */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2677CD542344FF1900FC2463 /* CSFundamentals */ = {
+		2677CD542344FF1900FC2463 /* CSAlgorithms */ = {
 			isa = PBXGroup;
 			children = (
 				2677CD602345069700FC2463 /* Algorithms */,
 				2677CD5C2344FF7300FC2463 /* DataStructures */,
 				2677CD552344FF1900FC2463 /* main.m */,
 			);
-			path = CSFundamentals;
+			path = CSAlgorithms;
 			sourceTree = "<group>";
 		};
 		2677CD5C2344FF7300FC2463 /* DataStructures */ = {
@@ -146,9 +146,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2677CD512344FF1900FC2463 /* CSFundamentals */ = {
+		2677CD512344FF1900FC2463 /* CSAlgorithms */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2677CD592344FF1900FC2463 /* Build configuration list for PBXNativeTarget "CSFundamentals" */;
+			buildConfigurationList = 2677CD592344FF1900FC2463 /* Build configuration list for PBXNativeTarget "CSAlgorithms" */;
 			buildPhases = (
 				2677CD4E2344FF1900FC2463 /* Sources */,
 				2677CD4F2344FF1900FC2463 /* Frameworks */,
@@ -158,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = CSFundamentals;
+			name = CSAlgorithms;
 			productName = CSFundamentals;
-			productReference = 2677CD522344FF1900FC2463 /* CSFundamentals */;
+			productReference = 2677CD522344FF1900FC2463 /* CSAlgorithms */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -177,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2677CD4D2344FF1900FC2463 /* Build configuration list for PBXProject "CSFundamentals" */;
+			buildConfigurationList = 2677CD4D2344FF1900FC2463 /* Build configuration list for PBXProject "CSAlgorithms" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -189,7 +189,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2677CD512344FF1900FC2463 /* CSFundamentals */,
+				2677CD512344FF1900FC2463 /* CSAlgorithms */,
 			);
 		};
 /* End PBXProject section */
@@ -357,7 +357,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2677CD4D2344FF1900FC2463 /* Build configuration list for PBXProject "CSFundamentals" */ = {
+		2677CD4D2344FF1900FC2463 /* Build configuration list for PBXProject "CSAlgorithms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2677CD572344FF1900FC2463 /* Debug */,
@@ -366,7 +366,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2677CD592344FF1900FC2463 /* Build configuration list for PBXNativeTarget "CSFundamentals" */ = {
+		2677CD592344FF1900FC2463 /* Build configuration list for PBXNativeTarget "CSAlgorithms" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2677CD5A2344FF1900FC2463 /* Debug */,
