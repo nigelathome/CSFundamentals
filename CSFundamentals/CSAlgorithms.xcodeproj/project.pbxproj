@@ -21,6 +21,7 @@
 		26BBFB16239677000098B376 /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB15239677000098B376 /* TreeNode.m */; };
 		26BBFB192399587D0098B376 /* GraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB182399587D0098B376 /* GraphNode.m */; };
 		26BBFB1C239B55780098B376 /* BinarySearchTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB1B239B55780098B376 /* BinarySearchTopics.m */; };
+		26BBFB1F239FCC8D0098B376 /* HashMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 26BBFB1E239FCC8D0098B376 /* HashMap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,6 +65,8 @@
 		26BBFB182399587D0098B376 /* GraphNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphNode.m; sourceTree = "<group>"; };
 		26BBFB1A239B55780098B376 /* BinarySearchTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinarySearchTopics.h; sourceTree = "<group>"; };
 		26BBFB1B239B55780098B376 /* BinarySearchTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinarySearchTopics.m; sourceTree = "<group>"; };
+		26BBFB1D239FCC8D0098B376 /* HashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
+		26BBFB1E239FCC8D0098B376 /* HashMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashMap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				26BBFB15239677000098B376 /* TreeNode.m */,
 				26BBFB172399587D0098B376 /* GraphNode.h */,
 				26BBFB182399587D0098B376 /* GraphNode.m */,
+				26BBFB1D239FCC8D0098B376 /* HashMap.h */,
+				26BBFB1E239FCC8D0098B376 /* HashMap.m */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				2677CD562344FF1900FC2463 /* main.m in Sources */,
 				2677CD6723450A0100FC2463 /* LinkedListTopics.m in Sources */,
 				2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */,
+				26BBFB1F239FCC8D0098B376 /* HashMap.m in Sources */,
 				2677CEA2234AB1C400FC2463 /* StackQueueHeapTopics.m in Sources */,
 				2698C5802369A84900AC5459 /* GreedyTopics.m in Sources */,
 				26BBFB1C239B55780098B376 /* BinarySearchTopics.m in Sources */,

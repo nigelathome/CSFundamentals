@@ -293,6 +293,18 @@
  [bTreeGraphicTopics preorderPrint:newBST layer:0];
  */
 
+/*
+ //逆序数 (315)
+ NSArray *nums = @[@5, @(-7), @9, @1, @3, @5, @(-2), @1];
+ //        NSArray *nums = @[@5, @3, @5, @4];
+ //        counts = @[@3, @0, @1, @0];
+ NSArray<NSNumber *> *counts = [binarySearchTopics countSmaller:nums];
+ [counts enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%ld]", [obj integerValue]);
+ }];
+ printf("\n");
+ */
+
 @end
 
 @implementation Codec

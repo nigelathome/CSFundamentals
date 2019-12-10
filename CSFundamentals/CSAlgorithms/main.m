@@ -20,6 +20,7 @@
 #import "TreeNode.h"
 #import "GraphNode.h"
 #import "BinarySearchTopics.h"
+#import "HashMap.h"
 
 #define DebugNSLog(formater,...) NSLog((@"\n====================\n >>> class: %s\n\n >>> method: %s\n\n" " >>> code line: %d 行\n\n >>> message: "  formater @"\n==================="),__FILE__,__FUNCTION__,__LINE__,##__VA_ARGS__)
 
@@ -45,14 +46,27 @@ int main(int argc, const char * argv[]) {
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         
-        NSArray *nums = @[@5, @(-7), @9, @1, @3, @5, @(-2), @1];
-//        NSArray *nums = @[@5, @3, @5, @4];
-//        counts = @[@3, @0, @1, @0];
-        NSArray<NSNumber *> *counts = [binarySearchTopics countSmaller:nums];
-        [counts enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            printf("[%ld]", [obj integerValue]);
+        NSMutableArray<ListNode *> *list = [[NSMutableArray alloc] init];
+        NSArray<NSNumber *> *nums = [NSArray arrayWithObjects:@1, @1, @4, @9, @20, @30, @150, @500, nil];
+        [nums enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            ListNode *node = [[ListNode alloc] initWithValue:[obj integerValue]];
+            [list addObject:node];
         }];
-        printf("\n");
+        HashMap *hashMap = [[HashMap alloc] init];
+        [list enumerateObjectsUsingBlock:^(ListNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [hashMap insert:obj];
+        }];
+        printf("\nTest insert: \n");
+        [hashMap printHashTable];
+        printf("\nTest search: \n");
+        for (NSUInteger i = 0; i < 10; i++) {
+            ListNode *node = [[ListNode alloc] initWithValue:i];
+            if ([hashMap search:node]) {
+                printf("%ld is in the hash table.\n", i);
+            } else {
+                printf("%ld is not in the hash table.\n", i);
+            }
+        }
     }
     return 0;
 }
