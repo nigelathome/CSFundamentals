@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2616D620239FEF3200F42291 /* HashMapTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 2616D61F239FEF3200F42291 /* HashMapTopics.m */; };
 		261B3C68234EDECB001E6F93 /* StringTopics.m in Sources */ = {isa = PBXBuildFile; fileRef = 261B3C67234EDECB001E6F93 /* StringTopics.m */; };
 		2677CD562344FF1900FC2463 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD552344FF1900FC2463 /* main.m */; };
 		2677CD5F2344FFC700FC2463 /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2677CD5E2344FFC700FC2463 /* ListNode.m */; };
@@ -37,6 +38,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2616D61E239FEF3200F42291 /* HashMapTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashMapTopics.h; sourceTree = "<group>"; };
+		2616D61F239FEF3200F42291 /* HashMapTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashMapTopics.m; sourceTree = "<group>"; };
 		261B3C66234EDECB001E6F93 /* StringTopics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringTopics.h; sourceTree = "<group>"; };
 		261B3C67234EDECB001E6F93 /* StringTopics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringTopics.m; sourceTree = "<group>"; };
 		2677CD522344FF1900FC2463 /* CSAlgorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSAlgorithms; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +147,8 @@
 				26BBFB12239676CB0098B376 /* BTreeGraphicTopics.m */,
 				26BBFB1A239B55780098B376 /* BinarySearchTopics.h */,
 				26BBFB1B239B55780098B376 /* BinarySearchTopics.m */,
+				2616D61E239FEF3200F42291 /* HashMapTopics.h */,
+				2616D61F239FEF3200F42291 /* HashMapTopics.m */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				26BBFB13239676CB0098B376 /* BTreeGraphicTopics.m in Sources */,
 				26BA70262359E9610070426A /* Queue.m in Sources */,
 				26BBF89B238F740B0098B376 /* RecBatkDivConqTopics.m in Sources */,
+				2616D620239FEF3200F42291 /* HashMapTopics.m in Sources */,
 				26BBFB16239677000098B376 /* TreeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

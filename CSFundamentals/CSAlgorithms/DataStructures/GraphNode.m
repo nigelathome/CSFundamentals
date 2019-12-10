@@ -1,6 +1,6 @@
 //
 //  GraphNode.m
-//  CSFundamentals
+//  CSAlgorithms
 //
 //  Created by Hui,Li on 2019/12/5.
 //  Copyright © 2019 Hui,Li. All rights reserved.

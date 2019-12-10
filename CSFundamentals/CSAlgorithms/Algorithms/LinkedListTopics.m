@@ -1,6 +1,6 @@
 //
 //  LinkedList.m
-//  CSFundamentals
+//  CSAlgorithms
 //
 //  Created by Hui,Li on 2019/10/3.
 //  Copyright © 2019 Hui,Li. All rights reserved.
@@ -143,8 +143,10 @@
     return nil;
 }
 
-- (RandomListNode *)copyRandomList:(RandomListNode*)head {
-    if (!head) return nil;
+- (RandomListNode *)copyRandomList:(RandomListNode *)head {
+    if (!head) {
+        return nil;
+    }
     RandomListNode *ptr = head;
     NSMutableArray<RandomListNode*> *nodeArray = [NSMutableArray new];//新节点序号及地址
     NSMapTable<RandomListNode *, RandomListNode *> *nodeMap = [NSMapTable new]; //key-value: 旧节点地址-新节点地址
@@ -154,10 +156,10 @@
         [nodeArray addObject:copyNode];
         [nodeMap setObject:copyNode forKey:ptr];
 //        RandomListNode *cur = [nodeMap objectForKey:ptr];
-        ptr = (RandomListNode*)ptr.next;
+        ptr = (RandomListNode *)ptr.next;
     }
     
-    if([nodeArray count] == 0){
+    if ([nodeArray count] == 0) {
         return nil;
     } else {
      [nodeArray addObject:[RandomListNode new]];//添加一个节点,否则nodeArray[index].next = nodeArray[index+1];//连接新链表next指针会数组越界
@@ -166,13 +168,13 @@
     ptr = head;
     NSInteger index = 0;
     while(ptr){
-        nodeArray[index].next = nodeArray[index+1];//连接新链表next指针
+        nodeArray[index].next = nodeArray[index + 1];//连接新链表next指针
         RandomListNode *randomValue = ptr.random;
         if (randomValue){
             RandomListNode *copyRandomValue = [nodeMap objectForKey:randomValue];
             nodeArray[index].random = copyRandomValue;
         }
-        index ++;
+        index++;
         ptr = (RandomListNode*)ptr.next;
     }
     
