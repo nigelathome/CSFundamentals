@@ -54,10 +54,12 @@ int main(int argc, const char * argv[]) {
             [nodeArray addObject:node];
         }];
         [nodeArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [bst insertNode:obj toNode:root];
+            [bst BST:root insert:obj];
         }];
-        [bTreeGraphicTopics preorderPrint:root layer:0];
-        
+        for (NSUInteger i = 0; i < 20; i++) {
+            TreeNode *node = [[TreeNode alloc] initWithValue:i];
+            printf("%ld %s in the BST.\n", i, [bst BST:root search:node] ? "is" : "is not");
+        }
     }
     return 0;
 }

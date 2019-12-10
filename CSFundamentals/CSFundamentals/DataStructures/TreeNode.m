@@ -36,33 +36,33 @@
 
 @implementation BST
 
-- (void)insertNode:(TreeNode *)insertNode toNode:(TreeNode *)node {
-    if (insertNode.val < node.val) {
-        if (node.left) {
-            [self insertNode:insertNode toNode:node.left];
+- (void)BST:(TreeNode *)root insert:(TreeNode *)node {
+    if (node.val < root.val) {
+        if (root.left) {
+            [self BST:root.left insert:node];
         } else {
-            node.left = insertNode;
+            root.left = node;
         }
     } else {
-        if (node.right) {
-            [self insertNode:insertNode toNode:node.right];
+        if (root.right) {
+            [self BST:root.right insert:node];
         } else {
-            node.right = insertNode;
+            root.right = node;
         }
     }
 }
 
-- (BOOL)BST:(TreeNode *)root containNode:(TreeNode *)node {
+- (BOOL)BST:(TreeNode *)root search:(TreeNode *)node {
     if (node.val == root.val) {
         return YES;
     } else if (node.val < root.val) { //在左子树中查找
         if (root.left) {
-            return [self BST:root.left containNode:node];
+            return [self BST:root.left search:node];
         }
         
     } else { //在右子树中查找
         if (root.right) {
-            return [self BST:root.right containNode:node];
+            return [self BST:root.right search:node];
         }
     }
     return NO;
