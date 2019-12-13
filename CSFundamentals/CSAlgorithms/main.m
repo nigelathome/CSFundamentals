@@ -47,9 +47,19 @@ int main(int argc, const char * argv[]) {
         BTreeGraphicTopics *bTreeGraphicTopics = [[BTreeGraphicTopics alloc] init];
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         HashMapTopics *hashMapTopics = [[HashMapTopics alloc] init];
-        NSString *s = @"abccccddaa";
-        NSInteger len = [hashMapTopics longestPalindrome:s];
-        printf("可以构造的最大回文串的长度: %ld\n", len);
+        
+        NSString *pattern1 = @"abba", *str1 = @"dog cat cat dog";
+        BOOL isMatch = [hashMapTopics wordPattern:pattern1 string:str1];
+        printf("%s\n", isMatch ? "匹配" : "不匹配");
+        NSString *pattern2 = @"abba", *str2 = @"dog cat cat fish";
+        isMatch = [hashMapTopics wordPattern:pattern2 string:str2];
+        printf("%s\n", isMatch ? "匹配" : "不匹配");
+        NSString *pattern3 = @"aaaa", *str3 = @"dog cat cat dog";
+        isMatch = [hashMapTopics wordPattern:pattern3 string:str3];
+        printf("%s\n", isMatch ? "匹配" : "不匹配");
+        NSString *pattern4 = @"abba", *str4 = @"dog dog dog dog";
+        isMatch = [hashMapTopics wordPattern:pattern4 string:str4];
+        printf("%s\n", isMatch ? "匹配" : "不匹配");
     }
     return 0;
 }

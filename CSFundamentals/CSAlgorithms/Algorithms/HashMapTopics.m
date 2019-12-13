@@ -44,6 +44,45 @@
     return odd ? len + 1 : len;
 }
 
+- (BOOL)wordPattern:(NSString *)pattern string:(NSString *)str {
+    //对str按空格进行分割
+    NSArray<NSString *> *wordArray = [str componentsSeparatedByString:@" "];
+    //定义映射key-value: pattern中的字母-words中的单词
+    NSMapTable<NSString *, NSString *> *wordMap = [[NSMapTable alloc] init];
+    
+    if ([wordArray count] != pattern.length) { //pattern字符个数与word个数不等一定不匹配
+        return NO;
+    }
+    
+    //字母和单词逐个比较
+    for (NSUInteger i = 0; i < pattern.length; i++) {
+        //对pattern的每个字母和words的每个单词依次进行比对, 没出现过的则设置wordMap映射
+        NSString *key = [NSString stringWithFormat:@"%c", [pattern characterAtIndex:i]];
+        if ([wordMap objectForKey:key]) { //word之前出现过, 则判断跟之前的word对应的pattern中的字母是否相等
+            NSString *wordInMap = [wordMap objectForKey:key];
+            if (![wordInMap isEqualToString:wordArray[i]]) { //取出map中对应的字母对应的word比较, 不相等则一定不匹配
+                return NO;
+            }
+        } else {
+            NSArray<NSString *> *keyArray = [[wordMap keyEnumerator] allObjects];
+            __block BOOL isInMap = NO;
+            [keyArray enumerateObjectsUsingBlock:^(NSString * _Nonnull keyString, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString *wordValue = [wordMap objectForKey:keyString];
+                if ([wordValue isEqualToString:wordArray[i]]) {
+                    isInMap = YES;
+                    *stop = YES;
+                }
+            }];
+            if (isInMap) {
+                return NO; //word出现过, 但对应的key没有出现过, 则不匹配
+            } else { //word之前没有出现过,并且没在map中, 则添加到hash map中去. 设置word和当前的字符对应
+                [wordMap setObject:wordArray[i] forKey:key];
+            }
+        }
+    }
+    return YES;
+}
+
 #pragma mark test-code
 /*
  //hash表的插入和删除
@@ -68,5 +107,12 @@
  printf("%ld is not in the hash table.\n", i);
  }
  }
+ */
+
+/*
+ //最长的回文字符串 (409)
+ NSString *s = @"abccccddaa";
+ NSInteger len = [hashMapTopics longestPalindrome:s];
+ printf("可以构造的最大回文串的长度: %ld\n", len);
  */
 @end
