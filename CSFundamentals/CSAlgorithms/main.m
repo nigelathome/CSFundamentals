@@ -48,13 +48,17 @@ int main(int argc, const char * argv[]) {
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         HashMapTopics *hashMapTopics = [[HashMapTopics alloc] init];
         
-        NSString *s1 = @"abcbadab";
-        NSUInteger len1 = [hashMapTopics lengthOfLongestSubstring:s1];
-        printf("%s : %ld\n", [s1 UTF8String], len1);
-        
-        NSString *s2 = @"aaaaaaa";
-        NSUInteger len2 = [hashMapTopics lengthOfLongestSubstring:s2];
-        printf("%s : %ld\n", [s2 UTF8String], len2);
+        NSString *s = @"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
+        NSArray<NSString *> *result = [hashMapTopics findRepeatedDnaSequences:s];
+        printf("result:\n");
+        [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            printf("%s\n", [obj UTF8String]);
+        }];
     }
     return 0;
 }
+
+/*
+ 查看工程代码行数
+ find . "(" -name "*.m" -or -name "*.mm" -or -name "*.cpp" -or -name "*.h" -or -name "*.rss" ")" -print | xargs wc -l
+ */

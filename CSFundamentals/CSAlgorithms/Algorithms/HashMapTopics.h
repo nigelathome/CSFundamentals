@@ -30,6 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSUInteger)lengthOfLongestSubstring:(NSString *)s;
 - (BOOL)hasRepeatedString:(NSMapTable<NSNumber * , NSNumber *> *)map; //是否还有重复的字符
 
+//找出所有长度10且出现次数超过1次的DNA子串 (187)
+- (NSArray<NSString *> *)findRepeatedDnaSequences:(NSString *)s;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -179,42 +179,36 @@
 
 - (NSUInteger)lengthOfLongestSubstring:(NSString *)s {
     //通过一个map table记录每个字母出现的次数, 来判断是否出现了重复的字符
-    NSMapTable *map = [[NSMapTable alloc] init];
-    for (NSUInteger i = 0; i < 26; i++) { //初始化map 26个0 不可能超过2
+    //key-value: ascii字符-出现的次数
+    NSMapTable<NSNumber *, NSNumber*> *map = [[NSMapTable alloc] init];
+    for (NSUInteger i = 0; i < 128; i++) { //初始化map 128个0 表示所有的ASCII字符, 出现的次数不可能超过2
         NSNumber *index = [NSNumber numberWithInteger:i];
-        [map setObject:[NSNumber numberWithInteger:0] forKey:index];
+        [map setObject:@0 forKey:index];
     }
     
     //通过两个指针begin和i维护一个滑动窗口
     NSUInteger maxLen = 0, begin = 0; //begin执行不重复字符的子串第一个位置
     BOOL isRepeated = NO; //是否有重复的
     NSMutableArray *substring = [[NSMutableArray alloc] init]; //substring保存当前不重复字符的子串
-    for (NSUInteger i = 0; i < s.length; i++) {
-        
-        //更新map对应的字符个数+1 及substring
-        NSUInteger key = [s characterAtIndex:i] - 'a';
-        if ([[[map keyEnumerator] allObjects] containsObject:@(key)]) {
-            NSNumber *value = [map objectForKey:@(key)];
-            [map setObject:[NSNumber numberWithInteger:[value integerValue] + 1] forKey:@(key)];
-        } else {
-            [map setObject:@1 forKey:@(key)];
-        }
-        
+    for (NSUInteger i = 0; i < s.length; i++) { //更新map对应的字符个数+1 及substring
+        NSUInteger key = [s characterAtIndex:i];
+        NSNumber *value = [map objectForKey:@(key)];
+        [map setObject:[NSNumber numberWithInteger:[value integerValue] + 1] forKey:@(key)];
         [substring addObject:[NSString stringWithFormat:@"%c", [s characterAtIndex:i]]];
         
         isRepeated = [[map objectForKey:@(key)] integerValue] > 1;//是否出现重复
-        printf("i: %ld %c: %ld ", i, (unichar)key + 'a', (long)[[map objectForKey:@(key)] integerValue]);
-        printf("sub len: %ld\n", [substring count]);
+        printf("i: %ld %c: %ld ", i, (unichar)key, (long)[[map objectForKey:@(key)] integerValue]);
         //是否移动begin
         while (isRepeated && begin < i) { //出现重复移动指针begin, 并更新map和word
             [substring removeObjectAtIndex:0];
-            NSUInteger beginKey = [s characterAtIndex:begin] - 'a';
+            NSUInteger beginKey = [s characterAtIndex:begin];
             NSNumber *beginValue = [map objectForKey:@(key)];
             [map setObject:[NSNumber numberWithInteger:[beginValue integerValue] - 1] forKey:@(key)];
             begin++;
             isRepeated = [self hasRepeatedString:map];//是否还要重复的字符
         }
         
+        printf("sub len: %ld\n", [substring count]);
         if ([substring count] > maxLen) {
             maxLen = [substring count]; //更新最大无重复字符子串的长度
         }
@@ -232,6 +226,34 @@
         }
     }];
     return isRepeated;
+}
+
+- (NSArray<NSString *> *)findRepeatedDnaSequences:(NSString *)s {
+    NSMutableArray<NSString *> *result = [[NSMutableArray alloc] init];
+    //key:value 长度10的子串:出现次数
+    NSMapTable<NSString *, NSNumber *> *map = [[NSMapTable alloc] init];
+    for (NSUInteger i = 0; i < s.length; i++) { //找出所有长度10的子串
+        if (i + 10 < s.length) { //注意需要避免越界
+            NSString *sub = [s substringWithRange:NSMakeRange(i, 10)];
+            printf("%s\n", [sub UTF8String]);
+            if (![[[map keyEnumerator] allObjects] containsObject:sub]) { //保存到map中
+                [map setObject:@(1) forKey:sub];
+            } else { //map已经包含这个子串,那么其对应的个数+1
+                NSInteger cnt = [[map objectForKey:sub] integerValue];
+                [map setObject:@(cnt + 1) forKey:sub];
+            }
+        }
+    }
+    
+    //找出所有长度10的并且次数超过1的子串
+    [[[map keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(NSString * _Nonnull sequence, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSNumber *num = [map objectForKey:sequence];
+        if ([num integerValue] > 1) {
+            [result addObject:sequence];
+        }
+    }];
+    
+    return result;
 }
 
 #pragma mark test-code
@@ -311,5 +333,16 @@
  }];
  printf("\n");
  }];
+ */
+
+/*
+ //最长无重复字符的子串 (3)
+ NSString *s1 = @"abcbadab";
+ NSUInteger len1 = [hashMapTopics lengthOfLongestSubstring:s1];
+ printf("%s : %ld\n", [s1 UTF8String], len1);
+ 
+ NSString *s2 = @"aaaaaaa";
+ NSUInteger len2 = [hashMapTopics lengthOfLongestSubstring:s2];
+ printf("%s : %ld\n", [s2 UTF8String], len2);
  */
 @end
