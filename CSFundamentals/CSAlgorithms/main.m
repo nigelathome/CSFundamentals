@@ -48,12 +48,35 @@ int main(int argc, const char * argv[]) {
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         HashMapTopics *hashMapTopics = [[HashMapTopics alloc] init];
         
-        NSString *s = @"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
-        NSArray<NSString *> *result = [hashMapTopics findRepeatedDnaSequences:s];
+        NSMapTable<NSString *, NSNumber*> *map_t = [[NSMapTable alloc] init];
+        NSMapTable<NSString *, NSNumber*> *map_s = [[NSMapTable alloc] init];
+        [map_t setObject:@1 forKey:@"A"];
+        [map_t setObject:@1 forKey:@"B"];
+        [map_t setObject:@1 forKey:@"C"];
+        [map_s setObject:@1 forKey:@"A"];
+        [map_s setObject:@1 forKey:@"D"];
+        [map_s setObject:@1 forKey:@"O"];
+        [map_s setObject:@1 forKey:@"B"];
+        [map_s setObject:@1 forKey:@"E"];
+        [map_s setObject:@1 forKey:@"C"];
+        BOOL isContained = [hashMapTopics isContainedAllCharacters:map_s patternMap:map_t];
+        printf("%s\n", isContained? "YES": "NO");
+        
         printf("result:\n");
-        [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            printf("%s\n", [obj UTF8String]);
-        }];
+        NSString *s = @"ADOBECODEBANC";
+        NSString *t = @"ABC";
+        NSString *r = [hashMapTopics minWindow:s pattern:t];
+        printf("s=%s, t=%s, result=%s\n", [s UTF8String], [t UTF8String], [r UTF8String]);
+        
+        s = @"MADOBCCABEC";
+        t = @"ABCC";
+        r = [hashMapTopics minWindow:s pattern:t];
+        printf("s=%s, t=%s, result=%s\n", [s UTF8String], [t UTF8String], [r UTF8String]);
+        
+        s = @"aa";
+        t = @"aa";
+        r = [hashMapTopics minWindow:s pattern:t];
+        printf("s=%s, t=%s, result=%s\n", [s UTF8String], [t UTF8String], [r UTF8String]);
     }
     return 0;
 }

@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 //找出所有长度10且出现次数超过1次的DNA子串 (187)
 - (NSArray<NSString *> *)findRepeatedDnaSequences:(NSString *)s;
 
+//最小窗口子串 (76)
+- (NSString *)minWindow:(NSString *)s pattern:(NSString *)t;
+- (BOOL)isContainedAllCharacters:(NSMapTable<NSString *, NSNumber *> *)map patternMap:(NSMapTable<NSString *, NSNumber *> *)patternMap; //map是否包含patternMap
 
 @end
 

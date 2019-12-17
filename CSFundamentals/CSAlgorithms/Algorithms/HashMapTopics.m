@@ -252,9 +252,94 @@
             [result addObject:sequence];
         }
     }];
-    
+
     return result;
 }
+
+- (NSString *)minWindow:(NSString *)s pattern:(NSString *)t {
+    //分别保存t、s中各字母及出现的次数
+    NSMapTable<NSString *, NSNumber *> *map_t = [[NSMapTable alloc] init];
+    NSMapTable<NSString *, NSNumber *> *map_s = [[NSMapTable alloc] init];
+    NSMutableString *substring = [[NSMutableString alloc] init];
+    NSString *result = @"";
+    BOOL isContained = NO; //是否包含了t的全部字符
+    NSUInteger begin = 0;// begin和i双指针分别指向当前的子串的开头和结尾
+    for (NSUInteger i = 0; i < t.length; i++) { //构建map_t <字符, 出现的次数>
+        NSString *ch = [NSString stringWithFormat:@"%c", [t characterAtIndex:i]];
+        if ([[[map_t keyEnumerator] allObjects] containsObject:ch]) {
+            NSUInteger value = [[map_t objectForKey:ch] integerValue];
+            [map_t setObject:@(value + 1) forKey:ch];
+        } else {
+            [map_t setObject:@(1) forKey:ch];
+        }
+    }
+    printf("map_t:\n");
+    [[[map_t keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSUInteger cnt = [[map_t objectForKey:key] integerValue];
+        printf("%c: %ld\n", [key characterAtIndex:0], (long)cnt);
+    }];
+    
+    for (NSUInteger i = 0; i < s.length; i++) {
+        //更新map_s
+        NSString *ch = [NSString stringWithFormat:@"%c", [s characterAtIndex:i]];
+        if ([[[map_s keyEnumerator] allObjects] containsObject:ch]) {
+            NSUInteger value = [[map_s objectForKey:ch] integerValue];
+            [map_s setObject:@(value + 1) forKey:ch];
+        } else {
+            [map_s setObject:@(1) forKey:ch];
+        }
+        printf("map_s:\n");
+        [[[map_s keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSUInteger cnt = [[map_s objectForKey:key] integerValue];
+            printf("%c: %ld\n", [key characterAtIndex:0], (long)cnt);
+        }];
+        [substring appendString:ch];
+        
+        isContained = [self isContainedAllCharacters:map_s patternMap:map_t];
+        while (isContained && begin < i) {
+            //更新result
+            if ([result isEqualToString:@""] ||
+                (![result isEqualToString:@""] && result.length > substring.length)
+                ) {
+                result = [NSString stringWithFormat:@"%@", substring];//不能直接=,否则是浅拷贝
+            }
+
+            //更新map_s、substring和begin向前移动
+            NSString *ch = [NSString stringWithFormat:@"%c", [s characterAtIndex:begin]];
+            NSUInteger value = [[map_s objectForKey:ch] integerValue];
+            [map_s setObject:@(value - 1) forKey:ch];
+            begin++;
+            [substring deleteCharactersInRange:NSMakeRange(0, 1)];
+            isContained = [self isContainedAllCharacters:map_s patternMap:map_t];
+        }
+    }
+    return result;
+}
+
+- (BOOL)isContainedAllCharacters:(NSMapTable<NSString *, NSNumber *> *)mapS patternMap:(NSMapTable<NSString *, NSNumber *> *)mapT {
+    NSArray<NSString *> *keyS = [[mapS keyEnumerator] allObjects];
+    NSArray<NSString *> *keyT = [[mapT keyEnumerator] allObjects];
+    if ([keyS count] < [keyT count]) {
+        return NO;
+    }
+    
+    __block BOOL isContained = YES;
+    [keyT enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (nil == [mapS objectForKey:key]) { //s没有这个key一定不包含
+            isContained = NO;
+            *stop = YES;
+        }
+            
+        NSInteger cntS = [[mapS objectForKey:key] integerValue];
+        NSInteger cntT = [[mapT objectForKey:key] integerValue];
+        if (cntS < cntT) { //s的key对应的value个数小也一定不包含
+            isContained = NO;
+            *stop = YES;
+        }
+    }];
+    return isContained;
+}
+
 
 #pragma mark test-code
 /*
@@ -344,5 +429,15 @@
  NSString *s2 = @"aaaaaaa";
  NSUInteger len2 = [hashMapTopics lengthOfLongestSubstring:s2];
  printf("%s : %ld\n", [s2 UTF8String], len2);
+ */
+
+/*
+ //找出所有长度10且出现次数超过1次的DNA子串 (187)
+ NSString *s = @"AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
+ NSArray<NSString *> *result = [hashMapTopics findRepeatedDnaSequences:s];
+ printf("result:\n");
+ [result enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("%s\n", [obj UTF8String]);
+ }];
  */
 @end
