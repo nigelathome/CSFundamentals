@@ -170,12 +170,68 @@
         key[index] = [NSNumber numberWithInteger:[key[index] integerValue] + 1];
     }
     
-    
     __block NSMutableString *result = [[NSMutableString alloc] init];
     [key enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull nu, NSUInteger idx, BOOL * _Nonnull stop) {
         [result appendString:[NSString stringWithFormat:@"%ld", [nu integerValue]]];
     }];
     return result;
+}
+
+- (NSUInteger)lengthOfLongestSubstring:(NSString *)s {
+    //通过一个map table记录每个字母出现的次数, 来判断是否出现了重复的字符
+    NSMapTable *map = [[NSMapTable alloc] init];
+    for (NSUInteger i = 0; i < 26; i++) { //初始化map 26个0 不可能超过2
+        NSNumber *index = [NSNumber numberWithInteger:i];
+        [map setObject:[NSNumber numberWithInteger:0] forKey:index];
+    }
+    
+    //通过两个指针begin和i维护一个滑动窗口
+    NSUInteger maxLen = 0, begin = 0; //begin执行不重复字符的子串第一个位置
+    BOOL isRepeated = NO; //是否有重复的
+    NSMutableArray *substring = [[NSMutableArray alloc] init]; //substring保存当前不重复字符的子串
+    for (NSUInteger i = 0; i < s.length; i++) {
+        
+        //更新map对应的字符个数+1 及substring
+        NSUInteger key = [s characterAtIndex:i] - 'a';
+        if ([[[map keyEnumerator] allObjects] containsObject:@(key)]) {
+            NSNumber *value = [map objectForKey:@(key)];
+            [map setObject:[NSNumber numberWithInteger:[value integerValue] + 1] forKey:@(key)];
+        } else {
+            [map setObject:@1 forKey:@(key)];
+        }
+        
+        [substring addObject:[NSString stringWithFormat:@"%c", [s characterAtIndex:i]]];
+        
+        isRepeated = [[map objectForKey:@(key)] integerValue] > 1;//是否出现重复
+        printf("i: %ld %c: %ld ", i, (unichar)key + 'a', (long)[[map objectForKey:@(key)] integerValue]);
+        printf("sub len: %ld\n", [substring count]);
+        //是否移动begin
+        while (isRepeated && begin < i) { //出现重复移动指针begin, 并更新map和word
+            [substring removeObjectAtIndex:0];
+            NSUInteger beginKey = [s characterAtIndex:begin] - 'a';
+            NSNumber *beginValue = [map objectForKey:@(key)];
+            [map setObject:[NSNumber numberWithInteger:[beginValue integerValue] - 1] forKey:@(key)];
+            begin++;
+            isRepeated = [self hasRepeatedString:map];//是否还要重复的字符
+        }
+        
+        if ([substring count] > maxLen) {
+            maxLen = [substring count]; //更新最大无重复字符子串的长度
+        }
+    }
+    return maxLen;
+}
+
+- (BOOL)hasRepeatedString:(NSMapTable<NSNumber * , NSNumber *> *)map {
+    __block BOOL isRepeated = NO;
+    [[[map keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(id  _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSNumber *value = [map objectForKey:key];
+        if ([value integerValue] > 1) {
+            isRepeated = YES;
+            *stop = YES;
+        }
+    }];
+    return isRepeated;
 }
 
 #pragma mark test-code

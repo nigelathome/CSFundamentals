@@ -48,17 +48,13 @@ int main(int argc, const char * argv[]) {
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         HashMapTopics *hashMapTopics = [[HashMapTopics alloc] init];
         
-        NSString *str = @"aaaaa";
-        NSString *sortStr = [hashMapTopics toArrayKey:str];
-        printf("%s -> %s\n", [str UTF8String], [sortStr UTF8String]);
-        NSArray<NSString *> *strs = [NSArray arrayWithObjects:@"tea", @"bat", @"eat", @"tan", @"nat", @"ate", @"kte", @"bat", nil];
-        NSArray<NSArray<NSString *> *> *result = [hashMapTopics groupAnagramsWithStringKey:strs];
-        [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj enumerateObjectsUsingBlock:^(NSString * _Nonnull word, NSUInteger idx, BOOL * _Nonnull stop) {
-                printf("[%s]", [word UTF8String]);
-            }];
-            printf("\n");
-        }];
+        NSString *s1 = @"abcbadab";
+        NSUInteger len1 = [hashMapTopics lengthOfLongestSubstring:s1];
+        printf("%s : %ld\n", [s1 UTF8String], len1);
+        
+        NSString *s2 = @"aaaaaaa";
+        NSUInteger len2 = [hashMapTopics lengthOfLongestSubstring:s2];
+        printf("%s : %ld\n", [s2 UTF8String], len2);
     }
     return 0;
 }

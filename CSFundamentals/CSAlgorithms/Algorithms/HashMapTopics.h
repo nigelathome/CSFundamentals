@@ -26,6 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSArray<NSArray<NSString *> *> *)groupAnagramsWithStringKey:(NSArray<NSString *> *)strs;
 - (NSString *)toArrayKey:(NSString *)str;//对str构建数组key
 
+//最长无重复字符的子串 (3)
+- (NSUInteger)lengthOfLongestSubstring:(NSString *)s;
+- (BOOL)hasRepeatedString:(NSMapTable<NSNumber * , NSNumber *> *)map; //是否还有重复的字符
+
 @end
 
 NS_ASSUME_NONNULL_END
