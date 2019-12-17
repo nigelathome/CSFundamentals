@@ -83,6 +83,49 @@
     return YES;
 }
 
+- (NSArray<NSArray<NSString *> *> *)groupAnagrams:(NSArray<NSString *> *)strs {
+    //anagrams是包含的字母完全相同但出现的顺序不同的单词, eat, ate, tea, 排序之后都是aet. 以此排序作为key
+    NSMapTable<NSString *, NSMutableArray<NSString *> *> *map = [[NSMapTable alloc] init];
+    __block NSMutableArray<NSArray<NSString *> *> *anagramsGroup = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < [strs count]; i++) {
+        NSString *word = [NSString stringWithString:strs[i]];
+        NSString *key = [self stringSort:word]; //将单词按字母排序之后作为key
+        if ([[[map keyEnumerator] allObjects] containsObject:key]) { //包含key,则把word加入key对应的组
+            NSMutableArray *value = [map objectForKey:key];
+            [value addObject:strs[i]];
+        } else {
+            NSMutableArray *value = [[NSMutableArray alloc] init];
+            [value addObject:strs[i]];
+            [map setObject:value forKey:key];
+        }
+    }
+    NSArray<NSString *> *keys = [[map keyEnumerator] allObjects];
+    [keys enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray<NSString *> *anagrams = [map objectForKey:key];
+        [anagramsGroup addObject:anagrams];
+    }];
+    
+    return  anagramsGroup;
+}
+
+- (NSString *)stringSort:(NSString *)str {
+    if ([str isEqualToString:@""]) {
+        return @"";
+    }
+    
+    NSMutableArray *chArr = [[NSMutableArray alloc] init]; //str每个字母存在数组中,通过数组对象排序元素再转换成字符串对象
+    for (NSUInteger i = 0; i < str.length; i++) {
+        NSString *ch = [NSString stringWithFormat:@"%c", [str characterAtIndex:i]];
+        [chArr addObject:ch];
+    }
+    NSArray *sortChArr = [chArr sortedArrayUsingSelector:@selector(compare:)];
+    __block NSMutableString *result = [[NSMutableString alloc] init];
+    [sortChArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [result appendString:obj];
+    }];
+    return result;
+}
+
 #pragma mark test-code
 /*
  //hash表的插入和删除
@@ -114,5 +157,21 @@
  NSString *s = @"abccccddaa";
  NSInteger len = [hashMapTopics longestPalindrome:s];
  printf("可以构造的最大回文串的长度: %ld\n", len);
+ */
+
+/*
+ //单词匹配 (290)
+ NSString *pattern1 = @"abba", *str1 = @"dog cat cat dog";
+ BOOL isMatch = [hashMapTopics wordPattern:pattern1 string:str1];
+ printf("%s\n", isMatch ? "匹配" : "不匹配");
+ NSString *pattern2 = @"abba", *str2 = @"dog cat cat fish";
+ isMatch = [hashMapTopics wordPattern:pattern2 string:str2];
+ printf("%s\n", isMatch ? "匹配" : "不匹配");
+ NSString *pattern3 = @"aaaa", *str3 = @"dog cat cat dog";
+ isMatch = [hashMapTopics wordPattern:pattern3 string:str3];
+ printf("%s\n", isMatch ? "匹配" : "不匹配");
+ NSString *pattern4 = @"abba", *str4 = @"dog dog dog dog";
+ isMatch = [hashMapTopics wordPattern:pattern4 string:str4];
+ printf("%s\n", isMatch ? "匹配" : "不匹配");
  */
 @end

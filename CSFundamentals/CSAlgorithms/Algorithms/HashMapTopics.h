@@ -18,6 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 //单词匹配 (290)
 - (BOOL)wordPattern:(NSString *)pattern string:(NSString *)str;
 
+//分组变位词 (49)
+- (NSArray<NSArray<NSString *> *> *)groupAnagrams:(NSArray<NSString *> *)strs;
+- (NSString *)stringSort:(NSString *)str;//对str中的字母排序后返回新的字符串对象
+
 @end
 
 NS_ASSUME_NONNULL_END

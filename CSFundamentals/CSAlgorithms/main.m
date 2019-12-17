@@ -48,18 +48,17 @@ int main(int argc, const char * argv[]) {
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         HashMapTopics *hashMapTopics = [[HashMapTopics alloc] init];
         
-        NSString *pattern1 = @"abba", *str1 = @"dog cat cat dog";
-        BOOL isMatch = [hashMapTopics wordPattern:pattern1 string:str1];
-        printf("%s\n", isMatch ? "匹配" : "不匹配");
-        NSString *pattern2 = @"abba", *str2 = @"dog cat cat fish";
-        isMatch = [hashMapTopics wordPattern:pattern2 string:str2];
-        printf("%s\n", isMatch ? "匹配" : "不匹配");
-        NSString *pattern3 = @"aaaa", *str3 = @"dog cat cat dog";
-        isMatch = [hashMapTopics wordPattern:pattern3 string:str3];
-        printf("%s\n", isMatch ? "匹配" : "不匹配");
-        NSString *pattern4 = @"abba", *str4 = @"dog dog dog dog";
-        isMatch = [hashMapTopics wordPattern:pattern4 string:str4];
-        printf("%s\n", isMatch ? "匹配" : "不匹配");
+        NSString *str = @"tea";
+        NSString *sortStr = [hashMapTopics stringSort:str];
+        printf("%s -> %s\n", [str UTF8String], [sortStr UTF8String]);
+        NSArray<NSString *> *strs = [NSArray arrayWithObjects:@"tea", @"bat", @"eat", @"tan", @"nat", @"ate", @"kte", @"bat", nil];
+        NSArray<NSArray<NSString *> *> *result = [hashMapTopics groupAnagrams:strs];
+        [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [obj enumerateObjectsUsingBlock:^(NSString * _Nonnull word, NSUInteger idx, BOOL * _Nonnull stop) {
+                printf("[%s]", [word UTF8String]);
+            }];
+            printf("\n");
+        }];
     }
     return 0;
 }
