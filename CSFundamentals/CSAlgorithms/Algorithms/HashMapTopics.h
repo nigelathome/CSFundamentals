@@ -18,9 +18,13 @@ NS_ASSUME_NONNULL_BEGIN
 //单词匹配 (290)
 - (BOOL)wordPattern:(NSString *)pattern string:(NSString *)str;
 
-//分组变位词 (49)
+//分组变位词 (49) 单词排序之后构建key的方法
 - (NSArray<NSArray<NSString *> *> *)groupAnagrams:(NSArray<NSString *> *)strs;
 - (NSString *)stringSort:(NSString *)str;//对str中的字母排序后返回新的字符串对象
+
+//分组变位词 (49) 每个字母出现的次数构建key的方法
+- (NSArray<NSArray<NSString *> *> *)groupAnagramsWithStringKey:(NSArray<NSString *> *)strs;
+- (NSString *)toArrayKey:(NSString *)str;//对str构建数组key
 
 @end
 

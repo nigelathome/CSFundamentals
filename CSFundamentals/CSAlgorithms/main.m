@@ -48,11 +48,11 @@ int main(int argc, const char * argv[]) {
         BinarySearchTopics *binarySearchTopics = [[BinarySearchTopics alloc] init];
         HashMapTopics *hashMapTopics = [[HashMapTopics alloc] init];
         
-        NSString *str = @"tea";
-        NSString *sortStr = [hashMapTopics stringSort:str];
+        NSString *str = @"aaaaa";
+        NSString *sortStr = [hashMapTopics toArrayKey:str];
         printf("%s -> %s\n", [str UTF8String], [sortStr UTF8String]);
         NSArray<NSString *> *strs = [NSArray arrayWithObjects:@"tea", @"bat", @"eat", @"tan", @"nat", @"ate", @"kte", @"bat", nil];
-        NSArray<NSArray<NSString *> *> *result = [hashMapTopics groupAnagrams:strs];
+        NSArray<NSArray<NSString *> *> *result = [hashMapTopics groupAnagramsWithStringKey:strs];
         [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [obj enumerateObjectsUsingBlock:^(NSString * _Nonnull word, NSUInteger idx, BOOL * _Nonnull stop) {
                 printf("[%s]", [word UTF8String]);

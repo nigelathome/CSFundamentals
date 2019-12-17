@@ -126,6 +126,58 @@
     return result;
 }
 
+- (NSArray<NSArray<NSString *> *> *)groupAnagramsWithStringKey:(NSArray<NSString *> *)strs {
+    //用单词出现的次数构建key
+    NSMapTable<NSString *, NSMutableArray<NSString *> *> *map = [[NSMapTable alloc] init];
+    __block NSMutableArray<NSArray<NSString *> *> *anagramsGroup = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < [strs count]; i++) {
+        NSString *word = [NSString stringWithString:strs[i]];
+        NSString *key = [self toArrayKey:word]; //将单词按字母排序之后作为key
+        if ([[[map keyEnumerator] allObjects] containsObject:key]) { //包含key,则把word加入key对应的组
+            NSMutableArray *value = [map objectForKey:key];
+            [value addObject:strs[i]];
+        } else {
+            NSMutableArray *value = [[NSMutableArray alloc] init];
+            [value addObject:strs[i]];
+            [map setObject:value forKey:key];
+        }
+    }
+    NSArray<NSString *> *keys = [[map keyEnumerator] allObjects];
+    [keys enumerateObjectsUsingBlock:^(NSString * _Nonnull key, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSArray<NSString *> *anagrams = [map objectForKey:key];
+        [anagramsGroup addObject:anagrams];
+    }];
+    
+    return  anagramsGroup;
+}
+
+- (NSString *)toArrayKey:(NSString *)str {
+    //001000..的字符串, 长度是26, 每一位代表str中对应字母出现的次数
+    if ([str isEqualToString:@""]) {
+        return @"";
+    }
+    
+    //初始化key 26个0
+    NSMutableArray<NSNumber *> *key = [[NSMutableArray alloc] init];
+    for (NSUInteger i = 0; i < 26; i++) {
+        NSNumber *num = [NSNumber numberWithInteger:0];
+        [key addObject:num];
+    }
+    
+    for (NSUInteger i = 0; i < str.length; i++) { //生成key
+        unichar ch = [str characterAtIndex:i];
+        int index = ch - 'a'; //映射到0-25
+        key[index] = [NSNumber numberWithInteger:[key[index] integerValue] + 1];
+    }
+    
+    
+    __block NSMutableString *result = [[NSMutableString alloc] init];
+    [key enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull nu, NSUInteger idx, BOOL * _Nonnull stop) {
+        [result appendString:[NSString stringWithFormat:@"%ld", [nu integerValue]]];
+    }];
+    return result;
+}
+
 #pragma mark test-code
 /*
  //hash表的插入和删除
@@ -173,5 +225,35 @@
  NSString *pattern4 = @"abba", *str4 = @"dog dog dog dog";
  isMatch = [hashMapTopics wordPattern:pattern4 string:str4];
  printf("%s\n", isMatch ? "匹配" : "不匹配");
+ */
+
+/*
+ //分组变位词 (49)
+ NSString *str = @"tea";
+ NSString *sortStr = [hashMapTopics stringSort:str];
+ printf("%s -> %s\n", [str UTF8String], [sortStr UTF8String]);
+ NSArray<NSString *> *strs = [NSArray arrayWithObjects:@"tea", @"bat", @"eat", @"tan", @"nat", @"ate", @"kte", @"bat", nil];
+ NSArray<NSArray<NSString *> *> *result = [hashMapTopics groupAnagrams:strs];
+ [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [obj enumerateObjectsUsingBlock:^(NSString * _Nonnull word, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%s]", [word UTF8String]);
+ }];
+ printf("\n");
+ }];
+ */
+
+/*
+ //分组变位词 (49) 每个字母出现的次数构建key的方法
+ NSString *str = @"aaaaa";
+ NSString *sortStr = [hashMapTopics toArrayKey:str];
+ printf("%s -> %s\n", [str UTF8String], [sortStr UTF8String]);
+ NSArray<NSString *> *strs = [NSArray arrayWithObjects:@"tea", @"bat", @"eat", @"tan", @"nat", @"ate", @"kte", @"bat", nil];
+ NSArray<NSArray<NSString *> *> *result = [hashMapTopics groupAnagramsWithStringKey:strs];
+ [result enumerateObjectsUsingBlock:^(NSArray<NSString *> * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+ [obj enumerateObjectsUsingBlock:^(NSString * _Nonnull word, NSUInteger idx, BOOL * _Nonnull stop) {
+ printf("[%s]", [word UTF8String]);
+ }];
+ printf("\n");
+ }];
  */
 @end
