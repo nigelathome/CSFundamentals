@@ -34,7 +34,6 @@ void increase(int *x){
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
         NSLog(@"Hello, US!");
         NSLog(@"Hello, CHINA!");
         
