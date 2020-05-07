@@ -14,6 +14,7 @@
 		268A5BD424639A8100B0438E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD324639A8100B0438E /* Assets.xcassets */; };
 		268A5BD724639A8100B0438E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD524639A8100B0438E /* LaunchScreen.storyboard */; };
 		268A5BDA24639A8100B0438E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BD924639A8100B0438E /* main.m */; };
+		268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BE224639B9A00B0438E /* GCDViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		268A5BD624639A8100B0438E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		268A5BD824639A8100B0438E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		268A5BD924639A8100B0438E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		268A5BE124639B9A00B0438E /* GCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDViewController.h; sourceTree = "<group>"; };
+		268A5BE224639B9A00B0438E /* GCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 		268A5BC624639A7F00B0438E /* iOSFundamentals */ = {
 			isa = PBXGroup;
 			children = (
+				268A5BE024639B2500B0438E /* GCD */,
 				268A5BC724639A7F00B0438E /* AppDelegate.h */,
 				268A5BC824639A7F00B0438E /* AppDelegate.m */,
 				268A5BCA24639A7F00B0438E /* SceneDelegate.h */,
@@ -74,6 +78,15 @@
 				268A5BD924639A8100B0438E /* main.m */,
 			);
 			path = iOSFundamentals;
+			sourceTree = "<group>";
+		};
+		268A5BE024639B2500B0438E /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				268A5BE124639B9A00B0438E /* GCDViewController.h */,
+				268A5BE224639B9A00B0438E /* GCDViewController.m */,
+			);
+			path = GCD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +162,7 @@
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
+				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
 				268A5BCC24639A7F00B0438E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

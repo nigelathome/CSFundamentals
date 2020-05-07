@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GCDViewController.h
 //  iOSFundamentals
 //
 //  Created by Hui,Li on 2020/5/7.
@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, InfoType) {
-    GCD_ISSUE = 0,
-    BLOCK_ISSUE = 1,
-};
+NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController : UIViewController
+@interface GCDViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
