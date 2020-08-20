@@ -345,9 +345,10 @@
 		2677CD5A2344FF1900FC2463 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = M6EDV6DS4E;
+				DEVELOPMENT_TEAM = AN5SY58HZC;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.tvs;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = "-Wno-unused-variable ";
@@ -357,9 +358,9 @@
 		2677CD5B2344FF1900FC2463 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: deming liu (V52VW8XGAB)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = AN5SY58HZC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WARNING_CFLAGS = "-Wno-unused-variable ";
