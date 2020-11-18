@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"GCD";
+    self.title = @"GCD测试";
 }
 
 
