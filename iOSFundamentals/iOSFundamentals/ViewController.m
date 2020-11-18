@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GCDViewController.h"
+#import "BlockViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -49,11 +50,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    InfoType type = [self.dataArray[indexPath.row] integerValue];
-    switch (type) {
-        case GCD_ISSUE: {
+    switch (indexPath.row) {
+        case 0: {
             GCDViewController *gcdVC = [[GCDViewController alloc] init];
             [self.navigationController pushViewController:gcdVC animated:YES];
+        }
+            break;
+        case 1: {
+            BlockViewController *blockVC = [[BlockViewController alloc] init];
+            [self.navigationController pushViewController:blockVC animated:YES];
         }
             break;
             
@@ -65,7 +70,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"GCD", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用", @"block"];
+        _dataArray = @[@"GCD测试", @"block测试", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用测试"];
     }
     return _dataArray;
 }
