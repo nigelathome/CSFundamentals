@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GCDViewController.h"
 #import "BlockViewController.h"
+#import "CopyViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -61,6 +62,10 @@
             [self.navigationController pushViewController:blockVC animated:YES];
         }
             break;
+        case 2: {
+            CopyViewController *copyVC = [[CopyViewController alloc] init];
+            [self.navigationController pushViewController:copyVC animated:YES];
+        }
             
         default:
             break;
@@ -70,7 +75,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"GCD测试", @"block测试", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用测试"];
+        _dataArray = @[@"GCD测试", @"block测试", @"深浅拷贝测试", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用测试"];
     }
     return _dataArray;
 }
