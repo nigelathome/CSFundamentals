@@ -48,7 +48,7 @@
     self.name = @"retain cycle";
     NSString *name = [self.name copy];
     self.myBlock = ^{
-        NSLog(@"%@", self.name);
+        NSLog(@"%@", name);
     };
     self.myBlock();
 }
