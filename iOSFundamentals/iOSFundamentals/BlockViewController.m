@@ -19,6 +19,7 @@
     self.title = @"block 测试";
 //    [self captureValueByBlock];
     [self makeRetainCycle];
+//    self.myBlock();
 #pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
 }
 
@@ -49,8 +50,8 @@
 //    NSString *name = [self.name copy];
     __weak typeof(self) weakSelf = self;
     self.myBlock = ^{
-        __strong typeof(self) strongSelf = weakSelf;
-        NSLog(@"%@", strongSelf.name);
+//        __strong typeof(self) strongSelf = weakSelf;
+        NSLog(@"%@", self.name);
     };
     self.myBlock();
 }
