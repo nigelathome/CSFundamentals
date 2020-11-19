@@ -46,9 +46,11 @@
 
 - (void)makeRetainCycle {
     self.name = @"retain cycle";
-    NSString *name = [self.name copy];
+//    NSString *name = [self.name copy];
+    __weak typeof(self) weakSelf = self;
     self.myBlock = ^{
-        NSLog(@"%@", name);
+        __strong typeof(self) strongSelf = weakSelf;
+        NSLog(@"%@", strongSelf.name);
     };
     self.myBlock();
 }
