@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"block 测试";
+//    [self captureValueByBlock];
+    [self makeRetainCycle];
+#pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
+}
+
+- (void)captureValueByBlock {
     __block int a = 10;
     void(^ModifyBlock)(int i) = ^(int i) {
         NSLog(@"__block修改前a=%d", a);
@@ -36,8 +42,15 @@
     b = 60;
     CaptureBlock(b);
     NSLog(@"修改后b=%d", b);
-    
-#pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
+}
+
+- (void)makeRetainCycle {
+    self.name = @"retain cycle";
+    NSString *name = [self.name copy];
+    self.myBlock = ^{
+        NSLog(@"%@", self.name);
+    };
+    self.myBlock();
 }
 
 @end

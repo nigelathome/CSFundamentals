@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2660A8512565717D001801C4 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8502565717D001801C4 /* BlockViewController.m */; };
-		2660A853256578C5001801C4 /* BlockViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A852256578C5001801C4 /* BlockViewController.cpp */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -21,7 +20,6 @@
 /* Begin PBXFileReference section */
 		2660A84F2565717D001801C4 /* BlockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		2660A8502565717D001801C4 /* BlockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
-		2660A852256578C5001801C4 /* BlockViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlockViewController.cpp; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 		268A5BC624639A7F00B0438E /* iOSFundamentals */ = {
 			isa = PBXGroup;
 			children = (
-				2660A852256578C5001801C4 /* BlockViewController.cpp */,
 				268A5BE124639B9A00B0438E /* GCDViewController.h */,
 				268A5BE224639B9A00B0438E /* GCDViewController.m */,
 				268A5BC724639A7F00B0438E /* AppDelegate.h */,
@@ -156,7 +153,6 @@
 			files = (
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
-				2660A853256578C5001801C4 /* BlockViewController.cpp in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
