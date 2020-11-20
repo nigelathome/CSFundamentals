@@ -37,4 +37,21 @@
     }
 }
 
+- (void)getWordsFromTrie:(NSMutableString *)words result:(NSMutableArray<NSString *> *)result {
+    for (NSInteger i = 0; i < 26; i++) {
+        NSString *key = [NSString stringWithFormat:@"%c", (unichar)(i+'a')];
+        TrieNode *node = [self.child objectForKey:key];
+        if (node) {
+            [words appendString:key];
+            if (node.isEnd) {
+                printf("%s\n", [words UTF8String]);
+                [result addObject:words];
+                
+            }
+            [node getWordsFromTrie:words result:result];
+            [words deleteCharactersInRange:NSMakeRange(words.length-1, 1)];
+        }
+    }
+}
+
 @end

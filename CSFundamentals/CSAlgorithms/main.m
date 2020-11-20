@@ -112,7 +112,10 @@ int main(int argc, const char * argv[]) {
         [n7.child setValue:n11 forKey:[NSString stringWithFormat:@"%c", 'd']];
         n11.isEnd = YES;
         
-        [root preorderTrie:0];
+//        [root preorderTrie:0];
+        NSMutableString *words = [[NSMutableString alloc] init];
+        NSMutableArray *result = [[NSMutableArray alloc] init];
+        [root getWordsFromTrie:words result:result];
         
     }
     return 0;

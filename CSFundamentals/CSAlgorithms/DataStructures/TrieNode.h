@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 //前序遍历trie树
 - (void)preorderTrie:(NSInteger)layer;
 
+//获取全部单次
+- (void)getWordsFromTrie:(NSMutableString *)words result:(NSMutableArray<NSString *> *)result;
+
 @end
 
 NS_ASSUME_NONNULL_END
