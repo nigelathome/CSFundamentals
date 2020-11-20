@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BlockViewController : UIViewController
 
-@property (nonatomic, assign) MyBlock myBlock;
+@property (nonatomic, copy) MyBlock myBlock;
 @property (nonatomic, copy) NSString *name;
 
 @end

@@ -50,10 +50,11 @@
 //    NSString *name = [self.name copy];
     __weak typeof(self) weakSelf = self;
     self.myBlock = ^{
-//        __strong typeof(self) strongSelf = weakSelf;
-        NSLog(@"%@", self.name);
+        __strong typeof(self) strongSelf = weakSelf;
+        NSLog(@"%@", strongSelf.name);
     };
     self.myBlock();
+    printf("Retain Count = %ld\n", CFGetRetainCount((__bridge CFTypeRef)(self.myBlock)));
 }
 
 @end
