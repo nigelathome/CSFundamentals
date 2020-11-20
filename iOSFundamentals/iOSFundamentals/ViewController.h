@@ -8,11 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, InfoType) {
-    GCD_ISSUE = 0,
-    BLOCK_ISSUE = 1,
-};
-
 @interface ViewController : UIViewController
 
 @end
