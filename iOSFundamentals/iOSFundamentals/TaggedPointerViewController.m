@@ -57,6 +57,4 @@
     printf("obj %p", obj);
 }
 
-
-
 @end
