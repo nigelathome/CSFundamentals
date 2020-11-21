@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2660A87D2568BAED001801C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A87C2568BAED001801C4 /* main.cpp */; };
 		2660A88A2568CB89001801C4 /* Trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8882568CB89001801C4 /* Trie.cpp */; };
+		2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A88B25694D2A001801C4 /* TrieTopic.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		2660A87C2568BAED001801C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2660A8882568CB89001801C4 /* Trie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Trie.cpp; sourceTree = "<group>"; };
 		2660A8892568CB89001801C4 /* Trie.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Trie.hpp; sourceTree = "<group>"; };
+		2660A88B25694D2A001801C4 /* TrieTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TrieTopic.cpp; sourceTree = "<group>"; };
+		2660A88C25694D2A001801C4 /* TrieTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrieTopic.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +73,8 @@
 		2660A8832568BB7E001801C4 /* Algorithms */ = {
 			isa = PBXGroup;
 			children = (
-				2660A8882568CB89001801C4 /* Trie.cpp */,
-				2660A8892568CB89001801C4 /* Trie.hpp */,
+				2660A88B25694D2A001801C4 /* TrieTopic.cpp */,
+				2660A88C25694D2A001801C4 /* TrieTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -79,6 +82,8 @@
 		2660A8842568BB84001801C4 /* DataStructures */ = {
 			isa = PBXGroup;
 			children = (
+				2660A8882568CB89001801C4 /* Trie.cpp */,
+				2660A8892568CB89001801C4 /* Trie.hpp */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			files = (
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
 				2660A88A2568CB89001801C4 /* Trie.cpp in Sources */,
+				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

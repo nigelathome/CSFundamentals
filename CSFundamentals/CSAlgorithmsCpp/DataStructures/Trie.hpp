@@ -31,7 +31,7 @@ struct TrieNode {
     void get_all_word_from_trie(TrieNode *node, std::string &word, std::vector<std::string>&word_list);
 };
 
-//208. 实现 Trie (前缀树) 
+//208. 实现 Trie (前缀树)
 class Trie {
 public:
     Trie();
