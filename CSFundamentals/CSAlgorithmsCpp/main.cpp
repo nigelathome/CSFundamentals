@@ -39,7 +39,14 @@ int main(int argc, const char * argv[]) {
     n7.child['d'-'a'] = &n11;
     n11.is_end = true;
     
-    root.preorder_trie(&root, 0);
-
+//    root.preorder_trie(&root, 0);
+    std::vector<std::string> word_list;
+    std::string word;
+    root.get_all_word_from_trie(&root, word, word_list);
+    
+    for (auto it = word_list.begin(); it != word_list.end(); it++) {
+        std::cout << *it.base() << "\n";
+    }
+    
     return 0;
 }

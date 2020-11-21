@@ -23,7 +23,12 @@ struct TrieNode {
             child[i] = 0;
         }
     }
+    
+    //前序遍历trie树
     void preorder_trie(TrieNode *node, int layer);
+    
+    //获取trie树全部单词
+    void get_all_word_from_trie(TrieNode *node, std::string &word, std::vector<std::string>&word_list);
 };
 
 #endif /* Trie_hpp */
