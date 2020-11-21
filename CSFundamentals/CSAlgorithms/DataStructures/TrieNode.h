@@ -25,4 +25,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface TrieTree : NSObject
+
+//实现前序trie树 (208)
+
+//trie树根节点
+@property (nonatomic, strong) TrieNode *root;
+
+//word插入trie树
+- (void)insert:(NSString *)word;
+
+//搜索trie树中是否存在word
+- (BOOL)search:(NSString *)word;
+
+//判断trie树中存在prefix为前缀的单词
+- (BOOL)startWith:(NSString *)prefix;
+
+@end
+
 NS_ASSUME_NONNULL_END

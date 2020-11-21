@@ -37,13 +37,14 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         NSLog(@"Hello, US!");
         NSLog(@"Hello, CHINA!");
-
-
         
-
-        
-        
-        
+        TrieTree *root = [[TrieTree alloc] init];
+        [root insert:@"abcde"];
+        printf("%s\n", [root search:@"abcde"] ? "YES" : "NO");
+        printf("%s\n", [root search:@"ade"] ? "YES" : "NO");
+        printf("%s\n", [root startWith:@"abc"] ? "YES" : "NO");
+        printf("%s\n", [root startWith:@"abcdef"] ? "YES" : "NO");
+        printf("%s\n", [root startWith:@"abcde"] ? "YES" : "NO");
     }
     return 0;
 }
