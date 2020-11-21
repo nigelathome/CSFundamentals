@@ -13,8 +13,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.isEnd = NO;
-        self.child = [[NSMutableDictionary alloc] init];
+        _isEnd = NO;
+        _child = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
