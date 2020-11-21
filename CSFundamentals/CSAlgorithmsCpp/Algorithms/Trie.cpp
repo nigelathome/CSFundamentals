@@ -24,7 +24,9 @@ void TrieNode::preorder_trie(TrieNode *node, int layer) {
     }
 }
 
-void TrieNode::get_all_word_from_trie(TrieNode *node, std::string &word, std::vector<std::string>&word_list) {
+void TrieNode::get_all_word_from_trie(TrieNode *node,
+                                      std::string &word,
+                                      std::vector<std::string>&word_list) {
     for (int i = 0; i<TRIE_MAX_CHAR_NUM; i++) {
         if (node->child[i]) {
             word.push_back(i + 'a');
