@@ -31,4 +31,23 @@ struct TrieNode {
     void get_all_word_from_trie(TrieNode *node, std::string &word, std::vector<std::string>&word_list);
 };
 
+class Trie {
+public:
+    Trie();
+    ~Trie();
+    //插入word
+    void insert(const std::string word);
+    
+    //查找word
+    bool search(const std::string word);
+    
+    //是否存在prefix前缀的单词
+    bool startWith(const std::string prefix);
+    
+    TrieNode *_root;
+    
+private:
+    
+};
+
 #endif /* Trie_hpp */
