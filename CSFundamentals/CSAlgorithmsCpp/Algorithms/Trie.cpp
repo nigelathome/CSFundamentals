@@ -44,20 +44,44 @@ Trie::Trie() {
 }
 
 Trie::~Trie() {
-    
+    delete _root;
 }
 
-void Trie::insert(std::string word) {
+void Trie::insert(const std::string word) {
     TrieNode *ptr = this->_root;
-    for (int i=0; i<word.length(); i++) {
-        int pos = word[i] - 'a';
+    for (auto it = word.begin(); it != word.end(); it++) {
+        int pos = *it - 'a';
         if (!ptr->child[pos]) {
             TrieNode *newNode = new TrieNode();
             ptr->child[pos] = newNode;
-            ptr = ptr->child[pos];
         }
+        ptr = ptr->child[pos];
     }
     ptr->is_end = true;
+}
+
+bool Trie::search(const std::string word) {
+    TrieNode *ptr = this->_root;
+    for (auto it = word.begin(); it != word.end(); it++) {
+        int pos = *it - 'a';
+        if (!ptr->child[pos]) {
+            return false;
+        }
+        ptr = ptr->child[pos];
+    }
+    return ptr->is_end;
+}
+
+bool Trie::startsWith(const std::string prefix) {
+    TrieNode *ptr = this->_root;
+    for (auto it = prefix.begin(); it != prefix.end(); it++) {
+        int pos = *it - 'a';
+        if (!ptr->child[pos]) {
+            return false;
+        }
+        ptr = ptr->child[pos];
+    }
+    return true;
 }
 
 #pragma mark code-test
