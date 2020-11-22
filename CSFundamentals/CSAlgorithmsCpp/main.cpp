@@ -7,9 +7,6 @@
 //
 
 #include <iostream>
-#include <cstdio>
-#include "Trie.hpp"
-#include "TrieTopic.hpp"
 
 using namespace std;
 

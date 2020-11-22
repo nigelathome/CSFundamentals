@@ -10,8 +10,6 @@
 #define Trie_hpp
 
 #include <stdio.h>
-#include <string>
-#include <vector>
 
 #define TRIE_MAX_CHAR_NUM 26
 

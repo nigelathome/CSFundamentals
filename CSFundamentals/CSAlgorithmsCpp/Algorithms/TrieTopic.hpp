@@ -9,10 +9,6 @@
 #ifndef TrieTopic_hpp
 #define TrieTopic_hpp
 
-#include <stdio.h>
-#include <string>
-#include "Trie.hpp"
-
 //211. 添加与搜索单词 - 数据结构设计
 class WordDictionary {
 public:
