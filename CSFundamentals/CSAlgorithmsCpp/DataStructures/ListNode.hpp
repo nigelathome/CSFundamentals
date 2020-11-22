@@ -14,6 +14,7 @@
 struct ListNode {
     int val;
     ListNode *next;
+    ListNode(int x);
 };
 
 #endif /* ListNode_hpp */

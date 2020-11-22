@@ -7,3 +7,7 @@
 //
 
 #include "ListNode.hpp"
+
+ListNode::ListNode(int x) : val(x), next(NULL) {
+    
+}

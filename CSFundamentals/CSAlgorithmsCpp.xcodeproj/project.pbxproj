@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB23256A4D1800DEFE55 /* ListNode.cpp */; };
+		265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */; };
+		265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB2A256A5D0500DEFE55 /* CommonUtil.cpp */; };
 		2660A87D2568BAED001801C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A87C2568BAED001801C4 /* main.cpp */; };
 		2660A88A2568CB89001801C4 /* Trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8882568CB89001801C4 /* Trie.cpp */; };
 		2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A88B25694D2A001801C4 /* TrieTopic.cpp */; };
@@ -29,6 +31,10 @@
 		265DEB23256A4D1800DEFE55 /* ListNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListNode.cpp; sourceTree = "<group>"; };
 		265DEB24256A4D1800DEFE55 /* ListNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListNode.hpp; sourceTree = "<group>"; };
 		265DEB26256A4D9F00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinkedListTopic.cpp; sourceTree = "<group>"; };
+		265DEB28256A533600DEFE55 /* LinkedListTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkedListTopic.hpp; sourceTree = "<group>"; };
+		265DEB2A256A5D0500DEFE55 /* CommonUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommonUtil.cpp; sourceTree = "<group>"; };
+		265DEB2B256A5D0500DEFE55 /* CommonUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommonUtil.hpp; sourceTree = "<group>"; };
 		2660A8792568BAED001801C4 /* CSAlgorithmsCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSAlgorithmsCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		2660A87C2568BAED001801C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2660A8882568CB89001801C4 /* Trie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Trie.cpp; sourceTree = "<group>"; };
@@ -80,6 +86,8 @@
 			children = (
 				2660A88B25694D2A001801C4 /* TrieTopic.cpp */,
 				2660A88C25694D2A001801C4 /* TrieTopic.hpp */,
+				265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */,
+				265DEB28256A533600DEFE55 /* LinkedListTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
 				2660A88A2568CB89001801C4 /* Trie.cpp in Sources */,
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
+				265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */,
 				265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

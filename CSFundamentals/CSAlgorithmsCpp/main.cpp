@@ -14,12 +14,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    ListNode a, b, c, d, e;
-    a.val = 10;
-    b.val = 20;
-    c.val = 30;
-    d.val = 40;
-    e.val = 50;
+    ListNode a(10), b(20), c(30), d(40), e(50);
     a.next = &b;
     b.next = &c;
     c.next = &d;
