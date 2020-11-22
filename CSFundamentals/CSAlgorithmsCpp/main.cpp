@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     commonUtil->print_linked_list(head);
     
     Solution *s = new Solution();
-    ListNode *new_head = s->reverseList(head);
+    ListNode *new_head = s->reverseBetween(head, 2, 4);
     commonUtil->print_linked_list(new_head);
     
     return 0;

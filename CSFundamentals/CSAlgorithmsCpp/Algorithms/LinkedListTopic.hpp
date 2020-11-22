@@ -15,6 +15,9 @@ class Solution {
 public:
     //206. 反转链表
     ListNode* reverseList(ListNode* head);
+    
+    //92. 反转链表 II
+    ListNode* reverseBetween(ListNode* head, int m, int n);
 };
 
 #endif /* LinkedListTopic_hpp */
