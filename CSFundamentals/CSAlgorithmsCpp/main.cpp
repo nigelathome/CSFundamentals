@@ -14,15 +14,26 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    WordDictionary word_dictionary;
-    word_dictionary.addWord("bad");
-    word_dictionary.addWord("dad");
-    word_dictionary.addWord("mad");
-    
-    std::cout << std::boolalpha << word_dictionary.search("pad") << endl;
-    std::cout << std::boolalpha << word_dictionary.search("bad") << endl;
-    std::cout << std::boolalpha << word_dictionary.search(".ad") << endl;
-    std::cout << std::boolalpha << word_dictionary.search("b..") << endl;
-
+    ListNode a, b, c, d, e;
+    a.val = 10;
+    b.val = 20;
+    c.val = 30;
+    d.val = 40;
+    e.val = 50;
+    a.next = &b;
+    b.next = &c;
+    c.next = &d;
+    d.next = &e;
+    e.next = NULL;
+    ListNode *head = &a;
+    while (head) {
+        if (head == &a) {
+            printf("%d", head->val);
+        } else {
+            printf("->%d", head->val);
+        }
+        head = head->next;
+    }
+    printf("\n");
     return 0;
 }

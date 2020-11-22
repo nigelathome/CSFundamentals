@@ -48,3 +48,16 @@ bool WordDictionary::search_trie(TrieNode *node, const char *word) {
     }
     return  false;
 }
+
+#pragma mark code-test
+/*
+ WordDictionary word_dictionary;
+ word_dictionary.addWord("bad");
+ word_dictionary.addWord("dad");
+ word_dictionary.addWord("mad");
+ 
+ std::cout << std::boolalpha << word_dictionary.search("pad") << endl;
+ std::cout << std::boolalpha << word_dictionary.search("bad") << endl;
+ std::cout << std::boolalpha << word_dictionary.search(".ad") << endl;
+ std::cout << std::boolalpha << word_dictionary.search("b..") << endl;
+ */
