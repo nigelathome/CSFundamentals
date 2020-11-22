@@ -77,6 +77,8 @@
 				2660A8832568BB7E001801C4 /* Algorithms */,
 				2660A87C2568BAED001801C4 /* main.cpp */,
 				265DEB26256A4D9F00DEFE55 /* PrefixHeader.pch */,
+				265DEB2A256A5D0500DEFE55 /* CommonUtil.cpp */,
+				265DEB2B256A5D0500DEFE55 /* CommonUtil.hpp */,
 			);
 			path = CSAlgorithmsCpp;
 			sourceTree = "<group>";
@@ -162,6 +164,7 @@
 			files = (
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
 				2660A88A2568CB89001801C4 /* Trie.cpp in Sources */,
+				265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */,
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
 				265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */,
 				265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */,

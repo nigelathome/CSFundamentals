@@ -21,14 +21,12 @@ int main(int argc, const char * argv[]) {
     d.next = &e;
     e.next = NULL;
     ListNode *head = &a;
-    while (head) {
-        if (head == &a) {
-            printf("%d", head->val);
-        } else {
-            printf("->%d", head->val);
-        }
-        head = head->next;
-    }
-    printf("\n");
+    CommonUtil *commonUtil = new CommonUtil();
+    commonUtil->print_linked_list(head);
+    
+    Solution *s = new Solution();
+    ListNode *new_head = s->reverseList(head);
+    commonUtil->print_linked_list(new_head);
+    
     return 0;
 }

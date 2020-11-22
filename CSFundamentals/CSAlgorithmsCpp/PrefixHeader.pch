@@ -16,5 +16,7 @@
 #include "Trie.hpp"
 #include "TrieTopic.hpp"
 #include "ListNode.hpp"
+#include "LinkedListTopic.hpp"
+#include "CommonUtil.hpp"
 
 #endif /* PrefixHeader_pch */
