@@ -16,7 +16,7 @@
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
 		268A5BD424639A8100B0438E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD324639A8100B0438E /* Assets.xcassets */; };
 		268A5BD724639A8100B0438E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD524639A8100B0438E /* LaunchScreen.storyboard */; };
-		268A5BDA24639A8100B0438E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BD924639A8100B0438E /* main.m */; };
+		268A5BDA24639A8100B0438E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BD924639A8100B0438E /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BE224639B9A00B0438E /* GCDViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -173,6 +173,7 @@
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
+				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,

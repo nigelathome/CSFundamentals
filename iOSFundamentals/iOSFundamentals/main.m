@@ -11,6 +11,7 @@
 
 int main(int argc, char * argv[]) {
     NSString * appDelegateClassName;
+//    _objc_autoreleasePoolPrint();     // print1
     @autoreleasepool {
 //        appDelegateClassName = NSStringFromClass([AppDelegate class]);
         NSArray *arr = @[@"1"];
@@ -25,7 +26,12 @@ int main(int argc, char * argv[]) {
             NSArray *arr2 = @[@"2"];
             _objc_autoreleasePoolPrint();
         }
+//        _objc_autoreleasePoolPrint(); // print2
+//        NSObject *p1 = [[[NSObject alloc] init] autorelease];
+//        NSObject *p2 = [[[NSObject alloc] init] autorelease];
+//        _objc_autoreleasePoolPrint(); // print3
     }
 //    return UIApplicationMain(argc, argv, nil, appDelegateClassName);
+    _objc_autoreleasePoolPrint();     // print4
     return 0;
 }
