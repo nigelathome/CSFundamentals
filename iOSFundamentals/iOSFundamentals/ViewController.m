@@ -11,6 +11,7 @@
 #import "BlockViewController.h"
 #import "CopyViewController.h"
 #import "TaggedPointerViewController.h"
+#import "MemManagerViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -30,6 +31,8 @@
         _tableView.dataSource = self;
         _tableView;
     })];
+//    printf("ViewController");
+//    _objc_autoreleasePoolPrint();
 }
 
 #pragma mark tableview delegate
@@ -73,6 +76,11 @@
             [self.navigationController pushViewController:taggedPointerVC animated:YES];
         }
             break;
+        case 4: {
+            MemManagerViewController *memManagerVC = [[MemManagerViewController alloc] init];
+            [self.navigationController pushViewController:memManagerVC animated:YES];
+        }
+            break;
             
         default:
             break;
@@ -82,7 +90,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用测试"];
+        _dataArray = @[@"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"内存管理", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用测试"];
     }
     return _dataArray;
 }

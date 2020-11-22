@@ -9,6 +9,6 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-extern void _objc_autoreleasePoolPrint();
+extern void _objc_autoreleasePoolPrint(void);
 
 #endif /* PrefixHeader_pch */
