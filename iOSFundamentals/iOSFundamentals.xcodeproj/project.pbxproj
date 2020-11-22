@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
+		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
 		2660A8512565717D001801C4 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8502565717D001801C4 /* BlockViewController.m */; };
 		2660A85625662D16001801C4 /* CopyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85525662D16001801C4 /* CopyViewController.m */; };
 		2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85825675855001801C4 /* TaggedPointerViewController.m */; };
@@ -24,6 +25,8 @@
 		265DEB1C2569FFE800DEFE55 /* MemManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemManagerViewController.h; sourceTree = "<group>"; };
 		265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemManagerViewController.m; sourceTree = "<group>"; };
 		265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		265DEB20256A19F600DEFE55 /* RunloopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunloopViewController.h; sourceTree = "<group>"; };
+		265DEB21256A19F600DEFE55 /* RunloopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopViewController.m; sourceTree = "<group>"; };
 		2660A84F2565717D001801C4 /* BlockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		2660A8502565717D001801C4 /* BlockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
 		2660A85425662D16001801C4 /* CopyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyViewController.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				265DEB1C2569FFE800DEFE55 /* MemManagerViewController.h */,
 				265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */,
 				265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */,
+				265DEB20256A19F600DEFE55 /* RunloopViewController.h */,
+				265DEB21256A19F600DEFE55 /* RunloopViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";

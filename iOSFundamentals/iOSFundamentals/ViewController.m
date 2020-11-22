@@ -12,6 +12,7 @@
 #import "CopyViewController.h"
 #import "TaggedPointerViewController.h"
 #import "MemManagerViewController.h"
+#import "RunloopViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -77,8 +78,8 @@
         }
             break;
         case 4: {
-            MemManagerViewController *memManagerVC = [[MemManagerViewController alloc] init];
-            [self.navigationController pushViewController:memManagerVC animated:YES];
+            RunloopViewController *runloopVC = [[RunloopViewController alloc] init];
+            [self.navigationController pushViewController:runloopVC animated:YES];
         }
             break;
             
@@ -90,7 +91,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"内存管理", @"属性和成员变量", @"Runtime", @"Runloop", @"循环引用测试"];
+        _dataArray = @[@"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"内存管理", @"属性和成员变量", @"Runtime", @"循环引用测试"];
     }
     return _dataArray;
 }
