@@ -27,6 +27,9 @@ public:
     
     //142. 环形链表 II
     ListNode *detectCycle(ListNode *head);
+    
+    //86. 分隔链表
+    ListNode* partition(ListNode* head, int x);
 
 };
 

@@ -136,6 +136,26 @@ ListNode* Solution::detectCycle(ListNode *head) {
     return NULL;
 }
 
+ListNode* Solution::partition(ListNode* head, int x) {
+    ListNode less_head(0), more_head(0);
+    ListNode *less_ptr = &less_head, *more_ptr = &more_head;
+    while (head) {
+        if (head->val < x) {
+            less_ptr->next = head;
+            less_ptr = head;
+        } else {
+            more_ptr->next = head;
+            more_ptr = head;
+        }
+        head = head->next;
+    }
+    //小于和大于等于的链表相连接 大于等于链表中的最后结点next域置空
+    less_ptr->next = more_head.next;
+    more_ptr->next = NULL;
+    
+    return less_head.next;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -181,5 +201,20 @@ ListNode* Solution::detectCycle(ListNode *head) {
  b3.next = &c1;
  Solution solve;
  ListNode *result = solve.getIntersectionNode(&a1, &b1);
+ printf("%d\n", result->val);
+ */
+
+/*
+ ListNode a(1), b(2), c(3), d(4), e(5), f(6), g(7);
+ a.next = &b;
+ b.next = &c;
+ c.next = &d;
+ d.next = &e;
+ e.next = &f;
+ f.next = &g;
+ g.next = &c;
+ 
+ Solution solve;
+ ListNode *result = solve.detectCycle(&a);
  printf("%d\n", result->val);
  */
