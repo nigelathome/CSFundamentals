@@ -58,6 +58,23 @@ ListNode* Solution::reverseBetween(ListNode* head, int m, int n) {
     return result;
 }
 
+ListNode* Solution::getIntersectionNode(ListNode *headA, ListNode *headB) {
+    std::set<ListNode *> node_set;
+    while (headA) {//将A的结点存入set中
+        node_set.insert(headA);
+        headA = headA->next;
+    }
+    while (headB) {
+        //依次遍历B的结点, 在set中存在的结点就是A-B相交的第一个结点
+        if (node_set.find(headB) != node_set.end()) {
+            return headB;
+        }
+        headB = headB->next;
+    }
+    
+    return headB;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -72,5 +89,21 @@ ListNode* Solution::reverseBetween(ListNode* head, int m, int n) {
  
  Solution *s = new Solution();
  ListNode *new_head = s->reverseList(head);
+ commonUtil->print_linked_list(new_head);
+ */
+
+/*
+ ListNode a(10), b(20), c(30), d(40), e(50);
+ a.next = &b;
+ b.next = &c;
+ c.next = &d;
+ d.next = &e;
+ e.next = NULL;
+ ListNode *head = &a;
+ CommonUtil *commonUtil = new CommonUtil();
+ commonUtil->print_linked_list(head);
+ 
+ Solution *s = new Solution();
+ ListNode *new_head = s->reverseBetween(head, 2, 4);
  commonUtil->print_linked_list(new_head);
  */

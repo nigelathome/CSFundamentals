@@ -18,6 +18,9 @@ public:
     
     //92. 反转链表 II
     ListNode* reverseBetween(ListNode* head, int m, int n);
+    
+    //160. 相交链表
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB);
 };
 
 #endif /* LinkedListTopic_hpp */
