@@ -14,19 +14,21 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    ListNode a(1), b(4), c(3), d(2), e(5), f(2);
+    std::map<Node *, int> node_map;
+    Node a(1), b(2), c(3), d(4), e(5);
     a.next = &b;
     b.next = &c;
     c.next = &d;
     d.next = &e;
-    e.next = &f;
-    
-    CommonUtil commonUtil;
-    commonUtil.print_linked_list(&a);
+    a.random = &c;
+    b.random = &d;
+    c.random = &c;
+    e.random = &d;
     
     Solution solve;
-    ListNode *result = solve.partition(&a, 3);
-    commonUtil.print_linked_list(result);
+    Node *head = solve.copyRandomList(&a);
+    CommonUtil *commonUtil = new CommonUtil();
+    commonUtil->print_random_linked_list(head);
     
     return 0;
 }

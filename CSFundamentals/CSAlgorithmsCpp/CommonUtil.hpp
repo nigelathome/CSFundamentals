@@ -24,6 +24,9 @@ public:
     
     //两个链表对齐 返回对齐后的结点
     ListNode *forward_long_list(int long_len, int short_len, ListNode *head);
+    
+    //输出带随机指针的单链表
+    void print_random_linked_list(Node *head);
 };
 
 #endif /* CommonUtil_hpp */

@@ -30,7 +30,9 @@ public:
     
     //86. 分隔链表
     ListNode* partition(ListNode* head, int x);
-
+    
+    //138. 复制带随机指针的链表
+    Node* copyRandomList(Node* head);
 };
 
 #endif /* LinkedListTopic_hpp */

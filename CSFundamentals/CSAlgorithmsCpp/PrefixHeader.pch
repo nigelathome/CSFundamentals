@@ -14,10 +14,15 @@
 #include <vector>
 #include <cstdio>
 #include <set>
+#include <map>
+
 #include "Trie.hpp"
-#include "TrieTopic.hpp"
 #include "ListNode.hpp"
+#include "Node.hpp"
+
+#include "TrieTopic.hpp"
 #include "LinkedListTopic.hpp"
+
 #include "CommonUtil.hpp"
 
 #endif /* PrefixHeader_pch */

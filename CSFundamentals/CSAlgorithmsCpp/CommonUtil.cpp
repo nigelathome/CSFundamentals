@@ -54,3 +54,14 @@ ListNode* CommonUtil::forward_long_list(int long_len, int short_len, ListNode *h
     }
     return head;
 }
+
+void CommonUtil::print_random_linked_list(Node *head) {
+    while (head) {
+        if (head->random) {
+            printf("val = %d ran = %d\n", head->val, head->random->val);
+        } else {
+            printf("val = %d ran = NULL\n", head->val);
+        }
+        head = head->next;
+    }
+}

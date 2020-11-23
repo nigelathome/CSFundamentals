@@ -10,6 +10,7 @@
 		265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB23256A4D1800DEFE55 /* ListNode.cpp */; };
 		265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */; };
 		265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB2A256A5D0500DEFE55 /* CommonUtil.cpp */; };
+		265DEB2F256BAE3D00DEFE55 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB2D256BAE3D00DEFE55 /* Node.cpp */; };
 		2660A87D2568BAED001801C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A87C2568BAED001801C4 /* main.cpp */; };
 		2660A88A2568CB89001801C4 /* Trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8882568CB89001801C4 /* Trie.cpp */; };
 		2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A88B25694D2A001801C4 /* TrieTopic.cpp */; };
@@ -35,6 +36,8 @@
 		265DEB28256A533600DEFE55 /* LinkedListTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LinkedListTopic.hpp; sourceTree = "<group>"; };
 		265DEB2A256A5D0500DEFE55 /* CommonUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommonUtil.cpp; sourceTree = "<group>"; };
 		265DEB2B256A5D0500DEFE55 /* CommonUtil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommonUtil.hpp; sourceTree = "<group>"; };
+		265DEB2D256BAE3D00DEFE55 /* Node.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
+		265DEB2E256BAE3D00DEFE55 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 		2660A8792568BAED001801C4 /* CSAlgorithmsCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CSAlgorithmsCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		2660A87C2568BAED001801C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2660A8882568CB89001801C4 /* Trie.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Trie.cpp; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				2660A8892568CB89001801C4 /* Trie.hpp */,
 				265DEB23256A4D1800DEFE55 /* ListNode.cpp */,
 				265DEB24256A4D1800DEFE55 /* ListNode.hpp */,
+				265DEB2D256BAE3D00DEFE55 /* Node.cpp */,
+				265DEB2E256BAE3D00DEFE55 /* Node.hpp */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
+				265DEB2F256BAE3D00DEFE55 /* Node.cpp in Sources */,
 				2660A88A2568CB89001801C4 /* Trie.cpp in Sources */,
 				265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */,
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
