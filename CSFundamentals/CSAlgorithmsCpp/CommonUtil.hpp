@@ -18,6 +18,12 @@ public:
     
     //输出单链表
     void print_linked_list(ListNode *head);
+    
+    //链表长度
+    int get_list_length(ListNode *head);
+    
+    //两个链表对齐 返回对齐后的结点
+    ListNode *forward_long_list(int long_len, int short_len, ListNode *head);
 };
 
 #endif /* CommonUtil_hpp */

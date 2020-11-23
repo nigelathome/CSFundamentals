@@ -58,21 +58,41 @@ ListNode* Solution::reverseBetween(ListNode* head, int m, int n) {
     return result;
 }
 
+//ListNode* Solution::getIntersectionNode(ListNode *headA, ListNode *headB) {
+//    std::set<ListNode *> node_set;
+//    while (headA) {//将A的结点存入set中
+//        node_set.insert(headA);
+//        headA = headA->next;
+//    }
+//    while (headB) {
+//        //依次遍历B的结点, 在set中存在的结点就是A-B相交的第一个结点
+//        if (node_set.find(headB) != node_set.end()) {
+//            return headB;
+//        }
+//        headB = headB->next;
+//    }
+//
+//    return headB;
+//}
 ListNode* Solution::getIntersectionNode(ListNode *headA, ListNode *headB) {
-    std::set<ListNode *> node_set;
-    while (headA) {//将A的结点存入set中
-        node_set.insert(headA);
-        headA = headA->next;
+    CommonUtil commonUtil;
+    ListNode *ptrA = headA, *ptrB = headB;
+    int a_len = commonUtil.get_list_length(ptrA);
+    int b_len = commonUtil.get_list_length(ptrB);
+    if (a_len > b_len) {
+        headA = commonUtil.forward_long_list(a_len, b_len, headA);
+    } else {
+        headB = commonUtil.forward_long_list(b_len, a_len, headB);
     }
-    while (headB) {
-        //依次遍历B的结点, 在set中存在的结点就是A-B相交的第一个结点
-        if (node_set.find(headB) != node_set.end()) {
-            return headB;
+    while (headA && headB) {
+        if (headA == headB) {
+            return headA;
         }
+        headA = headA->next;
         headB = headB->next;
     }
     
-    return headB;
+    return NULL;
 }
 
 #pragma mark code-test

@@ -36,3 +36,21 @@ void CommonUtil::print_linked_list(ListNode* head) {
     }
     printf("\n");
 }
+
+int CommonUtil::get_list_length(ListNode *head) {
+    int len = 0;
+    while (head) {
+        head = head->next;
+        len++;
+    }
+    return len;
+}
+
+ListNode* CommonUtil::forward_long_list(int long_len, int short_len, ListNode *head) {
+    int delta = long_len - short_len;
+    while (head && delta) {//delta=0时恰好gead指向对齐后的第一个结点
+        head = head->next;
+        delta--;
+    }
+    return head;
+}
