@@ -14,17 +14,17 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    ListNode a1(1), a2(2), b1(3), b2(4), b3(5);
-    ListNode c1(6), c2(7), c3(8);
-    a1.next = &a2;
-    a2.next = &c1;
-    c1.next = &c2;
-    c2.next = &c3;
-    b1.next = &b2;
-    b2.next = &b3;
-    b3.next = &c1;
+    ListNode a(1), b(2), c(3), d(4), e(5), f(6), g(7);
+    a.next = &b;
+    b.next = &c;
+    c.next = &d;
+    d.next = &e;
+    e.next = &f;
+    f.next = &g;
+    g.next = &c;
+    
     Solution solve;
-    ListNode *result = solve.getIntersectionNode(&a1, &b1);
+    ListNode *result = solve.detectCycle(&a);
     printf("%d\n", result->val);
     
     return 0;

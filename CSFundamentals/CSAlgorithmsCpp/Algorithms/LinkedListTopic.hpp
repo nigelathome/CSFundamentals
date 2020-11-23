@@ -24,6 +24,9 @@ public:
     
     //141. 环形链表是否有环
     bool hasCycle(ListNode *head);
+    
+    //142. 环形链表 II
+    ListNode *detectCycle(ListNode *head);
 
 };
 

@@ -107,6 +107,35 @@ bool Solution::hasCycle(ListNode *head) {
     return false;
 }
 
+ListNode* Solution::detectCycle(ListNode *head) {
+    ListNode *fast = head, *slow = head;
+    ListNode *meet = NULL;
+    while (fast) {
+        fast = fast->next;
+        slow = slow->next;
+        if (!fast) {
+            return NULL;
+        }
+        fast = fast->next;
+        if (fast == slow) {
+            meet = fast;//保存相遇结点并退出循环
+            break;
+        }
+    }
+    //没有相遇点
+    if (!meet) {
+        return NULL;
+    }
+    while (head && meet) {
+        if (head == meet) {
+            return head;
+        }
+        head = head->next;
+        meet = meet->next;
+    }
+    return NULL;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -138,4 +167,19 @@ bool Solution::hasCycle(ListNode *head) {
  Solution *s = new Solution();
  ListNode *new_head = s->reverseBetween(head, 2, 4);
  commonUtil->print_linked_list(new_head);
+ */
+
+/*
+ ListNode a1(1), a2(2), b1(3), b2(4), b3(5);
+ ListNode c1(6), c2(7), c3(8);
+ a1.next = &a2;
+ a2.next = &c1;
+ c1.next = &c2;
+ c2.next = &c3;
+ b1.next = &b2;
+ b2.next = &b3;
+ b3.next = &c1;
+ Solution solve;
+ ListNode *result = solve.getIntersectionNode(&a1, &b1);
+ printf("%d\n", result->val);
  */
