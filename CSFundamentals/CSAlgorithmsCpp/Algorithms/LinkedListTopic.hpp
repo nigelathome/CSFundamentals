@@ -21,6 +21,10 @@ public:
     
     //160. 相交链表
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB);
+    
+    //141. 环形链表是否有环
+    bool hasCycle(ListNode *head);
+
 };
 
 #endif /* LinkedListTopic_hpp */

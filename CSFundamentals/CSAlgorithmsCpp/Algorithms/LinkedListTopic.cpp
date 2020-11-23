@@ -95,6 +95,18 @@ ListNode* Solution::getIntersectionNode(ListNode *headA, ListNode *headB) {
     return NULL;
 }
 
+bool Solution::hasCycle(ListNode *head) {
+    std::set<ListNode *> node_set;
+    while (head) {
+        if (node_set.find(head) != node_set.end()) {
+            return true;
+        }
+        node_set.insert(head);
+        head = head->next;
+    }
+    return false;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
