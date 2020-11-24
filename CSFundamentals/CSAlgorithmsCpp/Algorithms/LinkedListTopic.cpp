@@ -264,6 +264,28 @@ void Solution::deleteNode(ListNode* node) {
     delete next_node;
 }
 
+int Solution::kthToLast(ListNode* head, int k) {
+    if (!head || k==0) {
+        return NULL;
+    }
+    ListNode *ptr = head;
+    //ptr执行第k+1个结点 距离head k个结点
+    while (k--) {
+        if (!ptr) {
+            return NULL;
+        } else {
+            ptr = ptr->next;
+        }
+        
+    }
+    //ptr与head同时向前遍历 当ptr指向最后一个结点的下一个结点时 head恰好指向倒数k个结点
+    while (ptr) {
+        head = head->next;
+        ptr = ptr->next;
+    }
+    return head->val;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -398,4 +420,23 @@ void Solution::deleteNode(ListNode* node) {
  Solution solve;
  ListNode *head = solve.mergeKLists(lists);
  commonUtil.print_linked_list(head);
+ */
+
+/*
+ ListNode *a = new ListNode(4);
+     ListNode *b = new ListNode(5);
+     ListNode *c = new ListNode(1);
+     ListNode *d = new ListNode(9);
+     a->next = b;
+     b->next = c;
+     c->next = d;
+     
+     CommonUtil commonUtil;
+     commonUtil.print_linked_list(a);
+     
+     Solution solve;
+     solve.deleteNode(b);
+     commonUtil.print_linked_list(a);
+     ListNode *head = solve.mergeKLists(lists);
+     commonUtil.print_linked_list(head);
  */

@@ -14,22 +14,17 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    ListNode *a = new ListNode(4);
-    ListNode *b = new ListNode(5);
-    ListNode *c = new ListNode(1);
-    ListNode *d = new ListNode(9);
-    a->next = b;
-    b->next = c;
-    c->next = d;
-    
+    ListNode a(1), b(2), c(3), d(4), e(5);
+    a.next = &b;
+    b.next = &c;
+    c.next = &d;
+    d.next = &e;
     CommonUtil commonUtil;
-    commonUtil.print_linked_list(a);
-    
+    commonUtil.print_linked_list(&a);
+    int k = 2;
     Solution solve;
-    solve.deleteNode(b);
-    commonUtil.print_linked_list(a);
-//    ListNode *head = solve.mergeKLists(lists);
-//    commonUtil.print_linked_list(head);
+    int value = solve.kthToLast(&a, k);
+    printf("%d\n", value);
     
     return 0;
 }

@@ -42,6 +42,9 @@ public:
     
     //237. 删除链表中的节点
     void deleteNode(ListNode* node);
+    
+    //面试题 02.02. 返回倒数第 k 个节点
+    int kthToLast(ListNode* head, int k);
 };
 
 #endif /* LinkedListTopic_hpp */
