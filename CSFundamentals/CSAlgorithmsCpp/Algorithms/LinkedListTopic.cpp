@@ -206,31 +206,55 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     return tmp_head.next;
 }
 
-bool cmp(const ListNode *a, const ListNode *b) {
-    return a->val <= b->val;
-}
+//bool cmp(const ListNode *a, const ListNode *b) {
+//    return a->val <= b->val;
+//}
+//
+//ListNode* Solution::mergeKLists(std::vector<ListNode*>& lists) {
+//    if (lists.size() == 0) {
+//        return NULL;
+//    }
+//    std::vector<ListNode *> node_vec;
+//    ListNode *head = NULL;
+//    for (int i = 0; i<lists.size(); i++) {
+//        head = lists[i];
+//        while (head) {//保存每条单链表的每个结点
+//            node_vec.push_back(head);
+//            head = head->next;
+//        }
+//    }
+//    //对每个结点从小到大排序
+//    std::sort(node_vec.begin(), node_vec.end(), cmp);
+//    node_vec.push_back(0);
+//    //设置指向关系
+//    for (int i=0; i<node_vec.size()-1; i++) {
+//        node_vec[i]->next = node_vec[i+1];
+//    }
+//    return node_vec[0];
+//}
 
 ListNode* Solution::mergeKLists(std::vector<ListNode*>& lists) {
     if (lists.size() == 0) {
         return NULL;
     }
-    std::vector<ListNode *> node_vec;
-    ListNode *head = NULL;
-    for (int i = 0; i<lists.size(); i++) {
-        head = lists[i];
-        while (head) {//保存每条单链表的每个结点
-            node_vec.push_back(head);
-            head = head->next;
-        }
+    if (lists.size() == 1) {
+        return lists[0];
     }
-    //对每个结点从小到大排序
-    std::sort(node_vec.begin(), node_vec.end(), cmp);
-    node_vec.push_back(0);
-    //设置指向关系
-    for (int i=0; i<node_vec.size()-1; i++) {
-        node_vec[i]->next = node_vec[i+1];
+    if (lists.size() == 2) {
+        return mergeTwoLists(lists[0], lists[1]);
     }
-    return node_vec[0];
+    int mid = (int)lists.size()/2;
+    std::vector<ListNode *> sub_lists1, sub_lists2;
+    //将链表两两分组放入字列表中
+    for (int i=0; i<mid; i++) {
+        sub_lists1.push_back(lists[i]);
+    }
+    for (int i=mid; i<lists.size(); i++) {
+        sub_lists2.push_back(lists[i]);
+    }
+    ListNode *l1 = mergeKLists(sub_lists1);
+    ListNode *l2 = mergeKLists(sub_lists2);
+    return mergeTwoLists(l1, l2);
 }
 
 #pragma mark code-test
