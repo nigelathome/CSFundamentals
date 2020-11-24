@@ -14,25 +14,22 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    ListNode a(1), b(4), c(6), d(0), e(5), f(7), g(2), h(3);
-    a.next = &b;
-    b.next = &c;
-    d.next = &e;
-    e.next = &f;
-    g.next = &h;
+    ListNode *a = new ListNode(4);
+    ListNode *b = new ListNode(5);
+    ListNode *c = new ListNode(1);
+    ListNode *d = new ListNode(9);
+    a->next = b;
+    b->next = c;
+    c->next = d;
     
-    std::vector<ListNode *> lists;
-    lists.push_back(&a);
-    lists.push_back(&d);
-    lists.push_back(&g);
     CommonUtil commonUtil;
-    commonUtil.print_linked_list(&a);
-    commonUtil.print_linked_list(&d);
-    commonUtil.print_linked_list(&g);
+    commonUtil.print_linked_list(a);
     
     Solution solve;
-    ListNode *head = solve.mergeKLists(lists);
-    commonUtil.print_linked_list(head);
+    solve.deleteNode(b);
+    commonUtil.print_linked_list(a);
+//    ListNode *head = solve.mergeKLists(lists);
+//    commonUtil.print_linked_list(head);
     
     return 0;
 }

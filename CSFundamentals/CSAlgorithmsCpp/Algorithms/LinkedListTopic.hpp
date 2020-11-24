@@ -39,6 +39,9 @@ public:
     
     //23. 合并K个升序链表
     ListNode* mergeKLists(std::vector<ListNode*>& lists);
+    
+    //237. 删除链表中的节点
+    void deleteNode(ListNode* node);
 };
 
 #endif /* LinkedListTopic_hpp */

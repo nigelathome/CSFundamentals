@@ -257,6 +257,13 @@ ListNode* Solution::mergeKLists(std::vector<ListNode*>& lists) {
     return mergeTwoLists(l1, l2);
 }
 
+void Solution::deleteNode(ListNode* node) {
+    ListNode *next_node = node->next;
+    node->val = next_node->val;
+    node->next = next_node->next;
+    delete next_node;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -369,4 +376,26 @@ ListNode* Solution::mergeKLists(std::vector<ListNode*>& lists) {
  
  ListNode *head = solve.mergeTwoLists(&l1, &l2);
  commonUtil->print_linked_list(head);
+ */
+
+/*
+ ListNode a(1), b(4), c(6), d(0), e(5), f(7), g(2), h(3);
+ a.next = &b;
+ b.next = &c;
+ d.next = &e;
+ e.next = &f;
+ g.next = &h;
+ 
+ std::vector<ListNode *> lists;
+ lists.push_back(&a);
+ lists.push_back(&d);
+ lists.push_back(&g);
+ CommonUtil commonUtil;
+ commonUtil.print_linked_list(&a);
+ commonUtil.print_linked_list(&d);
+ commonUtil.print_linked_list(&g);
+ 
+ Solution solve;
+ ListNode *head = solve.mergeKLists(lists);
+ commonUtil.print_linked_list(head);
  */
