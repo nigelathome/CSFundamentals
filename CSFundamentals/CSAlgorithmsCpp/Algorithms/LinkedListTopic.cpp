@@ -184,6 +184,28 @@ Node* Solution::copyRandomList(Node* head) {
     return NULL;
 }
 
+ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
+    ListNode tmp_head(0);
+    ListNode *ptr = &tmp_head;
+    while (l1 && l2) {
+        if (l1->val <= l2->val) {
+            ptr->next = l1;
+            l1 = l1->next;
+        } else {
+            ptr->next = l2;
+            l2 = l2->next;
+        }
+        ptr = ptr->next;
+    }
+    if (l1) {
+        ptr->next = l1;
+    }
+    if (l2) {
+        ptr->next = l2;
+    }
+    return tmp_head.next;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -261,4 +283,22 @@ Node* Solution::copyRandomList(Node* head) {
  Solution solve;
  ListNode *result = solve.partition(&a, 3);
  commonUtil.print_linked_list(result);
+ */
+
+/*
+ std::map<Node *, int> node_map;
+ Node a(1), b(2), c(3), d(4), e(5);
+ a.next = &b;
+ b.next = &c;
+ c.next = &d;
+ d.next = &e;
+ a.random = &c;
+ b.random = &d;
+ c.random = &c;
+ e.random = &d;
+ 
+ Solution solve;
+ Node *head = solve.copyRandomList(&a);
+ CommonUtil *commonUtil = new CommonUtil();
+ commonUtil->print_random_linked_list(head);
  */

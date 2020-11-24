@@ -33,6 +33,9 @@ public:
     
     //138. 复制带随机指针的链表
     Node* copyRandomList(Node* head);
+    
+    //21. 合并两个有序链表
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 };
 
 #endif /* LinkedListTopic_hpp */
