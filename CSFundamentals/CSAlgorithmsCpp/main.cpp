@@ -13,21 +13,26 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
-
-    ListNode l1(1), b(4), c(6), l2(0), e(5), f(7);
-    l1.next = &b;
-    b.next = &c;
     
-    l2.next = &e;
+    ListNode a(1), b(4), c(6), d(0), e(5), f(7), g(2), h(3);
+    a.next = &b;
+    b.next = &c;
+    d.next = &e;
     e.next = &f;
+    g.next = &h;
+    
+    std::vector<ListNode *> lists;
+    lists.push_back(&a);
+    lists.push_back(&d);
+    lists.push_back(&g);
+    CommonUtil commonUtil;
+    commonUtil.print_linked_list(&a);
+    commonUtil.print_linked_list(&d);
+    commonUtil.print_linked_list(&g);
     
     Solution solve;
-    CommonUtil *commonUtil = new CommonUtil();
-    commonUtil->print_linked_list(&l1);
-    commonUtil->print_linked_list(&l2);
-    
-    ListNode *head = solve.mergeTwoLists(&l1, &l2);
-    commonUtil->print_linked_list(head);
+    ListNode *head = solve.mergeKLists(lists);
+    commonUtil.print_linked_list(head);
     
     return 0;
 }

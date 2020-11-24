@@ -206,6 +206,33 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     return tmp_head.next;
 }
 
+bool cmp(const ListNode *a, const ListNode *b) {
+    return a->val <= b->val;
+}
+
+ListNode* Solution::mergeKLists(std::vector<ListNode*>& lists) {
+    if (lists.size() == 0) {
+        return NULL;
+    }
+    std::vector<ListNode *> node_vec;
+    ListNode *head = NULL;
+    for (int i = 0; i<lists.size(); i++) {
+        head = lists[i];
+        while (head) {//保存每条单链表的每个结点
+            node_vec.push_back(head);
+            head = head->next;
+        }
+    }
+    //对每个结点从小到大排序
+    std::sort(node_vec.begin(), node_vec.end(), cmp);
+    node_vec.push_back(0);
+    //设置指向关系
+    for (int i=0; i<node_vec.size()-1; i++) {
+        node_vec[i]->next = node_vec[i+1];
+    }
+    return node_vec[0];
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -301,4 +328,21 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
  Node *head = solve.copyRandomList(&a);
  CommonUtil *commonUtil = new CommonUtil();
  commonUtil->print_random_linked_list(head);
+ */
+
+/*
+ ListNode l1(1), b(4), c(6), l2(0), e(5), f(7);
+ l1.next = &b;
+ b.next = &c;
+ 
+ l2.next = &e;
+ e.next = &f;
+ 
+ Solution solve;
+ CommonUtil *commonUtil = new CommonUtil();
+ commonUtil->print_linked_list(&l1);
+ commonUtil->print_linked_list(&l2);
+ 
+ ListNode *head = solve.mergeTwoLists(&l1, &l2);
+ commonUtil->print_linked_list(head);
  */

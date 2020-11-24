@@ -36,6 +36,9 @@ public:
     
     //21. 合并两个有序链表
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
+    
+    //23. 合并K个升序链表
+    ListNode* mergeKLists(std::vector<ListNode*>& lists);
 };
 
 #endif /* LinkedListTopic_hpp */
