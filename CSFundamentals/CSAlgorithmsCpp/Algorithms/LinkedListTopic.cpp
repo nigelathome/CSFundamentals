@@ -276,7 +276,6 @@ int Solution::kthToLast(ListNode* head, int k) {
         } else {
             ptr = ptr->next;
         }
-        
     }
     //ptr与head同时向前遍历 当ptr指向最后一个结点的下一个结点时 head恰好指向倒数k个结点
     while (ptr) {
@@ -439,4 +438,18 @@ int Solution::kthToLast(ListNode* head, int k) {
      commonUtil.print_linked_list(a);
      ListNode *head = solve.mergeKLists(lists);
      commonUtil.print_linked_list(head);
+ */
+
+/*
+ ListNode a(1), b(2), c(3), d(4), e(5);
+ a.next = &b;
+ b.next = &c;
+ c.next = &d;
+ d.next = &e;
+ CommonUtil commonUtil;
+ commonUtil.print_linked_list(&a);
+ int k = 2;
+ Solution solve;
+ int value = solve.kthToLast(&a, k);
+ printf("%d\n", value);
  */

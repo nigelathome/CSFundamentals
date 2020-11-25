@@ -16,6 +16,8 @@
 #include <set>
 #include <map>
 #include <algorithm>
+#include <queue>
+#include <stack>
 
 #include "Trie.hpp"
 #include "ListNode.hpp"
@@ -23,6 +25,7 @@
 
 #include "TrieTopic.hpp"
 #include "LinkedListTopic.hpp"
+#include "StackQueueHeapTopic.hpp"
 
 #include "CommonUtil.hpp"
 

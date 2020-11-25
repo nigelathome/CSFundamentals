@@ -14,17 +14,16 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    ListNode a(1), b(2), c(3), d(4), e(5);
-    a.next = &b;
-    b.next = &c;
-    c.next = &d;
-    d.next = &e;
-    CommonUtil commonUtil;
-    commonUtil.print_linked_list(&a);
-    int k = 2;
-    Solution solve;
-    int value = solve.kthToLast(&a, k);
-    printf("%d\n", value);
-    
+    MyStack S;
+    S.push(1);
+    S.push(2);
+    S.push(3);
+    S.push(4);
+    printf("%d\n", S.top());
+    S.pop();
+    printf("%d\n", S.top());
+    S.push(5);
+    printf("%d\n", S.top());
+  
     return 0;
 }
