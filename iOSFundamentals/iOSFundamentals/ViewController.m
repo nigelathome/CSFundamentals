@@ -13,6 +13,7 @@
 #import "TaggedPointerViewController.h"
 #import "MemManagerViewController.h"
 #import "RunloopViewController.h"
+#import "ClassObjectViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -58,26 +59,32 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0: {
+            ClassObjectViewController *classObjectVC = [[ClassObjectViewController alloc] init];
+            [self.navigationController pushViewController:classObjectVC animated:YES];
+        }
+            break;
+            
+        case 1: {
             GCDViewController *gcdVC = [[GCDViewController alloc] init];
             [self.navigationController pushViewController:gcdVC animated:YES];
         }
             break;
-        case 1: {
+        case 2: {
             BlockViewController *blockVC = [[BlockViewController alloc] init];
             [self.navigationController pushViewController:blockVC animated:YES];
         }
             break;
-        case 2: {
+        case 3: {
             CopyViewController *copyVC = [[CopyViewController alloc] init];
             [self.navigationController pushViewController:copyVC animated:YES];
         }
             break;
-        case 3: {
+        case 4: {
             TaggedPointerViewController *taggedPointerVC = [[TaggedPointerViewController alloc] init];
             [self.navigationController pushViewController:taggedPointerVC animated:YES];
         }
             break;
-        case 4: {
+        case 5: {
             RunloopViewController *runloopVC = [[RunloopViewController alloc] init];
             [self.navigationController pushViewController:runloopVC animated:YES];
         }
@@ -91,7 +98,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"内存管理", @"属性和成员变量", @"Runtime", @"循环引用测试"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"内存管理", @"Runtime", @"循环引用测试"];
     }
     return _dataArray;
 }

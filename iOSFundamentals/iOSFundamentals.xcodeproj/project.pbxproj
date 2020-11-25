@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
 		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
+		265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */; };
 		2660A8512565717D001801C4 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8502565717D001801C4 /* BlockViewController.m */; };
 		2660A85625662D16001801C4 /* CopyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85525662D16001801C4 /* CopyViewController.m */; };
 		2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85825675855001801C4 /* TaggedPointerViewController.m */; };
@@ -17,7 +18,7 @@
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
 		268A5BD424639A8100B0438E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD324639A8100B0438E /* Assets.xcassets */; };
 		268A5BD724639A8100B0438E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD524639A8100B0438E /* LaunchScreen.storyboard */; };
-		268A5BDA24639A8100B0438E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BD924639A8100B0438E /* main.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		268A5BDA24639A8100B0438E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BD924639A8100B0438E /* main.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BE224639B9A00B0438E /* GCDViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		265DEB20256A19F600DEFE55 /* RunloopViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunloopViewController.h; sourceTree = "<group>"; };
 		265DEB21256A19F600DEFE55 /* RunloopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopViewController.m; sourceTree = "<group>"; };
+		265DEB33256DF8D200DEFE55 /* ClassObjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassObjectViewController.h; sourceTree = "<group>"; };
+		265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassObjectViewController.m; sourceTree = "<group>"; };
 		2660A84F2565717D001801C4 /* BlockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		2660A8502565717D001801C4 /* BlockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
 		2660A85425662D16001801C4 /* CopyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyViewController.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */,
 				265DEB20256A19F600DEFE55 /* RunloopViewController.h */,
 				265DEB21256A19F600DEFE55 /* RunloopViewController.m */,
+				265DEB33256DF8D200DEFE55 /* ClassObjectViewController.h */,
+				265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
+				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
