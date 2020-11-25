@@ -101,6 +101,29 @@ int MinStack::getMin() {
     return _min.top();
 }
 
+bool Solution1::validateStackSequences(std::vector<int>& pushed, std::vector<int>& popped) {
+    if (pushed.size() != popped.size()) {
+        return false;
+    }
+    std::queue<int> tmp_queue;
+    std::stack<int> tmp_stack;
+    //出栈序列保存在队列中
+    for (int i = 0; i<popped.size(); i++) {
+        tmp_queue.push(popped[i]);
+    }
+    //借助栈和队列比较 将入栈元素依次入栈 如果栈顶元素和队头元素相等 出栈且出队列
+    for (int i = 0; i<pushed.size(); i++) {
+        tmp_stack.push(pushed[i]);
+        while (!tmp_stack.empty()
+               && tmp_stack.top() == tmp_queue.front()) {
+            tmp_queue.pop();
+            tmp_stack.pop();
+        }
+    }
+    //栈不空栈序列不合法
+    return tmp_stack.empty();
+}
+
 #pragma mark code-test
 /*
  MyStack S;
@@ -124,4 +147,18 @@ int MinStack::getMin() {
  printf("%d\n", Q.peek());
  Q.pop();
  printf("%d\n", Q.peek());
+ */
+
+/*
+ MinStack S;
+    S.push(-2);
+    S.push(0);
+    S.push(-5);
+    S.push(1);
+    printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
+    S.pop();
+    printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
+    S.pop();
+    printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
+    S.pop();
  */

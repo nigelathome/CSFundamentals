@@ -439,17 +439,3 @@ int Solution::kthToLast(ListNode* head, int k) {
      ListNode *head = solve.mergeKLists(lists);
      commonUtil.print_linked_list(head);
  */
-
-/*
- ListNode a(1), b(2), c(3), d(4), e(5);
- a.next = &b;
- b.next = &c;
- c.next = &d;
- d.next = &e;
- CommonUtil commonUtil;
- commonUtil.print_linked_list(&a);
- int k = 2;
- Solution solve;
- int value = solve.kthToLast(&a, k);
- printf("%d\n", value);
- */

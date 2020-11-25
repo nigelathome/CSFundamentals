@@ -11,10 +11,6 @@
 
 #include <stdio.h>
 
-class Solution1 {
-public:
-};
-
 //225. 用队列实现栈
 class MyStack {
 public:
@@ -50,6 +46,12 @@ public:
     
     std::stack<int> _data;
     std::stack<int> _min;
+};
+
+class Solution1 {
+public:
+    //946. 验证栈序列
+    bool validateStackSequences(std::vector<int>& pushed, std::vector<int>& popped);
 };
 
 #endif /* StackQueueHeapTopic_hpp */
