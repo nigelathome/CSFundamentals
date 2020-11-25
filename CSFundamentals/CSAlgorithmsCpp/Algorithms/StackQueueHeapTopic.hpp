@@ -39,4 +39,17 @@ public:
     std::stack<int> _data;
 };
 
+//155. 最小栈
+class MinStack {
+public:
+    MinStack();
+    void push(int x);
+    void pop();
+    int top();
+    int getMin();
+    
+    std::stack<int> _data;
+    std::stack<int> _min;
+};
+
 #endif /* StackQueueHeapTopic_hpp */

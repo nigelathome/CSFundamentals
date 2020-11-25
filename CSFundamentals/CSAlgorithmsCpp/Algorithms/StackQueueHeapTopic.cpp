@@ -72,6 +72,35 @@ bool MyQueue::empty() {
     return _data.empty();
 }
 
+MinStack::MinStack() {
+    
+}
+
+void MinStack::push(int x) {
+    _data.push(x);
+    if (_min.empty()) {
+        _min.push(x);
+    } else {
+        if (x > _min.top()) {
+            x = _min.top();
+        }
+        _min.push(x);
+    }
+}
+
+void MinStack::pop() {
+    _data.pop();
+    _min.pop();
+}
+
+int MinStack::top() {
+    return _data.top();
+}
+
+int MinStack::getMin() {
+    return _min.top();
+}
+
 #pragma mark code-test
 /*
  MyStack S;
@@ -84,4 +113,15 @@ bool MyQueue::empty() {
  printf("%d\n", S.top());
  S.push(5);
  printf("%d\n", S.top());
+ */
+
+/*
+ MyQueue Q;
+ Q.push(1);
+ Q.push(2);
+ Q.push(3);
+ Q.push(4);
+ printf("%d\n", Q.peek());
+ Q.pop();
+ printf("%d\n", Q.peek());
  */

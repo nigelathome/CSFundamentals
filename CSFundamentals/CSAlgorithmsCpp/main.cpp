@@ -14,14 +14,17 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    MyQueue Q;
-    Q.push(1);
-    Q.push(2);
-    Q.push(3);
-    Q.push(4);
-    printf("%d\n", Q.peek());
-    Q.pop();
-    printf("%d\n", Q.peek());
-  
+    MinStack S;
+    S.push(-2);
+    S.push(0);
+    S.push(-5);
+    S.push(1);
+    printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
+    S.pop();
+    printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
+    S.pop();
+    printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
+    S.pop();
+    
     return 0;
 }
