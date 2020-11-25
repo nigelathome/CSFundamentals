@@ -27,4 +27,16 @@ public:
     std::queue<int> _data;
 };
 
+//232. 用栈实现队列
+class MyQueue {
+public:
+    MyQueue();
+    void push(int x);
+    int pop();
+    int peek();
+    bool empty();
+    
+    std::stack<int> _data;
+};
+
 #endif /* StackQueueHeapTopic_hpp */
