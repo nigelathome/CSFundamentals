@@ -10,6 +10,7 @@
 		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
 		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
 		265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */; };
+		265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB37256DFDD400DEFE55 /* LGPerson.m */; };
 		2660A8512565717D001801C4 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8502565717D001801C4 /* BlockViewController.m */; };
 		2660A85625662D16001801C4 /* CopyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85525662D16001801C4 /* CopyViewController.m */; };
 		2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85825675855001801C4 /* TaggedPointerViewController.m */; };
@@ -30,6 +31,8 @@
 		265DEB21256A19F600DEFE55 /* RunloopViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopViewController.m; sourceTree = "<group>"; };
 		265DEB33256DF8D200DEFE55 /* ClassObjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassObjectViewController.h; sourceTree = "<group>"; };
 		265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassObjectViewController.m; sourceTree = "<group>"; };
+		265DEB36256DFDD400DEFE55 /* LGPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPerson.h; sourceTree = "<group>"; };
+		265DEB37256DFDD400DEFE55 /* LGPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPerson.m; sourceTree = "<group>"; };
 		2660A84F2565717D001801C4 /* BlockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockViewController.h; sourceTree = "<group>"; };
 		2660A8502565717D001801C4 /* BlockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockViewController.m; sourceTree = "<group>"; };
 		2660A85425662D16001801C4 /* CopyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CopyViewController.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				265DEB21256A19F600DEFE55 /* RunloopViewController.m */,
 				265DEB33256DF8D200DEFE55 /* ClassObjectViewController.h */,
 				265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */,
+				265DEB36256DFDD400DEFE55 /* LGPerson.h */,
+				265DEB37256DFDD400DEFE55 /* LGPerson.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
+				265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +333,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GCQM6S64H6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
 				INFOPLIST_FILE = iOSFundamentals/Info.plist;
@@ -335,8 +343,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cc.iOSFundamentals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.zhangyutv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = zhangyu_development_20200820;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -345,7 +354,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GCQM6S64H6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
 				INFOPLIST_FILE = iOSFundamentals/Info.plist;
@@ -353,8 +364,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cc.iOSFundamentals;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.zhangyutv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = zhangyu_development_20200820;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

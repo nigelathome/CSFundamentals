@@ -7,6 +7,13 @@
 //
 
 #import "ClassObjectViewController.h"
+#import "LGPerson.h"
+
+#ifdef DEBUG
+#define LGNSLog(format, ...) printf("%s\n", [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define LGNSLog(format, ...)
+#endif
 
 @interface ClassObjectViewController ()
 
@@ -17,6 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"类和对象";
+    LGPerson *p1 = [LGPerson alloc];
+    p1.name = @"Cocoi";
+    p1.age = 18;
+    p1.height = 185;
+    p1.hobby = @"女";
+    LGNSLog(@"%@", p1);
+//    LGPerson *p2 = [p1 init];
+//    LGPerson *p3 = [p1 init];
+//    LGNSLog(@"%@ - %p", p1, &p1);
+//    LGNSLog(@"%@ - %p", p2, &p2);
+//    LGNSLog(@"%@ - %p", p3, &p3);
+    
 }
 
 /*
