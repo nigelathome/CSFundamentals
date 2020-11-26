@@ -124,6 +124,22 @@ bool Solution1::validateStackSequences(std::vector<int>& pushed, std::vector<int
     return tmp_stack.empty();
 }
 
+int Solution1::findKthLargest(std::vector<int>& nums, int k) {
+    //维护一个k大小的小根堆 记录数组中最大的k个元素 那么堆顶元素就是k个最大元素中最小的那个也就是第k大的元素
+    std::priority_queue<int, std::vector<int>, std::greater<int>> small_heap;
+    for (int i=0; i<nums.size(); i++) {
+        if (small_heap.size()<k) {
+            small_heap.push(nums[i]);
+        } else {
+            if (nums[i] > small_heap.top()) {
+                small_heap.pop();
+                small_heap.push(nums[i]);
+            }
+        }
+    }
+    return small_heap.top();
+}
+
 #pragma mark code-test
 /*
  MyStack S;
@@ -161,4 +177,62 @@ bool Solution1::validateStackSequences(std::vector<int>& pushed, std::vector<int
     S.pop();
     printf("top = [%d] min = [%d]\n", S.top(), S.getMin());
     S.pop();
+ */
+
+/*
+ Solution1 solve;
+ std::vector<int> pushed;
+ std::vector<int> popped;
+ for (int i=1; i<=5; i++) {
+     pushed.push_back(i);
+ }
+ popped.push_back(4);
+ popped.push_back(5);
+ popped.push_back(3);
+ popped.push_back(2);
+ popped.push_back(1);
+ 
+ bool validate = solve.validateStackSequences(pushed, popped);
+ std::cout << std::boolalpha << validate << endl;
+ 
+ popped.clear();
+ popped.push_back(4);
+ popped.push_back(3);
+ popped.push_back(5);
+ popped.push_back(1);
+ popped.push_back(2);
+ validate = solve.validateStackSequences(pushed, popped);
+ std::cout << std::boolalpha << validate << endl;
+ 
+ popped.clear();
+ popped.push_back(5);
+ popped.push_back(4);
+ popped.push_back(1);
+ popped.push_back(2);
+ popped.push_back(3);
+ validate = solve.validateStackSequences(pushed, popped);
+ std::cout << std::boolalpha << validate << endl;
+ 
+ popped.clear();
+ popped.push_back(1);
+ popped.push_back(2);
+ popped.push_back(3);
+ popped.push_back(4);
+ popped.push_back(5);
+ validate = solve.validateStackSequences(pushed, popped);
+ std::cout << std::boolalpha << validate << endl;
+ 
+ pushed.clear();
+ for (int i=1; i<=6; i++) {
+     pushed.push_back(i);
+ }
+ popped.clear();
+ popped.push_back(6);
+ popped.push_back(5);
+ popped.push_back(4);
+ popped.push_back(3);
+ popped.push_back(2);
+ popped.push_back(1);
+ validate = solve.validateStackSequences(pushed, popped);
+ std::cout << std::boolalpha << validate << endl;
  */

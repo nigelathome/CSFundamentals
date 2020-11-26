@@ -52,6 +52,10 @@ class Solution1 {
 public:
     //946. 验证栈序列
     bool validateStackSequences(std::vector<int>& pushed, std::vector<int>& popped);
+    
+    //215. 数组中的第K个最大元素
+    int findKthLargest(std::vector<int>& nums, int k);
+    
 };
 
 #endif /* StackQueueHeapTopic_hpp */
