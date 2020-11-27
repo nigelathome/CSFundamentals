@@ -14,13 +14,15 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> coins;
-    coins.push_back(1);
-    coins.push_back(2);
-    coins.push_back(5);
+    std::vector<int> g, s;
+    g.push_back(1);
+    g.push_back(2);
+    g.push_back(3);
+    s.push_back(1);
+    s.push_back(1);
     Solution2 solve;
-    int count = solve.coinChange(coins, 11);
-    printf("%d\n", count);
+    int child = solve.findContentChildren(g, s);
+    printf("%d\n", child);
     
     return 0;
 }
