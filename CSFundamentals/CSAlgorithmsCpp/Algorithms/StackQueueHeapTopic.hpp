@@ -55,7 +55,16 @@ public:
     
     //215. 数组中的第K个最大元素
     int findKthLargest(std::vector<int>& nums, int k);
-    
+};
+
+//295. 数据流的中位数
+class MedianFinder {
+public:
+    MedianFinder();
+    void addNum(int num);
+    double findMedian();
+    std::priority_queue<int> big_heap;//大根堆 维护最小的几个数
+    std::priority_queue<int, std::vector<int>, std::greater<int>> small_heap; //小根堆 维护最大几个数
 };
 
 #endif /* StackQueueHeapTopic_hpp */

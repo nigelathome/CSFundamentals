@@ -140,6 +140,49 @@ int Solution1::findKthLargest(std::vector<int>& nums, int k) {
     return small_heap.top();
 }
 
+MedianFinder::MedianFinder() {
+
+}
+
+void MedianFinder::addNum(int num) {
+    //三种情况
+    //大根堆元素和小根堆元素相等 比较大根堆堆顶元素和num关系
+    if (big_heap.size() == small_heap.size()) {
+        if (big_heap.empty() || num > big_heap.top()) {
+            small_heap.push(num);
+        } else {
+            big_heap.push(num);
+        }
+    //大根堆元素比小根堆元素多 比较大根堆堆顶和num关系
+    } else if (big_heap.size() > small_heap.size()) {
+        if (num > big_heap.top()) {
+            small_heap.push(num);
+        } else {
+            small_heap.push(big_heap.top());
+            big_heap.pop();
+            big_heap.push(num);
+        }
+    //大根堆元素比小根堆元素小 比较小根堆堆顶和num关系
+    } else if (big_heap.size() < small_heap.size()) {
+        if (num > small_heap.top()) {
+            big_heap.push(small_heap.top());
+            small_heap.pop();
+            small_heap.push(num);
+        } else {
+            big_heap.push(num);
+        }
+    }
+}
+
+double MedianFinder::findMedian() {
+    if (big_heap.size() == small_heap.size()) {
+        return (double)(big_heap.top() + small_heap.top())/2;
+    } else if (big_heap.size() > small_heap.size()) {
+       return (double)big_heap.top();
+    }
+    return (double)small_heap.top();
+}
+
 #pragma mark code-test
 /*
  MyStack S;
@@ -235,4 +278,36 @@ int Solution1::findKthLargest(std::vector<int>& nums, int k) {
  popped.push_back(1);
  validate = solve.validateStackSequences(pushed, popped);
  std::cout << std::boolalpha << validate << endl;
+ */
+
+/*
+ std::priority_queue<int> big_heap;//默认大根堆
+ std::priority_queue<int, std::vector<int>, std::greater<int>> small_heap;//小根堆
+ std::priority_queue<int, std::vector<int>, std::less<int>> big_heap1;//大根堆
+ 
+ int test[] = {6, 10, 1, 7, 99, 4, 33};
+ for (int i=0; i<7; i++) {
+     big_heap.push(test[i]);
+ }
+ printf("big_heap.top = %d\n", big_heap.top());
+ big_heap.push(1000);
+ printf("big_heap.top = %d\n", big_heap.top());
+ for (int i=0; i<3; i++) {
+     big_heap.pop();
+ }
+ printf("big_heap.top = %d\n", big_heap.top());
+ printf("big_heap.top = %lu\n", big_heap.size());
+ 
+ std::vector<int> nums;
+ nums.push_back(6);
+ nums.push_back(10);
+ nums.push_back(1);
+ nums.push_back(7);
+ nums.push_back(99);
+ nums.push_back(4);
+ nums.push_back(33);
+ 
+ Solution1 solve;
+ int value = solve.findKthLargest(nums, 2);
+ printf("%d\n", value);
  */
