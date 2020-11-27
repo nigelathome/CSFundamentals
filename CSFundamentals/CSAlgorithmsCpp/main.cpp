@@ -14,17 +14,13 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    MedianFinder obj;
-    obj.addNum(1);
-    obj.addNum(2);
-    double median = obj.findMedian();
-    printf("%.2f\n", median);
-    obj.addNum(4);
-    median = obj.findMedian();
-    printf("%.2f\n", median);
-    obj.addNum(3);
-    median = obj.findMedian();
-    printf("%.2f\n", median);
+    std::vector<int> coins;
+    coins.push_back(1);
+    coins.push_back(2);
+    coins.push_back(5);
+    Solution2 solve;
+    int count = solve.coinChange(coins, 11);
+    printf("%d\n", count);
     
     return 0;
 }

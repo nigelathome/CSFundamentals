@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */; };
 		265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB23256A4D1800DEFE55 /* ListNode.cpp */; };
 		265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */; };
 		265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB2A256A5D0500DEFE55 /* CommonUtil.cpp */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GreedyTopic.cpp; sourceTree = "<group>"; };
+		262C95C42570EC72004FE6B0 /* GreedyTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GreedyTopic.hpp; sourceTree = "<group>"; };
 		265DEB23256A4D1800DEFE55 /* ListNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListNode.cpp; sourceTree = "<group>"; };
 		265DEB24256A4D1800DEFE55 /* ListNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListNode.hpp; sourceTree = "<group>"; };
 		265DEB26256A4D9F00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 				265DEB28256A533600DEFE55 /* LinkedListTopic.hpp */,
 				265DEB30256D422300DEFE55 /* StackQueueHeapTopic.cpp */,
 				265DEB31256D422300DEFE55 /* StackQueueHeapTopic.hpp */,
+				262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */,
+				262C95C42570EC72004FE6B0 /* GreedyTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */,
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
 				265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */,
+				262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */,
 				265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -311,3 +311,17 @@ double MedianFinder::findMedian() {
  int value = solve.findKthLargest(nums, 2);
  printf("%d\n", value);
  */
+
+/*
+ MedianFinder obj;
+ obj.addNum(1);
+ obj.addNum(2);
+ double median = obj.findMedian();
+ printf("%.2f\n", median);
+ obj.addNum(4);
+ median = obj.findMedian();
+ printf("%.2f\n", median);
+ obj.addNum(3);
+ median = obj.findMedian();
+ printf("%.2f\n", median);
+ */
