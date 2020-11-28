@@ -10,30 +10,21 @@
 
 using namespace std;
 
+void calculate(int n, int &sum) {
+    if (n==0) {
+        return;
+    }
+    sum += n;
+    calculate(n-1, sum);
+}
+
 int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::string num = "1432219";
-    int k = 3;
-    Solution2 solve;
-    std::string result = solve.removeKdigits(num, k);
-    printf("%s\n", result.c_str());
-    
-    num = "12345";
-    k = 2;
-    result = solve.removeKdigits(num, k);
-    printf("%s\n", result.c_str());
-    
-    num = "100200";
-    k = 2;
-    result = solve.removeKdigits(num, k);
-    printf("%s\n", result.c_str());
-    
-    num = "100200";
-    k = 1;
-    result = solve.removeKdigits(num, k);
-    printf("%s\n", result.c_str());
+    int sum = 0;
+    calculate(20, sum);
+    printf("%d\n", sum);
     
     return 0;
 }
