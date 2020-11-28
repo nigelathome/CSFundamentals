@@ -14,20 +14,26 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> nums;
-    nums.push_back(1);
-    nums.push_back(17);
-    nums.push_back(5);
-    nums.push_back(10);
-    nums.push_back(13);
-    nums.push_back(15);
-    nums.push_back(10);
-    nums.push_back(5);
-    nums.push_back(16);
-    nums.push_back(8);
+    std::string num = "1432219";
+    int k = 3;
     Solution2 solve;
-    int len = solve.wiggleMaxLength(nums);
-    printf("%d\n", len);
+    std::string result = solve.removeKdigits(num, k);
+    printf("%s\n", result.c_str());
+    
+    num = "12345";
+    k = 2;
+    result = solve.removeKdigits(num, k);
+    printf("%s\n", result.c_str());
+    
+    num = "100200";
+    k = 2;
+    result = solve.removeKdigits(num, k);
+    printf("%s\n", result.c_str());
+    
+    num = "100200";
+    k = 1;
+    result = solve.removeKdigits(num, k);
+    printf("%s\n", result.c_str());
     
     return 0;
 }

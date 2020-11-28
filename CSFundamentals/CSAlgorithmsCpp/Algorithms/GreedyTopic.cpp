@@ -79,6 +79,42 @@ int Solution2::wiggleMaxLength(std::vector<int>& nums) {
     return max_len;
 }
 
+std::string Solution2::removeKdigits(std::string num, int k) {
+    //借助栈 保存k个最小的元素
+    std::stack<int> tmp_stack;
+    std::string result;
+    for (int i=0; i<num.size(); i++) {
+        int val = num[i] - '0';
+        while (!tmp_stack.empty()
+               && tmp_stack.top() > val
+               && k!=0) {
+            tmp_stack.pop();
+            k--;
+        }
+        if (!tmp_stack.empty() || val!=0) {//如果当前是0 栈空则0不如栈 如100200 k=1
+            tmp_stack.push(val);
+        }
+    }
+    
+    //k!=0 删除k个元素
+    while (!tmp_stack.empty() && k!=0) {
+        tmp_stack.pop();
+        k--;
+    }
+    
+    //将栈内元素存入string
+    while (!tmp_stack.empty()) {
+        std::string st = result.append(1, tmp_stack.top() + '0');
+        tmp_stack.pop();
+    }
+    if (result.size() == 0) {//如果当前是0 栈空则0不如栈 如100200 k=2 次数栈是空
+        return "0";
+    }
+    
+    std::reverse(result.begin(), result.end());
+    return result;
+}
+
 #pragma mark code-test
 /*
  std::vector<int> coins;
@@ -100,4 +136,21 @@ int Solution2::wiggleMaxLength(std::vector<int>& nums) {
  Solution2 solve;
  int child = solve.findContentChildren(g, s);
  printf("%d\n", child);
+ */
+
+/*
+ std::vector<int> nums;
+ nums.push_back(1);
+ nums.push_back(17);
+ nums.push_back(5);
+ nums.push_back(10);
+ nums.push_back(13);
+ nums.push_back(15);
+ nums.push_back(10);
+ nums.push_back(5);
+ nums.push_back(16);
+ nums.push_back(8);
+ Solution2 solve;
+ int len = solve.wiggleMaxLength(nums);
+ printf("%d\n", len);
  */

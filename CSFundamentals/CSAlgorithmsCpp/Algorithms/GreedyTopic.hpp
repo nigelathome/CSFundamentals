@@ -21,6 +21,9 @@ public:
     
     //376. 摆动序列
     int wiggleMaxLength(std::vector<int>& nums);
+    
+    //402. 移掉K位数字
+    std::string removeKdigits(std::string num, int k);
 };
 
 #endif /* GreedyTopic_hpp */
