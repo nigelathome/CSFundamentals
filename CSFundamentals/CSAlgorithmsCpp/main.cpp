@@ -14,15 +14,20 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> g, s;
-    g.push_back(1);
-    g.push_back(2);
-    g.push_back(3);
-    s.push_back(1);
-    s.push_back(1);
+    std::vector<int> nums;
+    nums.push_back(1);
+    nums.push_back(17);
+    nums.push_back(5);
+    nums.push_back(10);
+    nums.push_back(13);
+    nums.push_back(15);
+    nums.push_back(10);
+    nums.push_back(5);
+    nums.push_back(16);
+    nums.push_back(8);
     Solution2 solve;
-    int child = solve.findContentChildren(g, s);
-    printf("%d\n", child);
+    int len = solve.wiggleMaxLength(nums);
+    printf("%d\n", len);
     
     return 0;
 }

@@ -18,6 +18,9 @@ public:
     
     //455. 分发饼干
     int findContentChildren(std::vector<int>& g, std::vector<int>& s);
+    
+    //376. 摆动序列
+    int wiggleMaxLength(std::vector<int>& nums);
 };
 
 #endif /* GreedyTopic_hpp */
