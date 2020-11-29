@@ -24,6 +24,9 @@ public:
     
     //402. 移掉K位数字
     std::string removeKdigits(std::string num, int k);
+    
+    //55. 跳跃游戏
+    bool canJump(std::vector<int>& nums);
 };
 
 #endif /* GreedyTopic_hpp */

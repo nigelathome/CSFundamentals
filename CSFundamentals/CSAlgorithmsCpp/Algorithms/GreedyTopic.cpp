@@ -115,6 +115,26 @@ std::string Solution2::removeKdigits(std::string num, int k) {
     return result;
 }
 
+bool Solution2::canJump(std::vector<int>& nums) {
+    std::vector<int> index_vec;//元素代表能跳跃到的位置
+    for (int i=0; i<nums.size(); i++) {
+        index_vec.push_back(nums[i] + i);
+    }
+    int jump = 0;//当前假设能跳跃的位置
+    int max_len = index_vec[0];//实际能跳跃的位置
+    while (jump<index_vec.size()
+           && jump<=max_len) {//如果当前跳跃点jump>实际能抵达的点max_len 说明不能跳到目标的位置
+        if (index_vec[jump] > max_len) {
+            max_len = index_vec[jump];
+        }
+        jump++;
+    }
+    if (max_len >= index_vec.size()-1) {//能够抵达数组最后一个位置即可
+        return true;
+    }
+    return false;
+}
+
 #pragma mark code-test
 /*
  std::vector<int> coins;
