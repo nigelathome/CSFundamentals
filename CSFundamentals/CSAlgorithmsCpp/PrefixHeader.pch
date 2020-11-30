@@ -27,6 +27,7 @@
 #include "LinkedListTopic.hpp"
 #include "StackQueueHeapTopic.hpp"
 #include "GreedyTopic.hpp"
+#include "RecBatkDivConqTopic.hpp"
 
 #include "CommonUtil.hpp"
 

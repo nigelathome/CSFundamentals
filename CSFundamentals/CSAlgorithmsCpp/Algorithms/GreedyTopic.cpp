@@ -197,3 +197,24 @@ bool Solution2::canJump(std::vector<int>& nums) {
  result = solve.removeKdigits(num, k);
  printf("%s\n", result.c_str());
  */
+
+/*
+ std::vector<int> nums;
+ nums.push_back(2);
+ nums.push_back(3);
+ nums.push_back(1);
+ nums.push_back(1);
+ nums.push_back(4);
+ Solution2 solve;
+ bool canJump = solve.canJump(nums);
+ std::cout << boolalpha << canJump << endl;
+ 
+ nums.clear();
+ nums.push_back(3);
+ nums.push_back(2);
+ nums.push_back(1);
+ nums.push_back(0);
+ nums.push_back(4);
+ canJump = solve.canJump(nums);
+ std::cout << boolalpha << canJump << endl;
+ */

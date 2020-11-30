@@ -11,4 +11,10 @@
 
 #include <stdio.h>
 
+class Solution3 {
+public:
+    //78. 子集
+    std::vector<std::vector<int>> subsets(std::vector<int>& nums);
+};
+
 #endif /* RecBatkDivConqTopic_hpp */
