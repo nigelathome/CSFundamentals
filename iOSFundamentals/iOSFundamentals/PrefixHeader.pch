@@ -10,5 +10,10 @@
 #define PrefixHeader_pch
 
 extern void _objc_autoreleasePoolPrint(void);
+#ifdef DEBUG
+#define LGNSLog(format, ...) printf("%s\n", [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+#else
+#define LGNSLog(format, ...)
+#endif
 
 #endif /* PrefixHeader_pch */

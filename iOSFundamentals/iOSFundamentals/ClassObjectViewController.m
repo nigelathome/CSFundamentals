@@ -9,12 +9,6 @@
 #import "ClassObjectViewController.h"
 #import "LGPerson.h"
 
-#ifdef DEBUG
-#define LGNSLog(format, ...) printf("%s\n", [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
-#else
-#define LGNSLog(format, ...)
-#endif
-
 @interface ClassObjectViewController ()
 
 @end
