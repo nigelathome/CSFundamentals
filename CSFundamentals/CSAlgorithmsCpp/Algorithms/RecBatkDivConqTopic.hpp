@@ -18,6 +18,9 @@ public:
     
     //90. 子集 II
     std::vector<std::vector<int>> subsetsWithDup(std::vector<int>& nums);
+    
+    //22. 括号生成
+    std::vector<std::string> generateParenthesis(int n);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

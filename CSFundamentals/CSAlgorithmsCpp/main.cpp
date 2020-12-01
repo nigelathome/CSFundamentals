@@ -14,17 +14,12 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> nums;
-    nums.push_back(1);
-    nums.push_back(2);
-    nums.push_back(2);
+    int n = 3;
     Solution3 solve;
-    std::vector<std::vector<int>> result = solve.subsetsWithDup(nums);
+    std::vector<std::string> result = solve.generateParenthesis(n);
     for (int i=0; i<result.size(); i++) {
-        for (int j=0; j<result[i].size(); j++) {
-            printf("%d", result[i][j]);
-        }
-        printf("\n");
+        string item = result[i];
+        printf("%s\n", item.c_str());
     }
     
     return 0;

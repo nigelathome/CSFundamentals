@@ -62,6 +62,38 @@ std::vector<std::vector<int>> Solution3::subsetsWithDup(std::vector<int>& nums) 
     return result;
 }
 
+void get_parenthesis(int n,
+                     int left,
+                     int right,
+                     std::string item,
+                     std::vector<std::string> &result) {
+    if (left == n && right == n) {
+        result.push_back(item);
+        return;
+    }
+    
+    //进行左括号的尝试
+    if (left <= n) {
+        item.append(1, '(');
+        get_parenthesis(n, left+1, right, item, result);
+        item.erase(item.size()-1);
+    }
+    //保证括号的合法性 左括号必须比右括号多的时候才能尝试左括号
+    if (right < left && right <n) {
+        //进行右括号的尝试
+        item.append(1, ')');
+        get_parenthesis(n, left, right+1, item, result);
+    }
+  
+}
+
+std::vector<std::string> Solution3::generateParenthesis(int n) {
+    std::vector<std::string> result;
+    std::string item;
+    get_parenthesis(n, 0, 0, item, result);
+    return result;
+}
+
 /*
  void calculate(int n, int &sum) {
      if (n==0) {
@@ -98,6 +130,21 @@ std::vector<std::vector<int>> Solution3::subsetsWithDup(std::vector<int>& nums) 
  add_to_vector(&a, vec);
  for (int i=0; i<vec.size(); i++) {
      printf("%d\n", vec[i]);
+ }
+ */
+
+/*
+ std::vector<int> nums;
+ nums.push_back(1);
+ nums.push_back(2);
+ nums.push_back(2);
+ Solution3 solve;
+ std::vector<std::vector<int>> result = solve.subsetsWithDup(nums);
+ for (int i=0; i<result.size(); i++) {
+     for (int j=0; j<result[i].size(); j++) {
+         printf("%d", result[i][j]);
+     }
+     printf("\n");
  }
  */
 
