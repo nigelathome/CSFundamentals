@@ -21,6 +21,9 @@ public:
     
     //22. 括号生成
     std::vector<std::string> generateParenthesis(int n);
+    
+    //40. 组合总和 II
+    std::vector<std::vector<int>> combinationSum2(std::vector<int>& candidates, int target);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

@@ -94,6 +94,41 @@ std::vector<std::string> Solution3::generateParenthesis(int n) {
     return result;
 }
 
+void combination_sum(int i,
+                     int sum,
+                     int target,
+                     std::vector<int> candidates,
+                     std::vector<int> item,
+                     std::set<std::vector<int>> &item_set,
+                     std::vector<std::vector<int>> &result) {
+    if (i >= candidates.size()
+        || sum>target) {//剪枝 之后的元素不在进行尝试
+        return;
+    }
+    item.push_back(candidates[i]);
+    sum += candidates[i];
+    if (sum == target &&
+        item_set.find(item) == item_set.end()) {//不重复
+        item_set.insert(item);
+        result.push_back(item);
+        return;//剪枝 之后的元素不在进行尝试
+    }
+    combination_sum(i+1, sum, target, candidates, item, item_set, result);
+    //回溯 不加入该元素进行递归尝试
+    item.pop_back();
+    sum -= candidates[i];
+    combination_sum(i+1, sum, target, candidates, item, item_set, result);
+}
+
+std::vector<std::vector<int>> Solution3::combinationSum2(std::vector<int>& candidates, int target) {
+    std::vector<std::vector<int>> result;
+    std::vector<int> item;
+    std::set<std::vector<int>> item_set;
+    std::sort(candidates.begin(), candidates.end());//从小到大排序减少不必要的尝试
+    combination_sum(0, 0, target, candidates, item, item_set, result);
+    return result;
+}
+
 /*
  void calculate(int n, int &sum) {
      if (n==0) {
@@ -145,6 +180,16 @@ std::vector<std::string> Solution3::generateParenthesis(int n) {
          printf("%d", result[i][j]);
      }
      printf("\n");
+ }
+ */
+
+/*
+ int n = 3;
+ Solution3 solve;
+ std::vector<std::string> result = solve.generateParenthesis(n);
+ for (int i=0; i<result.size(); i++) {
+     string item = result[i];
+     printf("%s\n", item.c_str());
  }
  */
 
