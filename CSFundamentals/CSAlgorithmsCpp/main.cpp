@@ -17,10 +17,9 @@ int main(int argc, const char * argv[]) {
     std::vector<int> nums;
     nums.push_back(1);
     nums.push_back(2);
-    nums.push_back(3);
-    nums.push_back(4);
+    nums.push_back(2);
     Solution3 solve;
-    std::vector<std::vector<int>> result = solve.subsets(nums);
+    std::vector<std::vector<int>> result = solve.subsetsWithDup(nums);
     for (int i=0; i<result.size(); i++) {
         for (int j=0; j<result[i].size(); j++) {
             printf("%d", result[i][j]);

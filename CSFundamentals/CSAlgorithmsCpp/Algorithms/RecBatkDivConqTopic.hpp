@@ -15,6 +15,9 @@ class Solution3 {
 public:
     //78. 子集
     std::vector<std::vector<int>> subsets(std::vector<int>& nums);
+    
+    //90. 子集 II
+    std::vector<std::vector<int>> subsetsWithDup(std::vector<int>& nums);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

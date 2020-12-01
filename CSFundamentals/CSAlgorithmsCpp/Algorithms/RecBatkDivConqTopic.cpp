@@ -33,6 +33,35 @@ std::vector<std::vector<int>> Solution3::subsets(std::vector<int>& nums) {
     return result;
 }
 
+void generate_subset_duplicate_element(int i,
+                                       std::vector<int> &nums,
+                                       std::vector<int> &item,
+                                       std::set<std::vector<int>> &item_set,
+                                       std::vector<std::vector<int>> &result) {
+    if (i>=nums.size()) {
+        return;
+    }
+    item.push_back(nums[i]);
+    if (item_set.find(item) == item_set.end()) {//不重复的集合则加入result
+        result.push_back(item);
+        item_set.insert(item);//set记录该元素
+    }
+    generate_subset_duplicate_element(i+1, nums, item, item_set, result);
+    
+    item.pop_back();
+    generate_subset_duplicate_element(i+1, nums, item, item_set, result);
+}
+
+std::vector<std::vector<int>> Solution3::subsetsWithDup(std::vector<int>& nums) {
+    std::vector<std::vector<int>> result;
+    std::vector<int> item;
+    std::set<std::vector<int>> item_set; //用来进行去重
+    std::sort(nums.begin(), nums.end());//默认从小到大排序
+    result.push_back(item);//加入空集
+    generate_subset_duplicate_element(0, nums, item, item_set, result);
+    return result;
+}
+
 /*
  void calculate(int n, int &sum) {
      if (n==0) {
