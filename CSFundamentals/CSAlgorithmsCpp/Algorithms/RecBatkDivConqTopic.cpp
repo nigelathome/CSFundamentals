@@ -129,6 +129,63 @@ std::vector<std::vector<int>> Solution3::combinationSum2(std::vector<int>& candi
     return result;
 }
 
+//x,y的方向数组 标识(x,y)相邻的8个位置
+static int dx[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+static int dy[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+
+void put_down_queen(int x, int y, std::vector<std::vector<int>> &mark) {
+    //把queen放在(x,y)位置后更新棋盘的标记 其中0标识可放置 1标识不可放置
+    mark[x][y] = 1;
+    for(int i = 0; i<mark.size(); i++) {//偏移
+        for (int j=0; j<8; j++) {//8个方向
+            int new_x = x + dx[j]*i;
+            int new_y = y + dy[j]*i;
+            if (new_x>=0 && new_x<mark.size()
+                && new_y>=0 && new_y<mark.size()) {
+                mark[new_x][new_y] = 1;
+            }
+        }
+    }
+}
+
+void generate_queen(int k, int n, std::vector<std::string> &location, std::vector<std::vector<int>> &mark, std::vector<std::vector<std::string>> &result) {
+    if (k==n) {//放置了n个皇后 将结果保存
+        result.push_back(location);
+        return;
+    }
+    for (int col=0; col<mark.size(); col++) {//从第k行一次遍历第k行的0->mark.size()列 找一个可以放的位置并以此再进行递归放置的操作
+        if (mark[k][col] == 0) {
+            std::vector<std::vector<int>> tmp_mark = mark;
+            put_down_queen(k, col, mark);//把queen放置k,col，然后进行下一次递归
+            location[k][col] = 'Q';
+            generate_queen(k+1, n, location, mark, result);
+            
+            //回溯 进行下一次尝试
+            mark = tmp_mark;
+            location[k][col] = '.';
+        }
+    }
+}
+
+std::vector<std::vector<std::string>> Solution3::solveNQueens(int n) {
+    std::vector<std::vector<std::string>> result;
+    std::vector<std::string> location;//存放每次的摆放
+    std::vector<std::vector<int>> mark;//棋盘
+    for (int i=0; i<n; i++) {//初始化棋盘
+        std::vector<int> mark_row;
+        std::string location_row;
+        for (int j=0; j<n; j++) {
+            mark_row.push_back(0);
+            location_row.append(1, '.');
+        }
+        mark.push_back(mark_row);
+        location.push_back(location_row);
+    }
+    
+    generate_queen(0, n, location, mark, result);
+    return result;
+}
+
 /*
  void calculate(int n, int &sum) {
      if (n==0) {
@@ -191,5 +248,31 @@ std::vector<std::vector<int>> Solution3::combinationSum2(std::vector<int>& candi
      string item = result[i];
      printf("%s\n", item.c_str());
  }
+ */
+
+/*
+     std::vector<int> candidates;
+ //    candidates.push_back(10);
+ //    candidates.push_back(1);
+ //    candidates.push_back(2);
+ //    candidates.push_back(7);
+ //    candidates.push_back(6);
+ //    candidates.push_back(1);
+ //    candidates.push_back(5);
+ //    int target = 8;
+     candidates.push_back(2);
+     candidates.push_back(5);
+     candidates.push_back(2);
+     candidates.push_back(1);
+     candidates.push_back(2);
+     int target = 5;
+     Solution3 solve;
+     std::vector<std::vector<int>> result = solve.combinationSum2(candidates, target);
+     for (int i=0; i<result.size(); i++) {
+         for (int j=0; j<result[i].size(); j++) {
+             printf("%d", result[i][j]);
+         }
+         printf("\n");
+     }
  */
 

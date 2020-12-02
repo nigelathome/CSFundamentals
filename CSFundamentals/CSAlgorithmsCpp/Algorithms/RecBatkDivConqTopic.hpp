@@ -24,6 +24,9 @@ public:
     
     //40. 组合总和 II
     std::vector<std::vector<int>> combinationSum2(std::vector<int>& candidates, int target);
+    
+    //51. N 皇后
+    std::vector<std::vector<std::string>> solveNQueens(int n);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */
