@@ -28,6 +28,7 @@
 #include "StackQueueHeapTopic.hpp"
 #include "GreedyTopic.hpp"
 #include "RecBatkDivConqTopic.hpp"
+#include "SortTopic.hpp"
 
 #include "CommonUtil.hpp"
 

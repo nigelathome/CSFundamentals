@@ -14,16 +14,16 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    Solution3 solve;
-    int n = 5;
-    std::vector<std::vector<std::string>> result;
-    result = solve.solveNQueens(n);
-    printf("n=%d\n", n);
-    for (int i=0; i<result.size(); i++) {
-        for (int j=0; j<result[i].size(); j++) {
-            printf("%s\n", result[i][j].c_str());
-        }
-        printf("\n");
+    Solution4 solve;
+    std::vector<int> arr;
+    arr.push_back(5);
+    arr.push_back(4);
+    arr.push_back(3);
+    arr.push_back(2);
+    arr.push_back(1);
+    solve.MySort(arr);
+    for (int i=0; i<arr.size(); i++) {
+        printf("[%d]\n", arr[i]);
     }
     
     return 0;

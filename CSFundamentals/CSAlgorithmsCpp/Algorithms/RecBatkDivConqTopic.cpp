@@ -276,3 +276,17 @@ std::vector<std::vector<std::string>> Solution3::solveNQueens(int n) {
      }
  */
 
+/*
+ Solution3 solve;
+ int n = 5;
+ std::vector<std::vector<std::string>> result;
+ result = solve.solveNQueens(n);
+ printf("n=%d\n", n);
+ for (int i=0; i<result.size(); i++) {
+     for (int j=0; j<result[i].size(); j++) {
+         printf("%s\n", result[i][j].c_str());
+     }
+     printf("\n");
+ }
+ */
+

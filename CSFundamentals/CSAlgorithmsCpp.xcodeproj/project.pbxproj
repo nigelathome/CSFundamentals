@@ -17,6 +17,7 @@
 		2660A88A2568CB89001801C4 /* Trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8882568CB89001801C4 /* Trie.cpp */; };
 		2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A88B25694D2A001801C4 /* TrieTopic.cpp */; };
 		269E116A25727EC2008D362B /* RecBatkDivConqTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116825727EC2008D362B /* RecBatkDivConqTopic.cpp */; };
+		269E116D257798ED008D362B /* SortTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116B257798ED008D362B /* SortTopic.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		2660A88C25694D2A001801C4 /* TrieTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TrieTopic.hpp; sourceTree = "<group>"; };
 		269E116825727EC2008D362B /* RecBatkDivConqTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RecBatkDivConqTopic.cpp; sourceTree = "<group>"; };
 		269E116925727EC2008D362B /* RecBatkDivConqTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RecBatkDivConqTopic.hpp; sourceTree = "<group>"; };
+		269E116B257798ED008D362B /* SortTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SortTopic.cpp; sourceTree = "<group>"; };
+		269E116C257798ED008D362B /* SortTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SortTopic.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				262C95C42570EC72004FE6B0 /* GreedyTopic.hpp */,
 				269E116825727EC2008D362B /* RecBatkDivConqTopic.cpp */,
 				269E116925727EC2008D362B /* RecBatkDivConqTopic.hpp */,
+				269E116B257798ED008D362B /* SortTopic.cpp */,
+				269E116C257798ED008D362B /* SortTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				269E116D257798ED008D362B /* SortTopic.cpp in Sources */,
 				265DEB32256D422300DEFE55 /* StackQueueHeapTopic.cpp in Sources */,
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
 				265DEB2F256BAE3D00DEFE55 /* Node.cpp in Sources */,
