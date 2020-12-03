@@ -19,6 +19,7 @@
 		269E116A25727EC2008D362B /* RecBatkDivConqTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116825727EC2008D362B /* RecBatkDivConqTopic.cpp */; };
 		269E116D257798ED008D362B /* SortTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116B257798ED008D362B /* SortTopic.cpp */; };
 		269E11702577C352008D362B /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116E2577C352008D362B /* TreeNode.cpp */; };
+		269E117325786B08008D362B /* BinaryTreeTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E117125786B08008D362B /* BinaryTreeTopic.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +60,8 @@
 		269E116C257798ED008D362B /* SortTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SortTopic.hpp; sourceTree = "<group>"; };
 		269E116E2577C352008D362B /* TreeNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
 		269E116F2577C352008D362B /* TreeNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TreeNode.hpp; sourceTree = "<group>"; };
+		269E117125786B08008D362B /* BinaryTreeTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTreeTopic.cpp; sourceTree = "<group>"; };
+		269E117225786B08008D362B /* BinaryTreeTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTreeTopic.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				269E116925727EC2008D362B /* RecBatkDivConqTopic.hpp */,
 				269E116B257798ED008D362B /* SortTopic.cpp */,
 				269E116C257798ED008D362B /* SortTopic.hpp */,
+				269E117125786B08008D362B /* BinaryTreeTopic.cpp */,
+				269E117225786B08008D362B /* BinaryTreeTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 				265DEB32256D422300DEFE55 /* StackQueueHeapTopic.cpp in Sources */,
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
 				265DEB2F256BAE3D00DEFE55 /* Node.cpp in Sources */,
+				269E117325786B08008D362B /* BinaryTreeTopic.cpp in Sources */,
 				269E116A25727EC2008D362B /* RecBatkDivConqTopic.cpp in Sources */,
 				2660A88A2568CB89001801C4 /* Trie.cpp in Sources */,
 				265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */,

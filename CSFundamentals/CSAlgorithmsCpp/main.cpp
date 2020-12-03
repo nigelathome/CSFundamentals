@@ -14,17 +14,26 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    TreeNode a(1);
-    TreeNode b(2);
-    TreeNode d(3);
-    TreeNode e(4);
-    TreeNode c(5);
-    TreeNode f(6);
+    TreeNode a(5);
+    TreeNode b(4);
+    TreeNode c(8);
+    TreeNode d(11);
+    TreeNode e(13);
+    TreeNode f(4);
+    TreeNode g(7);
+    TreeNode h(2);
+    TreeNode i(5);
+    TreeNode j(1);
     a.left = &b;
     a.right = &c;
     b.left = &d;
-    b.right = &e;
+    b.right = &h;
+    d.left = &g;
+    d.right = &h;
+    c.left = &e;
     c.right = &f;
+    f.left = &i;
+    f.right = &j;
     
     CommonUtil commonUtil;
     printf("前序遍历\n");
@@ -33,6 +42,9 @@ int main(int argc, const char * argv[]) {
     commonUtil.postorder_binary_tree(&a, 0);
     printf("\n中序遍历\n");
     commonUtil.inorder_binary_tree(&a, 0);
+    
+    Solution5 solve;
+    std::vector<std::vector<int>> result = solve.pathSum(&a, 22);
     
     return 0;
 }
