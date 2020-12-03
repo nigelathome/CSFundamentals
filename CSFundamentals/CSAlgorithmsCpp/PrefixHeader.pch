@@ -22,6 +22,7 @@
 #include "Trie.hpp"
 #include "ListNode.hpp"
 #include "Node.hpp"
+#include "TreeNode.hpp"
 
 #include "TrieTopic.hpp"
 #include "LinkedListTopic.hpp"

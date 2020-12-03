@@ -14,17 +14,21 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    Solution4 solve;
-    std::vector<int> arr;
-    arr.push_back(5);
-    arr.push_back(4);
-    arr.push_back(3);
-    arr.push_back(2);
-    arr.push_back(1);
-    solve.MySort(arr);
-    for (int i=0; i<arr.size(); i++) {
-        printf("[%d]\n", arr[i]);
-    }
+    TreeNode a(1);
+    TreeNode b(2);
+    TreeNode d(3);
+    TreeNode e(4);
+    TreeNode c(5);
+    TreeNode f(6);
+    a.left = &b;
+    a.right = &c;
+    b.left = &d;
+    b.right = &e;
+    c.right = &f;
+    
+    CommonUtil commonUtil;
+    commonUtil.preorder_binary_tree(&a, 0);
+    
     
     return 0;
 }

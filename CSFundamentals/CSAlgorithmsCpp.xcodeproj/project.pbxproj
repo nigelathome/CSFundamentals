@@ -18,6 +18,7 @@
 		2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2660A88B25694D2A001801C4 /* TrieTopic.cpp */; };
 		269E116A25727EC2008D362B /* RecBatkDivConqTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116825727EC2008D362B /* RecBatkDivConqTopic.cpp */; };
 		269E116D257798ED008D362B /* SortTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116B257798ED008D362B /* SortTopic.cpp */; };
+		269E11702577C352008D362B /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116E2577C352008D362B /* TreeNode.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +57,8 @@
 		269E116925727EC2008D362B /* RecBatkDivConqTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RecBatkDivConqTopic.hpp; sourceTree = "<group>"; };
 		269E116B257798ED008D362B /* SortTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SortTopic.cpp; sourceTree = "<group>"; };
 		269E116C257798ED008D362B /* SortTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SortTopic.hpp; sourceTree = "<group>"; };
+		269E116E2577C352008D362B /* TreeNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TreeNode.cpp; sourceTree = "<group>"; };
+		269E116F2577C352008D362B /* TreeNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TreeNode.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				265DEB24256A4D1800DEFE55 /* ListNode.hpp */,
 				265DEB2D256BAE3D00DEFE55 /* Node.cpp */,
 				265DEB2E256BAE3D00DEFE55 /* Node.hpp */,
+				269E116E2577C352008D362B /* TreeNode.cpp */,
+				269E116F2577C352008D362B /* TreeNode.hpp */,
 			);
 			path = DataStructures;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 				269E116A25727EC2008D362B /* RecBatkDivConqTopic.cpp in Sources */,
 				2660A88A2568CB89001801C4 /* Trie.cpp in Sources */,
 				265DEB2C256A5D0500DEFE55 /* CommonUtil.cpp in Sources */,
+				269E11702577C352008D362B /* TreeNode.cpp in Sources */,
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
 				265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */,
 				262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */,

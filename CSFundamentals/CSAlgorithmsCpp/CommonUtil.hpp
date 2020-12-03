@@ -27,6 +27,9 @@ public:
     
     //输出带随机指针的单链表
     void print_random_linked_list(Node *head);
+    
+    //前序遍历二叉树
+    void preorder_binary_tree(TreeNode *node, int layer);
 };
 
 #endif /* CommonUtil_hpp */

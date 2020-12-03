@@ -54,3 +54,17 @@ std::vector<int> Solution4::MySort(std::vector<int>& arr) {
     merge_sort(arr);
     return arr;
 }
+
+/*
+ Solution4 solve;
+ std::vector<int> arr;
+ arr.push_back(5);
+ arr.push_back(3);
+ arr.push_back(4);
+ arr.push_back(1);
+ arr.push_back(2);
+ solve.MySort(arr);
+ for (int i=0; i<arr.size(); i++) {
+     printf("[%d]\n", arr[i]);
+ }
+ */

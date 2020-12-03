@@ -65,3 +65,19 @@ void CommonUtil::print_random_linked_list(Node *head) {
         head = head->next;
     }
 }
+
+void CommonUtil::preorder_binary_tree(TreeNode *node, int layer) {
+    if (node) {
+        for (int i=0; i<layer; i++) {
+            printf("---");
+        }
+        printf("[%d]\n", node->val);
+    }
+    if (node->left) {
+        preorder_binary_tree(node->left, layer+1);
+    }
+    if (node->right) {
+        preorder_binary_tree(node->right, layer+1);
+    }
+}
+
