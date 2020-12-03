@@ -30,6 +30,12 @@ public:
     
     //前序遍历二叉树
     void preorder_binary_tree(TreeNode *node, int layer);
+    
+    //后序遍历二叉树
+    void postorder_binary_tree(TreeNode *node, int layer);
+        
+    //中序遍历二叉树
+    void inorder_binary_tree(TreeNode *node, int layer);
 };
 
 #endif /* CommonUtil_hpp */
