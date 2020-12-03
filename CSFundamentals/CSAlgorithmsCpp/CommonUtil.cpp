@@ -101,3 +101,10 @@ void CommonUtil::postorder_binary_tree(TreeNode *node, int layer) {
     }
     printf("[%d]\n", node->val);
 }
+
+void CommonUtil::print_tree_vec(std::vector<TreeNode *> vec) {
+    for (int i=0; i<vec.size(); i++) {
+        printf("[%d]", vec[i]->val);
+    }
+    printf("\n");
+}

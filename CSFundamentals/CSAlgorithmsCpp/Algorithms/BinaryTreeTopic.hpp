@@ -15,6 +15,9 @@ class Solution5 {
 public:
     //113. 路径总和 II
     std::vector<std::vector<int>> pathSum(TreeNode* root, int sum);
+    
+    //236. 二叉树的最近公共祖先
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
 };
 
 #endif /* BinaryTreeTopic_hpp */

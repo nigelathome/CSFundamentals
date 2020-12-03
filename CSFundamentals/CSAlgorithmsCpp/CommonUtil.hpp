@@ -36,6 +36,9 @@ public:
         
     //中序遍历二叉树
     void inorder_binary_tree(TreeNode *node, int layer);
+    
+    //定义二叉树向量
+    void print_tree_vec(std::vector<TreeNode *> vec);
 };
 
 #endif /* CommonUtil_hpp */

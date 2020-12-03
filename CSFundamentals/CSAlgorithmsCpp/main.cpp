@@ -14,37 +14,36 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    TreeNode a(5);
-    TreeNode b(4);
-    TreeNode c(8);
-    TreeNode d(11);
-    TreeNode e(13);
-    TreeNode f(4);
-    TreeNode g(7);
-    TreeNode h(2);
-    TreeNode i(5);
-    TreeNode j(1);
+    TreeNode a(3);
+    TreeNode b(5);
+    TreeNode c(1);
+    TreeNode d(6);
+    TreeNode e(2);
+    TreeNode f(0);
+    TreeNode x(8);
+    TreeNode y(7);
+    TreeNode z(4);
+    
     a.left = &b;
     a.right = &c;
     b.left = &d;
-    b.right = &h;
-    d.left = &g;
-    d.right = &h;
-    c.left = &e;
-    c.right = &f;
-    f.left = &i;
-    f.right = &j;
+    b.right = &e;
+    c.left = &f;
+    c.right = &x;
+    e.left = &y;
+    e.right = &z;
     
-    CommonUtil commonUtil;
-    printf("前序遍历\n");
-    commonUtil.preorder_binary_tree(&a, 0);
-    printf("\n后序遍历\n");
-    commonUtil.postorder_binary_tree(&a, 0);
-    printf("\n中序遍历\n");
-    commonUtil.inorder_binary_tree(&a, 0);
+//    CommonUtil commonUtil;
+//    printf("前序遍历\n");
+//    commonUtil.preorder_binary_tree(&a, 0);
     
     Solution5 solve;
-    std::vector<std::vector<int>> result = solve.pathSum(&a, 22);
+    TreeNode *result = solve.lowestCommonAncestor(&a, &b, &f);
+    printf("ancestor:%d\n", result->val);
+    result = solve.lowestCommonAncestor(&a, &d, &z);
+    printf("ancestor:%d\n", result->val);
+    result = solve.lowestCommonAncestor(&a, &b, &y);
+    printf("ancestor:%d\n", result->val);
     
     return 0;
 }
