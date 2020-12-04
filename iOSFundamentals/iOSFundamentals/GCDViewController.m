@@ -28,7 +28,8 @@
 //    [self gcdTest9];
 //    [self gcdTest10];
 //    [self gcdTest11];
-    [self gcdTest12];
+//    [self gcdTest12];
+    [self gcdTest13];
 }
 
 - (void)gcdTest1 {
@@ -240,6 +241,27 @@
     //创建并启动了thread的runloop doTest就能执行了 也不会引起崩溃 因为thread不会立即退出 #这里runloop的运行模式必须是defaultMode
     //也可以把doTest派发到主线程执行也可以正常执行
     LGNSLog(@"3");
+}
+
+- (void)gcdTest13 {
+    dispatch_semaphore_t signal = dispatch_semaphore_create(1);//信号量为1
+    dispatch_time_t overTime = dispatch_time(DISPATCH_WALLTIME_NOW, 3 * NSEC_PER_SEC);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{//blk1
+        dispatch_semaphore_wait(signal, overTime);
+        LGNSLog(@"需要线程同步的操作1开始");
+        sleep(2);
+        LGNSLog(@"需要线程同步的操作1结束");
+        dispatch_semaphore_signal(signal);
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{//blk2
+        sleep(1);
+        dispatch_semaphore_wait(signal, overTime);
+        LGNSLog(@"需要线程同步的操作2");
+        dispatch_semaphore_signal(signal);
+    });
+    //执行顺序是blk1->blk2 关键点在于blk2的sleep(1) 进行了1秒的等待 如果把blk1和blk2的代码先后调整了输出还是blk1-blk2
 }
 
 @end
