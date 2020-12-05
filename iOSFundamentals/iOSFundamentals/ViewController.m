@@ -14,6 +14,7 @@
 #import "MemManagerViewController.h"
 #import "RunloopViewController.h"
 #import "ClassObjectViewController.h"
+#import "RuntimeViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -89,6 +90,10 @@
             [self.navigationController pushViewController:runloopVC animated:YES];
         }
             break;
+        case 6: {
+            RuntimeViewController *runtimeVC = [[RuntimeViewController alloc] init];
+            [self.navigationController pushViewController:runtimeVC animated:YES];
+        }
             
         default:
             break;
@@ -98,7 +103,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"内存管理", @"Runtime", @"循环引用测试"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"runtime应用测试", @"内存管理", @"Runtime", @"循环引用测试"];
     }
     return _dataArray;
 }

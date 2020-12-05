@@ -16,4 +16,6 @@ extern void _objc_autoreleasePoolPrint(void);
 #define LGNSLog(format, ...)
 #endif
 
+#import <objc/runtime.h>
+
 #endif /* PrefixHeader_pch */

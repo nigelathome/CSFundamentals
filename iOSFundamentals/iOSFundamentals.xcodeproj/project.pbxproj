@@ -21,6 +21,8 @@
 		268A5BD724639A8100B0438E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD524639A8100B0438E /* LaunchScreen.storyboard */; };
 		268A5BDA24639A8100B0438E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BD924639A8100B0438E /* main.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BE224639B9A00B0438E /* GCDViewController.m */; };
+		269E11762579FC84008D362B /* RuntimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E11752579FC84008D362B /* RuntimeViewController.m */; };
+		269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,10 @@
 		268A5BD924639A8100B0438E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		268A5BE124639B9A00B0438E /* GCDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDViewController.h; sourceTree = "<group>"; };
 		268A5BE224639B9A00B0438E /* GCDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDViewController.m; sourceTree = "<group>"; };
+		269E11742579FC84008D362B /* RuntimeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeViewController.h; sourceTree = "<group>"; };
+		269E11752579FC84008D362B /* RuntimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeViewController.m; sourceTree = "<group>"; };
+		269E117A257B54C9008D362B /* NSMutableArray+SafeMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SafeMutableArray.h"; sourceTree = "<group>"; };
+		269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SafeMutableArray.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,10 @@
 				265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */,
 				265DEB36256DFDD400DEFE55 /* LGPerson.h */,
 				265DEB37256DFDD400DEFE55 /* LGPerson.m */,
+				269E11742579FC84008D362B /* RuntimeViewController.h */,
+				269E11752579FC84008D362B /* RuntimeViewController.m */,
+				269E117A257B54C9008D362B /* NSMutableArray+SafeMutableArray.h */,
+				269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -184,10 +194,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
+				269E11762579FC84008D362B /* RuntimeViewController.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
+				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
