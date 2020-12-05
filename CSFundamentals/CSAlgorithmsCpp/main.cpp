@@ -33,17 +33,20 @@ int main(int argc, const char * argv[]) {
     e.left = &y;
     e.right = &z;
     
-//    CommonUtil commonUtil;
-//    printf("前序遍历\n");
-//    commonUtil.preorder_binary_tree(&a, 0);
+    CommonUtil commonUtil;
+    printf("前序遍历\n");
+    commonUtil.preorder_binary_tree(&a, 0);
     
     Solution5 solve;
     TreeNode *result = solve.lowestCommonAncestor(&a, &b, &f);
     printf("ancestor:%d\n", result->val);
     result = solve.lowestCommonAncestor(&a, &d, &z);
     printf("ancestor:%d\n", result->val);
-    result = solve.lowestCommonAncestor(&a, &b, &y);
+    result = solve.lowestCommonAncestor(&a, &b, &c);
     printf("ancestor:%d\n", result->val);
+    
+    printf("层次遍历\n");
+    commonUtil.print_tree_in_level(&a, 0);
     
     return 0;
 }

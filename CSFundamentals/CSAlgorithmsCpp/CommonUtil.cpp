@@ -108,3 +108,25 @@ void CommonUtil::print_tree_vec(std::vector<TreeNode *> vec) {
     }
     printf("\n");
 }
+
+void CommonUtil::print_tree_in_level(TreeNode *node, int layer) {
+    std::queue<std::pair<TreeNode *, int>> node_queue;
+    if (node) {
+        node_queue.push(std::make_pair(node, layer));
+    }
+    while (!node_queue.empty()) {
+        TreeNode *node = node_queue.front().first;
+        int level = node_queue.front().second;
+        node_queue.pop();
+        for (int i=0; i<level; i++) {
+            printf("---");
+        }
+        printf("%d\n", node->val);
+        if (node->left) {
+            node_queue.push(std::make_pair(node->left, level+1));
+        }
+        if (node->right) {
+            node_queue.push(std::make_pair(node->right, level+1));
+        }
+    }
+}

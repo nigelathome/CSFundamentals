@@ -39,6 +39,9 @@ public:
     
     //定义二叉树向量
     void print_tree_vec(std::vector<TreeNode *> vec);
+    
+    //层次遍历二叉树
+    void print_tree_in_level(TreeNode *node, int layer);
 };
 
 #endif /* CommonUtil_hpp */
