@@ -24,6 +24,9 @@ public:
     
     //105. 从前序与中序遍历序列构造二叉树
     TreeNode* buildTree(std::vector<int>& preorder, std::vector<int>& inorder);
+    
+    //199. 二叉树的右视图
+    std::vector<int> rightSideView(TreeNode* root);
 };
 
 #endif /* BinaryTreeTopic_hpp */

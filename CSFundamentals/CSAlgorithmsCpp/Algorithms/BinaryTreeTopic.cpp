@@ -143,6 +143,35 @@ TreeNode* Solution5::buildTree(std::vector<int>& preorder, std::vector<int>& ino
     return root;
 }
 
+std::vector<int> Solution5::rightSideView(TreeNode* root) {
+    std::vector<int> result;
+    if (!root) {
+        return result;
+    }
+    std::queue<std::pair<TreeNode *, int>> queue;
+    queue.push(std::make_pair(root, 0));
+    int cur_layer = 0;
+    TreeNode *last_node = root;
+    while (!queue.empty()) {
+        TreeNode *node = queue.front().first;
+        int layer = queue.front().second;
+        queue.pop();
+        if (cur_layer != layer) {
+            result.push_back(last_node->val);
+            cur_layer = layer;
+        }
+        last_node = node;
+        if (node->left) {
+            queue.push(std::make_pair(node->left, layer+1));
+        }
+        if (node->right) {
+            queue.push(std::make_pair(node->right, layer+1));
+        }
+    }
+    result.push_back(last_node->val);
+    return result;
+}
+
 /*
  TreeNode a(1);
  TreeNode b(2);
@@ -259,5 +288,30 @@ TreeNode* Solution5::buildTree(std::vector<int>& preorder, std::vector<int>& ino
  vec.push_back(11);
  vec.push_back(12);
  std::reverse(vec.begin(), vec.end());
+ */
 
+/*
+ std::vector<int> preorder, inorder;
+ preorder.push_back(3);
+ preorder.push_back(9);
+ preorder.push_back(20);
+ preorder.push_back(15);
+ preorder.push_back(7);
+ 
+ inorder.push_back(9);
+ inorder.push_back(3);
+ inorder.push_back(15);
+ inorder.push_back(20);
+ inorder.push_back(7);
+ 
+ Solution5 solve;
+ TreeNode *result = solve.buildTree(preorder, inorder);
+ 
+ CommonUtil commonUtil;
+ printf("前序遍历\n");
+ commonUtil.preorder_binary_tree(result, 0);
+ printf("\n中序遍历\n");
+ commonUtil.inorder_binary_tree(result, 0);
+ printf("\n层次遍历\n");
+ commonUtil.print_tree_in_level(result, 0);
  */
