@@ -14,32 +14,29 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    TreeNode a(3);
-    TreeNode b(9);
-    TreeNode c(20);
-    TreeNode d(15);
-    TreeNode e(7);
+    std::vector<int> preorder, inorder;
+    preorder.push_back(3);
+    preorder.push_back(9);
+    preorder.push_back(20);
+    preorder.push_back(15);
+    preorder.push_back(7);
     
-    a.left = &b;
-    a.right = &c;
-    b.left = &d;
-    b.right = &e;
+    inorder.push_back(9);
+    inorder.push_back(3);
+    inorder.push_back(15);
+    inorder.push_back(20);
+    inorder.push_back(7);
+    
+    Solution5 solve;
+    TreeNode *result = solve.buildTree(preorder, inorder);
     
     CommonUtil commonUtil;
     printf("前序遍历\n");
-    commonUtil.preorder_binary_tree(&a, 0);
-    printf("层次遍历\n");
-    commonUtil.print_tree_in_level(&a, 0);
-    
-    Solution5 solve;
-    std::vector<std::vector<int>> result = solve.levelOrder(&a);
-    
-    std::vector<int> vec;
-    vec.push_back(9);
-    vec.push_back(10);
-    vec.push_back(11);
-    vec.push_back(12);
-    std::reverse(vec.begin(), vec.end());
+    commonUtil.preorder_binary_tree(result, 0);
+    printf("\n中序遍历\n");
+    commonUtil.inorder_binary_tree(result, 0);
+    printf("\n层次遍历\n");
+    commonUtil.print_tree_in_level(result, 0);
 
     return 0;
 }

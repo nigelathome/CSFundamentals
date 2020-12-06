@@ -21,6 +21,9 @@ public:
     
     //NC15 求二叉树的层序遍历
     std::vector<std::vector<int> > levelOrder(TreeNode* root);
+    
+    //105. 从前序与中序遍历序列构造二叉树
+    TreeNode* buildTree(std::vector<int>& preorder, std::vector<int>& inorder);
 };
 
 #endif /* BinaryTreeTopic_hpp */

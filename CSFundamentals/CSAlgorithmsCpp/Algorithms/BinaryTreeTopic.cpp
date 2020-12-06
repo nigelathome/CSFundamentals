@@ -105,6 +105,44 @@ std::vector<std::vector<int> > Solution5::levelOrder(TreeNode* root) {
     return result;
 }
 
+TreeNode *build_tree_node(std::vector<int>& preorder,
+                         std::vector<int>& inorder,
+                         int pre_left, int pre_right,
+                         int in_left, int in_right) {
+    if (pre_left > pre_right || in_left > in_right) {
+        return NULL;
+    }
+    //根节点是前序序列中的第一个结点
+    TreeNode *root = new TreeNode(preorder[pre_left]);
+    
+    //确定左右子树在前序序列和中序序列中的下标 进行递归
+    int in_root = in_left;//找到中序序列中根节点下标
+    while (in_root <= in_right
+           && preorder[pre_left] != inorder[in_root]) {
+            in_root++;
+    }
+    int left_len = in_root - in_left;//中序序列中左子树的长度
+    
+    //构造左子树
+    TreeNode *left = build_tree_node(preorder, inorder,
+                                     pre_left+1, pre_left + left_len,
+                                     in_left, in_left+left_len-1);
+    root->left = left;
+    
+    //构造右子树
+    TreeNode *right = build_tree_node(preorder, inorder,
+                                     pre_left + left_len + 1, pre_right,
+                                     in_root + 1, in_right);
+    root->right = right;
+    
+    return root;
+}
+
+TreeNode* Solution5::buildTree(std::vector<int>& preorder, std::vector<int>& inorder) {
+    TreeNode *root = build_tree_node(preorder, inorder, 0, (int)preorder.size()-1, 0, (int)inorder.size()-1);
+    return root;
+}
+
 /*
  TreeNode a(1);
  TreeNode b(2);
@@ -192,4 +230,34 @@ std::vector<std::vector<int> > Solution5::levelOrder(TreeNode* root) {
  printf("ancestor:%d\n", result->val);
  result = solve.lowestCommonAncestor(&a, &b, &c);
  printf("ancestor:%d\n", result->val);
+ */
+
+/*
+ TreeNode a(3);
+ TreeNode b(9);
+ TreeNode c(20);
+ TreeNode d(15);
+ TreeNode e(7);
+ 
+ a.left = &b;
+ a.right = &c;
+ b.left = &d;
+ b.right = &e;
+ 
+ CommonUtil commonUtil;
+ printf("前序遍历\n");
+ commonUtil.preorder_binary_tree(&a, 0);
+ printf("层次遍历\n");
+ commonUtil.print_tree_in_level(&a, 0);
+ 
+ Solution5 solve;
+ std::vector<std::vector<int>> result = solve.levelOrder(&a);
+ 
+ std::vector<int> vec;
+ vec.push_back(9);
+ vec.push_back(10);
+ vec.push_back(11);
+ vec.push_back(12);
+ std::reverse(vec.begin(), vec.end());
+
  */
