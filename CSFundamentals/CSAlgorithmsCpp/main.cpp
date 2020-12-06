@@ -15,38 +15,31 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, CHINA!\n";
     
     TreeNode a(3);
-    TreeNode b(5);
-    TreeNode c(1);
-    TreeNode d(6);
-    TreeNode e(2);
-    TreeNode f(0);
-    TreeNode x(8);
-    TreeNode y(7);
-    TreeNode z(4);
+    TreeNode b(9);
+    TreeNode c(20);
+    TreeNode d(15);
+    TreeNode e(7);
     
     a.left = &b;
     a.right = &c;
     b.left = &d;
     b.right = &e;
-    c.left = &f;
-    c.right = &x;
-    e.left = &y;
-    e.right = &z;
     
     CommonUtil commonUtil;
     printf("前序遍历\n");
     commonUtil.preorder_binary_tree(&a, 0);
-    
-    Solution5 solve;
-    TreeNode *result = solve.lowestCommonAncestor(&a, &b, &f);
-    printf("ancestor:%d\n", result->val);
-    result = solve.lowestCommonAncestor(&a, &d, &z);
-    printf("ancestor:%d\n", result->val);
-    result = solve.lowestCommonAncestor(&a, &b, &c);
-    printf("ancestor:%d\n", result->val);
-    
     printf("层次遍历\n");
     commonUtil.print_tree_in_level(&a, 0);
     
+    Solution5 solve;
+    std::vector<std::vector<int>> result = solve.levelOrder(&a);
+    
+    std::vector<int> vec;
+    vec.push_back(9);
+    vec.push_back(10);
+    vec.push_back(11);
+    vec.push_back(12);
+    std::reverse(vec.begin(), vec.end());
+
     return 0;
 }

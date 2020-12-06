@@ -71,6 +71,40 @@ TreeNode* Solution5::lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode*
     return p_path[i-1];
 }
 
+std::vector<std::vector<int> > Solution5::levelOrder(TreeNode* root) {
+    std::vector<std::vector<int>> result;
+    if (!root) {
+        return result;
+    }
+    std::queue<std::pair<TreeNode *, int>> pair_queue;
+    pair_queue.push(std::make_pair(root, 0));
+    int current_layer = 0;
+    std::vector<int> item;
+    while (!pair_queue.empty()) {
+        TreeNode *node = pair_queue.front().first;
+        int layer = pair_queue.front().second;
+        pair_queue.pop();
+        if (layer == current_layer) {
+            item.push_back(node->val);
+        } else {
+            current_layer = layer;
+            result.push_back(item);
+            item.clear();
+            item.push_back(node->val);
+        }
+        if (node->left) {
+            pair_queue.push(std::make_pair(node->left, layer+1));
+        }
+        if (node->right) {
+            pair_queue.push(std::make_pair(node->right, layer+1));
+        }
+    }
+    if (item.size() != 0) {
+        result.push_back(item);
+    }
+    return result;
+}
+
 /*
  TreeNode a(1);
  TreeNode b(2);

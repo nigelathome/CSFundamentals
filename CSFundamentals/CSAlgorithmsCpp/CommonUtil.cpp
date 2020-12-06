@@ -121,7 +121,7 @@ void CommonUtil::print_tree_in_level(TreeNode *node, int layer) {
         for (int i=0; i<level; i++) {
             printf("---");
         }
-        printf("%d\n", node->val);
+        printf("[%d]\n", node->val);
         if (node->left) {
             node_queue.push(std::make_pair(node->left, level+1));
         }

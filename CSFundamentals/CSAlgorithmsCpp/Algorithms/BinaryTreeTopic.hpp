@@ -18,6 +18,9 @@ public:
     
     //236. 二叉树的最近公共祖先
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+    
+    //NC15 求二叉树的层序遍历
+    std::vector<std::vector<int> > levelOrder(TreeNode* root);
 };
 
 #endif /* BinaryTreeTopic_hpp */
