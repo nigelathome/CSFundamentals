@@ -30,6 +30,10 @@ public:
     
     //NC5 二叉树根节点到叶子节点的所有路径和
     int sumNumbers(TreeNode* root);
+    
+    //449. 序列化和反序列化二叉搜索树
+    std::string serialize(TreeNode* root);
+    TreeNode* deserialize(std::string data);
 };
 
 #endif /* BinaryTreeTopic_hpp */

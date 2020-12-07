@@ -210,6 +210,80 @@ int Solution5::sumNumbers(TreeNode* root) {
     return sum;
 }
 
+//把整数转成字符串
+std::string int_to_string(int val) {
+    std::string result;
+    while (val) {
+        result += val % 10 + '0';
+        val = val / 10;
+    }
+    std::reverse(result.begin(), result.end());
+    result += '#';
+    return result;
+}
+
+void preorder_BST(TreeNode *root, std::string &result) {
+    if (!root) {
+        return;
+    }
+    std::string val_string = int_to_string(root->val);
+    result += val_string;
+    preorder_BST(root->left, result);
+    preorder_BST(root->right, result);
+}
+
+std::string Solution5::serialize(TreeNode* root) {
+    //依次取出节点的val转成字符串 通过#区分不同的值
+    //BST性质：BST的前序序列与序列再生成一颗BST是完全一样的 从而可以基于BST的先序遍历做编码和解码
+    std::string result;
+    preorder_BST(root, result);
+    return result;
+}
+
+//把字符串解析成整数并保存
+std::vector<int> string_to_int(std::string data_string) {
+    std::vector<int> result;
+    int val = 0;
+    for (int i=0; i<data_string.size(); i++) {
+        if (data_string[i] == '#') {
+            result.push_back(val);
+            val = 0;
+        } else {
+            val = val * 10 + data_string[i] - '0';
+        }
+    }
+    return result;
+}
+
+void BST_insert(TreeNode *node, int value) {
+    if (value < node->val) {
+        if (node->left) {
+            BST_insert(node->left, value);
+        } else {
+            TreeNode *left = new TreeNode(value);
+            node->left = left;
+        }
+    } else {
+        if (node->right) {
+            BST_insert(node->right, value);
+        } else {
+            TreeNode *right = new TreeNode(value);
+            node->right = right;
+        }
+    }
+}
+
+TreeNode* Solution5::deserialize(std::string data) {
+    //将data中的数值解析成vec保存 通过vec构建BST
+    std::vector<int> data_vec = string_to_int(data);
+    if(data.size()==0)return NULL;
+    TreeNode *root = new TreeNode(data_vec[0]);
+    for (int i=1; i<data_vec.size(); i++) {
+        BST_insert(root, data_vec[i]);
+    }
+    return root;
+}
+
 /*
  TreeNode a(1);
  TreeNode b(2);
@@ -375,5 +449,16 @@ int Solution5::sumNumbers(TreeNode* root) {
  
  Solution5 solve;
  std::vector<int> result = solve.rightSideView(&a);
-     
+ */
+
+/*
+ TreeNode a(1);
+ TreeNode b(2);
+ TreeNode c(3);
+ a.left = &b;
+ a.right = &c;
+ 
+ Solution5 solve;
+ int result = solve.sumNumbers(&a);
+ printf("%d\n", result);
  */
