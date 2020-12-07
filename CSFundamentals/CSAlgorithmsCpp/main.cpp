@@ -27,12 +27,16 @@ int main(int argc, const char * argv[]) {
     c.right = &f;
     
     Solution5 solve;
-    std::string result = solve.serialize(&a);
-    printf("编码序列：%s\n", result.c_str());
+//    std::string data = "5,#,4,#,3,#,2";
+    std::string data = "8,6,10,5,7,9,11";
+    TreeNode *root = solve.deserializeBinaryTree(data);
     
-    TreeNode *root = solve.deserialize(result);
+    std::string serial_data = solve.serializeBinaryTree(root);
+    
     CommonUtil commonUtil;
     commonUtil.preorder_binary_tree(root, 0);
+    printf("原始序列：%s\n", data.c_str());
+    printf("序列化二叉树：%s\n", serial_data.c_str());
         
     return 0;
 }

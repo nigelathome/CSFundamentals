@@ -18,6 +18,9 @@
 #include <algorithm>
 #include <queue>
 #include <stack>
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 
 #include "Trie.hpp"
 #include "ListNode.hpp"

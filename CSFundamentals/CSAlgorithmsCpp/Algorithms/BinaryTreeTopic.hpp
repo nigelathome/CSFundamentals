@@ -34,6 +34,10 @@ public:
     //449. 序列化和反序列化二叉搜索树
     std::string serialize(TreeNode* root);
     TreeNode* deserialize(std::string data);
+    
+    //297. 二叉树的序列化与反序列化
+    std::string serializeBinaryTree(TreeNode* root);
+    TreeNode* deserializeBinaryTree(std::string data);
 };
 
 #endif /* BinaryTreeTopic_hpp */

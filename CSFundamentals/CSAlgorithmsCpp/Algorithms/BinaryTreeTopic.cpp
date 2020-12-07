@@ -284,6 +284,59 @@ TreeNode* Solution5::deserialize(std::string data) {
     return root;
 }
 
+void preorder_tree_for_string(TreeNode *node, std::string &data) {
+    if (!node) {
+        data += "#,";
+        return;
+    }
+    std::string val_string = std::to_string(node->val);
+    data += val_string;
+    data += ",";
+    preorder_tree_for_string(node->left, data);
+    preorder_tree_for_string(node->right, data);
+}
+
+std::string Solution5::serializeBinaryTree(TreeNode* root) {
+    std::string result;
+    if (!root) {
+        return result;
+    }
+    preorder_tree_for_string(root, result);
+    return result;
+}
+
+TreeNode *build_tree(std::queue<std::string> &queue) {
+    //根据队列中的元素构造二叉树
+    if (queue.empty()) {
+        return NULL;
+    }
+    if(queue.front() == "#") {//#表示为空
+        queue.pop();
+        return NULL;
+    }
+    TreeNode *node = new TreeNode(atoi(queue.front().c_str()));//使用atoi把字符串转成int
+    queue.pop();
+    TreeNode *left = build_tree(queue);
+    TreeNode *right = build_tree(queue);
+    node->left = left;
+    node->right = right;
+    return node;
+}
+
+TreeNode* Solution5::deserializeBinaryTree(std::string data) {
+    if (data.size() == 0) {
+        return NULL;
+    }
+    std::stringstream data_stream(data);
+    std::queue<std::string> data_queue;
+    std::string tmp;
+    while (getline(data_stream, tmp, ',')) {//按逗号分割字符串
+        data_queue.push(tmp);
+    }
+    TreeNode *root = build_tree(data_queue);
+    return root;
+}
+
 /*
  TreeNode a(1);
  TreeNode b(2);
@@ -461,4 +514,26 @@ TreeNode* Solution5::deserialize(std::string data) {
  Solution5 solve;
  int result = solve.sumNumbers(&a);
  printf("%d\n", result);
+ */
+
+/*
+ TreeNode a(8);
+ TreeNode b(3);
+ TreeNode d(1);
+ TreeNode e(6);
+ TreeNode c(10);
+ TreeNode f(15);
+ a.left = &b;
+ a.right = &c;
+ b.left = &d;
+ b.right = &e;
+ c.right = &f;
+ 
+ Solution5 solve;
+ std::string result = solve.serialize(&a);
+ printf("编码序列：%s\n", result.c_str());
+ 
+ TreeNode *root = solve.deserialize(result);
+ CommonUtil commonUtil;
+ commonUtil.preorder_binary_tree(root, 0);
  */
