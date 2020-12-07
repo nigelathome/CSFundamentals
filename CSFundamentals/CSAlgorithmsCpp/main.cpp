@@ -17,24 +17,12 @@ int main(int argc, const char * argv[]) {
     TreeNode a(1);
     TreeNode b(2);
     TreeNode c(3);
-    TreeNode d(4);
-    TreeNode e(5);
     a.left = &b;
     a.right = &c;
-    b.right = &e;
-    c.right = &d;
-    
-    CommonUtil commonUtil;
-    printf("前序遍历\n");
-    commonUtil.preorder_binary_tree(&a, 0);
-    printf("\n中序遍历\n");
-    commonUtil.inorder_binary_tree(&a, 0);
-    printf("\n层次遍历\n");
-    commonUtil.print_tree_in_level(&a, 0);
     
     Solution5 solve;
-    std::vector<int> result = solve.rightSideView(&a);
+    int result = solve.sumNumbers(&a);
+    printf("%d\n", result);
         
-
     return 0;
 }

@@ -172,6 +172,44 @@ std::vector<int> Solution5::rightSideView(TreeNode* root) {
     return result;
 }
 
+void get_path(TreeNode *node,
+              std::vector<int> &item,
+              std::vector<std::vector<int>> &result) {
+    if (!node) {
+        return;
+    }
+    item.push_back(node->val);
+    if (!node->left && !node->right) {//叶子节点则存入result
+        result.push_back(item);
+    }
+    if (node->left) {
+        get_path(node->left, item, result);
+    }
+    if (node->right) {
+        get_path(node->right, item, result);
+    }
+    item.pop_back();
+}
+
+int Solution5::sumNumbers(TreeNode* root) {
+    int sum = 0;
+    if (!root) {
+        return 0;
+    }
+    std::vector<int> item;
+    std::vector<std::vector<int>> paths;
+    get_path(root, item, paths);
+    for (int i=0; i<paths.size(); i++) {
+        int num = 0;
+        for (int j=0; j<paths[i].size(); j++) {
+            num = num * 10 + paths[i][j];
+        }
+        sum += num;
+    }
+    
+    return sum;
+}
+
 /*
  TreeNode a(1);
  TreeNode b(2);
@@ -314,4 +352,28 @@ std::vector<int> Solution5::rightSideView(TreeNode* root) {
  commonUtil.inorder_binary_tree(result, 0);
  printf("\n层次遍历\n");
  commonUtil.print_tree_in_level(result, 0);
+ */
+
+/*
+ TreeNode a(1);
+ TreeNode b(2);
+ TreeNode c(3);
+ TreeNode d(4);
+ TreeNode e(5);
+ a.left = &b;
+ a.right = &c;
+ b.right = &e;
+ c.right = &d;
+ 
+ CommonUtil commonUtil;
+ printf("前序遍历\n");
+ commonUtil.preorder_binary_tree(&a, 0);
+ printf("\n中序遍历\n");
+ commonUtil.inorder_binary_tree(&a, 0);
+ printf("\n层次遍历\n");
+ commonUtil.print_tree_in_level(&a, 0);
+ 
+ Solution5 solve;
+ std::vector<int> result = solve.rightSideView(&a);
+     
  */

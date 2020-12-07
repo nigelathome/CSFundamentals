@@ -27,6 +27,9 @@ public:
     
     //199. 二叉树的右视图
     std::vector<int> rightSideView(TreeNode* root);
+    
+    //NC5 二叉树根节点到叶子节点的所有路径和
+    int sumNumbers(TreeNode* root);
 };
 
 #endif /* BinaryTreeTopic_hpp */
