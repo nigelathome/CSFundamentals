@@ -337,6 +337,7 @@ TreeNode* Solution5::deserializeBinaryTree(std::string data) {
     return root;
 }
 
+#pragma mark code-test
 /*
  TreeNode a(1);
  TreeNode b(2);

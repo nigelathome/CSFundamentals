@@ -186,6 +186,7 @@ std::vector<std::vector<std::string>> Solution3::solveNQueens(int n) {
     return result;
 }
 
+#pragma mark code-test
 /*
  void calculate(int n, int &sum) {
      if (n==0) {
