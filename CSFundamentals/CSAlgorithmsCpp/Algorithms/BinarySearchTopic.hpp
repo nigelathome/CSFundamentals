@@ -14,6 +14,9 @@ class Solution6 {
 public:
     //NC105 二分查找
     int upper_bound_(int n, int v, std::vector<int>& a);
+    
+    //34. 在排序数组中查找元素的第一个和最后一个位置
+    std::vector<int> searchRange(std::vector<int>& nums, int target);
 };
 
 #endif /* BinarySearchTopic_hpp */
