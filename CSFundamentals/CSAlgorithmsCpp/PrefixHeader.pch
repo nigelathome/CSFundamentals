@@ -34,6 +34,7 @@
 #include "RecBatkDivConqTopic.hpp"
 #include "SortTopic.hpp"
 #include "BinaryTreeTopic.hpp"
+#include "BinarySearchTopic.hpp"
 
 #include "CommonUtil.hpp"
 

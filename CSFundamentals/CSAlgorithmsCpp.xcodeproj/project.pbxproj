@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2608B825257E45500052FC1F /* BinarySearchTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608B823257E45500052FC1F /* BinarySearchTopic.cpp */; };
 		262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */; };
 		265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB23256A4D1800DEFE55 /* ListNode.cpp */; };
 		265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */; };
@@ -35,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2608B823257E45500052FC1F /* BinarySearchTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearchTopic.cpp; sourceTree = "<group>"; };
+		2608B824257E45500052FC1F /* BinarySearchTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinarySearchTopic.hpp; sourceTree = "<group>"; };
 		262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GreedyTopic.cpp; sourceTree = "<group>"; };
 		262C95C42570EC72004FE6B0 /* GreedyTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GreedyTopic.hpp; sourceTree = "<group>"; };
 		265DEB23256A4D1800DEFE55 /* ListNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListNode.cpp; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 				269E116C257798ED008D362B /* SortTopic.hpp */,
 				269E117125786B08008D362B /* BinaryTreeTopic.cpp */,
 				269E117225786B08008D362B /* BinaryTreeTopic.hpp */,
+				2608B823257E45500052FC1F /* BinarySearchTopic.cpp */,
+				2608B824257E45500052FC1F /* BinarySearchTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -209,6 +214,7 @@
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
 				265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */,
 				262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */,
+				2608B825257E45500052FC1F /* BinarySearchTopic.cpp in Sources */,
 				265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

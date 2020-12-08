@@ -14,29 +14,11 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    TreeNode a(8);
-    TreeNode b(3);
-    TreeNode d(1);
-    TreeNode e(6);
-    TreeNode c(10);
-    TreeNode f(15);
-    a.left = &b;
-    a.right = &c;
-    b.left = &d;
-    b.right = &e;
-    c.right = &f;
+    std::vector<int> a{2,3,4,4,4,7,7,8,10,10,11,12,13,14,15,15,17,18,19,23,24,24,24,24,25,26,26,26,27,27,28,29,29,30,33,36,38,38,40,40,41,43,43,43,44,46,46,47,51,52,52,53,54,56,57,57,57,58,58,61,61,61,62,64,64,66,66,67,67,67,70,72,74,74,74,75,75,78,78,78,79,79,80,83,83,83,83,84,84,86,88,89,89,90,91,91,92,93,93,96};
+    int n = 100, v = 1;
+    Solution6 solve;
+    int bound = solve.upper_bound_(n, v, a);
+    printf("%d\n", bound);
     
-    Solution5 solve;
-//    std::string data = "5,#,4,#,3,#,2";
-    std::string data = "8,6,10,5,7,9,11";
-    TreeNode *root = solve.deserializeBinaryTree(data);
-    
-    std::string serial_data = solve.serializeBinaryTree(root);
-    
-    CommonUtil commonUtil;
-    commonUtil.preorder_binary_tree(root, 0);
-    printf("原始序列：%s\n", data.c_str());
-    printf("序列化二叉树：%s\n", serial_data.c_str());
-        
     return 0;
 }
