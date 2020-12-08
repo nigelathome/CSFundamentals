@@ -9,16 +9,15 @@
 #include "BinarySearchTopic.hpp"
 
 int Solution6::upper_bound_(int n, int v, std::vector<int>& a) {
-    int begin = 0, end = n-1;
-    while(begin <= end) {
+    int begin = 0, end = n - 1;
+    while (begin <= end) {
         int mid = (begin + end) / 2;
-        if(a[mid] < v) {
+        if (a[mid] < v) {
             begin = mid + 1;
-        } else if(a[mid] > v) {
+        } else if (a[mid] > v) {
             end = mid - 1;
-            
         } else {
-            if(mid== 0 || a[mid-1] != v) {
+            if (mid == 0 || a[mid - 1] != v) {
                 return mid + 1;
             } else {
                 end = mid - 1;
@@ -28,24 +27,24 @@ int Solution6::upper_bound_(int n, int v, std::vector<int>& a) {
     //找不到目标元素有两种可能：
     //目标比所有数要小 这时候 end<begin并且end==-1越界
     //目标比所有数要大 这时候 begin>end并且begin==n越界
-    return begin >= n ? n+1 : 1;
+    return begin >= n ? n + 1 : 1;
 }
 
 int left_bound(std::vector<int> nums, int target) {
-    int begin = 0, end = (int)nums.size()-1;
+    int begin = 0, end = (int)nums.size() - 1;
     int mid = 0;
-    while (begin<=end) {
-        mid = (begin + end)/2;
+    while (begin <= end) {
+        mid = (begin + end) / 2;
         if (nums[mid] == target) {
-            if (mid == 0 || nums[mid-1] != target) {
+            if (mid == 0 || nums[mid - 1] != target) {
                 //说明找到了最左边=target的下标
                 return mid;
             } else {
                 end = mid - 1;
             }
-        } else if(nums[mid] > target) {
+        } else if (nums[mid] > target) {
             end = mid - 1;
-        } else if(nums[mid] < target) {
+        } else if (nums[mid] < target) {
             begin = mid + 1;
         }
     }
@@ -53,20 +52,20 @@ int left_bound(std::vector<int> nums, int target) {
 }
 
 int right_bound(std::vector<int> nums, int target) {
-    int begin = 0, end = (int)nums.size()-1;
+    int begin = 0, end = (int)nums.size() - 1;
     int mid = 0;
-    while (begin<=end) {
-        mid = (begin + end)/2;
+    while (begin <= end) {
+        mid = (begin + end) / 2;
         if (nums[mid] == target) {
-            if (mid == nums.size()-1 || nums[mid+1] != target) {
+            if (mid == nums.size() - 1 || nums[mid + 1] != target) {
                 //说明找到了最右边=target的下标
                 return mid;
             } else {
                 begin = mid + 1;
             }
-        } else if(nums[mid] > target) {
+        } else if (nums[mid] > target) {
             end = mid - 1;
-        } else if(nums[mid] < target) {
+        } else if (nums[mid] < target) {
             begin = mid + 1;
         }
     }
@@ -76,7 +75,7 @@ int right_bound(std::vector<int> nums, int target) {
 std::vector<int> Solution6::searchRange(std::vector<int>& nums, int target) {
     int left = left_bound(nums, target);
     int right = right_bound(nums, target);
-    std::vector<int> result{left, right};
+    std::vector<int> result{ left, right };
     return result;
 }
 
