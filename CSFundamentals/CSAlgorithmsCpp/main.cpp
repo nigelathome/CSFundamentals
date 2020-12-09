@@ -14,11 +14,11 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> nums = {5, 7, 7, 8, 8, 8, 8, 10};
+    std::vector<int> nums = {9, 12, 15, 20, 1, 3, 6, 7};
     Solution6 solve;
-    for(int i=0; i<12; i++) {
-        std::vector<int> result = solve.searchRange(nums, i);
-        printf("target=%d, [%d, %d]\n", i, result[0], result[1]);
+    for(int i=0; i<22; i++) {
+        int result = solve.search(nums, i);
+        printf("target=%d, index=%d\n", i, result);
     }
     
     return 0;

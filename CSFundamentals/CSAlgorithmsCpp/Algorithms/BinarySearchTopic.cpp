@@ -79,6 +79,44 @@ std::vector<int> Solution6::searchRange(std::vector<int>& nums, int target) {
     return result;
 }
 
+int Solution6::search(std::vector<int>& nums, int target) {
+    int begin = 0, end = (int)nums.size() - 1;
+    int mid = 0;
+    while (begin <= end) {
+        mid = (begin + end) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        } else if (nums[mid] > target) {
+            //判断哪个是有序区间哪个是旋转区间
+            if (nums[begin] < nums[mid]) {//左区间是有序区间
+                if (target < nums[begin]) {
+                    begin = mid + 1;
+                } else {
+                    end = mid - 1;
+                }
+            } else if (nums[begin] > nums[mid]) {//左区间是旋转区间
+                end = mid - 1;
+            } else if (nums[begin] == nums[mid]) {//只有1个或者两个元素的情形begin=mid
+                begin = mid + 1;
+            }
+        } else if (nums[mid] < target) {
+            //判断哪个是有序区间哪个是旋转区间
+            if (nums[begin] < nums[mid]) {//左区间是有序区间
+                begin = mid + 1;
+            } else if (nums[begin] > nums[mid]) {//左区间是旋转区间
+                if (target>nums[begin]) {
+                    end = mid - 1;
+                } else {
+                    begin = mid + 1;
+                }
+            } else if (nums[begin] == nums[mid]) {
+                begin = mid + 1;
+            }
+        }
+    }
+    return -1;
+}
+
 #pragma mark code-test
 /*
  std::vector<int> a{2,3,4,4,4,7,7,8,10,10,11,12,13,14,15,15,17,18,19,23,24,24,24,24,25,26,26,26,27,27,28,29,29,30,33,36,38,38,40,40,41,43,43,43,44,46,46,47,51,52,52,53,54,56,57,57,57,58,58,61,61,61,62,64,64,66,66,67,67,67,70,72,74,74,74,75,75,78,78,78,79,79,80,83,83,83,83,84,84,86,88,89,89,90,91,91,92,93,93,96};

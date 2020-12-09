@@ -17,6 +17,9 @@ public:
     
     //34. 在排序数组中查找元素的第一个和最后一个位置
     std::vector<int> searchRange(std::vector<int>& nums, int target);
+    
+    //33. 搜索旋转排序数组
+    int search(std::vector<int>& nums, int target);
 };
 
 #endif /* BinarySearchTopic_hpp */
