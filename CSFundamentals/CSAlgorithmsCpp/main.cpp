@@ -14,12 +14,15 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> nums = {9, 12, 15, 20, 1, 3, 6, 7};
+    std::vector<std::vector<int>> matrix = {{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}
+    };
+    
     Solution6 solve;
-    for(int i=0; i<22; i++) {
-        int result = solve.search(nums, i);
-        printf("target=%d, index=%d\n", i, result);
-    }
+    int target = 20;
+    bool find = solve.findNumberIn2DArray(matrix, target);
+    std::cout << std::boolalpha << find << endl;
+
+    
     
     return 0;
 }

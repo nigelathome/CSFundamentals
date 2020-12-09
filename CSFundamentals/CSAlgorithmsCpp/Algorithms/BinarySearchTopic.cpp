@@ -117,6 +117,26 @@ int Solution6::search(std::vector<int>& nums, int target) {
     return -1;
 }
 
+bool Solution6::findNumberIn2DArray(std::vector<std::vector<int>>& matrix, int target) {
+    //从第一行最后一列开始找(右上角, 也可以从左下角元素开始) 如果相等返回 如果大于target减少一行 如果小于target减少一列
+    if (matrix.size() == 0) {
+        return false;
+    }
+    int rows = (int)matrix.size()-1;
+    int cols = (int)matrix[0].size()-1;
+    int i = 0, j = cols;
+    while (i <= rows && j >= 0) {
+        if (target == matrix[i][j]) {
+            return true;
+        } else if (target > matrix[i][j]) {
+            i++;//抛弃当前第i行
+        } else if (target < matrix[i][j]) {
+            j--;//抛弃第j列
+        }
+    }
+    return false;
+}
+
 #pragma mark code-test
 /*
  std::vector<int> a{2,3,4,4,4,7,7,8,10,10,11,12,13,14,15,15,17,18,19,23,24,24,24,24,25,26,26,26,27,27,28,29,29,30,33,36,38,38,40,40,41,43,43,43,44,46,46,47,51,52,52,53,54,56,57,57,57,58,58,61,61,61,62,64,64,66,66,67,67,67,70,72,74,74,74,75,75,78,78,78,79,79,80,83,83,83,83,84,84,86,88,89,89,90,91,91,92,93,93,96};
@@ -124,4 +144,13 @@ int Solution6::search(std::vector<int>& nums, int target) {
  Solution6 solve;
  int bound = solve.upper_bound_(n, v, a);
  printf("%d\n", bound);
+ */
+
+/*
+ std::vector<int> nums = {9, 12, 15, 20, 1, 3, 6, 7};
+ Solution6 solve;
+ for(int i=0; i<22; i++) {
+     int result = solve.search(nums, i);
+     printf("target=%d, index=%d\n", i, result);
+ }
  */
