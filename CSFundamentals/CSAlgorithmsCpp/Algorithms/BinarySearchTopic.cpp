@@ -137,6 +137,31 @@ bool Solution6::findNumberIn2DArray(std::vector<std::vector<int>>& matrix, int t
     return false;
 }
 
+int Solution6::findMin(std::vector<int>& nums) {
+    if (nums.size()==0) {
+        return -1;
+    }
+    //数组如果没有旋转过 那么第一个元素一定小于最后一个元素 最小元素就是第一个元素
+    if (nums[0] < nums[nums.size()-1]) {
+        return nums[0];
+    }
+    //旋转后的数组 对于临界位置左边和右边的数组都是单调递增的 找到两个临界元素他们构成单调递减 那么后一个元素就是要找的最小元素
+    int begin = 0, end = (int)nums.size()-1;
+    while(nums[begin]==nums[end] && end >0) {
+        end--;
+    }
+    int mid = 0;
+    while (begin<end && end-begin>1) {
+        mid = (begin + end)/2;
+        if (nums[mid]<nums[begin]) {//begin-mid存在临界点 二分begin-mid区间
+            end = mid;
+        } else {//begin-mid有序不存在临界点 二分mid-end区间
+            begin = mid;
+        }
+    }
+    return nums[end];
+}
+
 #pragma mark code-test
 /*
  std::vector<int> a{2,3,4,4,4,7,7,8,10,10,11,12,13,14,15,15,17,18,19,23,24,24,24,24,25,26,26,26,27,27,28,29,29,30,33,36,38,38,40,40,41,43,43,43,44,46,46,47,51,52,52,53,54,56,57,57,57,58,58,61,61,61,62,64,64,66,66,67,67,67,70,72,74,74,74,75,75,78,78,78,79,79,80,83,83,83,83,84,84,86,88,89,89,90,91,91,92,93,93,96};
@@ -153,4 +178,13 @@ bool Solution6::findNumberIn2DArray(std::vector<std::vector<int>>& matrix, int t
      int result = solve.search(nums, i);
      printf("target=%d, index=%d\n", i, result);
  }
+ */
+
+/*
+ std::vector<std::vector<int>> matrix = {{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}
+ };
+ Solution6 solve;
+ int target = 20;
+ bool find = solve.findNumberIn2DArray(matrix, target);
+ std::cout << std::boolalpha << find << endl;
  */

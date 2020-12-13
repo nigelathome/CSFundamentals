@@ -23,6 +23,9 @@ public:
     
     //剑指 Offer 04. 二维数组中的查找
     bool findNumberIn2DArray(std::vector<std::vector<int>>& matrix, int target);
+    
+    //153. 寻找旋转排序数组中的最小值
+    int findMin(std::vector<int>& nums);
 };
 
 #endif /* BinarySearchTopic_hpp */
