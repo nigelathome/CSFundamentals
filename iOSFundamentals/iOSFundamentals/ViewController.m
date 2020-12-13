@@ -16,6 +16,7 @@
 #import "ClassObjectViewController.h"
 #import "RuntimeViewController.h"
 #import "ReuseCellViewController.h"
+#import "UIEventRespViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -100,6 +101,12 @@
             ReuseCellViewController *reuseCellVC = [[ReuseCellViewController alloc] init];
             [self.navigationController pushViewController:reuseCellVC animated:YES];
         }
+            break;
+        case 8: {
+            UIEventRespViewController *UIEventRespVC = [[UIEventRespViewController alloc] init];
+            [self.navigationController pushViewController:UIEventRespVC animated:YES];
+        }
+            break;
             
         default:
             break;
@@ -109,7 +116,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"runtime应用测试", @"cell复用机制", @"内存管理", @"Runtime", @"循环引用测试"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"Runloop", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"Runtime", @"循环引用测试"];
     }
     return _dataArray;
 }

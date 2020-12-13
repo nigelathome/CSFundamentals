@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82725860D460052FC1F /* ReuseCellViewController.m */; };
+		2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82A258620EB0052FC1F /* UIEventRespViewController.m */; };
+		2608B82E2586212E0052FC1F /* ViewA.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82D2586212E0052FC1F /* ViewA.m */; };
+		2608B831258621420052FC1F /* ViewB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B830258621420052FC1F /* ViewB.m */; };
 		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
 		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
 		265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */; };
@@ -29,6 +32,12 @@
 /* Begin PBXFileReference section */
 		2608B82625860D460052FC1F /* ReuseCellViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReuseCellViewController.h; sourceTree = "<group>"; };
 		2608B82725860D460052FC1F /* ReuseCellViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReuseCellViewController.m; sourceTree = "<group>"; };
+		2608B829258620EB0052FC1F /* UIEventRespViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIEventRespViewController.h; sourceTree = "<group>"; };
+		2608B82A258620EB0052FC1F /* UIEventRespViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIEventRespViewController.m; sourceTree = "<group>"; };
+		2608B82C2586212E0052FC1F /* ViewA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewA.h; sourceTree = "<group>"; };
+		2608B82D2586212E0052FC1F /* ViewA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewA.m; sourceTree = "<group>"; };
+		2608B82F258621420052FC1F /* ViewB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewB.h; sourceTree = "<group>"; };
+		2608B830258621420052FC1F /* ViewB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewB.m; sourceTree = "<group>"; };
 		265DEB1C2569FFE800DEFE55 /* MemManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemManagerViewController.h; sourceTree = "<group>"; };
 		265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemManagerViewController.m; sourceTree = "<group>"; };
 		265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -124,6 +133,12 @@
 				269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */,
 				2608B82625860D460052FC1F /* ReuseCellViewController.h */,
 				2608B82725860D460052FC1F /* ReuseCellViewController.m */,
+				2608B829258620EB0052FC1F /* UIEventRespViewController.h */,
+				2608B82A258620EB0052FC1F /* UIEventRespViewController.m */,
+				2608B82C2586212E0052FC1F /* ViewA.h */,
+				2608B82D2586212E0052FC1F /* ViewA.m */,
+				2608B82F258621420052FC1F /* ViewB.h */,
+				2608B830258621420052FC1F /* ViewB.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -204,13 +219,16 @@
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
+				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
+				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
+				2608B82E2586212E0052FC1F /* ViewA.m in Sources */,
 				265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
