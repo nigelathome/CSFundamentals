@@ -27,7 +27,7 @@
     [self.view addSubview:aView];
     
     UIView *bView = [[ViewB alloc] init];
-    bView.frame = CGRectMake(120, 140, 100, 100);
+    bView.frame = CGRectMake(60, 60, 80, 80);
     bView.backgroundColor = [UIColor magentaColor];
     UITapGestureRecognizer *tapB = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapB:)];
     [bView addGestureRecognizer:tapB];

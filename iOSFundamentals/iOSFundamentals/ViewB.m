@@ -11,6 +11,7 @@
 @implementation ViewB
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    LGNSLog(@"%s", __FUNCTION__);
     //1 如果不允许交互 或者 透明度小于0.01 或者隐藏则不响应
     //2 判断是否pointInside 不满足则返回nil
     //3 查找当前视图的子视图从顶层下底层找能够响应的子视图 如果pointInside则返回该子视图
@@ -21,7 +22,7 @@
     UIView *view = nil;
     if ([self pointInside:point withEvent:event]) {
         NSArray *subviews = [self subviews];
-        for (NSUInteger i=subviews.count-1; i>=0; i--) {
+        for (NSInteger i=subviews.count-1; i>=0; i--) {
             CGPoint p = [self convertPoint:point toView:subviews[i]];
             view = [subviews[i] hitTest:p withEvent:event];
             if (view) {
