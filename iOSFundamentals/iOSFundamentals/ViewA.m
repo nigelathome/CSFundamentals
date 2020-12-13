@@ -18,7 +18,7 @@
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    LGNSLog(@"%s", __FUNCTION__);
+//    LGNSLog(@"%s", __FUNCTION__);
     if (!self.isUserInteractionEnabled || self.hidden || self.alpha<0.01) {
         return nil;
     }
@@ -42,9 +42,14 @@
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    LGNSLog(@"%s", __FUNCTION__);
-    BOOL isInside = [super pointInside:point withEvent:event];
-    return isInside;
+//    LGNSLog(@"%s", __FUNCTION__);
+//    BOOL isInside = [super pointInside:point withEvent:event];
+//    return isInside;
+    if(point.y < self.bounds.size.height/2) {
+        return YES;
+    }
+    return NO;
+    
 }
 
 @end

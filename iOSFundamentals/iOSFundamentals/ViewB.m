@@ -11,7 +11,7 @@
 @implementation ViewB
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    LGNSLog(@"%s", __FUNCTION__);
+//    LGNSLog(@"%s", __FUNCTION__);
     //1 如果不允许交互 或者 透明度小于0.01 或者隐藏则不响应
     //2 判断是否pointInside 不满足则返回nil
     //3 查找当前视图的子视图从顶层下底层找能够响应的子视图 如果pointInside则返回该子视图
@@ -37,9 +37,17 @@
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    LGNSLog(@"%s", __FUNCTION__);
-    BOOL isInside = [super pointInside:point withEvent:event];
-    return isInside;
+//    LGNSLog(@"%s", __FUNCTION__);
+//    BOOL isInside = [super pointInside:point withEvent:event];
+//    return isInside;
+    CGFloat centerX = self.bounds.size.width/2;
+    CGFloat centerY = self.bounds.size.height/2;
+    CGFloat disX = fabs(centerX-point.x);
+    CGFloat disY = fabs(centerY-point.y);
+    if (disX <= self.bounds.size.width && disY <= self.bounds.size.height) {
+        return YES;
+    }
+    return NO;
 }
 
 @end
