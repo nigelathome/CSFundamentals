@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82725860D460052FC1F /* ReuseCellViewController.m */; };
 		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
 		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
 		265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2608B82625860D460052FC1F /* ReuseCellViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReuseCellViewController.h; sourceTree = "<group>"; };
+		2608B82725860D460052FC1F /* ReuseCellViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReuseCellViewController.m; sourceTree = "<group>"; };
 		265DEB1C2569FFE800DEFE55 /* MemManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemManagerViewController.h; sourceTree = "<group>"; };
 		265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemManagerViewController.m; sourceTree = "<group>"; };
 		265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				269E11752579FC84008D362B /* RuntimeViewController.m */,
 				269E117A257B54C9008D362B /* NSMutableArray+SafeMutableArray.h */,
 				269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */,
+				2608B82625860D460052FC1F /* ReuseCellViewController.h */,
+				2608B82725860D460052FC1F /* ReuseCellViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
+				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
