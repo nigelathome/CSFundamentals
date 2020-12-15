@@ -26,7 +26,15 @@
     label.text = @"点击屏幕";
     [self.view addSubview:label];
     [self runThread];
-    [self checkMainThread];
+//    [self checkMainThread];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x-100, self.view.center.y-100, 130, 130)];
+    [btn setTitle:@"点击崩溃" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
+    //捕获异常
+    NSSetUncaughtExceptionHandler(handleUncaughtException);
 }
 
 - (void)runThread {
@@ -95,5 +103,24 @@ static void runLoopObserverCallback(CFRunLoopObserverRef observer, CFRunLoopActi
     return [[NSDate date] timeIntervalSince1970];
 }
 
+#pragma mark - 制造崩溃
+- (void)onClick:(UIButton *)sender {
+    NSString *info = nil;
+    NSDictionary *dic = @{
+        @"a":info
+    };
+    LGNSLog(@"%@", (NSString *)dic[@"a"]);
+}
+
+void handleUncaughtException(NSException *exception) {
+    LGNSLog(@"出现崩溃了 原因是：%@", exception.reason);
+    CFRunLoopRef runloop = CFRunLoopGetCurrent();
+    CFArrayRef allModes = CFRunLoopCopyAllModes(runloop);
+    while(1){
+        for (NSString *mode in (__bridge NSArray *)allModes) {
+            CFRunLoopRunInMode((CFStringRef)mode, 0.001, false);
+        }
+    }
+}
 
 @end
