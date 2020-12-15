@@ -21,6 +21,9 @@
 //    NSThread thread = [[NSThread alloc] initWithTarget:self selector:@selector(print) object:nil];
 //    [self performSelector:@selector(print) onThread:thread withObject:nil waitUntilDone:NO];
 //    [self.thread start];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 130, 130)];
+    label.text = @"点击屏幕";
+    [self.view addSubview:label];
     [self runThread];
 }
 
