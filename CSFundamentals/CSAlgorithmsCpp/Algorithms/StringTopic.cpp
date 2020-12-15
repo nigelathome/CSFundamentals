@@ -77,6 +77,37 @@ int Solution7::maxProfit(std::vector<int>& prices) {
     return max_profit;
 }
 
+long long Solution7::maxValue(std::vector<int> A) {
+    if(A.size()<3) return 0;
+    long long result;
+    int max1 = INT_MIN, max2 = INT_MIN, max3 = INT_MIN;
+    int min1 = INT_MAX, min2 = INT_MAX;
+    for(int i=0; i<A.size(); i++) {
+        if(A[i]>0) {
+            if(A[i]>max1) {
+              max3 = max2;
+              max2 = max1;
+              max1 = A[i];
+              } else if( A[i]>max2) {
+                  max3 = max2;
+                  max2 = A[i];
+              } else if(A[i]>max3) {
+                  max3 = A[i];
+              }
+          }else if(A[i] < 0) {
+              if(A[i]<min1) {
+                  min2 = min1;
+                  min1 = A[i];
+              } else if(A[i]>min1 && A[i]<min2) {
+                  min2 = A[i];
+              }
+          }
+      }
+    
+      result = std::max((long long)max1*max2*max3, (long long)max1*min1*min2);
+      return result;
+}
+
 #pragma mark code-test
 /*
  Solution7 solve;
@@ -95,4 +126,11 @@ int Solution7::maxProfit(std::vector<int>& prices) {
  std::string a = s + s;
  bool match = solve.BF(s, t);
  std::cout << std::boolalpha << match << endl;
+ */
+
+/*
+ Solution7 solve;
+ std::vector<int> prices{1, 4, 2};
+ int profit = solve.maxProfit(prices);
+ printf("%d\n", profit);
  */

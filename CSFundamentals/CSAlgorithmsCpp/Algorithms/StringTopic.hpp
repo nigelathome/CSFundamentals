@@ -20,6 +20,9 @@ public:
     
     //NC7 买卖股票的最好时机
     int maxProfit(std::vector<int>& prices);
+    
+    //NC106 三个数最大的乘积
+    long long maxValue(std::vector<int> A);
 };
 
 #endif /* OtherTopic_hpp */
