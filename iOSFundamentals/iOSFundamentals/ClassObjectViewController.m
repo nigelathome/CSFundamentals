@@ -19,7 +19,7 @@
     [super viewDidLoad];
     self.title = @"类和对象";
     LGPerson *p1 = [LGPerson alloc];
-    p1.name = @"Cocoi";
+//    p1.name = @"Cocoi";
     p1.age = 18;
     p1.height = 185;
     p1.hobby = @"女";
@@ -39,6 +39,14 @@
     BOOL r4 = [[LGPerson class] isMemberOfClass:[LGPerson class]];//LGPerson元类和LGPerson根类是不相等
     BOOL r5 = [p1 isKindOfClass:[p1 class]];//LGPerson根类和LGPerson根类是相等
     LGNSLog(@"%d %d %d %d %d", r1, r2, r3, r4, r5);
+    
+//    LGPerson *pe = [[LGPerson alloc] init];
+////    pe->isa = [LGPerson class];
+//    [pe print];
+    UIViewController *vc = [[UIViewController alloc] init];
+    id cls = [LGPerson class];
+    void *ob = &cls;
+    [(__bridge id)ob print];
 }
 
 /*

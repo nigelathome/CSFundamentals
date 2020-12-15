@@ -12,10 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LGPerson : NSObject
 
-@property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) long height;
 @property (nonatomic, strong) NSString *hobby;
+
+- (void)print;
 
 @end
 
