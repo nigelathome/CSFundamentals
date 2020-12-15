@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2608B825257E45500052FC1F /* BinarySearchTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608B823257E45500052FC1F /* BinarySearchTopic.cpp */; };
-		2608B8342587354C0052FC1F /* OtherTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608B8322587354C0052FC1F /* OtherTopic.cpp */; };
+		2608B8342587354C0052FC1F /* StringTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2608B8322587354C0052FC1F /* StringTopic.cpp */; };
 		262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */; };
 		265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB23256A4D1800DEFE55 /* ListNode.cpp */; };
 		265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB27256A533600DEFE55 /* LinkedListTopic.cpp */; };
@@ -39,8 +39,8 @@
 /* Begin PBXFileReference section */
 		2608B823257E45500052FC1F /* BinarySearchTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinarySearchTopic.cpp; sourceTree = "<group>"; };
 		2608B824257E45500052FC1F /* BinarySearchTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinarySearchTopic.hpp; sourceTree = "<group>"; };
-		2608B8322587354C0052FC1F /* OtherTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OtherTopic.cpp; sourceTree = "<group>"; };
-		2608B8332587354C0052FC1F /* OtherTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OtherTopic.hpp; sourceTree = "<group>"; };
+		2608B8322587354C0052FC1F /* StringTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StringTopic.cpp; sourceTree = "<group>"; };
+		2608B8332587354C0052FC1F /* StringTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StringTopic.hpp; sourceTree = "<group>"; };
 		262C95C32570EC72004FE6B0 /* GreedyTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GreedyTopic.cpp; sourceTree = "<group>"; };
 		262C95C42570EC72004FE6B0 /* GreedyTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GreedyTopic.hpp; sourceTree = "<group>"; };
 		265DEB23256A4D1800DEFE55 /* ListNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListNode.cpp; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 				269E117225786B08008D362B /* BinaryTreeTopic.hpp */,
 				2608B823257E45500052FC1F /* BinarySearchTopic.cpp */,
 				2608B824257E45500052FC1F /* BinarySearchTopic.hpp */,
-				2608B8322587354C0052FC1F /* OtherTopic.cpp */,
-				2608B8332587354C0052FC1F /* OtherTopic.hpp */,
+				2608B8322587354C0052FC1F /* StringTopic.cpp */,
+				2608B8332587354C0052FC1F /* StringTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				2660A88D25694D2A001801C4 /* TrieTopic.cpp in Sources */,
 				265DEB29256A533600DEFE55 /* LinkedListTopic.cpp in Sources */,
 				262C95C52570EC72004FE6B0 /* GreedyTopic.cpp in Sources */,
-				2608B8342587354C0052FC1F /* OtherTopic.cpp in Sources */,
+				2608B8342587354C0052FC1F /* StringTopic.cpp in Sources */,
 				2608B825257E45500052FC1F /* BinarySearchTopic.cpp in Sources */,
 				265DEB25256A4D1800DEFE55 /* ListNode.cpp in Sources */,
 			);

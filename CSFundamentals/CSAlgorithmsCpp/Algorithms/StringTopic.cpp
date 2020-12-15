@@ -6,7 +6,7 @@
 //  Copyright © 2020 Hui,Li. All rights reserved.
 //
 
-#include "OtherTopic.hpp"
+#include "StringTopic.hpp"
 
 std::string Solution7::multiply(std::string num1, std::string num2) {
     std::string result;
