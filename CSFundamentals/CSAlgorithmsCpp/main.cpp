@@ -15,12 +15,9 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, CHINA!\n";
     
     Solution7 solve;
-    std::string t = "youzan";
-    std::string s = "zanyouzanyou";
-    std::string a = s + s;
-    bool match = solve.BF(s, t);
-    std::cout << std::boolalpha << match << endl;
+    std::vector<int> prices{1, 4, 2};
+    int profit = solve.maxProfit(prices);
+    printf("%d\n", profit);
     
-
     return 0;
 }

@@ -17,6 +17,9 @@ public:
     
     //BF算法模式匹配
     bool BF(std::string s, std::string t);
+    
+    //NC7 买卖股票的最好时机
+    int maxProfit(std::vector<int>& prices);
 };
 
 #endif /* OtherTopic_hpp */

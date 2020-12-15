@@ -60,6 +60,23 @@ bool Solution7::BF(std::string s, std::string t) {
     return false;
 }
 
+int Solution7::maxProfit(std::vector<int>& prices) {
+    if(prices.size()==0 || prices.size()==1) return 0;
+    int max_profit = 0;
+    int profit = 0;
+    int i=0, j=0;
+    for(i=0; i<prices.size()-1; i++) {
+        j=i+1;
+        for(; j<prices.size(); j++) {
+            profit = prices[j] - prices[i];
+            if(max_profit<profit) {
+                max_profit = profit;
+            }
+        }
+    }
+    return max_profit;
+}
+
 #pragma mark code-test
 /*
  Solution7 solve;
@@ -69,4 +86,13 @@ bool Solution7::BF(std::string s, std::string t) {
  //    printf("%s * %s = %s\n", num1.data(), num2.data(), result.data());
      
      printf("%s * %s = %s\n", "123", "456", solve.multiply("123", "456").data());
+ */
+
+/*
+ Solution7 solve;
+ std::string t = "youzan";
+ std::string s = "zanyouzanyou";
+ std::string a = s + s;
+ bool match = solve.BF(s, t);
+ std::cout << std::boolalpha << match << endl;
  */
