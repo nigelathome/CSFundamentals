@@ -50,4 +50,12 @@
     return NO;
 }
 
+- (void)func {
+    LGNSLog(@"%s", __FUNCTION__);
+}
+
++ (void)func {
+    LGNSLog(@"%s", __FUNCTION__);
+}
+
 @end

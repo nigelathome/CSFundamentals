@@ -47,6 +47,9 @@
     id cls = [LGPerson class];
     void *ob = &cls;
     [(__bridge id)ob print];
+    
+    LGPerson *pe = [[LGPerson alloc] init];
+    [pe func];
 }
 
 /*
