@@ -39,3 +39,34 @@ std::string Solution7::multiply(std::string num1, std::string num2) {
     std::reverse(result.begin(), result.end());
     return result;
 }
+
+bool Solution7::BF(std::string s, std::string t) {
+    if (t.size()>s.size()) {
+        return false;
+    }
+    int i=0, j=0;
+    while(i<t.size() && j<s.size()) {
+        if (s[j] == t[i]) {
+            i++;
+            j++;
+        } else {
+            i=0;
+            j=j-i+1;
+        }
+    }
+    if (i==t.size()) {
+        return true;
+    }
+    return false;
+}
+
+#pragma mark code-test
+/*
+ Solution7 solve;
+     std::string num1 = "12";
+     std::string num2 = "13";
+ //    std::string result = solve.multiply(num1, num2);
+ //    printf("%s * %s = %s\n", num1.data(), num2.data(), result.data());
+     
+     printf("%s * %s = %s\n", "123", "456", solve.multiply("123", "456").data());
+ */

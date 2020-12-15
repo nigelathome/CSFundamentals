@@ -15,12 +15,12 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, CHINA!\n";
     
     Solution7 solve;
-    std::string num1 = "12";
-    std::string num2 = "13";
-//    std::string result = solve.multiply(num1, num2);
-//    printf("%s * %s = %s\n", num1.data(), num2.data(), result.data());
+    std::string t = "youzan";
+    std::string s = "zanyouzanyou";
+    std::string a = s + s;
+    bool match = solve.BF(s, t);
+    std::cout << std::boolalpha << match << endl;
     
-    printf("%s * %s = %s\n", "123", "456", solve.multiply("123", "456").data());
-    
+
     return 0;
 }
