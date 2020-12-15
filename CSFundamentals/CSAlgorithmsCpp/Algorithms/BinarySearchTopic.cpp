@@ -188,3 +188,10 @@ int Solution6::findMin(std::vector<int>& nums) {
  bool find = solve.findNumberIn2DArray(matrix, target);
  std::cout << std::boolalpha << find << endl;
  */
+
+/*
+ std::vector<int> nums = {1};
+ Solution6 solve;
+ int min = solve.findMin(nums);
+ printf("min=%d\n", min);
+ */
