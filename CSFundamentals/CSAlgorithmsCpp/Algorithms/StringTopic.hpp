@@ -23,6 +23,9 @@ public:
     
     //NC106 三个数最大的乘积
     long long maxValue(std::vector<int> A);
+    
+    //面试题 统计单词个数
+    int countWords(std::string a);
 };
 
 #endif /* OtherTopic_hpp */
