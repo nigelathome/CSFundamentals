@@ -50,6 +50,19 @@
     
     LGPerson *pe = [[LGPerson alloc] init];
     [pe func];
+    
+    Class pe_class = [pe class];//pe的类对象
+    Class pe_meta = object_getClass(pe_class);//pe的元类
+    Class pe_meta_isa = object_getClass(pe_meta);//pe元类的isa指向
+    NSObject *obj= [[NSObject alloc] init];//NSObject实例对象
+    Class obj_class = [obj class];//NSObject类对象
+    Class obj_meta = object_getClass(obj_class);//NSObject元类
+    Class obj_meta_isa = object_getClass(obj_meta);//NSObject元类isa
+    LGNSLog(@"类对象%p 元类%p 元类isa指向%p", pe_class, pe_meta, pe_meta_isa);
+    LGNSLog(@"类对象%p 元类%p 元类isa指向%p", obj_class, obj_meta, pe_meta_isa);
+    LGNSLog(@"元类的isa指向 %p %p", pe_meta_isa, obj_meta_isa);
+    Class obj_meta_superclass = class_getSuperclass(obj_meta_isa);//NSObject元类的superclass
+    LGNSLog(@"元类的superclass指向 %p", obj_meta_superclass);
 }
 
 /*
