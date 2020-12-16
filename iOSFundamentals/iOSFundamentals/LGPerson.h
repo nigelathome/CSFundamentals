@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LGPerson : NSObject
 
+@property (nonatomic, strong) NSArray *checkArray;
+@property (nonatomic, strong) NSDictionary *addressDict;
 @property (nonatomic, assign) int age;
 @property (nonatomic, assign) long height;
 @property (nonatomic, strong) NSString *hobby;

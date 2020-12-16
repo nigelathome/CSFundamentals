@@ -76,6 +76,31 @@
         ptrdiff_t diff = ivar_getOffset(ivar);
         LGNSLog(@"name:%s, type:%s, offset:%ld", name, type, diff);
     }
+    free(vars);
+    
+    //获取实例对象的属性
+    Class peCls = [pe class];
+    unsigned int poutCount = 0;
+    objc_property_t *prop = class_copyPropertyList(peCls, &poutCount);//属性列表
+    for(NSInteger i=0; i<poutCount; i++) {
+        //打印属性相关的信息 name、attribute
+        objc_property_t property = prop[i];
+        const char *name = property_getName(property);
+        const char *attri = property_getAttributes(property);
+        LGNSLog(@"name:%s, attri:%s", name, attri);
+        //打印属性的特性的详细信息
+        unsigned int attriCount = 0;
+        objc_property_attribute_t *atts = property_copyAttributeList(property, &attriCount);
+        for(NSInteger i=0; i<attriCount; i++) {
+            objc_property_attribute_t attribute = atts[i];
+            const char *attName = attribute.name;
+            const char *attValue = attribute.value;
+            LGNSLog(@"attName:%s, attValue:%s", attName, attValue);
+        }
+        LGNSLog(@"");
+        free(atts);
+    }
+    free(prop);
 }
 
 /*
