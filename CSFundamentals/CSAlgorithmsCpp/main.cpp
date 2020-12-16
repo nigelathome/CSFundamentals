@@ -14,10 +14,15 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    Solution7 solve;
-    std::string a = "hello kkk  gwo;dsljljksaf  jjj studf";
-    int val = solve.countWords(a);
-    
+    Solution solve;
+    ListNode a(1), b(3), c(2), d(4), e(5);
+    a.next = &b;
+    b.next = &c;
+    c.next = &d;
+    d.next = &e;
+    ListNode *head = solve.sortInList(&a);
+    CommonUtil commonUtil;
+    commonUtil.print_linked_list(head);
     
     return 0;
 }

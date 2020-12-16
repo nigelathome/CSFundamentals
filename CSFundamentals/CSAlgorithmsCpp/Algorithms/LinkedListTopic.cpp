@@ -206,6 +206,25 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2) {
     return tmp_head.next;
 }
 
+bool cmp_list(ListNode *a, ListNode *b) {
+    return (a->val) < (b->val);
+}
+
+ListNode* Solution::sortInList(ListNode* head) {
+    std::vector<ListNode*> node_vec;
+    while(head) {
+        node_vec.push_back(head);
+        head = head->next;
+    }
+    std::sort(node_vec.begin(), node_vec.end(), cmp_list);
+    node_vec.push_back(0);
+    for(int i=0; i<node_vec.size()-1; i++){
+        node_vec[i]->next = node_vec[i+1];
+    }
+    
+    return node_vec[0];
+}
+
 //bool cmp(const ListNode *a, const ListNode *b) {
 //    return a->val <= b->val;
 //}

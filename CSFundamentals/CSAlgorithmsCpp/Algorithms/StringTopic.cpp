@@ -157,3 +157,10 @@ int Solution7::countWords(std::string a) {
  long long val = solve.maxValue(A);
  printf("%lld\n", val);
  */
+
+/*
+ Solution7 solve;
+ std::string a = "hello kkk  gwo;dsljljksaf  jjj studf";
+ int val = solve.countWords(a);
+ printf("%d", val);
+ */

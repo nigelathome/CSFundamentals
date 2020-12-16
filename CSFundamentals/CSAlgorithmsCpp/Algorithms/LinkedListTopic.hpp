@@ -45,6 +45,9 @@ public:
     
     //面试题 02.02. 返回倒数第 k 个节点
     int kthToLast(ListNode* head, int k);
+    
+    //NC70 链表排序
+    ListNode* sortInList(ListNode* head);
 };
 
 #endif /* LinkedListTopic_hpp */
