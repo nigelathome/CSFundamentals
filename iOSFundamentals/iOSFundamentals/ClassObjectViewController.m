@@ -63,6 +63,19 @@
     LGNSLog(@"元类的isa指向 %p %p", pe_meta_isa, obj_meta_isa);
     Class obj_meta_superclass = class_getSuperclass(obj_meta_isa);//NSObject元类的superclass
     LGNSLog(@"元类的superclass指向 %p", obj_meta_superclass);
+    
+    //获取实例对象的成员变量
+    Class pClass = [pe class];
+    unsigned int outCount = 0;
+    Ivar *vars = class_copyIvarList(pClass, &outCount);//成员变量列表
+    for (NSInteger i=0; i<outCount; i++) {
+        //打印成员变量相关的信息 name、type、相对类初始地址的偏移量
+        Ivar ivar = vars[i];
+        const char *name = ivar_getName(ivar);
+        const char *type = ivar_getTypeEncoding(ivar);
+        ptrdiff_t diff = ivar_getOffset(ivar);
+        LGNSLog(@"name:%s, type:%s, offset:%ld", name, type, diff);
+    }
 }
 
 /*
