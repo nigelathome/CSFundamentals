@@ -17,7 +17,7 @@ int main(int argc, const char * argv[]) {
     Solution8 solve;
     std::string s1 = "abcabcbb";
     std::string s2 = "bbbbb";
-    std::string s3 = "";
+    std::string s3 = "pwwkew";
     int max1 = solve.lengthOfLongestSubstring(s1);
     int max2 = solve.lengthOfLongestSubstring(s2);
     int max3 = solve.lengthOfLongestSubstring(s3);
