@@ -22,6 +22,7 @@
 		269E116D257798ED008D362B /* SortTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116B257798ED008D362B /* SortTopic.cpp */; };
 		269E11702577C352008D362B /* TreeNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E116E2577C352008D362B /* TreeNode.cpp */; };
 		269E117325786B08008D362B /* BinaryTreeTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 269E117125786B08008D362B /* BinaryTreeTopic.cpp */; };
+		26FFE9A2258AEBD2008F96A7 /* HashTopic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 26FFE9A0258AEBD2008F96A7 /* HashTopic.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		269E116F2577C352008D362B /* TreeNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TreeNode.hpp; sourceTree = "<group>"; };
 		269E117125786B08008D362B /* BinaryTreeTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BinaryTreeTopic.cpp; sourceTree = "<group>"; };
 		269E117225786B08008D362B /* BinaryTreeTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryTreeTopic.hpp; sourceTree = "<group>"; };
+		26FFE9A0258AEBD2008F96A7 /* HashTopic.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HashTopic.cpp; sourceTree = "<group>"; };
+		26FFE9A1258AEBD2008F96A7 /* HashTopic.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HashTopic.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +134,8 @@
 				2608B824257E45500052FC1F /* BinarySearchTopic.hpp */,
 				2608B8322587354C0052FC1F /* StringTopic.cpp */,
 				2608B8332587354C0052FC1F /* StringTopic.hpp */,
+				26FFE9A0258AEBD2008F96A7 /* HashTopic.cpp */,
+				26FFE9A1258AEBD2008F96A7 /* HashTopic.hpp */,
 			);
 			path = Algorithms;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				269E116D257798ED008D362B /* SortTopic.cpp in Sources */,
+				26FFE9A2258AEBD2008F96A7 /* HashTopic.cpp in Sources */,
 				265DEB32256D422300DEFE55 /* StackQueueHeapTopic.cpp in Sources */,
 				2660A87D2568BAED001801C4 /* main.cpp in Sources */,
 				265DEB2F256BAE3D00DEFE55 /* Node.cpp in Sources */,

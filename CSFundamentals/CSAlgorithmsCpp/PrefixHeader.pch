@@ -36,6 +36,7 @@
 #include "BinaryTreeTopic.hpp"
 #include "BinarySearchTopic.hpp"
 #include "StringTopic.hpp"
+#include "HashTopic.hpp"
 
 #include "CommonUtil.hpp"
 

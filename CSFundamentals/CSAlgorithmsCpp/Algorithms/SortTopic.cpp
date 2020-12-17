@@ -69,3 +69,15 @@ std::vector<int> Solution4::MySort(std::vector<int>& arr) {
      printf("[%d]\n", arr[i]);
  }
  */
+
+/*
+ Solution solve;
+ ListNode a(1), b(3), c(2), d(4), e(5);
+ a.next = &b;
+ b.next = &c;
+ c.next = &d;
+ d.next = &e;
+ ListNode *head = solve.sortInList(&a);
+ CommonUtil commonUtil;
+ commonUtil.print_linked_list(head);
+ */
