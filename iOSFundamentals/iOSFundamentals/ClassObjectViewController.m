@@ -142,6 +142,10 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     //点击屏幕解归档
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [path stringByAppendingFormat:@"/ar.data"];
+    LGPerson *p = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    LGNSLog(@"");    
 }
 
 @end

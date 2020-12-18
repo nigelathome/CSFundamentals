@@ -81,7 +81,7 @@
 
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {
     [coder encodeObject:self.name forKey:@"name"];
-    [coder encodeObject:self.name forKey:@"secret"];
+    [coder encodeObject:_secret forKey:@"secret"];
     [coder encodeInt:self.age forKey:@"age"];
 }
 
@@ -91,7 +91,7 @@
         _secret = [coder decodeObjectForKey:@"secret"];
         self.age = [coder decodeIntForKey:@"age"];
     }
-    return nil;
+    return self;
 }
 
 @end
