@@ -80,16 +80,28 @@
 }
 
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {
-    [coder encodeObject:self.name forKey:@"name"];
-    [coder encodeObject:_secret forKey:@"secret"];
-    [coder encodeInt:self.age forKey:@"age"];
+    unsigned int cnt = 0;
+    Ivar *ivars = class_copyIvarList([self class], &cnt);
+    for(int i=0; i<cnt; i++) {
+        Ivar var = ivars[i];
+        const char *name = ivar_getName(var);
+        NSString *key = [NSString stringWithUTF8String:name];
+        [coder encodeObject:[self valueForKey:key] forKey:key];//KVC拿到成员变量的值
+    }
+    free(ivars);
 }
 
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)coder {
     if (self = [super init]) {
-        self.name = [coder decodeObjectForKey:@"name"];
-        _secret = [coder decodeObjectForKey:@"secret"];
-        self.age = [coder decodeIntForKey:@"age"];
+        unsigned int cnt = 0;
+        Ivar *ivars = class_copyIvarList([self class], &cnt);
+        for(int i=0; i<cnt; i++) {
+            Ivar var = ivars[i];
+            const char *name = ivar_getName(var);
+            NSString *key = [NSString stringWithUTF8String:name];
+            [self setValue:[coder decodeObjectForKey:key] forKey:key];//KVC拿到成员变量的值并赋值
+        }
+        free(ivars);
     }
     return self;
 }
