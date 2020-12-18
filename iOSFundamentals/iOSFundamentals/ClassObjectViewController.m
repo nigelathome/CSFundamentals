@@ -115,7 +115,7 @@
     }
     free(ppIvar);
     
-    //或者成员变量的值
+    //获取成员变量的值 并修改
     LGPerson *pf = [LGPerson new];
     Class pfCls = [pf class];
     Ivar secretIvar = class_getInstanceVariable(pfCls, "_secret");
@@ -123,6 +123,9 @@
     
     Ivar nameIvar = class_getInstanceVariable(pfCls, "_name");
     NSString *name = object_getIvar(pf, nameIvar);
+    LGNSLog(@"%@ %@", secret, name);
+    object_setIvar(pf, nameIvar, @"这不再是个名字");
+    name = object_getIvar(pf, nameIvar);
     LGNSLog(@"%@ %@", secret, name);
 }
 
