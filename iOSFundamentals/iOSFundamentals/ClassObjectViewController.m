@@ -114,6 +114,16 @@
         LGNSLog(@"%s %s", name, type);
     }
     free(ppIvar);
+    
+    //或者成员变量的值
+    LGPerson *pf = [LGPerson new];
+    Class pfCls = [pf class];
+    Ivar secretIvar = class_getInstanceVariable(pfCls, "_secret");
+    NSString *secret = object_getIvar(pf, secretIvar);
+    
+    Ivar nameIvar = class_getInstanceVariable(pfCls, "_name");
+    NSString *name = object_getIvar(pf, nameIvar);
+    LGNSLog(@"%@ %@", secret, name);
 }
 
 /*

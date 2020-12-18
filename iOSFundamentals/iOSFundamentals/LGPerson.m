@@ -19,6 +19,14 @@
 
 @implementation LGPerson
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _secret = @"这是个秘密";
+        _name = @"这是个名字";
+    }
+    return self;
+}
+
 - (void)print {
 //    NSLog(@"%@", self.name);//self.name指向ClassObjectViewController的isa指针 所以输出是ClassObjectViewController
 }
