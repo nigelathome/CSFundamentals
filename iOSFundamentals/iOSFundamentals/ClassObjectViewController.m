@@ -101,6 +101,19 @@
         free(atts);
     }
     free(prop);
+    
+    //获取私有变量
+    LGPerson *pp = [LGPerson new];
+    Class ppCls = [pp class];
+    unsigned int ppOutCount = 0;
+    Ivar *ppIvar = class_copyIvarList(ppCls, &ppOutCount);
+    for(int i=0; i<ppOutCount; i++) {
+        Ivar var = ppIvar[i];
+        const char *name = ivar_getName(var);
+        const char *type = ivar_getTypeEncoding(var);
+        LGNSLog(@"%s %s", name, type);
+    }
+    free(ppIvar);
 }
 
 /*
