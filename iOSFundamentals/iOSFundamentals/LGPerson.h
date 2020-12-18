@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)encodeWithCoder:(nonnull NSCoder *)coder;
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)coder;
 
+- (void)run;
+
 @end
 
 NS_ASSUME_NONNULL_END

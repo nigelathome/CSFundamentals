@@ -106,4 +106,8 @@
     return self;
 }
 
+- (void)run {
+    LGNSLog(@"%s", __FUNCTION__);
+}
+
 @end

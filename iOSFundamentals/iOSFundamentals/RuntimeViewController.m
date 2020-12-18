@@ -25,6 +25,14 @@
     [arr addObject:@"2"];
     [arr addObject:@"3"];
     id obj = [arr objectAtIndex:3];
+    
+    //通过@selector创建的的SEL和通过字符串创建的SEL 名字相同则地址相同
+    SEL sel = @selector(run);
+    LGNSLog(@"sel address: %p", sel);
+    
+    const char *methodName = [@"run" UTF8String];
+    SEL selFromString = sel_registerName(methodName);
+    LGNSLog(@"selFromString address: %p", selFromString);
 }
 
 - (void)printA {
