@@ -9,6 +9,9 @@
 #import "ClassObjectViewController.h"
 #import "LGPerson.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+
 @interface ClassObjectViewController ()
 
 @end
@@ -127,16 +130,18 @@
     object_setIvar(pf, nameIvar, @"这不再是个名字");
     name = object_getIvar(pf, nameIvar);
     LGNSLog(@"%@ %@", secret, name);
+    
+    //归档
+    LGPerson *ps = [LGPerson new];
+    ps.age = 32;
+    ps.hobby = @"tennis";
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [path stringByAppendingFormat:@"/ar.data"];
+    [NSKeyedArchiver archiveRootObject:ps toFile:filePath];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //点击屏幕解归档
 }
-*/
 
 @end

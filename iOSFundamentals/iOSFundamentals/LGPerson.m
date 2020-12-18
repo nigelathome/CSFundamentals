@@ -79,4 +79,19 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
+- (void)encodeWithCoder:(nonnull NSCoder *)coder {
+    [coder encodeObject:self.name forKey:@"name"];
+    [coder encodeObject:self.name forKey:@"secret"];
+    [coder encodeInt:self.age forKey:@"age"];
+}
+
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)coder {
+    if (self = [super init]) {
+        self.name = [coder decodeObjectForKey:@"name"];
+        _secret = [coder decodeObjectForKey:@"secret"];
+        self.age = [coder decodeIntForKey:@"age"];
+    }
+    return nil;
+}
+
 @end

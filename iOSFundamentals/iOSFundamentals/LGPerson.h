@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGPerson : NSObject
+@interface LGPerson : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSArray *checkArray;
 @property (nonatomic, strong) NSDictionary *addressDict;
@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)print;
 - (void)func;
 //- (void)myFunc;
+
+- (void)encodeWithCoder:(nonnull NSCoder *)coder;
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)coder;
 
 @end
 
