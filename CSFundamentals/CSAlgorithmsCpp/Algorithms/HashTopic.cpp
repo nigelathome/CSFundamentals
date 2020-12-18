@@ -53,26 +53,49 @@ bool repeatIn(std::string s) {
 //    return (int)result.size();
 //}
 
+//int Solution8::lengthOfLongestSubstring(std::string arr) {
+//    //滑动窗口方法
+//    if(arr.size()==0) return 0;
+//    std::map<int, int> hash;
+//    int result = 0, cur = 1;
+//    for(int i=0; i<arr.size(); i++) {
+//        int j=i+1;
+//        hash[arr[i]] = 1;
+//        cur = 1;
+//        while(j<arr.size()) {
+//            if (hash.find(arr[j])!=hash.end()) {
+//                break;
+//            } else {
+//                hash[arr[j]] = 1;
+//                cur++;
+//                j++;
+//            }
+//        }
+//        result = std::max(result, cur);
+//        hash.clear();
+//    }
+//    return result;
+//}
+
 int Solution8::lengthOfLongestSubstring(std::string arr) {
-    //滑动窗口方法
+    //优化滑动窗口方法
     if(arr.size()==0) return 0;
-    std::map<int, int> hash;
-    int result = 0, cur = 1;
-    for(int i=0; i<arr.size(); i++) {
-        int j=i+1;
-        hash[arr[i]] = 1;
-        cur = 1;
-        while(j<arr.size()) {
-            if (hash.find(arr[j])!=hash.end()) {
-                break;
-            } else {
-                hash[arr[j]] = 1;
-                cur++;
-                j++;
-            }
+    std::map<char, int> hash;//元素值和对应下标
+    int result = 1;
+    int cur_length = 0;
+    int i=0, j=0;//表示滑动窗口的起始和终止位置
+    for(; j<arr.size(); j++) {
+        if(hash.find(arr[j]) == hash.end()) {
+            hash[arr[j]] = j;
+            cur_length++;
+        } else {
+            result = std::max(result, cur_length);
+            i = std::max(hash[arr[j]], i);//i指向重复元素出现的下标的下一个下标
+            cur_length = j - i;
+            hash[arr[j]] = j;
         }
-        result = std::max(result, cur);
-        hash.clear();
     }
+    result = std::max(result, cur_length);
+    
     return result;
 }
