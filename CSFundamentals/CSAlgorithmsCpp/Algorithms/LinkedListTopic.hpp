@@ -51,6 +51,9 @@ public:
     
     //NC2 重排链表
     void reorderList(ListNode *head);
+    
+    //剑指 Offer 62. 圆圈中最后剩下的数字
+    int lastRemaining(int n, int m);
 };
 
 #endif /* LinkedListTopic_hpp */

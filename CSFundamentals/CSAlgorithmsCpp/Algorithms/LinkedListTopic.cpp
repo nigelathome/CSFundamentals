@@ -368,6 +368,29 @@ void Solution::reorderList(ListNode *head) {
     head = dummy.next;
 }
 
+int Solution::lastRemaining(int n, int m) {
+    //将0-n-1构成一个循环链表 对链表每m个结点进行删除 直到只剩下最后一个元素
+    ListNode du(0);
+    ListNode *pt = &du;
+    for(int i=0; i<n; i++) {
+        ListNode *node = new ListNode(i);
+        pt->next = node;
+        pt = pt->next;
+    }
+    pt->next = du.next;
+    pt = du.next;
+    while (pt->next!=pt) {
+        for(int i=0; i<m-2; i++) {
+            pt=pt->next;//走m_2步 找到第m_1个结点
+        }
+        ListNode *q = pt->next;
+        pt->next = q->next;
+        pt=pt->next;
+        delete q;
+    }
+    return pt->val;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
@@ -521,4 +544,16 @@ void Solution::reorderList(ListNode *head) {
      commonUtil.print_linked_list(a);
      ListNode *head = solve.mergeKLists(lists);
      commonUtil.print_linked_list(head);
+ */
+
+/*
+ Solution solve;
+ ListNode a(10), b(20), c(30), d(40);
+ a.next = &b;
+ b.next = &c;
+ c.next = &d;
+ ListNode *head = &a;
+ solve.reorderList(head);
+ CommonUtil commonUtil;
+ commonUtil.print_linked_list(head);
  */

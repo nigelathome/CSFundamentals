@@ -15,14 +15,8 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, CHINA!\n";
     
     Solution solve;
-    ListNode a(10), b(20), c(30), d(40);
-    a.next = &b;
-    b.next = &c;
-    c.next = &d;
-    ListNode *head = &a;
-    solve.reorderList(head);
-    CommonUtil commonUtil;
-    commonUtil.print_linked_list(head);
+    int result = solve.lastRemaining(5, 3);
+    printf("%d, %d", solve.lastRemaining(5, 3), solve.lastRemaining(10, 17));
     
     return 0;
 }
