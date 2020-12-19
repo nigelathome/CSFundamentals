@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
     
     Solution solve;
     int result = solve.lastRemaining(5, 3);
-    printf("%d, %d", solve.lastRemaining(5, 3), solve.lastRemaining(10, 17));
+    printf("%d, %d\n", solve.lastRemaining(5, 3), solve.lastRemaining(10, 17));
     
     return 0;
 }

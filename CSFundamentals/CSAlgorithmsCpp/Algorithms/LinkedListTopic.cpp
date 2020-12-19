@@ -368,27 +368,57 @@ void Solution::reorderList(ListNode *head) {
     head = dummy.next;
 }
 
+//int Solution::lastRemaining(int n, int m) {
+//    //将0-n-1构成一个循环链表 对链表每m个结点进行删除 直到只剩下最后一个元素
+//    ListNode du(0);
+//    ListNode *pt = &du;
+//    for(int i=0; i<n; i++) {
+//        ListNode *node = new ListNode(i);
+//        pt->next = node;
+//        pt = pt->next;
+//    }
+//    pt->next = du.next;
+//    pt = du.next;
+//    while (pt->next!=pt) {
+//        for(int i=0; i<m-2; i++) {
+//            pt=pt->next;//走m_2步 找到第m_1个结点
+//        }
+//        ListNode *q = pt->next;
+//        pt->next = q->next;
+//        pt=pt->next;
+//        delete q;
+//    }
+//    return pt->val;
+//}
+
 int Solution::lastRemaining(int n, int m) {
-    //将0-n-1构成一个循环链表 对链表每m个结点进行删除 直到只剩下最后一个元素
-    ListNode du(0);
-    ListNode *pt = &du;
-    for(int i=0; i<n; i++) {
-        ListNode *node = new ListNode(i);
-        pt->next = node;
-        pt = pt->next;
+    //将0-n-1构成一个数组 删除的元素用-1表示 直到只最后一个非-1的值就是要找的值
+    std::vector<int> vec;
+    for(int i=0; i<n; i++){
+        vec.push_back(i);
     }
-    pt->next = du.next;
-    pt = du.next;
-    while (pt->next!=pt) {
-        for(int i=0; i<m-2; i++) {
-            pt=pt->next;//走m_2步 找到第m_1个结点
+    int cu = -1, step = 0, cnt = n-1;
+    int result = 0;
+    while (cnt>0) {//总共只允许n-1次删除操作
+        cu++;//当前下标
+        if(cu==n) cu=0;//回到数组开头
+        if (vec[cu] == -1) {
+            continue;//跳过已经删除的值
         }
-        ListNode *q = pt->next;
-        pt->next = q->next;
-        pt=pt->next;
-        delete q;
+        step++;
+        if(step==m) {
+            step = 0;
+            vec[cu] = -1;
+            cnt--;
+        }
     }
-    return pt->val;
+    for(int i=0; i<n; i++){
+        if(vec[i]!=-1) {
+            result = vec[i];
+            break;
+        }
+    }
+    return result;
 }
 
 #pragma mark code-test
