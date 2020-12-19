@@ -48,6 +48,9 @@ public:
     
     //NC70 链表排序
     ListNode* sortInList(ListNode* head);
+    
+    //NC2 重排链表
+    void reorderList(ListNode *head);
 };
 
 #endif /* LinkedListTopic_hpp */

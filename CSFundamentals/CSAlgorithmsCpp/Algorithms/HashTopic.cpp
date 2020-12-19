@@ -99,3 +99,17 @@ int Solution8::lengthOfLongestSubstring(std::string arr) {
     
     return result;
 }
+
+#pragma mark code-test
+/*
+ Solution8 solve;
+ std::string s1 = "abcabcbb";
+ std::string s2 = "bbbbb";
+ std::string s3 = "pwgkew";
+ std::string s4 = "aabaab!bb";
+ int max1 = solve.lengthOfLongestSubstring(s4);
+ int max2 = solve.lengthOfLongestSubstring(s2);
+ int max3 = solve.lengthOfLongestSubstring(s3);
+ int max4 = solve.lengthOfLongestSubstring(s4);
+ printf("%d %d %d %d\n", max1, max2, max3, max4);
+ */

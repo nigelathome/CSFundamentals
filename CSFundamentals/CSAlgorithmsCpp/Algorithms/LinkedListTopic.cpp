@@ -304,6 +304,70 @@ int Solution::kthToLast(ListNode* head, int k) {
     return head->val;
 }
 
+void Solution::reorderList(ListNode *head) {
+    ListNode d1(0), d2(0);
+    ListNode *p1 = &d1, *p2 = &d2;
+    ListNode *pt = head;
+    int i=0, cnt = 0;
+    while(pt) {
+        cnt++;
+        pt = pt->next;
+    }
+    pt=head;
+    while(pt) {
+        if(i<cnt/2) {
+            p1->next = pt;
+            p1=p1->next;
+        } else {
+            p2->next = pt;
+            p2=p2->next;
+        }
+        pt=pt->next;
+        i++;
+    }
+    p1->next = NULL;
+    p2->next = NULL;
+    
+    //反转链表d2
+    ListNode *new_h = NULL, *pp = d2.next;
+    ListNode *ne;
+    while(pp) {
+        ne = pp->next;
+        pp->next = new_h;
+        new_h = pp;
+        pp = ne;
+    }
+    d2.next = new_h;
+    
+    i = 0;
+    p1=d1.next;
+    p2=d2.next;
+    ListNode dummy(0);
+    ListNode *ptr = &dummy;
+    while(p1 && p2) {
+        if(i%2==0) {
+            ptr->next = p1;
+            p1=p1->next;
+        } else {
+            ptr->next = p2;
+            p2=p2->next;
+        }
+        i++;
+        ptr=ptr->next;
+    }
+    while(p1) {
+        ptr->next = p1;
+        p1 = p1->next;
+        ptr = ptr->next;
+    }
+    while (p2) {
+        ptr->next = p2;
+        p2 = p2->next;
+        ptr = ptr->next;
+    }
+    head = dummy.next;
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
