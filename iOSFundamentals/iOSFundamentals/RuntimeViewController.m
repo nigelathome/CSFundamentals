@@ -8,6 +8,7 @@
 
 #import "RuntimeViewController.h"
 #import "NSMutableArray+SafeMutableArray.h"
+#import "LGFather.h"
 
 @interface RuntimeViewController ()
 
@@ -33,6 +34,15 @@
     const char *methodName = [@"run" UTF8String];
     SEL selFromString = sel_registerName(methodName);
     LGNSLog(@"selFromString address: %p", selFromString);
+    
+    //动态添加成员变量
+    BOOL isSucc = class_addIvar([LGFather class], "_name", sizeof(NSString *), log2(sizeof(NSString *)), @encode(NSString *));
+    if (isSucc) {
+        LGNSLog(@"add _name success");
+    } else {
+        LGNSLog(@"add _name failed");
+    }
+    
 }
 
 - (void)printA {

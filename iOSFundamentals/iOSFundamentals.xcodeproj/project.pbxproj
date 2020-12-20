@@ -27,6 +27,7 @@
 		268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BE224639B9A00B0438E /* GCDViewController.m */; };
 		269E11762579FC84008D362B /* RuntimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E11752579FC84008D362B /* RuntimeViewController.m */; };
 		269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */; };
+		26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95A7258ECA2600CCA46C /* LGFather.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		269E11752579FC84008D362B /* RuntimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeViewController.m; sourceTree = "<group>"; };
 		269E117A257B54C9008D362B /* NSMutableArray+SafeMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SafeMutableArray.h"; sourceTree = "<group>"; };
 		269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SafeMutableArray.m"; sourceTree = "<group>"; };
+		26AD95A6258ECA2600CCA46C /* LGFather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGFather.h; sourceTree = "<group>"; };
+		26AD95A7258ECA2600CCA46C /* LGFather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGFather.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				2608B82D2586212E0052FC1F /* ViewA.m */,
 				2608B82F258621420052FC1F /* ViewB.h */,
 				2608B830258621420052FC1F /* ViewB.m */,
+				26AD95A6258ECA2600CCA46C /* LGFather.h */,
+				26AD95A7258ECA2600CCA46C /* LGFather.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
+				26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */,
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,

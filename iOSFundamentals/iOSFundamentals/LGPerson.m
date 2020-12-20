@@ -79,6 +79,7 @@
     NSLog(@"%s", __FUNCTION__);
 }
 
+#pragma mark - NSCoding method
 - (void)encodeWithCoder:(nonnull NSCoder *)coder {
     unsigned int cnt = 0;
     Ivar *ivars = class_copyIvarList([self class], &cnt);
@@ -108,6 +109,8 @@
 
 - (void)run {
     LGNSLog(@"%s", __FUNCTION__);
+    LGNSLog(@"%@", [self class]);
+    LGNSLog(@"%@", [super class]);
 }
 
 @end
