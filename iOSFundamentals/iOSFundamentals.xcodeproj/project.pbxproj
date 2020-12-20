@@ -29,6 +29,7 @@
 		269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */; };
 		26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95A7258ECA2600CCA46C /* LGFather.m */; };
 		26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AA258EED7A00CCA46C /* LGCat.m */; };
+		26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AD258F01FA00CCA46C /* LGDog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		26AD95A7258ECA2600CCA46C /* LGFather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGFather.m; sourceTree = "<group>"; };
 		26AD95A9258EED7A00CCA46C /* LGCat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGCat.h; sourceTree = "<group>"; };
 		26AD95AA258EED7A00CCA46C /* LGCat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGCat.m; sourceTree = "<group>"; };
+		26AD95AC258F01FA00CCA46C /* LGDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGDog.h; sourceTree = "<group>"; };
+		26AD95AD258F01FA00CCA46C /* LGDog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGDog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				26AD95A7258ECA2600CCA46C /* LGFather.m */,
 				26AD95A9258EED7A00CCA46C /* LGCat.h */,
 				26AD95AA258EED7A00CCA46C /* LGCat.m */,
+				26AD95AC258F01FA00CCA46C /* LGDog.h */,
+				26AD95AD258F01FA00CCA46C /* LGDog.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
+				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
 				2608B82E2586212E0052FC1F /* ViewA.m in Sources */,

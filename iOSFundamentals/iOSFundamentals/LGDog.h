@@ -1,5 +1,5 @@
 //
-//  LGCat.h
+//  LGDog.h
 //  iOSFundamentals
 //
 //  Created by Hui,Li on 2020/12/20.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGCat : NSObject
-
-- (void)jump;
+@interface LGDog : NSObject
 
 @end
 
