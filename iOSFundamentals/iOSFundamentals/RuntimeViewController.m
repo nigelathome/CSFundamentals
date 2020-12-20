@@ -77,6 +77,9 @@
     //消息转发阶段3
     LGPig *pig = [LGPig new];
     [pig performSelector:@selector(jump)];
+    
+    //动态添加类和方法
+    [self dynamicAddClass];
 }
 
 - (void)printA {
@@ -94,5 +97,33 @@
     method_exchangeImplementations(methodA, methodB);
 }
 
+- (void)dynamicAddClass {
+    //动态添加Teacher类 成员变量 并注册
+    Class Teacher = objc_allocateClassPair([NSObject class], "Teacher", 0);
+    BOOL isSucc = class_addIvar(Teacher, "_name", sizeof(NSString *), log2(sizeof(NSString *)), @encode(NSString *));
+    if (isSucc) {
+        LGNSLog(@"add ivar success");
+    } else {
+        LGNSLog(@"add ivar failed");
+    }
+    class_addMethod(Teacher, @selector(method:), (IMP)methodIMP, "v@:");
+    objc_registerClassPair(Teacher);
+    
+    //使用动态创建的类
+    id te = [Teacher new];
+    [te setValue:@"nigel li" forKey:@"_name"];
+    [te method:120];
+}
+
+- (void)method:(NSInteger)other {
+    //selector只是一个符号 实现是在定义的IMP
+}
+
+void methodIMP(id self, SEL _cmd, int other) {
+    Ivar ivar = class_getInstanceVariable([self class], "_name");
+    id value = object_getIvar(self, ivar);
+    LGNSLog(@"%@", value);
+    LGNSLog(@"%d", other);
+}
 
 @end
