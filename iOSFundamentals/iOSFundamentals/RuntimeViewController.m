@@ -43,6 +43,23 @@
         LGNSLog(@"add _name failed");
     }
     
+    //动态添加属性
+    objc_property_attribute_t attribute1 = {"T", "@\"NSString\""};//属性类型
+    objc_property_attribute_t attribute2 = {"C", "@\"NSString\""};//属性copy
+    objc_property_attribute_t attribute3 = {"N", "@\"NSString\""};//属性原子性
+    objc_property_attribute_t attribute4 = {"V", "_name"};//属性成员变量
+    objc_property_attribute_t attribute[] = {attribute1, attribute2, attribute3, attribute4};
+    unsigned int attributeCount = 4;
+    BOOL isSuccAddPro = class_addProperty([LGFather class], "name", attribute, attributeCount);
+    if (isSuccAddPro) {
+        LGNSLog(@"add property name success");
+    } else {
+        LGNSLog(@"add property name failed");
+    }
+    LGFather *father = [LGFather new];
+    [father setValue:@"Jack" forKey:@"name"];
+    NSString *result = [father valueForKey:@"name"];
+    LGNSLog(@"name value:%@", result);
 }
 
 - (void)printA {
