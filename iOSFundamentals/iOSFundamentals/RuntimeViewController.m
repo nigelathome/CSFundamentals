@@ -106,16 +106,16 @@
     BOOL isSucc = class_addIvar(Teacher, "_name", sizeof(NSString *), log2(sizeof(NSString *)), @encode(NSString *));
     if (isSucc) {
         LGNSLog(@"add ivar success");
+        class_addMethod(Teacher, @selector(method:), (IMP)methodIMP, "v@:");
+        objc_registerClassPair(Teacher);
+        
+        //使用动态创建的类
+        id te = [[Teacher alloc] init];
+        [te setValue:@"nigel li" forKey:@"_name"];
+        [te method:120];
     } else {
         LGNSLog(@"add ivar failed");
     }
-    class_addMethod(Teacher, @selector(method:), (IMP)methodIMP, "v@:");
-    objc_registerClassPair(Teacher);
-    
-    //使用动态创建的类
-    id te = [Teacher new];
-    [te setValue:@"nigel li" forKey:@"_name"];
-    [te method:120];
 }
 
 - (void)method:(NSInteger)other {
