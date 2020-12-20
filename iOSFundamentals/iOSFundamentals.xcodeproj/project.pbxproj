@@ -32,6 +32,7 @@
 		26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AD258F01FA00CCA46C /* LGDog.m */; };
 		26AD95B4258F03C200CCA46C /* LGChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B3258F03C200CCA46C /* LGChild.m */; };
 		26AD95B7258F06D100CCA46C /* LGPig.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B6258F06D100CCA46C /* LGPig.m */; };
+		26AD95BA258F515600CCA46C /* LGPatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B9258F515600CCA46C /* LGPatch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,8 @@
 		26AD95B3258F03C200CCA46C /* LGChild.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGChild.m; sourceTree = "<group>"; };
 		26AD95B5258F06D100CCA46C /* LGPig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPig.h; sourceTree = "<group>"; };
 		26AD95B6258F06D100CCA46C /* LGPig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPig.m; sourceTree = "<group>"; };
+		26AD95B8258F515600CCA46C /* LGPatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPatch.h; sourceTree = "<group>"; };
+		26AD95B9258F515600CCA46C /* LGPatch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPatch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				26AD95B3258F03C200CCA46C /* LGChild.m */,
 				26AD95B5258F06D100CCA46C /* LGPig.h */,
 				26AD95B6258F06D100CCA46C /* LGPig.m */,
+				26AD95B8258F515600CCA46C /* LGPatch.h */,
+				26AD95B9258F515600CCA46C /* LGPatch.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
 				26AD95B4258F03C200CCA46C /* LGChild.m in Sources */,
 				269E11762579FC84008D362B /* RuntimeViewController.m in Sources */,
+				26AD95BA258F515600CCA46C /* LGPatch.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,

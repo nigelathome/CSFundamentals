@@ -82,7 +82,7 @@
     [self dynamicAddClass];
     
     //热修复崩溃
-    [self hotPatch];
+//    [self hotPatch];
 }
 
 - (void)printA {
