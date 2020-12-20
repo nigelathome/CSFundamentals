@@ -12,6 +12,8 @@
 #import "LGCat.h"
 #import "LGDog.h"
 #import "LGPig.h"
+#import "LGExpertInfo.h"
+#import "NSObject+LGBaseModel.h"
 
 @interface RuntimeViewController ()
 
@@ -83,6 +85,16 @@
     
     //热修复崩溃
 //    [self hotPatch];
+    
+    NSDictionary *dict = @{
+        @"name": @"Nigel",
+        @"title": @"T5",
+        @"address": @"PEK"
+    };
+    LGExpertInfo *expert = [LGExpertInfo initWithDictionary:dict];
+    NSString *name = expert.name;
+    NSString *title = expert.title;
+    LGNSLog(@"%@ %@", name, title);
 }
 
 - (void)printA {
