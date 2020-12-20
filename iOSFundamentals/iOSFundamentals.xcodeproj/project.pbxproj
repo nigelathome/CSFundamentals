@@ -28,6 +28,7 @@
 		269E11762579FC84008D362B /* RuntimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E11752579FC84008D362B /* RuntimeViewController.m */; };
 		269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */; };
 		26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95A7258ECA2600CCA46C /* LGFather.m */; };
+		26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AA258EED7A00CCA46C /* LGCat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SafeMutableArray.m"; sourceTree = "<group>"; };
 		26AD95A6258ECA2600CCA46C /* LGFather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGFather.h; sourceTree = "<group>"; };
 		26AD95A7258ECA2600CCA46C /* LGFather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGFather.m; sourceTree = "<group>"; };
+		26AD95A9258EED7A00CCA46C /* LGCat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGCat.h; sourceTree = "<group>"; };
+		26AD95AA258EED7A00CCA46C /* LGCat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGCat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				2608B830258621420052FC1F /* ViewB.m */,
 				26AD95A6258ECA2600CCA46C /* LGFather.h */,
 				26AD95A7258ECA2600CCA46C /* LGFather.m */,
+				26AD95A9258EED7A00CCA46C /* LGCat.h */,
+				26AD95AA258EED7A00CCA46C /* LGCat.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
+				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,

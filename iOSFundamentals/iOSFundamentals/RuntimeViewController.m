@@ -9,6 +9,7 @@
 #import "RuntimeViewController.h"
 #import "NSMutableArray+SafeMutableArray.h"
 #import "LGFather.h"
+#import "LGCat.h"
 
 @interface RuntimeViewController ()
 
@@ -57,10 +58,14 @@
     } else {
         LGNSLog(@"add property name failed");
     }
-    LGFather *father = [LGFather new];
-    [father setValue:@"Jack" forKey:@"name"];
-    NSString *result = [father valueForKey:@"name"];
-    LGNSLog(@"name value:%@", result);
+//    LGFather *father = [LGFather new];
+//    [father setValue:@"Jack" forKey:@"name"];
+//    NSString *result = [father valueForKey:@"name"];
+//    LGNSLog(@"name value:%@", result);
+    
+    //消息转发阶段1
+    LGCat *cat = [LGCat new];
+    [cat performSelector:@selector(jump)];
 }
 
 - (void)printA {
