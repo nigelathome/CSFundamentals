@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LGCat : NSObject
 
 - (void)jump;
+- (void)down:(NSString *)director;
 
 @end
 

@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"runtime测试";
     [self exchangeIMP];
     [self printA];
     [self printB];
