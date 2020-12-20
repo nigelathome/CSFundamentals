@@ -31,6 +31,7 @@
 		26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AA258EED7A00CCA46C /* LGCat.m */; };
 		26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AD258F01FA00CCA46C /* LGDog.m */; };
 		26AD95B4258F03C200CCA46C /* LGChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B3258F03C200CCA46C /* LGChild.m */; };
+		26AD95B7258F06D100CCA46C /* LGPig.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B6258F06D100CCA46C /* LGPig.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		26AD95AD258F01FA00CCA46C /* LGDog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGDog.m; sourceTree = "<group>"; };
 		26AD95B2258F03C200CCA46C /* LGChild.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGChild.h; sourceTree = "<group>"; };
 		26AD95B3258F03C200CCA46C /* LGChild.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGChild.m; sourceTree = "<group>"; };
+		26AD95B5258F06D100CCA46C /* LGPig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPig.h; sourceTree = "<group>"; };
+		26AD95B6258F06D100CCA46C /* LGPig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPig.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,8 @@
 				26AD95AD258F01FA00CCA46C /* LGDog.m */,
 				26AD95B2258F03C200CCA46C /* LGChild.h */,
 				26AD95B3258F03C200CCA46C /* LGChild.m */,
+				26AD95B5258F06D100CCA46C /* LGPig.h */,
+				26AD95B6258F06D100CCA46C /* LGPig.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
+				26AD95B7258F06D100CCA46C /* LGPig.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,

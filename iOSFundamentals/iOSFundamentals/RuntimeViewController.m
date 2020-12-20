@@ -11,6 +11,7 @@
 #import "LGFather.h"
 #import "LGCat.h"
 #import "LGDog.h"
+#import "LGPig.h"
 
 @interface RuntimeViewController ()
 
@@ -72,6 +73,10 @@
     //消息转发阶段2
     LGDog *dog = [LGDog new];
     [dog performSelector:@selector(jump)];
+    
+    //消息转发阶段3
+    LGPig *pig = [LGPig new];
+    [pig performSelector:@selector(jump)];
 }
 
 - (void)printA {
