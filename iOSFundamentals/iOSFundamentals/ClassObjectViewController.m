@@ -8,6 +8,8 @@
 
 #import "ClassObjectViewController.h"
 #import "LGPerson.h"
+#import "LGFather.h"
+#import "LGChild.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -138,6 +140,10 @@
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES) lastObject];
     NSString *filePath = [path stringByAppendingFormat:@"/ar.data"];
     [NSKeyedArchiver archiveRootObject:ps toFile:filePath];
+    
+    //super的含义
+    LGChild *child = [LGChild new];
+    [child doSomething];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

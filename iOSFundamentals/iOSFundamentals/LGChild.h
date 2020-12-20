@@ -1,5 +1,5 @@
 //
-//  LGFather.m
+//  LGChild.h
 //  iOSFundamentals
 //
 //  Created by Hui,Li on 2020/12/20.
@@ -8,10 +8,12 @@
 
 #import "LGFather.h"
 
-@implementation LGFather
+NS_ASSUME_NONNULL_BEGIN
 
-- (void)sitdown {
-    LGNSLog(@"%s", __FUNCTION__);
-}
+@interface LGChild : LGFather
+
+- (void)doSomething;
 
 @end
+
+NS_ASSUME_NONNULL_END

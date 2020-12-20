@@ -30,6 +30,7 @@
 		26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95A7258ECA2600CCA46C /* LGFather.m */; };
 		26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AA258EED7A00CCA46C /* LGCat.m */; };
 		26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AD258F01FA00CCA46C /* LGDog.m */; };
+		26AD95B4258F03C200CCA46C /* LGChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B3258F03C200CCA46C /* LGChild.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		26AD95AA258EED7A00CCA46C /* LGCat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGCat.m; sourceTree = "<group>"; };
 		26AD95AC258F01FA00CCA46C /* LGDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGDog.h; sourceTree = "<group>"; };
 		26AD95AD258F01FA00CCA46C /* LGDog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGDog.m; sourceTree = "<group>"; };
+		26AD95B2258F03C200CCA46C /* LGChild.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGChild.h; sourceTree = "<group>"; };
+		26AD95B3258F03C200CCA46C /* LGChild.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGChild.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,8 @@
 				26AD95AA258EED7A00CCA46C /* LGCat.m */,
 				26AD95AC258F01FA00CCA46C /* LGDog.h */,
 				26AD95AD258F01FA00CCA46C /* LGDog.m */,
+				26AD95B2258F03C200CCA46C /* LGChild.h */,
+				26AD95B3258F03C200CCA46C /* LGChild.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
+				26AD95B4258F03C200CCA46C /* LGChild.m in Sources */,
 				269E11762579FC84008D362B /* RuntimeViewController.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
