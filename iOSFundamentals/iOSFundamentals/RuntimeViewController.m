@@ -80,6 +80,9 @@
     
     //动态添加类和方法
     [self dynamicAddClass];
+    
+    //热修复崩溃
+    [self hotPatch];
 }
 
 - (void)printA {
@@ -124,6 +127,36 @@ void methodIMP(id self, SEL _cmd, int other) {
     id value = object_getIvar(self, ivar);
     LGNSLog(@"%@", value);
     LGNSLog(@"%d", other);
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //点击屏幕任意位置crash
+    [self setupFirstName:@"Jack" lastName:@"Rose"];
+}
+
+- (void)setupFirstName:(NSString *)firstName lastName:(NSString *)lastName {
+    NSMutableArray *arr = [NSMutableArray array];
+    id result = arr[1];
+    LGNSLog(@"%@", result);
+}
+
+- (void)hotPatch {
+    //热修复崩溃
+    unsigned int outCount = 0;
+    Method _Nonnull *methods = class_copyMethodList([self class], &outCount);
+    for (int i=0; i<outCount; i++) {
+        Method m = methods[i];
+        SEL sel = method_getName(m);
+        if ([NSStringFromSelector(sel) isEqualToString:@"setupFirstName:lastName:"]) {
+            //拿到奔溃的方法做替换
+            class_replaceMethod([self class], sel, (IMP)patchMethod, "v@:");
+            break;
+        }
+    }
+}
+
+void patchMethod(id self, SEL _cmd, const char *other) {
+    LGNSLog(@"fixed crash %@ %@", self, NSStringFromSelector(_cmd));
 }
 
 @end
