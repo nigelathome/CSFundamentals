@@ -7,7 +7,21 @@
 //
 
 #import "LGDog.h"
+#import "LGCat.h"
 
 @implementation LGDog
+
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    return YES;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    if([NSStringFromSelector(aSelector) isEqualToString:@"jump"]) {
+        return [LGCat new];
+    }
+    return [super forwardingTargetForSelector:aSelector];
+}
+
+
 
 @end

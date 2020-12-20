@@ -10,6 +10,7 @@
 #import "NSMutableArray+SafeMutableArray.h"
 #import "LGFather.h"
 #import "LGCat.h"
+#import "LGDog.h"
 
 @interface RuntimeViewController ()
 
@@ -67,6 +68,10 @@
     //消息转发阶段1
     LGCat *cat = [LGCat new];
     [cat performSelector:@selector(jump)];
+    
+    //消息转发阶段2
+    LGDog *dog = [LGDog new];
+    [dog performSelector:@selector(jump)];
 }
 
 - (void)printA {
@@ -84,16 +89,5 @@
     method_exchangeImplementations(methodA, methodB);
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

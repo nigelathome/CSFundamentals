@@ -26,7 +26,7 @@ void fun_jump(id self, SEL _cmd) {
 }
 
 int down(id self, SEL _cmd, const char *s) {
-    LGNSLog(@"%s", __FUNCTION__);
+    LGNSLog(@"cat is down");
     return 0;
 }
 

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LGDog : NSObject
 
+- (void)jump;
+
 @end
 
 NS_ASSUME_NONNULL_END
