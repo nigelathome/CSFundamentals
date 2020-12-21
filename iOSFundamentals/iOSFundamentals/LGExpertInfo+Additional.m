@@ -10,11 +10,14 @@
 
 @implementation LGExpertInfo (Additional)
 
+static const void *key = "associate_key";
+
 - (void)setPreference:(NSString *)preference {
-    self.preference = [preference copy];
+//    self.preference = [preference copy];
+    objc_setAssociatedObject(self, key, preference, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (NSString *)preference {
-    return @"python";
+    return (NSString*)objc_getAssociatedObject(self, key);
 }
 @end
