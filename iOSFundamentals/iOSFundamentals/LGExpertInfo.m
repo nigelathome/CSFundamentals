@@ -10,4 +10,13 @@
 
 @implementation LGExpertInfo
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _name = @"Nigel";
+        _title = @"iOS developer";
+        _band = @"T5";
+    }
+    return self;
+}
+
 @end

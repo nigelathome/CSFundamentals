@@ -35,6 +35,7 @@
 		26AD95BA258F515600CCA46C /* LGPatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95B9258F515600CCA46C /* LGPatch.m */; };
 		26AD95BD258F999600CCA46C /* LGExpertInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95BC258F999600CCA46C /* LGExpertInfo.m */; };
 		26AD95C0258F9A0A00CCA46C /* NSObject+LGBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */; };
+		26AD95C32590192E00CCA46C /* LGExpertInfo+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,8 @@
 		26AD95BC258F999600CCA46C /* LGExpertInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGExpertInfo.m; sourceTree = "<group>"; };
 		26AD95BE258F9A0A00CCA46C /* NSObject+LGBaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGBaseModel.h"; sourceTree = "<group>"; };
 		26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGBaseModel.m"; sourceTree = "<group>"; };
+		26AD95C12590192E00CCA46C /* LGExpertInfo+Additional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LGExpertInfo+Additional.h"; sourceTree = "<group>"; };
+		26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LGExpertInfo+Additional.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,8 @@
 				26AD95BC258F999600CCA46C /* LGExpertInfo.m */,
 				26AD95BE258F9A0A00CCA46C /* NSObject+LGBaseModel.h */,
 				26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */,
+				26AD95C12590192E00CCA46C /* LGExpertInfo+Additional.h */,
+				26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
+				26AD95C32590192E00CCA46C /* LGExpertInfo+Additional.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				26AD95B7258F06D100CCA46C /* LGPig.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,

@@ -10,6 +10,7 @@
 #import "LGPerson.h"
 #import "LGFather.h"
 #import "LGChild.h"
+#import "LGExpertInfo+Additional.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -144,6 +145,11 @@
     //super的含义
     LGChild *child = [LGChild new];
     [child doSomething];
+    
+    //category中添加属性
+    LGExpertInfo *expert = [LGExpertInfo new];
+    LGNSLog(@"%@ %@ %@",expert.name, expert.title, expert.band);
+    expert.preference = @"c/c++/objective-c";
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -151,7 +157,7 @@
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES) lastObject];
     NSString *filePath = [path stringByAppendingFormat:@"/ar.data"];
     LGPerson *p = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    LGNSLog(@"");    
+    LGNSLog(@"%@", p);    
 }
 
 @end
