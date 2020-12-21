@@ -36,6 +36,7 @@
 		26AD95BD258F999600CCA46C /* LGExpertInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95BC258F999600CCA46C /* LGExpertInfo.m */; };
 		26AD95C0258F9A0A00CCA46C /* NSObject+LGBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */; };
 		26AD95C32590192E00CCA46C /* LGExpertInfo+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */; };
+		26B203FE2590373700C93FE7 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B203FD2590373700C93FE7 /* UIButton+Block.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,8 @@
 		26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGBaseModel.m"; sourceTree = "<group>"; };
 		26AD95C12590192E00CCA46C /* LGExpertInfo+Additional.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LGExpertInfo+Additional.h"; sourceTree = "<group>"; };
 		26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LGExpertInfo+Additional.m"; sourceTree = "<group>"; };
+		26B203FC2590373700C93FE7 /* UIButton+Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
+		26B203FD2590373700C93FE7 /* UIButton+Block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 				26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */,
 				26AD95C12590192E00CCA46C /* LGExpertInfo+Additional.h */,
 				26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */,
+				26B203FC2590373700C93FE7 /* UIButton+Block.h */,
+				26B203FD2590373700C93FE7 /* UIButton+Block.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
+				26B203FE2590373700C93FE7 /* UIButton+Block.m in Sources */,
 				2608B82E2586212E0052FC1F /* ViewA.m in Sources */,
 				265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */,
 			);

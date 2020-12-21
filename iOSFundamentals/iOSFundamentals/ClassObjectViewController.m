@@ -11,6 +11,7 @@
 #import "LGFather.h"
 #import "LGChild.h"
 #import "LGExpertInfo+Additional.h"
+#import "UIButton+Block.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -158,6 +159,28 @@
         NSString *name = [NSString stringWithCString:cname encoding:NSUTF8StringEncoding];
         LGNSLog(@"expert成员变量：%@", name);
     }
+    
+    //封装UIButton 实现将点击的逻辑封装到block中
+    //参数：点击事件event 按钮执行逻辑
+    //[btn event:eventwithBlock:block]
+    UIButton *btn = [UIButton new];
+    btn.frame = CGRectMake(50, 300, 300, 300);
+    btn.backgroundColor = [UIColor cyanColor];
+    [btn setTitle:@"点击1" forState:UIControlStateNormal];
+//    [btn addTarget:self action:@selector(pressBtn) forControlEvents:UIControlEventTouchUpInside];
+    [btn handleEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
+        LGNSLog(@"点击按钮1234");
+    }];
+    [self.view addSubview:btn];
+    
+    UIButton *btn2 = [UIButton new];
+    btn2.frame = CGRectMake(200, 100, 150, 150);
+    btn2.backgroundColor = [UIColor magentaColor];
+    [btn2 setTitle:@"点击2" forState:UIControlStateNormal];
+    [btn2 handleEvent:UIControlEventTouchUpInside withBlock:^(id sender) {
+        LGNSLog(@"点击按钮6666");
+    }];
+    [self.view addSubview:btn2];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -166,6 +189,10 @@
     NSString *filePath = [path stringByAppendingFormat:@"/ar.data"];
     LGPerson *p = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
     LGNSLog(@"%@", p);    
+}
+
+- (void)pressBtn {
+    LGNSLog(@"点击按钮1234");
 }
 
 @end
