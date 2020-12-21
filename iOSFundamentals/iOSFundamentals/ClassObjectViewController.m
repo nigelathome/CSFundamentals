@@ -12,11 +12,15 @@
 #import "LGChild.h"
 #import "LGExpertInfo+Additional.h"
 #import "UIButton+Block.h"
+#import "UIAlertView+Block.h"
+#import "LGAlertButton.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
 
 @interface ClassObjectViewController ()
+//<UIAlertViewDelegate>
 
 @end
 
@@ -188,11 +192,27 @@
     NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,  NSUserDomainMask, YES) lastObject];
     NSString *filePath = [path stringByAppendingFormat:@"/ar.data"];
     LGPerson *p = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    LGNSLog(@"%@", p);    
+    LGNSLog(@"%@", p);
+    
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"alert" message:@"oppos" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"YES", nil];
+    LGAlertButton *cancelButton = [[LGAlertButton alloc] initWitTitle:@"cancel" block:^{
+        LGNSLog(@"cancelButton click");
+    }];
+    
+    LGAlertButton *otherButton = [[LGAlertButton alloc] initWitTitle:@"YES" block:^{
+        LGNSLog(@"otherButton click");
+    }];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"alert" message:@"cancel" cancelButton:cancelButton otherButton:otherButton];
+    [alertView show];
 }
 
 - (void)pressBtn {
     LGNSLog(@"点击按钮1234");
 }
+
+#pragma mark -UIAlertViewDelegate
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    LGNSLog(@"%s %ld", __FUNCTION__, buttonIndex);
+//}
 
 @end
