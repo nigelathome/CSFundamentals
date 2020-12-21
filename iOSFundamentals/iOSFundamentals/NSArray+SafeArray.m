@@ -23,6 +23,7 @@
         } @catch (NSException *exception) {
             //越界打印类信息、函数信息、崩溃堆栈
             LGNSLog(@"%@ %s %@", [self class], __func__, exception.callStackSymbols);
+            return nil;
         } @finally {
             LGNSLog(@"other problems");
         }

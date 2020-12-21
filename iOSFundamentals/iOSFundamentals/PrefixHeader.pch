@@ -19,5 +19,6 @@ extern void _objc_autoreleasePoolPrint(void);
 #import <objc/runtime.h>
 #import "ViewA.h"
 #import "ViewB.h"
+#import "UIViewController+EventTracking.h"
 
 #endif /* PrefixHeader_pch */

@@ -40,6 +40,7 @@
 		26C9E531259053C1001FF50F /* LGAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E530259053C1001FF50F /* LGAlertButton.m */; };
 		26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5332590557B001FF50F /* UIAlertView+Block.m */; };
 		26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */; };
+		26C9E53A2590CAD4001FF50F /* UIViewController+EventTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5392590CAD4001FF50F /* UIViewController+EventTracking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,8 @@
 		26C9E5332590557B001FF50F /* UIAlertView+Block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
 		26C9E5352590A6B3001FF50F /* NSArray+SafeArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+SafeArray.h"; sourceTree = "<group>"; };
 		26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SafeArray.m"; sourceTree = "<group>"; };
+		26C9E5382590CAD4001FF50F /* UIViewController+EventTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+EventTracking.h"; sourceTree = "<group>"; };
+		26C9E5392590CAD4001FF50F /* UIViewController+EventTracking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+EventTracking.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				26C9E5332590557B001FF50F /* UIAlertView+Block.m */,
 				26C9E5352590A6B3001FF50F /* NSArray+SafeArray.h */,
 				26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */,
+				26C9E5382590CAD4001FF50F /* UIViewController+EventTracking.h */,
+				26C9E5392590CAD4001FF50F /* UIViewController+EventTracking.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
 				26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */,
+				26C9E53A2590CAD4001FF50F /* UIViewController+EventTracking.m in Sources */,
 				26AD95C0258F9A0A00CCA46C /* NSObject+LGBaseModel.m in Sources */,
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
