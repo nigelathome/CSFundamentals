@@ -14,6 +14,7 @@
 #import "LGPig.h"
 #import "LGExpertInfo.h"
 #import "NSObject+LGBaseModel.h"
+#import "NSArray+SafeArray.h"
 
 @interface RuntimeViewController ()
 
@@ -95,6 +96,10 @@
     NSString *name = expert.name;
     NSString *title = expert.title;
     LGNSLog(@"%@ %@", name, title);
+    
+    //__NSArrayI数组越界处理
+    NSArray *arrI = @[@"go", @"python", @"c/c++"];
+    NSString *val = arrI[3];
 }
 
 - (void)printA {
@@ -170,5 +175,7 @@ void methodIMP(id self, SEL _cmd, int other) {
 void patchMethod(id self, SEL _cmd, const char *other) {
     LGNSLog(@"fixed crash %@ %@", self, NSStringFromSelector(_cmd));
 }
+
+
 
 @end

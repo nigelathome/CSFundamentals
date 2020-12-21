@@ -39,6 +39,7 @@
 		26B203FE2590373700C93FE7 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B203FD2590373700C93FE7 /* UIButton+Block.m */; };
 		26C9E531259053C1001FF50F /* LGAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E530259053C1001FF50F /* LGAlertButton.m */; };
 		26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5332590557B001FF50F /* UIAlertView+Block.m */; };
+		26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +106,8 @@
 		26C9E530259053C1001FF50F /* LGAlertButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGAlertButton.m; sourceTree = "<group>"; };
 		26C9E5322590557B001FF50F /* UIAlertView+Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
 		26C9E5332590557B001FF50F /* UIAlertView+Block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		26C9E5352590A6B3001FF50F /* NSArray+SafeArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+SafeArray.h"; sourceTree = "<group>"; };
+		26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SafeArray.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				26C9E530259053C1001FF50F /* LGAlertButton.m */,
 				26C9E5322590557B001FF50F /* UIAlertView+Block.h */,
 				26C9E5332590557B001FF50F /* UIAlertView+Block.m */,
+				26C9E5352590A6B3001FF50F /* NSArray+SafeArray.h */,
+				26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26AD95BD258F999600CCA46C /* LGExpertInfo.m in Sources */,
+				26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */,
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
 				26AD95B4258F03C200CCA46C /* LGChild.m in Sources */,
 				269E11762579FC84008D362B /* RuntimeViewController.m in Sources */,
