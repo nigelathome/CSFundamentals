@@ -149,7 +149,15 @@
     //category中添加属性
     LGExpertInfo *expert = [LGExpertInfo new];
     LGNSLog(@"%@ %@ %@",expert.name, expert.title, expert.band);
-    expert.preference = @"c/c++/objective-c";
+//    expert.preference = @"c/c++/objective-c";
+    unsigned int ivarCount = 0;
+    Ivar *ivarList = class_copyIvarList([expert class], &ivarCount);
+    for (int i=0; i<ivarCount; i++) {
+        Ivar ivar = ivarList[i];
+        const char *cname = ivar_getName(ivar);
+        NSString *name = [NSString stringWithCString:cname encoding:NSUTF8StringEncoding];
+        LGNSLog(@"expert成员变量：%@", name);
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
