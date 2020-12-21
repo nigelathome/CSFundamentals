@@ -15,8 +15,8 @@ static const void *key;
 
 - (instancetype)initWithTitle:(nullable NSString *)title message:(nullable NSString *)message cancelButton:(nullable LGAlertButton *)cancelButton otherButton:(nullable LGAlertButton *)otherButton {
     if (self = [self initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButton.title otherButtonTitles:otherButton.title, nil]) {
-//        NSMutableArray *items = [self btnItems];
-        NSMutableArray *items = [NSMutableArray array];
+        NSMutableArray *items = [self btnItems];
+//        NSMutableArray *items = [NSMutableArray array];
         if (otherButton) {
             [items addObject:otherButton];
         }
@@ -41,14 +41,14 @@ static const void *key;
     return self;
 }
 
-//- (NSMutableArray *)btnItems {
-//    NSMutableArray *items =  (NSMutableArray*)objc_getAssociatedObject(self, key);
-//    if (!items) {
-//        items = [NSMutableArray array];
-//        objc_setAssociatedObject(self, key, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//    }
-//    return items;
-//}
+- (NSMutableArray *)btnItems {
+    NSMutableArray *items =  (NSMutableArray*)objc_getAssociatedObject(self, key);
+    if (!items) {
+        items = [NSMutableArray array];
+        objc_setAssociatedObject(self, key, items, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    return items;
+}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSMutableArray *items =  (NSMutableArray*)objc_getAssociatedObject(self, key);
