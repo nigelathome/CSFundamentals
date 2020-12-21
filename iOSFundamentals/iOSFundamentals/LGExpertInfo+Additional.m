@@ -10,4 +10,11 @@
 
 @implementation LGExpertInfo (Additional)
 
+- (void)setPreference:(NSString *)preference {
+    self.preference = [preference copy];
+}
+
+- (NSString *)preference {
+    return @"python";
+}
 @end

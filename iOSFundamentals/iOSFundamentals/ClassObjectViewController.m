@@ -149,7 +149,7 @@
     //category中添加属性
     LGExpertInfo *expert = [LGExpertInfo new];
     LGNSLog(@"%@ %@ %@",expert.name, expert.title, expert.band);
-//    expert.preference = @"c/c++/objective-c";
+    expert.preference = @"c/c++/objective-c";
     unsigned int ivarCount = 0;
     Ivar *ivarList = class_copyIvarList([expert class], &ivarCount);
     for (int i=0; i<ivarCount; i++) {
