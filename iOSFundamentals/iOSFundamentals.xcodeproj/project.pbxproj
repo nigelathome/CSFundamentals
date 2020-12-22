@@ -11,7 +11,7 @@
 		2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82A258620EB0052FC1F /* UIEventRespViewController.m */; };
 		2608B82E2586212E0052FC1F /* ViewA.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82D2586212E0052FC1F /* ViewA.m */; };
 		2608B831258621420052FC1F /* ViewB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B830258621420052FC1F /* ViewB.m */; };
-		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
+		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
 		265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */; };
 		265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB37256DFDD400DEFE55 /* LGPerson.m */; };

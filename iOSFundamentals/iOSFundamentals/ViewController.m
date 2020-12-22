@@ -107,6 +107,10 @@
             [self.navigationController pushViewController:UIEventRespVC animated:YES];
         }
             break;
+        case 9: {
+            MemManagerViewController *memManagerVC = [[MemManagerViewController alloc] init];
+            [self.navigationController pushViewController:memManagerVC animated:YES];
+        }
             
         default:
             break;
@@ -116,7 +120,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"循环引用测试"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理"];
     }
     return _dataArray;
 }

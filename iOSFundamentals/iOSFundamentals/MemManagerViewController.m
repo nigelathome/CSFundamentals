@@ -7,6 +7,7 @@
 //
 
 #import "MemManagerViewController.h"
+#import "LGPerson.h"
 
 @interface MemManagerViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"内存管理";
     NSArray *arr = @[@"2"];
 //    _objc_autoreleasePoolPrint();
     //    _objc_autoreleasePoolPrint();     // print1
@@ -40,16 +42,17 @@
         }
     //    return UIApplicationMain(argc, argv, nil, appDelegateClassName);
         _objc_autoreleasePoolPrint();     // print4
+    
+    [self causeBadAccess];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)causeBadAccess {
+    LGPerson *person = [[LGPerson alloc] init];
+    [person run];
+    LGNSLog(@"引用计数 %lu ", [person retainCount]);
+    [person release];
+//    LGNSLog(@"引用计数 %lu ", [person retainCount]);
+    [person run];
 }
-*/
 
 @end
