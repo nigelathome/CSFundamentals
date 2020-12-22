@@ -587,3 +587,9 @@ int Solution::lastRemaining(int n, int m) {
  CommonUtil commonUtil;
  commonUtil.print_linked_list(head);
  */
+
+/*
+ Solution solve;
+ int result = solve.lastRemaining(5, 3);
+ printf("%d, %d\n", solve.lastRemaining(5, 3), solve.lastRemaining(10, 17));
+ */

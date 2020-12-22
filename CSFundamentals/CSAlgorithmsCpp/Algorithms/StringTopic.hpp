@@ -26,6 +26,10 @@ public:
     
     //面试题 统计单词个数
     int countWords(std::string a);
+    
+    //剑指 Offer 05. 替换空格
+    std::string replaceSpace(std::string s);
+       
 };
 
 #endif /* OtherTopic_hpp */

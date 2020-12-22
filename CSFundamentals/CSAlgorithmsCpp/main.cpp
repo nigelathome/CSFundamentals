@@ -14,9 +14,10 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    Solution solve;
-    int result = solve.lastRemaining(5, 3);
-    printf("%d, %d\n", solve.lastRemaining(5, 3), solve.lastRemaining(10, 17));
+    std::string s = "Happy Christmas Day!";
+    Solution7 solve;
+    s = solve.replaceSpace(s);
+    std::cout << s << endl;
     
     return 0;
 }

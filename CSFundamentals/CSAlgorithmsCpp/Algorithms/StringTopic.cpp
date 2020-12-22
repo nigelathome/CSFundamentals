@@ -125,6 +125,34 @@ int Solution7::countWords(std::string a) {
     return words;
 }
 
+std::string Solution7::replaceSpace(std::string s) {
+    //扫描一遍s确定空格的个数
+    int space = 0;
+    for(int i=0; i<s.size(); i++){
+        if(s[i]==' ') space++;
+    }
+    if(space==0) return s;
+    int i = (int)s.size()-1, j=i+space*2;//i j 分别指向新旧数组的最后一个下标
+    int ex_len = space*2 ;//替换之后数组的增加长度 是空格个数*2 因为替换后占三个字符 多出2个字符
+    while(ex_len) {//扩充s的长度为替换后的长度
+        s.push_back('0');
+        ex_len--;
+    }
+    while(i<j) {//(j-i)/2就是还需要替换的空格个数 i=j说明空格已经替换完
+        if(s[i]!=' ') {
+            s[j] = s[i];//原样复制
+        } else {
+            s[j] = '0';//替换并改变j的位置
+            s[j-1] = '2';
+            s[j-2] = '%';
+            j-=2;
+        }
+        i--;
+        j--;
+    }
+    return s;
+}
+
 #pragma mark code-test
 /*
  Solution7 solve;
