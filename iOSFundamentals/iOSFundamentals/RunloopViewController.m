@@ -9,6 +9,7 @@
 #import "RunloopViewController.h"
 #import "UIButton+Block.h"
 #import "TimerViewController.h"
+#import "ThreadKeepAliveViewController.h"
 
 @interface RunloopViewController ()
 
@@ -24,14 +25,14 @@
 //    NSThread thread = [[NSThread alloc] initWithTarget:self selector:@selector(print) object:nil];
 //    [self performSelector:@selector(print) onThread:thread withObject:nil waitUntilDone:NO];
 //    [self.thread start];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 130, 130)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, 100, 130, 130)];
     label.text = @"点击屏幕";
     label.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:label];
     [self runThread];
 //    [self checkMainThread];
     
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x-100, self.view.center.y-100, 130, 130)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x-100, 280, 130, 130)];
     [btn setTitle:@"点击崩溃" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor systemPinkColor];
@@ -40,7 +41,7 @@
     //捕获异常
     NSSetUncaughtExceptionHandler(handleUncaughtException);
     
-    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(50, self.view.center.y+100, 300, 130)];
+    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(50, 400, 300, 100)];
     [btn2 setTitle:@"点击进入runloop在Timer上运用" forState:UIControlStateNormal];
     [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn2.backgroundColor = [UIColor greenColor];
@@ -49,6 +50,17 @@
     [btn2 handleEvent:UIControlEventTouchUpInside withBlock:^(id  _Nullable sender) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         TimerViewController *vc = [[TimerViewController alloc] init];
+        [strongSelf.navigationController pushViewController:vc animated:YES];
+    }];
+    
+    UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(0, 550, 400, 100)];
+    [btn3 setTitle:@"点击进入runloop在子线程保活上的运用" forState:UIControlStateNormal];
+    [btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn3.backgroundColor = [UIColor redColor];
+    [self.view addSubview:btn3];
+    [btn3 handleEvent:UIControlEventTouchUpInside withBlock:^(id  _Nullable sender) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        ThreadKeepAliveViewController *vc = [[ThreadKeepAliveViewController alloc] init];
         [strongSelf.navigationController pushViewController:vc animated:YES];
     }];
 }
