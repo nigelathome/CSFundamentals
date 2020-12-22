@@ -41,6 +41,7 @@
 		26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5332590557B001FF50F /* UIAlertView+Block.m */; };
 		26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */; };
 		26C9E53A2590CAD4001FF50F /* UIViewController+EventTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5392590CAD4001FF50F /* UIViewController+EventTracking.m */; };
+		26C9E53D2591AE48001FF50F /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E53C2591AE48001FF50F /* TimerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,8 @@
 		26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SafeArray.m"; sourceTree = "<group>"; };
 		26C9E5382590CAD4001FF50F /* UIViewController+EventTracking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+EventTracking.h"; sourceTree = "<group>"; };
 		26C9E5392590CAD4001FF50F /* UIViewController+EventTracking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+EventTracking.m"; sourceTree = "<group>"; };
+		26C9E53B2591AE48001FF50F /* TimerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		26C9E53C2591AE48001FF50F /* TimerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +212,8 @@
 				26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */,
 				26C9E5382590CAD4001FF50F /* UIViewController+EventTracking.h */,
 				26C9E5392590CAD4001FF50F /* UIViewController+EventTracking.m */,
+				26C9E53B2591AE48001FF50F /* TimerViewController.h */,
+				26C9E53C2591AE48001FF50F /* TimerViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
+				26C9E53D2591AE48001FF50F /* TimerViewController.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,

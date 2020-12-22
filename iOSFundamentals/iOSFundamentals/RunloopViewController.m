@@ -7,6 +7,8 @@
 //
 
 #import "RunloopViewController.h"
+#import "UIButton+Block.h"
+#import "TimerViewController.h"
 
 @interface RunloopViewController ()
 
@@ -24,6 +26,7 @@
 //    [self.thread start];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.center.x, self.view.center.y, 130, 130)];
     label.text = @"点击屏幕";
+    label.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:label];
     [self runThread];
 //    [self checkMainThread];
@@ -31,10 +34,23 @@
     UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x-100, self.view.center.y-100, 130, 130)];
     [btn setTitle:@"点击崩溃" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor systemPinkColor];
     [self.view addSubview:btn];
     [btn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
     //捕获异常
     NSSetUncaughtExceptionHandler(handleUncaughtException);
+    
+    UIButton *btn2 = [[UIButton alloc] initWithFrame:CGRectMake(50, self.view.center.y+100, 300, 130)];
+    [btn2 setTitle:@"点击进入runloop在Timer上运用" forState:UIControlStateNormal];
+    [btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn2.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:btn2];
+    __weak typeof(self) weakSelf = self;
+    [btn2 handleEvent:UIControlEventTouchUpInside withBlock:^(id  _Nullable sender) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        TimerViewController *vc = [[TimerViewController alloc] init];
+        [strongSelf.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 - (void)runThread {
