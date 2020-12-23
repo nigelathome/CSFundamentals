@@ -71,5 +71,8 @@
            CFGetRetainCount((__bridge CFTypeRef)(mutableArr1)),
            CFGetRetainCount((__bridge CFTypeRef)(mutableArr2)),
            CFGetRetainCount((__bridge CFTypeRef)(mutableArr3)));
+    
+    
+    LGNSLog(@"%@ %d", [str class], [str isKindOfClass:[NSConstantString class]]);
 }
 @end

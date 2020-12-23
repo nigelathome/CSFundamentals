@@ -8,6 +8,8 @@
 
 #import "MemManagerViewController.h"
 #import "LGPerson.h"
+#import "MRCViewController.h"
+#import "UIButton+Block.h"
 
 @interface MemManagerViewController ()
 
@@ -43,16 +45,17 @@
     //    return UIApplicationMain(argc, argv, nil, appDelegateClassName);
         _objc_autoreleasePoolPrint();     // print4
     
-    [self causeBadAccess];
-}
-
-- (void)causeBadAccess {
-    LGPerson *person = [[LGPerson alloc] init];
-    [person run];
-    LGNSLog(@"引用计数 %lu ", [person retainCount]);
-    [person release];
-//    LGNSLog(@"引用计数 %lu ", [person retainCount]);
-    [person run];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(50, 350, 300, 100)];
+    [btn setTitle:@"点击进入MRC测试" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:btn];
+    __weak typeof(self) weakSelf = self;
+    [btn handleEvent:UIControlEventTouchUpInside withBlock:^(id  _Nullable sender) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        MRCViewController *vc = [[MRCViewController alloc] init];
+        [strongSelf.navigationController pushViewController:vc animated:YES];
+    }];
 }
 
 @end
