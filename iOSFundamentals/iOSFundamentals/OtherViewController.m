@@ -11,6 +11,8 @@
 
 @interface OtherViewController ()
 
+@property (nonatomic, strong) LGPerson *person;
+
 @end
 
 @implementation OtherViewController
@@ -51,6 +53,26 @@
     NSNumber *max = [ps valueForKeyPath:@"@max.age"];
     LGNSLog(@"%@ %@ %@ %@", psAge, avg, min, max);
     
+    //KVO的使用
+    UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
+    tip.backgroundColor = [UIColor purpleColor];
+    tip.textColor = [UIColor whiteColor];
+    tip.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:tip];
+    [tip setText:@"点击屏幕触发KVO回调"];
+    self.person = [LGPerson new];
+    [self setValue:@"35" forKeyPath:@"person.age"];
+    [self.person addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.person.age = rand();
+}
+
+#pragma mark - KVO callback
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    LGNSLog(@"KVO 观察到属性值 %@ %@", keyPath, change);
+}
+
 
 @end
