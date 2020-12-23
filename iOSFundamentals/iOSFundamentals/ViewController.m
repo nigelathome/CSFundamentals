@@ -17,6 +17,7 @@
 #import "RuntimeViewController.h"
 #import "ReuseCellViewController.h"
 #import "UIEventRespViewController.h"
+#import "OtherViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -111,6 +112,12 @@
             MemManagerViewController *memManagerVC = [[MemManagerViewController alloc] init];
             [self.navigationController pushViewController:memManagerVC animated:YES];
         }
+            break;
+        case 10: {
+            OtherViewController *otherVC = [[OtherViewController alloc] init];
+            [self.navigationController pushViewController:otherVC animated:YES];
+        }
+            break;
             
         default:
             break;
@@ -120,7 +127,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"其他"];
     }
     return _dataArray;
 }

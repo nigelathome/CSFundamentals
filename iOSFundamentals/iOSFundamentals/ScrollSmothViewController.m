@@ -7,6 +7,8 @@
 //
 
 #import "ScrollSmothViewController.h"
+#import "LGImageLoader.h"
+#import "UITableViewCell+IndexPath.h"
 
 @interface ScrollSmothViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -25,14 +27,30 @@
     [self.view addSubview:_tableView];
 }
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     [cell removeFromSuperview];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"背景图" ofType:@"jpeg"];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.bounds.size.width, 400)];
-    imageView.image = image;
-    [cell.contentView addSubview:imageView];
+
+    cell.indexPath = indexPath;
+    [[LGImageLoader shareInstance] addTask:^BOOL{
+        if (![cell.indexPath isEqual:indexPath]) {
+            return NO;
+        }
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"背景图" ofType:@"jpeg"];
+        UIImage *image = [UIImage imageWithContentsOfFile:path];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.bounds.size.width, 400)];
+        imageView.image = image;
+        [cell.contentView addSubview:imageView];
+
+        return YES;//执行完成
+    }];
+    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"背景图" ofType:@"jpeg"];
+//    UIImage *image = [UIImage imageWithContentsOfFile:path];
+//    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.bounds.size.width, 400)];
+//    imageView.image = image;
+//    [cell.contentView addSubview:imageView];
+    
     return cell;
 }
 
@@ -43,6 +61,5 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 100;
 }
-
 
 @end

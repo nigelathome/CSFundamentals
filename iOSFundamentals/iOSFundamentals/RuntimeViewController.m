@@ -176,6 +176,4 @@ void patchMethod(id self, SEL _cmd, const char *other) {
     LGNSLog(@"fixed crash %@ %@", self, NSStringFromSelector(_cmd));
 }
 
-
-
 @end
