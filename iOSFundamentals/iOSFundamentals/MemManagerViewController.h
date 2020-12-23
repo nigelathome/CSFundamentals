@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class AA, BB;
+@class AA, BB, LGBottle;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +26,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 //@property (nonatomic, strong) AA *a;
 @property (nonatomic, weak) AA *a;
+
+@end
+
+@interface LGBottle : NSObject
+
+@property (nonatomic, copy) void (^myBlock)(void);
 
 @end
 

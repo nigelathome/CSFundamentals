@@ -13,6 +13,9 @@
 
 @interface MemManagerViewController ()
 
+//@property (nonatomic, weak) LGBottle *bottle;
+@property (nonatomic, strong) LGBottle *bottle; //可以将strong改成weak也是可以的
+
 @end
 
 @implementation MemManagerViewController
@@ -65,6 +68,21 @@
     BB *bb = [BB new];
     aa.b = bb;
     bb.a = aa;
+    
+    LGBottle *bottle = [LGBottle new];
+    self.bottle = bottle;
+    __weak typeof(self) weakSelf = self;
+    bottle.myBlock = ^{
+        [weakSelf throwBottle];
+    };
+}
+
+- (void)throwBottle {
+    LGNSLog(@"%s", __FUNCTION__);
+}
+
+- (void)dealloc {
+    LGNSLog(@"%@ release", [self class]);
 }
 
 @end
@@ -82,5 +100,9 @@
 - (void)dealloc {
     LGNSLog(@"BB object release");
 }
+
+@end
+
+@implementation LGBottle
 
 @end
