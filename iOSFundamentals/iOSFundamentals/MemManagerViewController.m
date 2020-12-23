@@ -60,7 +60,11 @@
         [strongSelf.navigationController pushViewController:vc animated:YES];
     }];
     
+    //循环引用
     [self makeRetainCycle];
+    
+    //内存优化
+    [self makeHugeAmount];
 }
 
 - (void)makeRetainCycle {
@@ -75,6 +79,17 @@
     bottle.myBlock = ^{
         [weakSelf throwBottle];
     };
+}
+
+- (void)makeHugeAmount {
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSInteger i=0; i<1000000; i++) {
+        @autoreleasepool {
+            NSString *c = [NSString stringWithFormat:@"%ld", i];
+            [arr addObject:c];
+        }
+    }
+    LGNSLog(@"%s callout over", __FUNCTION__);
 }
 
 - (void)throwBottle {
