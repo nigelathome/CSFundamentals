@@ -7,6 +7,7 @@
 //
 
 #import "OtherViewController.h"
+#import "LGPerson.h"
 
 @interface OtherViewController ()
 
@@ -22,6 +23,34 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF > 1 && SELF < 3"];
     NSArray *result = [arr filteredArrayUsingPredicate:predicate];
     LGNSLog(@"%@", result);
+    
+    //KVC使用
+    LGPerson *p1 = [LGPerson new];
+    [p1 setValue:@"34" forKey:@"age"];
+    [p1 setValue:@"reading" forKey:@"hobby"];
+    
+    LGPerson *p2 = [LGPerson new];
+    [p2 setValue:@"35" forKey:@"age"];
+    [p2 setValue:@"writing" forKey:@"hobby"];
+    
+    LGPerson *p3 = [LGPerson new];
+    [p3 setValue:@"30" forKey:@"age"];
+    [p3 setValue:@"coding" forKey:@"hobby"];
+    
+    LGPerson *p4 = [LGPerson new];
+    [p4 setValue:@"39" forKey:@"age"];
+    [p4 setValue:@"playing" forKey:@"hobby"];
+    
+    NSArray *ps = @[p1, p2, p3, p4];
+    //快速取到每个对象的age属性值
+    NSArray *psAge = [ps valueForKey:@"age"];
+    //快速求得平均值 还可以有@sum @arg @min @max
+    NSNumber *avg = [ps valueForKeyPath:@"@avg.age"];
+    NSNumber *sum = [ps valueForKeyPath:@"@sum.age"];
+    NSNumber *min = [ps valueForKeyPath:@"@min.age"];
+    NSNumber *max = [ps valueForKeyPath:@"@max.age"];
+    LGNSLog(@"%@ %@ %@ %@", psAge, avg, min, max);
+    
 }
 
 @end
