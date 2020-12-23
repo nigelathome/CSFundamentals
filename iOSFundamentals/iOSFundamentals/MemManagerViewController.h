@@ -7,10 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+@class AA, BB;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MemManagerViewController : UIViewController
+
+@end
+
+
+@interface  AA : NSObject
+
+@property (nonatomic, strong) BB *b;
+
+@end
+
+@interface BB : NSObject
+
+//@property (nonatomic, strong) AA *a;
+@property (nonatomic, weak) AA *a;
 
 @end
 

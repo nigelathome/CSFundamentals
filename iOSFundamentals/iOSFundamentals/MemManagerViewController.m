@@ -56,6 +56,31 @@
         MRCViewController *vc = [[MRCViewController alloc] init];
         [strongSelf.navigationController pushViewController:vc animated:YES];
     }];
+    
+    [self makeRetainCycle];
+}
+
+- (void)makeRetainCycle {
+    AA *aa = [AA new];
+    BB *bb = [BB new];
+    aa.b = bb;
+    bb.a = aa;
+}
+
+@end
+
+@implementation AA
+
+- (void)dealloc {
+    LGNSLog(@"AA object release");
+}
+
+@end
+
+@implementation BB
+
+- (void)dealloc {
+    LGNSLog(@"BB object release");
 }
 
 @end
