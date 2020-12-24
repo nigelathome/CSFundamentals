@@ -29,7 +29,15 @@
 //    [self gcdTest10];
 //    [self gcdTest11];
 //    [self gcdTest12];
-    [self gcdTest13];
+//    [self gcdTest13];
+//    [self gcdTest14];
+//    [self gcdTest15];
+//    [self gcdTest16];
+//    [self gcdTest17];
+//    [self gcdTest18];
+//    [self gcdTest19];
+    [self gcdTest20];
+    
 }
 
 - (void)gcdTest1 {
@@ -262,6 +270,85 @@
         dispatch_semaphore_signal(signal);
     });
     //执行顺序是blk1->blk2 关键点在于blk2的sleep(1) 进行了1秒的等待 如果把blk1和blk2的代码先后调整了输出还是blk1-blk2
+}
+
+- (void)gcdTest14 {
+    //死锁
+    LGNSLog(@"1");
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        LGNSLog(@"2");
+    });
+    LGNSLog(@"3");
+}
+
+- (void)gcdTest15 {
+    LGNSLog(@"1");
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{//sync 全局队列不开启新线程 串行执行
+        LGNSLog(@"2");
+    });
+    LGNSLog(@"3");
+}
+
+- (void)gcdTest16 {
+    LGNSLog(@"1");
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{//开启新线程 并行执行 新线程晚于当前线程执行
+        LGNSLog(@"2");
+    });
+    LGNSLog(@"3");
+    //1-3-2
+}
+
+- (void)gcdTest17 {
+    LGNSLog(@"1");
+    dispatch_queue_t queue = dispatch_queue_create("com.demo.serialQuque", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(queue, ^{
+        LGNSLog(@"2");
+        dispatch_sync(queue, ^{
+            LGNSLog(@"3");
+        });
+        LGNSLog(@"4");
+    });
+    sleep(1000);
+    LGNSLog(@"5");
+    //1-5-2 然后死锁 ——串行队列同步执行
+}
+
+- (void)gcdTest18 {
+    LGNSLog(@"1");
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        LGNSLog(@"2");
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            LGNSLog(@"3");
+        });
+        LGNSLog(@"4");
+    });
+    LGNSLog(@"5");
+    //1-5-2-3-4 3和4的任务不在一个队列中即时用syn不会死锁 3在主队列，4在global队列 另外又因为是sync所以4要等到3执行完才执行
+}
+
+- (void)gcdTest19 {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        LGNSLog(@"1");
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            LGNSLog(@"2");
+        });
+        LGNSLog(@"3");
+    });
+    LGNSLog(@"4");
+    while (1) {
+
+    }
+    LGNSLog(@"5");
+    //1-4或者4-1 ∵ while(1)死循环 5不能执行 而2追加到5之后也不能执行 而sync下3要等到2执行完成才能执行 所以2 3 4都不会执行
+}
+
+- (void)gcdTest20 {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        LGNSLog(@"1");
+        [self performSelector:@selector(doTest) withObject:nil afterDelay:0];//async会创建子线程的执行 performSelector:afterDelay是个定时任务要在对应线程的runloop执行 子线程默认不开启runloop所以不执行2
+        LGNSLog(@"3");
+        //1-3
+    });
 }
 
 @end
