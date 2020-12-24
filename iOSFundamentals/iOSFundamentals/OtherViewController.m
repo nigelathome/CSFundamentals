@@ -8,6 +8,7 @@
 
 #import "OtherViewController.h"
 #import "LGPerson.h"
+#import "NSObject+LGKVO.h"
 
 @interface OtherViewController ()
 
@@ -62,7 +63,7 @@
     [tip setText:@"点击屏幕触发KVO回调"];
     self.person = [LGPerson new];
     [self setValue:@"35" forKeyPath:@"person.age"];
-    [self.person addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
+    [self.person LG_addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

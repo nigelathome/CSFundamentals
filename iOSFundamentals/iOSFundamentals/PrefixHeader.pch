@@ -17,6 +17,7 @@ extern void _objc_autoreleasePoolPrint(void);
 #endif
 
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import "ViewA.h"
 #import "ViewB.h"
 #import "UIViewController+EventTracking.h"

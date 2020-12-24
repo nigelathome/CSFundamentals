@@ -20,6 +20,7 @@
 		2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85825675855001801C4 /* TaggedPointerViewController.m */; };
 		26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FF72592DC23001E06C4 /* UITableViewCell+IndexPath.m */; };
 		26718FFB25930AA0001E06C4 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FFA25930AA0001E06C4 /* OtherViewController.m */; };
+		2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900C2594310E001E06C4 /* NSObject+LGKVO.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -79,6 +80,8 @@
 		26718FF72592DC23001E06C4 /* UITableViewCell+IndexPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+IndexPath.m"; sourceTree = "<group>"; };
 		26718FF925930AA0001E06C4 /* OtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
 		26718FFA25930AA0001E06C4 /* OtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		2671900B2594310E001E06C4 /* NSObject+LGKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGKVO.h"; sourceTree = "<group>"; };
+		2671900C2594310E001E06C4 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				26718FF72592DC23001E06C4 /* UITableViewCell+IndexPath.m */,
 				26718FF925930AA0001E06C4 /* OtherViewController.h */,
 				26718FFA25930AA0001E06C4 /* OtherViewController.m */,
+				2671900B2594310E001E06C4 /* NSObject+LGKVO.h */,
+				2671900C2594310E001E06C4 /* NSObject+LGKVO.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */,
 				26AD95B7258F06D100CCA46C /* LGPig.m in Sources */,
+				2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
 				26C9E5452591FEA0001FF50F /* ScrollSmothViewController.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
