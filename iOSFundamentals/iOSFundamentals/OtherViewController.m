@@ -52,7 +52,7 @@
     NSNumber *sum = [ps valueForKeyPath:@"@sum.age"];
     NSNumber *min = [ps valueForKeyPath:@"@min.age"];
     NSNumber *max = [ps valueForKeyPath:@"@max.age"];
-    LGNSLog(@"%@ %@ %@ %@", psAge, avg, min, max);
+    LGNSLog(@"%@ %@ %@ %@ %@", psAge, avg, min, max, sum);
     
     //KVO的使用
     UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 50)];
@@ -74,6 +74,5 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     LGNSLog(@"KVO 观察到属性值 %@ %@", keyPath, change);
 }
-
 
 @end

@@ -10,11 +10,11 @@
 
 @implementation NSObject (LGKVO)
 
-static const char key;
+static const char *key = "objc";
 
 - (void)LG_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(nullable void *)context {
     //1.持久化观察者
-    objc_setAssociatedObject(self, &key, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, key, observer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     //2.生成子类LGKVO_Person 并把对象的isa指向这个子类
     NSString *oldClassName = NSStringFromClass([self class]);
@@ -39,7 +39,7 @@ void setAgeIMP(id self, SEL _cmd, int age) {
     action(self, @selector(setAge:), age);
     
     //4.通知观察者 调用回调方法
-    id observer = objc_getAssociatedObject(self, &key);//取出先前持久化的观察者
+    id observer = objc_getAssociatedObject(self, key);//取出先前持久化的观察者
     void *(*callBack)(id, SEL, id, id, id, id) = (void * (*)(id, SEL, id, id, id, id))objc_msgSend;
     callBack(observer, @selector(observeValueForKeyPath:ofObject: change: context:), @"age", self, @{@"age": @(age)}, nil);
     

@@ -21,6 +21,7 @@
 		26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FF72592DC23001E06C4 /* UITableViewCell+IndexPath.m */; };
 		26718FFB25930AA0001E06C4 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FFA25930AA0001E06C4 /* OtherViewController.m */; };
 		2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900C2594310E001E06C4 /* NSObject+LGKVO.m */; };
+		2671901025947BE6001E06C4 /* TimerRelaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -82,6 +83,8 @@
 		26718FFA25930AA0001E06C4 /* OtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		2671900B2594310E001E06C4 /* NSObject+LGKVO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LGKVO.h"; sourceTree = "<group>"; };
 		2671900C2594310E001E06C4 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
+		2671900E25947BE6001E06C4 /* TimerRelaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerRelaseViewController.h; sourceTree = "<group>"; };
+		2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerRelaseViewController.m; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				26718FFA25930AA0001E06C4 /* OtherViewController.m */,
 				2671900B2594310E001E06C4 /* NSObject+LGKVO.h */,
 				2671900C2594310E001E06C4 /* NSObject+LGKVO.m */,
+				2671900E25947BE6001E06C4 /* TimerRelaseViewController.h */,
+				2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
+				2671901025947BE6001E06C4 /* TimerRelaseViewController.m in Sources */,
 				26C9E53D2591AE48001FF50F /* TimerViewController.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,

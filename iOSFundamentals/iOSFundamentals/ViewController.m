@@ -18,6 +18,7 @@
 #import "ReuseCellViewController.h"
 #import "UIEventRespViewController.h"
 #import "OtherViewController.h"
+#import "TimerRelaseViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -114,11 +115,16 @@
         }
             break;
         case 10: {
+            TimerRelaseViewController *timerRelaseVC = [[TimerRelaseViewController alloc] init];
+            [self.navigationController pushViewController:timerRelaseVC animated:YES];
+        }
+            break;
+        case 11: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
         }
             break;
-            
+  
         default:
             break;
     }
@@ -127,7 +133,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"其他"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"其他"];
     }
     return _dataArray;
 }
