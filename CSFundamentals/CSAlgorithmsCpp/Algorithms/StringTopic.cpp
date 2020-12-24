@@ -153,6 +153,43 @@ std::string Solution7::replaceSpace(std::string s) {
     return s;
 }
 
+bool Solution7::isValid(std::string s) {
+    std::stack<char> st;
+     char cu = 0;
+    //遍历每个字符 对于"(" 、"{" 、"["就入栈
+    //而")" 、"}" 、"]"则比较栈顶元素匹配则出栈顶元素继续遍历 否则返回不匹配
+     for(int i=0; i<s.length(); i++) {
+         switch (s[i]) {
+             case '(':
+             case '{':
+             case '[':
+                 st.push(s[i]);
+                 break;
+             case ')':
+             case '}':
+             case ']': {
+                 if(st.empty()) {
+                     return false;
+                 }
+                 cu = st.top();
+                 if((s[i]==')' && cu=='(')
+                     ||(s[i]=='}' && cu=='{')
+                     ||(s[i]==']' && cu=='[')) {
+                     st.pop();
+                     break;
+                 } else {
+                     return false;
+                 }
+                 break;
+             }
+                 
+          default:
+            break;
+         }
+     }
+     return st.empty();
+}
+
 #pragma mark code-test
 /*
  Solution7 solve;
@@ -191,4 +228,11 @@ std::string Solution7::replaceSpace(std::string s) {
  std::string a = "hello kkk  gwo;dsljljksaf  jjj studf";
  int val = solve.countWords(a);
  printf("%d", val);
+ */
+
+/*
+ std::string s = "Happy Christmas Day!";
+ Solution7 solve;
+ s = solve.replaceSpace(s);
+ std::cout << s << endl;
  */

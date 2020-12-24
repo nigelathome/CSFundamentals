@@ -14,10 +14,10 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::string s = "Happy Christmas Day!";
+    std::string s = "()";
     Solution7 solve;
-    s = solve.replaceSpace(s);
-    std::cout << s << endl;
+    bool valid = solve.isValid(s);
+    std::cout << boolalpha << valid << endl;
     
     return 0;
 }

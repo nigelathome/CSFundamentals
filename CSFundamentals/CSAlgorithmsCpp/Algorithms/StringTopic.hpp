@@ -29,6 +29,9 @@ public:
     
     //剑指 Offer 05. 替换空格
     std::string replaceSpace(std::string s);
+    
+    //NC52 括号序列
+    bool isValid(std::string s);
        
 };
 
