@@ -41,7 +41,8 @@
 //    [self gcdTest22];
 //    [self gcdTest23];
 //    [self ABC];
-    [self ABC1];
+//    [self ABC1];
+    [self ABC2];
 }
 
 - (void)gcdTest1 {
@@ -458,6 +459,42 @@
     dispatch_group_notify(g1, dispatch_get_global_queue(0, 0), ^{
         LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
         LGNSLog(@"C");
+    });
+}
+
+- (void)ABC2 {
+    dispatch_group_t g1 = dispatch_group_create();
+//    dispatch_queue_t queue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_CONCURRENT);
+    __weak typeof(self) weakSelf = self;
+    
+    dispatch_group_enter(g1);
+    dispatch_group_async(g1, dispatch_get_global_queue(0, 0), ^{
+        [weakSelf doTask:^{
+            LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+            LGNSLog(@"A");
+            dispatch_group_leave(g1);
+        }];
+    });
+    
+    dispatch_group_enter(g1);
+    dispatch_group_async(g1, dispatch_get_global_queue(0, 0), ^{
+        [weakSelf doTask:^{
+            LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+            LGNSLog(@"B");
+            dispatch_group_leave(g1);
+        }];
+    });
+    dispatch_group_notify(g1, dispatch_get_global_queue(0, 0), ^{
+//        LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+        LGNSLog(@"C");
+    });
+}
+
+- (void)doTask:(void (^)(void))finish {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if (finish) {
+            finish();
+        }
     });
 }
 
