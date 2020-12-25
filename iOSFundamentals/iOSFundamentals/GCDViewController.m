@@ -8,7 +8,9 @@
 
 #import "GCDViewController.h"
 
-@interface GCDViewController ()
+@interface GCDViewController () {
+    dispatch_source_t _timer;
+}
 
 @end
 
@@ -44,6 +46,9 @@
 //    [self ABC1];
 //    [self ABC2];
     [self fastLoop];
+    
+    //GCD 定时器
+    [self addGCDTimer];
 }
 
 - (void)gcdTest1 {
@@ -244,18 +249,18 @@
 //    LGNSLog(@"3");
 //}
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSThread *thread = [[NSThread alloc] initWithBlock:^{//blk1
-        LGNSLog(@"1");
-        LGNSLog(@"%@", [NSThread currentThread]);
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }];
-    [thread start];
-    [self performSelector:@selector(doTest) onThread:thread withObject:nil waitUntilDone:NO];
-    //创建并启动了thread的runloop doTest就能执行了 也不会引起崩溃 因为thread不会立即退出 #这里runloop的运行模式必须是defaultMode
-    //也可以把doTest派发到主线程执行也可以正常执行
-    LGNSLog(@"3");
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    NSThread *thread = [[NSThread alloc] initWithBlock:^{//blk1
+//        LGNSLog(@"1");
+//        LGNSLog(@"%@", [NSThread currentThread]);
+//        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+//    }];
+//    [thread start];
+//    [self performSelector:@selector(doTest) onThread:thread withObject:nil waitUntilDone:NO];
+//    //创建并启动了thread的runloop doTest就能执行了 也不会引起崩溃 因为thread不会立即退出 #这里runloop的运行模式必须是defaultMode
+//    //也可以把doTest派发到主线程执行也可以正常执行
+//    LGNSLog(@"3");
+//}
 
 - (void)gcdTest13 {
     dispatch_semaphore_t signal = dispatch_semaphore_create(1);//信号量为1
@@ -510,6 +515,23 @@
     });
     
     LGNSLog(@"end");
+}
+
+- (void)addGCDTimer {
+    if (!_timer) {
+        _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+        dispatch_source_set_timer(_timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+        dispatch_source_set_event_handler(_timer, ^{
+            LGNSLog(@"GCD timer");
+        });
+        dispatch_resume(_timer);
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (_timer) {
+        dispatch_cancel(_timer);
+    }
 }
 
 @end
