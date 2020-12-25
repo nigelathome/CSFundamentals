@@ -36,8 +36,10 @@
 //    [self gcdTest17];
 //    [self gcdTest18];
 //    [self gcdTest19];
-    [self gcdTest20];
-    
+//    [self gcdTest20];
+    [self gcdTest21];
+//    [self gcdTest22];
+//    [self gcdTest23];
 }
 
 - (void)gcdTest1 {
@@ -350,5 +352,74 @@
         //1-3
     });
 }
+
+- (void)gcdTest21 {
+//    dispatch_queue_t myQueue = dispatch_queue_create("myQueue",DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_queue_t myQueue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t myQueue = dispatch_get_global_queue(0, 0);
+    LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+    dispatch_async(myQueue, ^{
+        LGNSLog(@"task 1 in thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+    });
+    
+    dispatch_async(myQueue, ^{
+//        [NSThread sleepForTimeInterval:2.0];
+        LGNSLog(@"task 2 in thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+    });
+    
+    dispatch_sync(myQueue, ^{//会追加到主线程中执行
+            LGNSLog(@"task 3 in thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
+        });
+    
+    LGNSLog(@"end");
+}
+
+- (void)gcdTest22 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSInteger sum = 0;
+        for(NSInteger i=0; i<1000000000; i++) {
+            sum += i;
+        }
+        LGNSLog(@"1");
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSInteger sum = 0;
+        for(NSInteger i=0; i<100; i++) {
+            sum += i;
+        }
+        LGNSLog(@"2");
+    });
+    
+    LGNSLog(@"3");
+    
+    //执行顺序是3-1-2 对应主队列的异步执行 并不会开启新新线程 二是会在一个线程中串行执行 是个假异步
+    //1和2任务追加到主队列顺序晚于3此时先执行3，然后是1 2，按照入队列先后执行
+}
+
+- (void)gcdTest23 {
+    dispatch_queue_t newQueue = dispatch_queue_create("new queue", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(dispatch_queue_create("new queue", DISPATCH_QUEUE_SERIAL), ^{
+        NSInteger sum = 0;
+        for(NSInteger i=0; i<10000000000; i++) {
+            sum += i;
+        }
+        LGNSLog(@"1");
+    });
+    
+    dispatch_async(newQueue, ^{
+        NSInteger sum = 0;
+        for(NSInteger i=0; i<100; i++) {
+            sum += i;
+        }
+        LGNSLog(@"2");
+    });
+    
+    LGNSLog(@"3");
+    
+    //执行顺序是3-2-1 与gcdTest22不同 队列不是主队列 那么异步执行会开启新线程执行
+    //1和2任务追加到主队列顺序晚于3此时先执行3，而1是耗时任务会结束的晚于2 所以是2-1
+}
+
 
 @end
