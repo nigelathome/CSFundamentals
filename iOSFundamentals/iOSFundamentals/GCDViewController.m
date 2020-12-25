@@ -426,13 +426,16 @@
     //实现这样的需求：A和B两个任务异步执行 C任务需要等待A任务执行完才执行
     dispatch_group_t g1 = dispatch_group_create();
     dispatch_group_async(g1, dispatch_get_global_queue(0, 0), ^{
+        LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
         LGNSLog(@"A");
     });
     dispatch_group_async(g1, dispatch_get_global_queue(0, 0), ^{
+        LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
         LGNSLog(@"B");
     });
     dispatch_group_wait(g1, DISPATCH_TIME_FOREVER);
     dispatch_group_async(g1, dispatch_get_global_queue(0, 0), ^{
+        LGNSLog(@"thread %p, main thread:%d", [NSThread currentThread], [NSThread isMainThread]);
         LGNSLog(@"C");
     });
 }
