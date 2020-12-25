@@ -22,6 +22,7 @@
 		26718FFB25930AA0001E06C4 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FFA25930AA0001E06C4 /* OtherViewController.m */; };
 		2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900C2594310E001E06C4 /* NSObject+LGKVO.m */; };
 		2671901025947BE6001E06C4 /* TimerRelaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */; };
+		267190132594803C001E06C4 /* NSTimer+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 267190122594803C001E06C4 /* NSTimer+block.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -85,6 +86,8 @@
 		2671900C2594310E001E06C4 /* NSObject+LGKVO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LGKVO.m"; sourceTree = "<group>"; };
 		2671900E25947BE6001E06C4 /* TimerRelaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerRelaseViewController.h; sourceTree = "<group>"; };
 		2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerRelaseViewController.m; sourceTree = "<group>"; };
+		267190112594803C001E06C4 /* NSTimer+block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+block.h"; sourceTree = "<group>"; };
+		267190122594803C001E06C4 /* NSTimer+block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+block.m"; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 				2671900C2594310E001E06C4 /* NSObject+LGKVO.m */,
 				2671900E25947BE6001E06C4 /* TimerRelaseViewController.h */,
 				2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */,
+				267190112594803C001E06C4 /* NSTimer+block.h */,
+				267190122594803C001E06C4 /* NSTimer+block.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				267190132594803C001E06C4 /* NSTimer+block.m in Sources */,
 				26AD95BD258F999600CCA46C /* LGExpertInfo.m in Sources */,
 				26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */,
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
