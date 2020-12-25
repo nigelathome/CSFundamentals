@@ -42,7 +42,8 @@
 //    [self gcdTest23];
 //    [self ABC];
 //    [self ABC1];
-    [self ABC2];
+//    [self ABC2];
+    [self fastLoop];
 }
 
 - (void)gcdTest1 {
@@ -496,6 +497,19 @@
             finish();
         }
     });
+}
+
+- (void)fastLoop {
+    NSArray *arr = [NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", nil];
+    for (NSNumber *num in arr) {
+        LGNSLog(@"%@ %@", num, [NSThread currentThread]);
+    }
+    
+    dispatch_apply(arr.count, dispatch_get_global_queue(0, 0), ^(size_t index) {
+        LGNSLog(@"%@ %@", arr[index], [NSThread currentThread]);
+    });
+    
+    LGNSLog(@"end");
 }
 
 @end
