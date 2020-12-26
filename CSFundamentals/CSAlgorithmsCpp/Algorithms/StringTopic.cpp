@@ -236,3 +236,10 @@ bool Solution7::isValid(std::string s) {
  s = solve.replaceSpace(s);
  std::cout << s << endl;
  */
+
+/*
+ std::string s = "()";
+ Solution7 solve;
+ bool valid = solve.isValid(s);
+ std::cout << boolalpha << valid << endl;
+ */

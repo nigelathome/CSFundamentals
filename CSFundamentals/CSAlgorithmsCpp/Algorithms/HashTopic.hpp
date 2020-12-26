@@ -16,5 +16,20 @@ public:
     int lengthOfLongestSubstring(std::string s);
 };
 
+//146. LRU 缓存机制
+class LRUCache {
+public:
+    
+    std::vector<int> _vec;//保存最近的缓存 淘汰最不常使用的key
+    std::map<int, int> _hash;//存储当前（key,value)
+    int _capacity = 0;
+    
+    LRUCache(int capacity);
+    int get(int key);
+    void put(int key, int value);
+    
+    //调整LRU的key
+    void updateLRU(int key);
+};
 
 #endif /* HashTopic_hpp */

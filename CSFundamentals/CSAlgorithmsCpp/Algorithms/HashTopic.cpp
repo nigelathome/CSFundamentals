@@ -100,6 +100,45 @@ int Solution8::lengthOfLongestSubstring(std::string arr) {
     return result;
 }
 
+LRUCache::LRUCache(int capacity) {
+    _capacity = capacity;
+}
+
+int LRUCache::get(int key) {
+    if (_hash.find(key) == _hash.end()) {
+        return -1;
+    } else {
+        updateLRU(key);
+        return _hash[key];
+    }
+}
+    
+void LRUCache::put(int key, int value) {
+    if (_hash.find(key) != _hash.end()) {
+        updateLRU(key);//更新缓存
+    } else {
+        if (_vec.size() == _capacity) {
+            std::vector<int>::iterator it = _vec.begin();
+            _hash.erase(*it);
+            _vec.erase(_vec.begin());
+        }
+        _vec.push_back(key);
+    }
+    _hash[key] = value;
+}
+
+void LRUCache::updateLRU(int key) {
+    std::vector<int> tmp;
+    for(int i=0; i<_vec.size(); i++) {
+        if(_vec[i]!=key) {
+            tmp.push_back(_vec[i]);
+        }
+    }
+    tmp.push_back(key);
+    _vec.clear();
+    _vec = tmp;//更新_vec 当前使用的key放在数组最后一个元素作为最近使用
+}
+
 #pragma mark code-test
 /*
  Solution8 solve;
