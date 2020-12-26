@@ -102,41 +102,73 @@ int Solution8::lengthOfLongestSubstring(std::string arr) {
 
 LRUCache::LRUCache(int capacity) {
     _capacity = capacity;
+    _head = new DListNode(0);
+    _tail = new DListNode(0);
+    _head->rlink = _tail;
+    _tail->llink = _head;
 }
 
 int LRUCache::get(int key) {
     if (_hash.find(key) == _hash.end()) {
         return -1;
     } else {
-        updateLRU(key);
+        update_LRU(key);
         return _hash[key];
     }
 }
     
 void LRUCache::put(int key, int value) {
     if (_hash.find(key) != _hash.end()) {
-        updateLRU(key);//更新缓存
+        update_LRU(key);//更新缓存
     } else {
-        if (_vec.size() == _capacity) {
-            std::vector<int>::iterator it = _vec.begin();
-            _hash.erase(*it);
-            _vec.erase(_vec.begin());
+        if (_cur == _capacity) {
+            //删这个（key, value)
+            int d = _head->rlink->val;
+            _hash.erase(d);
+            delete_LRU();
+        } else {
+            _cur++;
         }
-        _vec.push_back(key);
+        insert_LRU(key);
     }
     _hash[key] = value;
 }
 
-void LRUCache::updateLRU(int key) {
-    std::vector<int> tmp;
-    for(int i=0; i<_vec.size(); i++) {
-        if(_vec[i]!=key) {
-            tmp.push_back(_vec[i]);
+void LRUCache::insert_LRU(int key) {
+    DListNode *pt = new DListNode(key);
+    //插入尾部
+    pt->rlink = _tail;
+    pt->llink = _tail->llink;
+    _tail->llink->rlink = pt;
+    _tail->llink = pt;
+}
+
+void LRUCache::delete_LRU() {
+    DListNode *pt = _head->rlink;
+    _head->rlink = pt->rlink;
+    pt->rlink->llink = _head;
+    delete pt;
+}
+
+void LRUCache::update_LRU(int key) {
+    DListNode *pt = _head;
+    while(pt) {
+        if (pt->val == key) {//找到该key
+            break;
+        } else {
+            pt = pt->rlink;
         }
     }
-    tmp.push_back(key);
-    _vec.clear();
-    _vec = tmp;//更新_vec 当前使用的key放在数组最后一个元素作为最近使用
+    //将key更新到链表尾部
+    //删除key
+    pt->llink->rlink = pt->rlink;
+    pt->rlink->llink = pt->llink;
+    
+    //插入尾部 _tail之前
+    pt->rlink = _tail;
+    pt->llink = _tail->llink;
+    _tail->llink->rlink = pt;
+    _tail->llink = pt;
 }
 
 #pragma mark code-test

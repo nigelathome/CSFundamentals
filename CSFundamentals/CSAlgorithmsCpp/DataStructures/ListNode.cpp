@@ -11,3 +11,7 @@
 ListNode::ListNode(int x) : val(x), next(NULL) {
     
 }
+
+DListNode::DListNode(int x) : val(x), llink(NULL), rlink(NULL) {
+    
+}
