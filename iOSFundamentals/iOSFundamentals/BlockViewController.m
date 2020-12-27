@@ -20,6 +20,9 @@
 //    [self captureValueByBlock];
     [self makeRetainCycle];
 //    self.myBlock();
+    
+    //3中类型block
+    [self _3typesBlock];
 #pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
 }
 
@@ -57,4 +60,26 @@
     printf("Retain Count = %ld\n", CFGetRetainCount((__bridge CFTypeRef)(self.myBlock)));
 }
 
+- (void)dealloc {
+    LGNSLog(@"release %@", [self class]);
+}
+
+- (void)_3typesBlock {
+    //全局block
+    void (^globalBlk)(void) = ^{
+        LGNSLog(@"全局block");
+    };
+    globalBlk();
+    
+    //ARC下栈的block都会自动copy到堆block 自动释放
+    int a = 3;
+    void (^mallocBlk)(void) = ^{
+        LGNSLog(@"栈block, %d", a);
+    };
+    mallocBlk();
+    
+    //MRC下才会有栈block
+}
+
 @end
+
