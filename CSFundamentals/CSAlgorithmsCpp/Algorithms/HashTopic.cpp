@@ -171,6 +171,68 @@ void LRUCache::update_LRU(int key) {
     _tail->llink = pt;
 }
 
+bool cmp_pair(std::pair<int, int> a, std::pair<int, int> b) {
+    return a.second < b.second;
+}
+
+LFUCache::LFUCache(int capacity) {
+    _capacity = capacity;
+    _cur = 0;
+}
+
+int LFUCache::get(int key) {
+    int val = -1;
+    if (_hash.find(key) != _hash.end()) {
+        val = _hash[key];
+        update_LFU(key);
+        sort_LFU();
+    }
+    return val;
+}
+
+void LFUCache::put(int key, int value) {
+    if(_capacity==0) return;
+    if(_hash.find(key)!=_hash.end()) {
+        update_LFU(key);
+    } else {
+        if(_cur<_capacity) {
+            insert_LFU(key);
+            _cur++;
+        } else {
+            //删除要淘汰的k和对应的v (k, v)
+            int d = _cache[0].first;
+            _hash.erase(d);
+            delete_LFU();
+            //插入新key
+            insert_LFU(key);
+        }
+    }
+    
+    sort_LFU();
+    _hash[key] = value;
+}
+
+void LFUCache::update_LFU(int key) {
+    int i=0;
+    while (i<_cache.size() && _cache[i].first!=key) i++;//找到缓存中的key并更新次数
+    std::pair<int, int> cur_pair = _cache[i];
+    cur_pair.second+=1;
+    _cache.erase(_cache.begin()+i);
+    _cache.push_back(cur_pair);
+}
+
+void LFUCache::sort_LFU() {
+    std::sort(_cache.begin(), _cache.end(), cmp_pair);
+}
+
+void LFUCache::insert_LFU(int key) {
+    _cache.push_back(std::make_pair(key, 1));
+}
+
+void LFUCache::delete_LFU() {
+    _cache.erase(_cache.begin());
+}
+
 #pragma mark code-test
 /*
  Solution8 solve;

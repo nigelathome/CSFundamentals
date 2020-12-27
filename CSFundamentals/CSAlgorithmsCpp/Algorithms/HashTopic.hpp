@@ -44,4 +44,30 @@ public:
     void delete_LRU();
 };
 
+//460. LFU 缓存
+class LFUCache {
+public:
+    //缓存key 记录最少使用的key 按从小到大排序
+    std::vector<std::pair<int, int>> _cache;//pair的first和second分别表示key和出现的次数
+    int _capacity;
+    int _cur;
+    std::map<int, int> _hash;
+    
+    LFUCache(int capacity);
+    int get(int key);
+    void put(int key, int value);
+    
+    //调整LFU的key
+    void update_LFU(int key);
+    
+    //对key从小到大排序
+    void sort_LFU();
+    
+    //插入新key
+    void insert_LFU(int key);
+
+    //删除最不常用的key
+    void delete_LFU();
+};
+
 #endif /* HashTopic_hpp */
