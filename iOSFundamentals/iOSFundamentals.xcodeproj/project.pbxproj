@@ -23,6 +23,8 @@
 		2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900C2594310E001E06C4 /* NSObject+LGKVO.m */; };
 		2671901025947BE6001E06C4 /* TimerRelaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */; };
 		267190132594803C001E06C4 /* NSTimer+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 267190122594803C001E06C4 /* NSTimer+block.m */; };
+		2671901625981C60001E06C4 /* LGSafetyDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901525981C60001E06C4 /* LGSafetyDictionary.m */; };
+		2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901825984630001E06C4 /* ThreadSafetyViewController.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -88,6 +90,10 @@
 		2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerRelaseViewController.m; sourceTree = "<group>"; };
 		267190112594803C001E06C4 /* NSTimer+block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTimer+block.h"; sourceTree = "<group>"; };
 		267190122594803C001E06C4 /* NSTimer+block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+block.m"; sourceTree = "<group>"; };
+		2671901425981C60001E06C4 /* LGSafetyDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGSafetyDictionary.h; sourceTree = "<group>"; };
+		2671901525981C60001E06C4 /* LGSafetyDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGSafetyDictionary.m; sourceTree = "<group>"; };
+		2671901725984630001E06C4 /* ThreadSafetyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafetyViewController.h; sourceTree = "<group>"; };
+		2671901825984630001E06C4 /* ThreadSafetyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafetyViewController.m; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -262,6 +268,10 @@
 				2671900F25947BE6001E06C4 /* TimerRelaseViewController.m */,
 				267190112594803C001E06C4 /* NSTimer+block.h */,
 				267190122594803C001E06C4 /* NSTimer+block.m */,
+				2671901425981C60001E06C4 /* LGSafetyDictionary.h */,
+				2671901525981C60001E06C4 /* LGSafetyDictionary.m */,
+				2671901725984630001E06C4 /* ThreadSafetyViewController.h */,
+				2671901825984630001E06C4 /* ThreadSafetyViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -345,6 +355,7 @@
 				269E11762579FC84008D362B /* RuntimeViewController.m in Sources */,
 				26AD95BA258F515600CCA46C /* LGPatch.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
+				2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				26C9E5402591D768001FF50F /* ThreadKeepAliveViewController.m in Sources */,
@@ -357,6 +368,7 @@
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
 				2671901025947BE6001E06C4 /* TimerRelaseViewController.m in Sources */,
+				2671901625981C60001E06C4 /* LGSafetyDictionary.m in Sources */,
 				26C9E53D2591AE48001FF50F /* TimerViewController.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
