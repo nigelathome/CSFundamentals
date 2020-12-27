@@ -19,6 +19,7 @@
 #import "UIEventRespViewController.h"
 #import "OtherViewController.h"
 #import "TimerRelaseViewController.h"
+#import "ThreadSafetyViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -119,7 +120,14 @@
             [self.navigationController pushViewController:timerRelaseVC animated:YES];
         }
             break;
+
         case 11: {
+            ThreadSafetyViewController *threadSafetyVC = [[ThreadSafetyViewController alloc] init];
+            [self.navigationController pushViewController:threadSafetyVC animated:YES];
+        }
+            break;
+            
+        case 12: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
         }
@@ -133,7 +141,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"其他"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"其他"];
     }
     return _dataArray;
 }
