@@ -13,6 +13,9 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIView *chunk;
 
+@property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, strong) UIView *chunk2;
+
 @end
 
 @implementation AnimationViewController
@@ -21,6 +24,9 @@
     [super viewDidLoad];
     self.title = @"动画";
     
+    /*
+     timer创建动画
+     */
     self.chunk = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
     self.chunk.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:self.chunk];
@@ -35,6 +41,31 @@
         strongSelf.chunk.frame = newFrame;
     }];
     [self.timer fire];
+    
+    /*
+     CADisplayLink动画
+     */
+    self.chunk2 = [[UIView alloc] initWithFrame:CGRectMake(0, 250, 100, 100)];
+    self.chunk2.backgroundColor = [UIColor magentaColor];
+    [self.view addSubview:self.chunk2];
+    CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+}
+
+- (void)refresh {
+    if(self.chunk2.frame.origin.x+100>=[UIScreen mainScreen].bounds.size.width) {
+        return;
+    }
+    CGRect newFrame = CGRectMake(self.chunk2.frame.origin.x+1, self.chunk2.frame.origin.y, self.chunk2.frame.size.width, self.chunk2.frame.size.height);
+    self.chunk2.frame = newFrame;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if(self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
 }
 
 @end
