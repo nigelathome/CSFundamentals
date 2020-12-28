@@ -25,6 +25,7 @@
 		267190132594803C001E06C4 /* NSTimer+block.m in Sources */ = {isa = PBXBuildFile; fileRef = 267190122594803C001E06C4 /* NSTimer+block.m */; };
 		2671901625981C60001E06C4 /* LGSafetyDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901525981C60001E06C4 /* LGSafetyDictionary.m */; };
 		2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901825984630001E06C4 /* ThreadSafetyViewController.m */; };
+		2671901C259976A9001E06C4 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901B259976A9001E06C4 /* AnimationViewController.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -94,6 +95,8 @@
 		2671901525981C60001E06C4 /* LGSafetyDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGSafetyDictionary.m; sourceTree = "<group>"; };
 		2671901725984630001E06C4 /* ThreadSafetyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafetyViewController.h; sourceTree = "<group>"; };
 		2671901825984630001E06C4 /* ThreadSafetyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafetyViewController.m; sourceTree = "<group>"; };
+		2671901A259976A9001E06C4 /* AnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
+		2671901B259976A9001E06C4 /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				2671901525981C60001E06C4 /* LGSafetyDictionary.m */,
 				2671901725984630001E06C4 /* ThreadSafetyViewController.h */,
 				2671901825984630001E06C4 /* ThreadSafetyViewController.m */,
+				2671901A259976A9001E06C4 /* AnimationViewController.h */,
+				2671901B259976A9001E06C4 /* AnimationViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				26718FFB25930AA0001E06C4 /* OtherViewController.m in Sources */,
 				2608B82E2586212E0052FC1F /* ViewA.m in Sources */,
 				265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */,
+				2671901C259976A9001E06C4 /* AnimationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
