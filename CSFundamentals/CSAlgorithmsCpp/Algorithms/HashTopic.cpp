@@ -171,66 +171,97 @@ void LRUCache::update_LRU(int key) {
     _tail->llink = pt;
 }
 
-bool cmp_pair(std::pair<int, int> a, std::pair<int, int> b) {
-    return a.second < b.second;
-}
-
 LFUCache::LFUCache(int capacity) {
     _capacity = capacity;
     _cur = 0;
+    //构造频率数组 0是空节点 从下标1开始表示出现次数1次
+    _freq_vec.push_back(0);
 }
 
 int LFUCache::get(int key) {
     int val = -1;
-    if (_hash.find(key) != _hash.end()) {
-        val = _hash[key];
+    if (_key_map.find(key) != _key_map.end()) {
+        CacheNode *pt = _key_map[key];
+        val = pt->value;
         update_LFU(key);
-        sort_LFU();
     }
     return val;
 }
 
 void LFUCache::put(int key, int value) {
     if(_capacity==0) return;
-    if(_hash.find(key)!=_hash.end()) {
+    if(_key_map.find(key)!=_key_map.end()) {//对于之前出现过的key更新出现频率
         update_LFU(key);
+        _key_map[key]->value = value;//更新已有缓存的key-value
     } else {
+        //对于之前没有出现过的key 判断是否缓存溢出
         if(_cur<_capacity) {
-            insert_LFU(key);
             _cur++;
         } else {
             //删除要淘汰的k和对应的v (k, v)
-            int d = _cache[0].first;
-            _hash.erase(d);
             delete_LFU();
-            //插入新key
-            insert_LFU(key);
         }
+        
+        //插入新key
+        insert_LFU(key, value);
     }
-    
-    sort_LFU();
-    _hash[key] = value;
 }
 
 void LFUCache::update_LFU(int key) {
-    int i=0;
-    while (i<_cache.size() && _cache[i].first!=key) i++;//找到缓存中的key并更新次数
-    std::pair<int, int> cur_pair = _cache[i];
-    cur_pair.second+=1;
-    _cache.erase(_cache.begin()+i);
-    _cache.push_back(cur_pair);
+    CacheNode *pt = _key_map[key];
+    
+    //删除该节点在fre下标的链条上
+    pt->llink->rlink = pt->rlink;
+    if(pt->rlink) {
+        pt->llink = pt->llink;
+    } 
+    
+    int new_freq = pt->freq+1;//出现频率加1
+    pt->freq = new_freq;
+    if (_freq_vec.size()<=new_freq) {
+        _freq_vec.push_back(new CacheNode(0, 0));
+    }
+    //在new_freq下标的链条上尾插入该节点
+    CacheNode *head = _freq_vec[new_freq];
+    while (head->rlink) {
+        head = head->rlink;
+    }
+    head->rlink = pt;
+    pt->llink = head;
 }
 
-void LFUCache::sort_LFU() {
-    std::sort(_cache.begin(), _cache.end(), cmp_pair);
-}
-
-void LFUCache::insert_LFU(int key) {
-    _cache.push_back(std::make_pair(key, 1));
+void LFUCache::insert_LFU(int key, int value) {
+    //插入新节点一定是在频率1的链条上
+    CacheNode *node = new CacheNode(key, value);
+    if (_freq_vec.size()<=1) {
+        _freq_vec.push_back(new CacheNode(0, 0));
+    }
+    CacheNode *head = _freq_vec[1];
+    while (head->rlink) {
+        head = head->rlink;
+    }
+    head->rlink = node;
+    node->llink = head;
+    
+    //保存该key对于的结点地址
+    _key_map[key] = node;
 }
 
 void LFUCache::delete_LFU() {
-    _cache.erase(_cache.begin());
+    if (_freq_vec.size()==1) {
+        return;
+    }
+    
+    int i=1;
+    while (!_freq_vec[i]->rlink && i<_freq_vec.size()) i++;
+    CacheNode *head = _freq_vec[i];
+    
+    //删除头结点并把map上对应的key也删掉
+    CacheNode *del_node = head->rlink;
+    head->rlink = del_node->rlink;
+    del_node->llink = head;
+    _key_map.erase(del_node->key);
+    delete del_node;
 }
 
 #pragma mark code-test

@@ -45,26 +45,34 @@ public:
 };
 
 //460. LFU 缓存
+struct CacheNode {//该结构记录键值对和出现的频率
+    int key;//建
+    int value;//值
+    int freq;//频率
+    
+    CacheNode *llink;//多个频率相同的结点组成链表
+    CacheNode *rlink;//多个频率相同的结点组成链表
+    //插入结点使用尾插法 删除结点从头部删除
+    CacheNode(int k, int v) : key(k), value(v), freq(1), llink(NULL), rlink(NULL) {}
+};
+
 class LFUCache {
 public:
-    //缓存key 记录最少使用的key 按从小到大排序
-    std::vector<std::pair<int, int>> _cache;//pair的first和second分别表示key和出现的次数
     int _capacity;
     int _cur;
-    std::map<int, int> _hash;
+    
+    std::map<int, CacheNode *> _key_map;//保存键key和结点的地址
+    std::vector<CacheNode *> _freq_vec;//第i项保存出现频率都是i的结点 多个相同频率的结点构成双向链表
     
     LFUCache(int capacity);
     int get(int key);
     void put(int key, int value);
     
-    //调整LFU的key
+    //调整LFU的key出现的频率
     void update_LFU(int key);
     
-    //对key从小到大排序
-    void sort_LFU();
-    
     //插入新key
-    void insert_LFU(int key);
+    void insert_LFU(int key, int value);
 
     //删除最不常用的key
     void delete_LFU();
