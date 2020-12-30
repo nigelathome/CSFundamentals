@@ -27,6 +27,9 @@ public:
     
     //51. N 皇后
     std::vector<std::vector<std::string>> solveNQueens(int n);
+    
+    //剑指 Offer 12. 矩阵中的路径
+    bool exist(std::vector<std::vector<char>>& board, std::string word);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

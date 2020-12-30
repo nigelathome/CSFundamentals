@@ -186,6 +186,47 @@ std::vector<std::vector<std::string>> Solution3::solveNQueens(int n) {
     return result;
 }
 
+//上、左、右、下 方向数组
+static int x[] = {0, -1, 0, 1};
+static int y[] = {-1, 0, 1, 0};
+
+void dfs_find_path(std::vector<std::vector<char>> &board, int row, int col,
+                   std::string word, int len,
+                   bool &is_find) {
+    if (len==word.size()) {
+        is_find = true;
+        return;
+    }
+    if (is_find) {
+        return;
+    }
+    
+    if (row<board.size() && col<board[0].size() && board[row][col]==word[len]) {
+        
+        //防止重复下一次搜索到该元素 将其置为一个永远不可能相等的符号 在回溯会该轮递归的时候再置回来
+        char t = board[row][col];
+        board[row][col] = '*';
+        
+        for (int i=0; i<4; i++) {
+            int new_x = row + x[i];
+            int new_y = col + y[i];
+            dfs_find_path(board, new_x, new_y, word, len+1, is_find);
+        }
+        
+        board[row][col] = t;
+    }
+}
+
+bool Solution3::exist(std::vector<std::vector<char>>& board, std::string word) {
+    bool result = false;
+    for (int i=0; i<board.size(); i++) {
+        for (int j=0; j<board[0].size(); j++) {
+            dfs_find_path(board, i, j, word, 0, result);
+        }
+    }
+    return result;
+}
+
 #pragma mark code-test
 /*
  void calculate(int n, int &sum) {

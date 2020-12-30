@@ -14,34 +14,13 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<int> result;
-    int val=0;
+    std::vector<std::vector<char>> board1 = {{'a','b','c','e'}, {'s','f','c','s'}, {'a','d','e','e'}};
+    std::string word1 ="abcced";
     
-    LFUCache lFUCache(2);
-    lFUCache.put(1, 1);
-    lFUCache.put(2, 2);
+    Solution3 solve;
+    bool is_exist = solve.exist(board1, word1);
+    std::cout << boolalpha << is_exist << endl;
     
-    val = lFUCache.get(1);      // 返回 1
-    result.push_back(val);
-    
-    lFUCache.put(3, 3);   // 去除键 2
-    
-    val = lFUCache.get(2);      // 返回 -1（未找到）
-    result.push_back(val);
-    
-    val = lFUCache.get(3);      // 返回 3
-    result.push_back(val);
-    
-    lFUCache.put(4, 4);   // 去除键 1
-    
-    val = lFUCache.get(1);      // 返回 -1（未找到）
-    result.push_back(val);
-    
-    val = lFUCache.get(3);      // 返回 3
-    result.push_back(val);
-
-    val = lFUCache.get(4);      // 返回 4
-    result.push_back(val);
     
     return 0;
 }
