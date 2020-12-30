@@ -30,6 +30,9 @@ public:
     
     //剑指 Offer 12. 矩阵中的路径
     bool exist(std::vector<std::vector<char>>& board, std::string word);
+    
+    //剑指 Offer 13. 机器人的运动范围
+    int movingCount(int m, int n, int k);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

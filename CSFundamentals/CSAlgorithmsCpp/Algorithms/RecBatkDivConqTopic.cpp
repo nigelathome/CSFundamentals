@@ -228,6 +228,46 @@ bool Solution3::exist(std::vector<std::vector<char>>& board, std::string word) {
     return result;
 }
 
+int dit_sum(int v) {
+    int sum = 0;
+    while(v) {
+        sum += v % 10;
+        v /= 10;
+    }
+    return sum;
+}
+
+void get_move(std::vector<std::vector<char>> &matrix, int row, int col, int k, int &cnt) {
+    if (row>=matrix.size() || row<0
+        || col>=matrix[0].size() || col<0
+        || matrix[row][col]=='#') {
+        return;
+    }
+   
+    matrix[row][col] = '#';
+    //计算格子行和列的位数和
+    int sum = dit_sum(row);
+    sum += dit_sum(col);
+    if (sum<=k) {
+        cnt++;
+        for (int i=0; i<4; i++) {
+            int new_x = row + x[i];
+            int new_y = col + y[i];
+            get_move(matrix, new_x, new_y, k, cnt);
+        }
+    }
+}
+
+int Solution3::movingCount(int m, int n, int k) {
+    int result = 0;
+    //建立一个m行n列的矩阵 *表示可以走 #表示不能走
+    std::vector<std::vector<char>> M(m, std::vector<char>(n, '*'));
+    //dfs计算满足条件的格子 从左上角(0, 0)开始
+    get_move(M, 0, 0, k, result);
+    
+    return result;
+}
+
 #pragma mark code-test
 /*
  void calculate(int n, int &sum) {
@@ -331,5 +371,14 @@ bool Solution3::exist(std::vector<std::vector<char>>& board, std::string word) {
      }
      printf("\n");
  }
+ */
+
+/*
+ std::vector<std::vector<char>> board1 = {{'a','b','c','e'}, {'s','f','c','s'}, {'a','d','e','e'}};
+ std::string word1 ="abcced";
+ 
+ Solution3 solve;
+ bool is_exist = solve.exist(board1, word1);
+ std::cout << boolalpha << is_exist << endl;
  */
 

@@ -14,13 +14,9 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    std::vector<std::vector<char>> board1 = {{'a','b','c','e'}, {'s','f','c','s'}, {'a','d','e','e'}};
-    std::string word1 ="abcced";
-    
     Solution3 solve;
-    bool is_exist = solve.exist(board1, word1);
-    std::cout << boolalpha << is_exist << endl;
-    
+    int cnt = solve.movingCount(16, 8, 4);
+    std::cout << cnt << endl;
     
     return 0;
 }
