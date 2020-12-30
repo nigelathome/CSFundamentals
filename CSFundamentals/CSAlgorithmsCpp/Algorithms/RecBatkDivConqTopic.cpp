@@ -201,19 +201,20 @@ void dfs_find_path(std::vector<std::vector<char>> &board, int row, int col,
         return;
     }
     
-    if (row<board.size() && col<board[0].size() && board[row][col]==word[len]) {
-        
-        //防止重复下一次搜索到该元素 将其置为一个永远不可能相等的符号 在回溯会该轮递归的时候再置回来
-        char t = board[row][col];
-        board[row][col] = '*';
-        
-        for (int i=0; i<4; i++) {
-            int new_x = row + x[i];
-            int new_y = col + y[i];
-            dfs_find_path(board, new_x, new_y, word, len+1, is_find);
+    if (row>=0 && row<board.size() && col>=0 && col<board[0].size()) {
+        if (board[row][col]==word[len]) {
+            //防止重复下一次搜索到该元素 将其置为一个永远不可能相等的符号 在回溯会该轮递归的时候再置回来
+            char t = board[row][col];
+            board[row][col] = '*';
+            
+            for (int i=0; i<4; i++) {
+                int new_x = row + x[i];
+                int new_y = col + y[i];
+                dfs_find_path(board, new_x, new_y, word, len+1, is_find);
+            }
+            
+            board[row][col] = t;
         }
-        
-        board[row][col] = t;
     }
 }
 
