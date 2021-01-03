@@ -33,6 +33,9 @@ public:
     
     //剑指 Offer 13. 机器人的运动范围
     int movingCount(int m, int n, int k);
+    
+    //NC59 矩阵的最小路径和
+    int minPathSum(std::vector<std::vector<int> >& matrix);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

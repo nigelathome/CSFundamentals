@@ -15,8 +15,10 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, CHINA!\n";
     
     Solution3 solve;
-    int cnt = solve.movingCount(16, 8, 4);
-    std::cout << cnt << endl;
+    std::vector<std::vector<int>> matrix{{1,3,5,9}, {8,1,3,4}, {5,0,6,1}, {8,8,4,0}};
+    int result = solve.minPathSum(matrix);
+    printf("%d\n", result);
+    
     
     return 0;
 }

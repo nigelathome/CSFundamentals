@@ -268,6 +268,30 @@ int Solution3::movingCount(int m, int n, int k) {
     return result;
 }
 
+void cal_p(std::vector<std::vector<int>> M, std::vector<std::vector<int>> &p) {
+    //从右下角开始计算p矩阵每个元素的值
+    //p[i][j] 代表从(i,j)位置作为起点 走到右下角目标位置的最小路径。所以p[0][0]就是从左上角走到右下角的最小路径
+    for(int i=(int)p.size()-1; i>=0; i--) {
+        for(int j=(int)p[0].size()-1; j>=0; j--) {
+            if(i==p.size()-1 && j==p[0].size()-1) {
+                p[i][j] = M[i][j];//右下角
+            } else if(i+1>p.size()-1) {
+                p[i][j] = p[i][j+1]+ M[i][j];//最下面一行
+            } else if(j+1>p[0].size()-1) {
+                p[i][j] = p[i+1][j] + M[i][j];//最右面一行
+            } else {
+                p[i][j] = std::min(p[i+1][j], p[i][j+1]) + M[i][j];
+            }
+        }
+    }
+}
+
+int Solution3::minPathSum(std::vector<std::vector<int> >& matrix) {
+    std::vector<std::vector<int>> p(matrix.size(), std::vector<int>(matrix[0].size(), 0));
+    cal_p(matrix, p);
+    return p[0][0];
+}
+
 #pragma mark code-test
 /*
  void calculate(int n, int &sum) {
@@ -380,5 +404,11 @@ int Solution3::movingCount(int m, int n, int k) {
  Solution3 solve;
  bool is_exist = solve.exist(board1, word1);
  std::cout << boolalpha << is_exist << endl;
+ */
+
+/*
+ Solution3 solve;
+ int cnt = solve.movingCount(16, 8, 4);
+ std::cout << cnt << endl;
  */
 
