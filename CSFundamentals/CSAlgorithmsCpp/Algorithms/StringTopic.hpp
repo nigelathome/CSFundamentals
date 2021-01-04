@@ -32,6 +32,9 @@ public:
     
     //NC52 括号序列
     bool isValid(std::string s);
+    
+    //NC55 最长公共前缀
+    std::string longestCommonPrefix(std::vector<std::string>& strs);
        
 };
 

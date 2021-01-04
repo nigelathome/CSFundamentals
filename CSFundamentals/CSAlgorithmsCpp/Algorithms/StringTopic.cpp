@@ -190,6 +190,32 @@ bool Solution7::isValid(std::string s) {
      return st.empty();
 }
 
+std::string Solution7::longestCommonPrefix(std::vector<std::string>& strs) {
+    if(strs.size()==0) return "";//空串
+    std::string com = strs[0];
+    //选取长度最小的字符串作为目标串
+    for (std::string s : strs) {
+        if(s.size()<com.size()) com = s;
+    }
+    if(com.empty()) return "";
+    
+    for(std::string st : strs){
+        if(com.size()==0) return " ";
+        int j = (int)com.size()-1;
+        //删除不相同的部分 剩下的才是公共前缀
+        while(j>=0 && j<=st.size()-1) {
+            if(st[j]==com[j]) break;
+            else j--;
+        }
+        
+        if(j<0) return "";
+        else if (j!=com.size()-1) {
+            com.erase(j+1, com.size()-1);//删除从j+1 - 末尾不相同的部分
+        }
+    }
+    return com;
+}
+
 #pragma mark code-test
 /*
  Solution7 solve;

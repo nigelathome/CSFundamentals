@@ -14,10 +14,11 @@ int main(int argc, const char * argv[]) {
     std::cout << "Hello, US!\n";
     std::cout << "Hello, CHINA!\n";
     
-    Solution3 solve;
-    std::vector<int> arr{5, 2, 3};
-    int result = solve.minMoney(arr, 2);
-    printf("%d\n", result);
+    Solution7 sovle;
+    std::vector<std::string> strs{"abca","abc","abca","abc","abcc"};
+    std::string com = sovle.longestCommonPrefix(strs);
+    
+    printf("%s\n", com.c_str());
     
     return 0;
 }

@@ -440,3 +440,10 @@ int Solution3::minMoney(std::vector<int>& arr, int aim) {
  int result = solve.minPathSum(matrix);
  printf("%d\n", result);
  */
+
+/*
+ Solution3 solve;
+ std::vector<int> arr{5, 2, 3};
+ int result = solve.minMoney(arr, 2);
+ printf("%d\n", result);
+ */
