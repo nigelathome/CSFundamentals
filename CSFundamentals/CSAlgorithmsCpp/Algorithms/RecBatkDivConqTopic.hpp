@@ -36,6 +36,9 @@ public:
     
     //NC59 矩阵的最小路径和
     int minPathSum(std::vector<std::vector<int> >& matrix);
+    
+    //NC126 换钱的最少硬币数
+    int minMoney(std::vector<int>& arr, int aim);
 };
 
 #endif /* RecBatkDivConqTopic_hpp */

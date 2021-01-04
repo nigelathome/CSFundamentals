@@ -292,6 +292,28 @@ int Solution3::minPathSum(std::vector<std::vector<int> >& matrix) {
     return p[0][0];
 }
 
+int Solution3::minMoney(std::vector<int>& arr, int aim) {
+    if(aim==0) return 0;
+    std::sort(arr.begin(), arr.end());
+    std::vector<int> dp;
+    for(int i=0; i<=aim; i++) {
+        dp.push_back(-1);//-1代表不能用给定的面额筹够目标金额
+    }
+    
+    dp[0] = 0;//总额是0 需要0张纸币
+    for(int i=1; i<=aim; i++) {
+        for(int j=0; j<arr.size(); j++) {
+            if(i-arr[j]>=0) {//arr从小到大排序 ∴之后的元素一定也小于0
+                if(dp[i] == -1
+                   || dp[i] > dp[i-arr[j]]+1) {
+                    dp[i] = dp[i-arr[j]] + 1; //dp[i] = min(dp[i-0], dp[i-1]...) + 1
+                }
+            }
+        }
+    }
+    return dp[aim];
+}
+
 #pragma mark code-test
 /*
  void calculate(int n, int &sum) {
@@ -412,3 +434,9 @@ int Solution3::minPathSum(std::vector<std::vector<int> >& matrix) {
  std::cout << cnt << endl;
  */
 
+/*
+ Solution3 solve;
+ std::vector<std::vector<int>> matrix{{1,3,5,9}, {8,1,3,4}, {5,0,6,1}, {8,8,4,0}};
+ int result = solve.minPathSum(matrix);
+ printf("%d\n", result);
+ */
