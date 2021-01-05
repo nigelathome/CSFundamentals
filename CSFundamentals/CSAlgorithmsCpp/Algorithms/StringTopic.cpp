@@ -269,3 +269,11 @@ std::string Solution7::longestCommonPrefix(std::vector<std::string>& strs) {
  bool valid = solve.isValid(s);
  std::cout << boolalpha << valid << endl;
  */
+
+/*
+ Solution7 sovle;
+ std::vector<std::string> strs{"abca","abc","abca","abc","abcc"};
+ std::string com = sovle.longestCommonPrefix(strs);
+ 
+ printf("%s\n", com.c_str());
+ */

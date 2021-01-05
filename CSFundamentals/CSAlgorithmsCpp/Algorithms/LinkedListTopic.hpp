@@ -54,6 +54,9 @@ public:
     
     //剑指 Offer 62. 圆圈中最后剩下的数字
     int lastRemaining(int n, int m);
+    
+    //NC50 链表中的节点每k个一组翻转
+    ListNode* reverseKGroup(ListNode* head, int k);
 };
 
 #endif /* LinkedListTopic_hpp */

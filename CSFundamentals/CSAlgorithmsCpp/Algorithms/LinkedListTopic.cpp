@@ -421,6 +421,26 @@ int Solution::lastRemaining(int n, int m) {
     return result;
 }
 
+ListNode* Solution::reverseKGroup(ListNode* head, int k) {
+    std::vector<ListNode *> node_vec;
+    ListNode *pt = head;
+    while(pt) {
+        node_vec.push_back(pt);
+        pt = pt->next;
+    }
+    
+    for(int i=0; i<node_vec.size()/k; i++) {//分成size()/k组 每组进行翻转
+        std::reverse(node_vec.begin() + i*k, node_vec.begin() + i*k + k);
+    }
+    
+    node_vec.push_back(0);
+    for(int i=0; i<node_vec.size()-1; i++){//重新组织链接关系
+        node_vec[i]->next = node_vec[i+1];
+    }
+    
+    return node_vec[0];
+}
+
 #pragma mark code-test
 /*
  ListNode a(10), b(20), c(30), d(40), e(50);
