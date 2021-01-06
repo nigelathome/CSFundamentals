@@ -16,6 +16,9 @@
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic, strong) UIView *chunk2;
 
+@property (nonatomic, strong) CALayer *curLayer;
+@property (nonatomic, strong) UIView *curView;
+
 @end
 
 @implementation AnimationViewController
@@ -120,7 +123,7 @@
 }
 
 - (void)calayerUsage {
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(20, 450, 100, 100)];
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(20, 430, 100, 100)];
     v.layer.backgroundColor = [UIColor orangeColor].CGColor;
     v.layer.cornerRadius = 20.0f;
     [self.view addSubview:v];
@@ -129,6 +132,27 @@
     layer.frame = CGRectMake(0, 0, 50, 50);
     layer.backgroundColor = [UIColor yellowColor].CGColor;
     [v.layer addSublayer:layer];
+    
+    /*
+     隐式动画 UIView的隐式动画默认关闭 CALayer隐式动画默认开启
+     */
+    self.curLayer = [[CALayer alloc] init];
+    self.curLayer.frame = CGRectMake(20, 550, 100, 100);
+    self.curLayer.backgroundColor = [UIColor purpleColor].CGColor;
+    [self.view.layer addSublayer:self.curLayer];
+    
+    self.curView = [[UIView alloc] init];
+    self.curView.frame = CGRectMake(20, 670, 100, 100);
+    self.curView.backgroundColor = [UIColor brownColor];
+    [self.view addSubview:self.curView];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    CGFloat x_po = (NSInteger)random() % ((NSInteger)UIScreen.mainScreen.bounds.size.width);//随机定义x位置
+    CGRect newLayerFrame = CGRectMake(x_po, self.curLayer.frame.origin.y, self.curLayer.frame.size.width, self.curLayer.frame.size.height);
+    CGRect newViewFrame = CGRectMake(x_po, self.curView.frame.origin.y, self.curView.frame.size.width, self.curView.frame.size.height);
+    self.curLayer.frame = newLayerFrame;
+    self.curView.frame = newViewFrame;
 }
 
 @end
