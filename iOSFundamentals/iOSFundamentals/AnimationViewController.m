@@ -145,6 +145,12 @@
     self.curView.frame = CGRectMake(20, 670, 100, 100);
     self.curView.backgroundColor = [UIColor brownColor];
     [self.view addSubview:self.curView];
+    
+    layer.beginTime = CACurrentMediaTime() + 5;//使用时空观延迟渲染
+    layer.duration = 5;
+    layer.speed = 2;
+    
+    self.curLayer.speed = 0.25;//使用时空观延迟layer动画的渲染
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
