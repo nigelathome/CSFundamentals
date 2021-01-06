@@ -33,6 +33,11 @@
      CADisplayLink动画
      */
     [self cadisplayLinkUsage];
+    
+    /*
+     布局锚点的使用
+     */
+    [self layoutAnchorUsage];
 }
 
 - (void)timerAnimationUsage {
@@ -50,11 +55,10 @@
         strongSelf.chunk.frame = newFrame;
     }];
     [self.timer fire];
-    
-    /*
-     CADisplayLink动画
-     */
-    self.chunk2 = [[UIView alloc] initWithFrame:CGRectMake(0, 250, 100, 100)];
+}
+
+- (void)cadisplayLinkUsage {
+    self.chunk2 = [[UIView alloc] initWithFrame:CGRectMake(0, 210, 100, 100)];
     self.chunk2.backgroundColor = [UIColor magentaColor];
     [self.view addSubview:self.chunk2];
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];
@@ -75,6 +79,38 @@
         [self.timer invalidate];
         self.timer = nil;
     }
+}
+
+- (void)layoutAnchorUsage {
+    UIView *v1 = [[UIView alloc] init];
+    v1.backgroundColor = [UIColor redColor];
+    v1.translatesAutoresizingMaskIntoConstraints = NO;//使用自动布局需要将其置为NO
+    [self.view addSubview:v1];
+    
+    UIView *v2 = [[UIView alloc] init];
+    v2.backgroundColor = [UIColor greenColor];
+    v2.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:v2];
+    
+    UIView *v3 = [[UIView alloc] init];
+    v3.backgroundColor = [UIColor blueColor];
+    v3.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:v3];
+    
+    [v1.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:320].active = YES;
+    [v1.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active = YES;
+    [v1.heightAnchor constraintEqualToConstant:100].active = YES;
+    
+    [v2.topAnchor constraintEqualToAnchor:v1.topAnchor].active = YES;
+    [v2.bottomAnchor constraintEqualToAnchor:v1.bottomAnchor].active = YES;
+    [v2.widthAnchor constraintEqualToAnchor:v1.widthAnchor].active = YES;
+    [v2.leftAnchor constraintEqualToAnchor:v1.rightAnchor constant:20].active = YES;
+
+    [v3.topAnchor constraintEqualToAnchor:v1.topAnchor].active = YES;
+    [v3.bottomAnchor constraintEqualToAnchor:v1.bottomAnchor].active = YES;
+    [v3.widthAnchor constraintEqualToAnchor:v1.widthAnchor].active = YES;
+    [v3.leftAnchor constraintEqualToAnchor:v2.rightAnchor constant:20].active = YES;
+    [v3.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
 }
 
 @end
