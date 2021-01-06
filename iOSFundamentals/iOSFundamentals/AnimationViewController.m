@@ -19,6 +19,8 @@
 @property (nonatomic, strong) CALayer *curLayer;
 @property (nonatomic, strong) UIView *curView;
 
+@property (nonatomic, strong) CALayer *transctionLayer;
+
 @end
 
 @implementation AnimationViewController
@@ -153,7 +155,7 @@
     self.curLayer.speed = 0.25;//使用时空观延迟layer动画的渲染
     
     self.transctionLayer = [[CALayer alloc] init];
-    self.transctionLayer.frame = CGRectMake(20, 510, 5, 50);
+    self.transctionLayer.frame = CGRectMake(20, 510, 50, 50);
     self.transctionLayer.backgroundColor = [UIColor grayColor].CGColor;
     [self.view.layer addSublayer:self.transctionLayer];
 }
@@ -164,6 +166,17 @@
     CGRect newViewFrame = CGRectMake(x_po, self.curView.frame.origin.y, self.curView.frame.size.width, self.curView.frame.size.height);
     self.curLayer.frame = newLayerFrame;
     self.curView.frame = newViewFrame;
+    
+    //事务的使用 设置动画属性
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:5];
+    [CATransaction setCompletionBlock:^{
+        LGNSLog(@"CATransaction finish");
+    }];
+    [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    CGRect newTransactionLayerFrame = CGRectMake(x_po, self.transctionLayer.frame.origin.y, self.transctionLayer.frame.size.width, self.transctionLayer.frame.size.height);
+    self.transctionLayer.frame = newTransactionLayerFrame;
+    [CATransaction commit];
 }
 
 @end
