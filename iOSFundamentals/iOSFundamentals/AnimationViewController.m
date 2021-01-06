@@ -38,6 +38,11 @@
      布局锚点的使用
      */
     [self layoutAnchorUsage];
+    
+    /*
+     CALayer的使用
+     */
+    [self calayerUsage];
 }
 
 - (void)timerAnimationUsage {
@@ -112,6 +117,18 @@
     [v3.widthAnchor constraintEqualToAnchor:v1.widthAnchor].active = YES;
     [v3.leftAnchor constraintEqualToAnchor:v2.rightAnchor constant:20].active = YES;
     [v3.rightAnchor constraintEqualToAnchor:self.view.rightAnchor constant:-20].active = YES;
+}
+
+- (void)calayerUsage {
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(20, 450, 100, 100)];
+    v.layer.backgroundColor = [UIColor orangeColor].CGColor;
+    v.layer.cornerRadius = 20.0f;
+    [self.view addSubview:v];
+    
+    CALayer *layer = [[CALayer alloc] init];
+    layer.frame = CGRectMake(0, 0, 50, 50);
+    layer.backgroundColor = [UIColor yellowColor].CGColor;
+    [v.layer addSublayer:layer];
 }
 
 @end
