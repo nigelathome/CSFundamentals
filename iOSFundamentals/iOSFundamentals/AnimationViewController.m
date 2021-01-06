@@ -49,14 +49,14 @@
 }
 
 - (void)timerAnimationUsage {
-    self.chunk = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
+    self.chunk = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 50, 50)];
     self.chunk.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:self.chunk];
 
     __weak typeof(self) weakSelf = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1/60.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        if(strongSelf.chunk.frame.origin.x+100>=[UIScreen mainScreen].bounds.size.width) {
+        if(strongSelf.chunk.frame.origin.x+50>=[UIScreen mainScreen].bounds.size.width) {
             return;
         }
         CGRect newFrame = CGRectMake(strongSelf.chunk.frame.origin.x+1, strongSelf.chunk.frame.origin.y, strongSelf.chunk.frame.size.width, strongSelf.chunk.frame.size.height);
@@ -66,7 +66,7 @@
 }
 
 - (void)cadisplayLinkUsage {
-    self.chunk2 = [[UIView alloc] initWithFrame:CGRectMake(0, 210, 100, 100)];
+    self.chunk2 = [[UIView alloc] initWithFrame:CGRectMake(0, 160, 50, 50)];
     self.chunk2.backgroundColor = [UIColor magentaColor];
     [self.view addSubview:self.chunk2];
     //CADisplayLink本质是定时器 刷新频率和屏幕一致
@@ -75,7 +75,7 @@
 }
 
 - (void)refresh {
-    if(self.chunk2.frame.origin.x+100>=[UIScreen mainScreen].bounds.size.width) {
+    if(self.chunk2.frame.origin.x+50>=[UIScreen mainScreen].bounds.size.width) {
         return;
     }
     CGRect newFrame = CGRectMake(self.chunk2.frame.origin.x+1, self.chunk2.frame.origin.y, self.chunk2.frame.size.width, self.chunk2.frame.size.height);
@@ -106,9 +106,9 @@
     v3.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:v3];
     
-    [v1.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:320].active = YES;
+    [v1.topAnchor constraintEqualToAnchor:self.view.topAnchor constant:220].active = YES;
     [v1.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:20].active = YES;
-    [v1.heightAnchor constraintEqualToConstant:100].active = YES;
+    [v1.heightAnchor constraintEqualToConstant:50].active = YES;
     
     [v2.topAnchor constraintEqualToAnchor:v1.topAnchor].active = YES;
     [v2.bottomAnchor constraintEqualToAnchor:v1.bottomAnchor].active = YES;
@@ -123,13 +123,13 @@
 }
 
 - (void)calayerUsage {
-    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(20, 430, 100, 100)];
+    UIView *v = [[UIView alloc] initWithFrame:CGRectMake(20, 300, 50, 50)];
     v.layer.backgroundColor = [UIColor orangeColor].CGColor;
-    v.layer.cornerRadius = 20.0f;
+    v.layer.cornerRadius = 10.0f;
     [self.view addSubview:v];
     
     CALayer *layer = [[CALayer alloc] init];
-    layer.frame = CGRectMake(0, 0, 50, 50);
+    layer.frame = CGRectMake(0, 0, 25, 25);
     layer.backgroundColor = [UIColor yellowColor].CGColor;
     [v.layer addSublayer:layer];
     
@@ -137,12 +137,12 @@
      隐式动画 UIView的隐式动画默认关闭 CALayer隐式动画默认开启
      */
     self.curLayer = [[CALayer alloc] init];
-    self.curLayer.frame = CGRectMake(20, 550, 100, 100);
+    self.curLayer.frame = CGRectMake(20, 370, 50, 50);
     self.curLayer.backgroundColor = [UIColor purpleColor].CGColor;
     [self.view.layer addSublayer:self.curLayer];
     
     self.curView = [[UIView alloc] init];
-    self.curView.frame = CGRectMake(20, 670, 100, 100);
+    self.curView.frame = CGRectMake(20, 440, 50, 50);
     self.curView.backgroundColor = [UIColor brownColor];
     [self.view addSubview:self.curView];
     
@@ -151,6 +151,11 @@
     layer.speed = 2;
     
     self.curLayer.speed = 0.25;//使用时空观延迟layer动画的渲染
+    
+    self.transctionLayer = [[CALayer alloc] init];
+    self.transctionLayer.frame = CGRectMake(20, 510, 5, 50);
+    self.transctionLayer.backgroundColor = [UIColor grayColor].CGColor;
+    [self.view.layer addSublayer:self.transctionLayer];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
