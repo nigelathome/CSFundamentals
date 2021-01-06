@@ -61,6 +61,7 @@
     self.chunk2 = [[UIView alloc] initWithFrame:CGRectMake(0, 210, 100, 100)];
     self.chunk2.backgroundColor = [UIColor magentaColor];
     [self.view addSubview:self.chunk2];
+    //CADisplayLink本质是定时器 刷新频率和屏幕一致
     CADisplayLink *displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(refresh)];
     [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
 }
