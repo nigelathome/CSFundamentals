@@ -27,10 +27,19 @@
     /*
      timer创建动画
      */
+    [self timerAnimationUsage];
+    
+    /*
+     CADisplayLink动画
+     */
+    [self cadisplayLinkUsage];
+}
+
+- (void)timerAnimationUsage {
     self.chunk = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 100, 100)];
     self.chunk.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:self.chunk];
-    
+
     __weak typeof(self) weakSelf = self;
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1/60.0 repeats:YES block:^(NSTimer * _Nonnull timer) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
