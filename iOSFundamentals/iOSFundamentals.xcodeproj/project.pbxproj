@@ -26,6 +26,7 @@
 		2671901625981C60001E06C4 /* LGSafetyDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901525981C60001E06C4 /* LGSafetyDictionary.m */; };
 		2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901825984630001E06C4 /* ThreadSafetyViewController.m */; };
 		2671901C259976A9001E06C4 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901B259976A9001E06C4 /* AnimationViewController.m */; };
+		2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901E25A6E6F9001E06C4 /* MyLayer.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -97,6 +98,8 @@
 		2671901825984630001E06C4 /* ThreadSafetyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafetyViewController.m; sourceTree = "<group>"; };
 		2671901A259976A9001E06C4 /* AnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationViewController.h; sourceTree = "<group>"; };
 		2671901B259976A9001E06C4 /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
+		2671901D25A6E6F9001E06C4 /* MyLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLayer.h; sourceTree = "<group>"; };
+		2671901E25A6E6F9001E06C4 /* MyLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLayer.m; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 				2671901825984630001E06C4 /* ThreadSafetyViewController.m */,
 				2671901A259976A9001E06C4 /* AnimationViewController.h */,
 				2671901B259976A9001E06C4 /* AnimationViewController.m */,
+				2671901D25A6E6F9001E06C4 /* MyLayer.h */,
+				2671901E25A6E6F9001E06C4 /* MyLayer.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -388,6 +393,7 @@
 				2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
 				26C9E5452591FEA0001FF50F /* ScrollSmothViewController.m in Sources */,
+				2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,

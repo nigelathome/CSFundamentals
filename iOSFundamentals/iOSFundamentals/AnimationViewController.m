@@ -7,8 +7,9 @@
 //
 
 #import "AnimationViewController.h"
+#import "MyLayer.h"
 
-@interface AnimationViewController ()
+@interface AnimationViewController () <CALayerDelegate>
 
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIView *chunk;
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) UIView *curView;
 
 @property (nonatomic, strong) CALayer *transctionLayer;
+@property (nonatomic, strong) MyLayer *myLayer;
 
 @end
 
@@ -133,6 +135,11 @@
     CALayer *layer = [[CALayer alloc] init];
     layer.frame = CGRectMake(0, 0, 25, 25);
     layer.backgroundColor = [UIColor yellowColor].CGColor;
+    
+    layer.beginTime = CACurrentMediaTime() + 5;//使用时空观延迟渲染
+    layer.duration = 5;
+    layer.speed = 2;
+    
     [v.layer addSublayer:layer];
     
     /*
@@ -141,6 +148,7 @@
     self.curLayer = [[CALayer alloc] init];
     self.curLayer.frame = CGRectMake(20, 370, 50, 50);
     self.curLayer.backgroundColor = [UIColor purpleColor].CGColor;
+    self.curLayer.speed = 0.25;//使用时空观延迟layer动画的渲染
     [self.view.layer addSublayer:self.curLayer];
     
     self.curView = [[UIView alloc] init];
@@ -148,16 +156,22 @@
     self.curView.backgroundColor = [UIColor brownColor];
     [self.view addSubview:self.curView];
     
-    layer.beginTime = CACurrentMediaTime() + 5;//使用时空观延迟渲染
-    layer.duration = 5;
-    layer.speed = 2;
-    
-    self.curLayer.speed = 0.25;//使用时空观延迟layer动画的渲染
-    
+    /*
+     使用事务 管理动画
+     */
     self.transctionLayer = [[CALayer alloc] init];
     self.transctionLayer.frame = CGRectMake(20, 510, 50, 50);
     self.transctionLayer.backgroundColor = [UIColor grayColor].CGColor;
     [self.view.layer addSublayer:self.transctionLayer];
+    
+    /*
+     自定义动画动作 action
+     */
+    self.myLayer = [[MyLayer alloc] init];
+    self.myLayer.frame = CGRectMake(20, 580, 50, 50);
+    self.myLayer.backgroundColor = [UIColor systemPinkColor].CGColor;
+    [self.view.layer addSublayer:self.myLayer];
+    self.myLayer.delegate = self;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -177,6 +191,16 @@
     CGRect newTransactionLayerFrame = CGRectMake(x_po, self.transctionLayer.frame.origin.y, self.transctionLayer.frame.size.width, self.transctionLayer.frame.size.height);
     self.transctionLayer.frame = newTransactionLayerFrame;
     [CATransaction commit];
+    
+    CGRect newMyLayerFrame = CGRectMake(x_po, self.myLayer.frame.origin.y, self.myLayer.frame.size.width, self.myLayer.frame.size.height);
+    self.myLayer.frame = newMyLayerFrame;
 }
 
+#pragma mark - CALayerDelegate
+- (nullable id<CAAction>)actionForLayer:(CALayer *)layer forKey:(NSString *)event {
+    LGNSLog(@"CALayerDelegate: %@", event);
+    CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    basicAnimation.toValue = (__bridge id _Nullable)([UIColor systemBlueColor].CGColor);
+    return basicAnimation;
+}
 @end
