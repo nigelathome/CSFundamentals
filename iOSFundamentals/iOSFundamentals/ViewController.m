@@ -139,6 +139,11 @@
         }
             break;
         case 14: {
+            Animation3ViewController *animation3VC = [[Animation3ViewController alloc] init];
+            [self.navigationController pushViewController:animation3VC animated:YES];
+        }
+            break;
+        case 15: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
         }
