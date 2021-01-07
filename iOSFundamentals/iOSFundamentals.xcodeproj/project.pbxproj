@@ -27,6 +27,7 @@
 		2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901825984630001E06C4 /* ThreadSafetyViewController.m */; };
 		2671901C259976A9001E06C4 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901B259976A9001E06C4 /* AnimationViewController.m */; };
 		2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901E25A6E6F9001E06C4 /* MyLayer.m */; };
+		2671902225A6FDB3001E06C4 /* Animation2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671902125A6FDB3001E06C4 /* Animation2ViewController.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		26C9E54725920287001FF50F /* 背景图.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 26C9E54625920287001FF50F /* 背景图.jpeg */; };
 		26C9E54A25924C64001FF50F /* MRCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54925924C64001FF50F /* MRCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26C9E54D2592BF80001FF50F /* LGImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54C2592BF80001FF50F /* LGImageLoader.m */; };
+		26ECBF4925A70F91002E2754 /* 粒子.png in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF4825A70F91002E2754 /* 粒子.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		2671901B259976A9001E06C4 /* AnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationViewController.m; sourceTree = "<group>"; };
 		2671901D25A6E6F9001E06C4 /* MyLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLayer.h; sourceTree = "<group>"; };
 		2671901E25A6E6F9001E06C4 /* MyLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLayer.m; sourceTree = "<group>"; };
+		2671902025A6FDB3001E06C4 /* Animation2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation2ViewController.h; sourceTree = "<group>"; };
+		2671902125A6FDB3001E06C4 /* Animation2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation2ViewController.m; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		26C9E54925924C64001FF50F /* MRCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRCViewController.m; sourceTree = "<group>"; };
 		26C9E54B2592BF80001FF50F /* LGImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGImageLoader.h; sourceTree = "<group>"; };
 		26C9E54C2592BF80001FF50F /* LGImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGImageLoader.m; sourceTree = "<group>"; };
+		26ECBF4825A70F91002E2754 /* 粒子.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "粒子.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +204,7 @@
 				268A5BD824639A8100B0438E /* Info.plist */,
 				268A5BD924639A8100B0438E /* main.m */,
 				2660A84F2565717D001801C4 /* BlockViewController.h */,
+				26ECBF4825A70F91002E2754 /* 粒子.png */,
 				2660A8502565717D001801C4 /* BlockViewController.m */,
 				2660A85425662D16001801C4 /* CopyViewController.h */,
 				2660A85525662D16001801C4 /* CopyViewController.m */,
@@ -282,6 +288,8 @@
 				2671901B259976A9001E06C4 /* AnimationViewController.m */,
 				2671901D25A6E6F9001E06C4 /* MyLayer.h */,
 				2671901E25A6E6F9001E06C4 /* MyLayer.m */,
+				2671902025A6FDB3001E06C4 /* Animation2ViewController.h */,
+				2671902125A6FDB3001E06C4 /* Animation2ViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -346,6 +354,7 @@
 				268A5BD724639A8100B0438E /* LaunchScreen.storyboard in Resources */,
 				268A5BD424639A8100B0438E /* Assets.xcassets in Resources */,
 				268A5BD224639A7F00B0438E /* Main.storyboard in Resources */,
+				26ECBF4925A70F91002E2754 /* 粒子.png in Resources */,
 				26C9E54725920287001FF50F /* 背景图.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +382,7 @@
 				26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */,
 				26C9E53A2590CAD4001FF50F /* UIViewController+EventTracking.m in Sources */,
 				26AD95C0258F9A0A00CCA46C /* NSObject+LGBaseModel.m in Sources */,
+				2671902225A6FDB3001E06C4 /* Animation2ViewController.m in Sources */,
 				26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */,
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,

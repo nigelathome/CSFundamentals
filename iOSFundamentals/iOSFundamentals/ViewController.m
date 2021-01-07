@@ -21,6 +21,7 @@
 #import "TimerRelaseViewController.h"
 #import "ThreadSafetyViewController.h"
 #import "AnimationViewController.h"
+#import "Animation2ViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -127,11 +128,16 @@
         }
             break;
         case 12: {
-            AnimationViewController *AnimationVC = [[AnimationViewController alloc] init];
-            [self.navigationController pushViewController:AnimationVC animated:YES];
+            AnimationViewController *animationVC = [[AnimationViewController alloc] init];
+            [self.navigationController pushViewController:animationVC animated:YES];
         }
             break;
         case 13: {
+            Animation2ViewController *animation2VC = [[Animation2ViewController alloc] init];
+            [self.navigationController pushViewController:animation2VC animated:YES];
+        }
+            break;
+        case 14: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
         }
@@ -145,7 +151,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"动画", @"其他主题"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"动画-1", @"动画-2", @"其他主题"];
     }
     return _dataArray;
 }

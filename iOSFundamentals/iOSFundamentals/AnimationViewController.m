@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"动画";
+    self.title = @"动画-1";
     
     /*
      timer创建动画
