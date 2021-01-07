@@ -20,7 +20,13 @@
     /*
      粒子动画
      */
-    [self emitterLayer];
+//    [self emitterLayer];
+    
+    /*
+     渐变动画
+     */
+    [self gradientLayer];
+    
 }
 
 - (void)emitterLayer {
@@ -44,7 +50,7 @@
     cell.yAcceleration = 25;//y轴方向加速度
     cell.emissionRange = (CGFloat)(M_PI_4);//发射角度随机区间
 
-    layer.emitterCells = [NSArray arrayWithObject:cell];
+    layer.emitterCells = @[cell];
     [self.view.layer addSublayer:layer];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 88, 100, 30)];
@@ -52,6 +58,16 @@
     label.font = [UIFont systemFontOfSize:14];
     label.textColor = [UIColor whiteColor];
     [self.view addSubview:label];
+}
+
+- (void)gradientLayer {
+    CAGradientLayer *layer = [[CAGradientLayer alloc] init];
+    layer.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    layer.colors = @[(id)UIColor.redColor.CGColor, (id)UIColor.greenColor.CGColor, (id)UIColor.blueColor.CGColor];
+    layer.locations = @[@0.2, @0.5, @0.8];
+    layer.startPoint = CGPointMake(0, 0);
+    layer.endPoint = CGPointMake(1, 1);
+    [self.view.layer addSublayer:layer];
 }
 
 @end
