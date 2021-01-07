@@ -184,6 +184,7 @@
     //事务的使用 设置动画属性
     [CATransaction begin];
     [CATransaction setAnimationDuration:5];
+//    [CATransaction setDisableActions:YES];//关闭隐式动画
     [CATransaction setCompletionBlock:^{
         LGNSLog(@"CATransaction finish");
     }];
@@ -197,10 +198,11 @@
 }
 
 #pragma mark - CALayerDelegate
-- (nullable id<CAAction>)actionForLayer:(CALayer *)layer forKey:(NSString *)event {
+- (id<CAAction>)actionForLayer:(CALayer *)layer forKey:(NSString *)event {
     LGNSLog(@"CALayerDelegate: %@", event);
     CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
     basicAnimation.toValue = (__bridge id _Nullable)([UIColor systemBlueColor].CGColor);
     return basicAnimation;
+//    return [NSNull null];//关闭隐式动画
 }
 @end
