@@ -22,6 +22,7 @@
 #import "ThreadSafetyViewController.h"
 #import "AnimationViewController.h"
 #import "Animation2ViewController.h"
+#import "Animation3ViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -151,7 +152,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"动画-1", @"动画-2", @"其他主题"];
+        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"动画-1", @"动画-2", @"动画-3", @"其他主题"];
     }
     return _dataArray;
 }

@@ -58,6 +58,7 @@
 		26C9E54A25924C64001FF50F /* MRCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54925924C64001FF50F /* MRCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26C9E54D2592BF80001FF50F /* LGImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54C2592BF80001FF50F /* LGImageLoader.m */; };
 		26ECBF4925A70F91002E2754 /* 粒子.png in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF4825A70F91002E2754 /* 粒子.png */; };
+		26ECBF4C25A7238F002E2754 /* Animation3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ECBF4B25A7238F002E2754 /* Animation3ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,8 @@
 		26C9E54B2592BF80001FF50F /* LGImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGImageLoader.h; sourceTree = "<group>"; };
 		26C9E54C2592BF80001FF50F /* LGImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGImageLoader.m; sourceTree = "<group>"; };
 		26ECBF4825A70F91002E2754 /* 粒子.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "粒子.png"; sourceTree = "<group>"; };
+		26ECBF4A25A7238F002E2754 /* Animation3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation3ViewController.h; sourceTree = "<group>"; };
+		26ECBF4B25A7238F002E2754 /* Animation3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation3ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +293,8 @@
 				2671901E25A6E6F9001E06C4 /* MyLayer.m */,
 				2671902025A6FDB3001E06C4 /* Animation2ViewController.h */,
 				2671902125A6FDB3001E06C4 /* Animation2ViewController.m */,
+				26ECBF4A25A7238F002E2754 /* Animation3ViewController.h */,
+				26ECBF4B25A7238F002E2754 /* Animation3ViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
 				26C9E531259053C1001FF50F /* LGAlertButton.m in Sources */,
 				26AD95C32590192E00CCA46C /* LGExpertInfo+Additional.m in Sources */,
+				26ECBF4C25A7238F002E2754 /* Animation3ViewController.m in Sources */,
 				26C9E54D2592BF80001FF50F /* LGImageLoader.m in Sources */,
 				26C9E54A25924C64001FF50F /* MRCViewController.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
