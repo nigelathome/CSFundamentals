@@ -65,8 +65,13 @@
     layer.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     layer.colors = @[(id)UIColor.redColor.CGColor, (id)UIColor.greenColor.CGColor, (id)UIColor.blueColor.CGColor];
     layer.locations = @[@0.2, @0.5, @0.8];
+    //渐变从左上角->右下角
     layer.startPoint = CGPointMake(0, 0);
     layer.endPoint = CGPointMake(1, 1);
+    
+    //渐变从上->下
+//    layer.startPoint = CGPointMake(0, 0);
+//    layer.endPoint = CGPointMake(1, 1);
     [self.view.layer addSublayer:layer];
 }
 
