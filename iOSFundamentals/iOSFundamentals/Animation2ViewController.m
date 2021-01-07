@@ -25,7 +25,12 @@
     /*
      渐变动画
      */
-    [self gradientLayer];
+//    [self gradientLayer];
+    
+    /*
+     复制动画
+     */
+    [self replicatorLayer];
     
 }
 
@@ -71,7 +76,22 @@
     
     //渐变从上->下
 //    layer.startPoint = CGPointMake(0, 0);
-//    layer.endPoint = CGPointMake(1, 1);
+//    layer.endPoint = CGPointMake(0, 1);
+    [self.view.layer addSublayer:layer];
+}
+
+- (void)replicatorLayer {
+    CAReplicatorLayer *layer = [[CAReplicatorLayer alloc] init];
+    layer.frame = CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.height);
+    layer.instanceCount = 8;//复制图层的个数
+    layer.instanceTransform = CATransform3DMakeTranslation(40, 40, 0);//每个图层的3D变换
+    layer.instanceColor = UIColor.cyanColor.CGColor;//颜色
+    layer.instanceBlueOffset = -0.1;//颜色偏移
+    
+    CALayer *ins = [[CALayer alloc] init];
+    ins.frame = CGRectMake(0, 0, 100, 100);
+    ins.backgroundColor = UIColor.whiteColor.CGColor;
+    [layer addSublayer:ins];
     [self.view.layer addSublayer:layer];
 }
 
