@@ -30,8 +30,12 @@
     /*
      复制动画
      */
-    [self replicatorLayer];
+//    [self replicatorLayer];
     
+    /*
+     形状动画
+     */
+    [self shapeLayer];
 }
 
 - (void)emitterLayer {
@@ -92,6 +96,20 @@
     ins.frame = CGRectMake(0, 0, 100, 100);
     ins.backgroundColor = UIColor.whiteColor.CGColor;
     [layer addSublayer:ins];
+    [self.view.layer addSublayer:layer];
+}
+
+- (void)shapeLayer {
+    CAShapeLayer *layer = [[CAShapeLayer alloc] init];
+    layer.frame = CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.height);
+    layer.fillColor = [UIColor greenColor].CGColor;//填充色
+    layer.lineWidth = 3;//线宽
+    layer.strokeColor = UIColor.redColor.CGColor;//线条颜色
+    
+    UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:layer.position radius:100 startAngle:0 endAngle:(CGFloat)(M_PI * 2) clockwise:YES];
+    layer.path = path.CGPath;
+    
+    layer.position = self.view.center;
     [self.view.layer addSublayer:layer];
 }
 
