@@ -41,7 +41,7 @@
     anim.type = @"pageCurl";
     // 设置动画的方向
     anim.subtype = kCATransitionFromLeft;
-    anim.duration = 2;
+    anim.duration = 0.8;
     [self.imageV.layer addAnimation:anim forKey:nil];
 }
 
@@ -52,6 +52,5 @@
     }
     return _imageV;
 }
-
 
 @end
