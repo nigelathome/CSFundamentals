@@ -24,6 +24,7 @@
 #import "Animation2ViewController.h"
 #import "Animation3ViewController.h"
 #import "Animation4ViewController.h"
+#import "Animation5ViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -149,7 +150,13 @@
             [self.navigationController pushViewController:animation4VC animated:YES];
         }
             break;
+            
         case 16: {
+            Animation5ViewController *animation5VC = [[Animation5ViewController alloc] init];
+            [self.navigationController pushViewController:animation5VC animated:YES];
+        }
+            break;
+        case 17: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
         }
@@ -163,7 +170,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD测试", @"block测试", @"深浅拷贝测试", @"标记指针", @"runloop应用测试", @"runtime应用测试", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"动画-1", @"动画-2", @"动画-3", @"动画-4", @"其他主题"];
+        _dataArray = @[@"类和对象", @"GCD的应用", @"block的应用", @"深浅拷贝测试", @"标记指针", @"runloop的应用", @"runtime的应用", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"基础动画的应用", @"CALayer子类的应用", @"CoreAnimation框架应用", @"CALayer渲染方法的应用", @"页面卡顿优化应用", @"其他主题"];
     }
     return _dataArray;
 }
