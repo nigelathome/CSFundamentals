@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"动画-3";
+    self.title = @"CoreAnimation框架应用";
     
     /*
      关键帧动画

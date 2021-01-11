@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"动画-2";
+    self.title = @"CALayer子类的应用";;
     
     /*
      粒子动画
