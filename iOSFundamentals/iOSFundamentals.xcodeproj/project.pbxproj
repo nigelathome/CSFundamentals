@@ -11,6 +11,8 @@
 		2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82A258620EB0052FC1F /* UIEventRespViewController.m */; };
 		2608B82E2586212E0052FC1F /* ViewA.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B82D2586212E0052FC1F /* ViewA.m */; };
 		2608B831258621420052FC1F /* ViewB.m in Sources */ = {isa = PBXBuildFile; fileRef = 2608B830258621420052FC1F /* ViewB.m */; };
+		2646998A25AC032C002940DF /* Animation4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2646998925AC032C002940DF /* Animation4ViewController.m */; };
+		2646998D25AC0499002940DF /* CustomerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2646998C25AC0499002940DF /* CustomerView.m */; };
 		265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */; };
 		265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB21256A19F600DEFE55 /* RunloopViewController.m */; };
 		265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 265DEB34256DF8D200DEFE55 /* ClassObjectViewController.m */; };
@@ -75,6 +77,10 @@
 		2608B82D2586212E0052FC1F /* ViewA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewA.m; sourceTree = "<group>"; };
 		2608B82F258621420052FC1F /* ViewB.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewB.h; sourceTree = "<group>"; };
 		2608B830258621420052FC1F /* ViewB.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewB.m; sourceTree = "<group>"; };
+		2646998825AC032C002940DF /* Animation4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation4ViewController.h; sourceTree = "<group>"; };
+		2646998925AC032C002940DF /* Animation4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation4ViewController.m; sourceTree = "<group>"; };
+		2646998B25AC0499002940DF /* CustomerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomerView.h; sourceTree = "<group>"; };
+		2646998C25AC0499002940DF /* CustomerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomerView.m; sourceTree = "<group>"; };
 		265DEB1C2569FFE800DEFE55 /* MemManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemManagerViewController.h; sourceTree = "<group>"; };
 		265DEB1D2569FFE800DEFE55 /* MemManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemManagerViewController.m; sourceTree = "<group>"; };
 		265DEB1F256A08BB00DEFE55 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -310,6 +316,10 @@
 				2671902125A6FDB3001E06C4 /* Animation2ViewController.m */,
 				26ECBF4A25A7238F002E2754 /* Animation3ViewController.h */,
 				26ECBF4B25A7238F002E2754 /* Animation3ViewController.m */,
+				2646998825AC032C002940DF /* Animation4ViewController.h */,
+				2646998925AC032C002940DF /* Animation4ViewController.m */,
+				2646998B25AC0499002940DF /* CustomerView.h */,
+				2646998C25AC0499002940DF /* CustomerView.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -431,10 +441,12 @@
 				26C9E5452591FEA0001FF50F /* ScrollSmothViewController.m in Sources */,
 				2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
+				2646998A25AC032C002940DF /* Animation4ViewController.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
 				26B203FE2590373700C93FE7 /* UIButton+Block.m in Sources */,
 				26718FFB25930AA0001E06C4 /* OtherViewController.m in Sources */,
+				2646998D25AC0499002940DF /* CustomerView.m in Sources */,
 				2608B82E2586212E0052FC1F /* ViewA.m in Sources */,
 				265DEB38256DFDD400DEFE55 /* LGPerson.m in Sources */,
 				2671901C259976A9001E06C4 /* AnimationViewController.m in Sources */,
