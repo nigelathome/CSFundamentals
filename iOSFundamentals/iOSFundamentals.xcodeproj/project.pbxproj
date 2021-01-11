@@ -59,6 +59,8 @@
 		26C9E54725920287001FF50F /* 背景图.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 26C9E54625920287001FF50F /* 背景图.jpeg */; };
 		26C9E54A25924C64001FF50F /* MRCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54925924C64001FF50F /* MRCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26C9E54D2592BF80001FF50F /* LGImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54C2592BF80001FF50F /* LGImageLoader.m */; };
+		26D5CFD025AC6C9300F64CBD /* Animation5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D5CFCF25AC6C9300F64CBD /* Animation5ViewController.m */; };
+		26D5CFD325AC867B00F64CBD /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D5CFD225AC867B00F64CBD /* MyTableViewCell.m */; };
 		26ECBF4925A70F91002E2754 /* 粒子.png in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF4825A70F91002E2754 /* 粒子.png */; };
 		26ECBF4C25A7238F002E2754 /* Animation3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26ECBF4B25A7238F002E2754 /* Animation3ViewController.m */; };
 		26ECBF5225A76C22002E2754 /* 图册1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF4D25A76C1E002E2754 /* 图册1.jpg */; };
@@ -171,6 +173,10 @@
 		26C9E54925924C64001FF50F /* MRCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRCViewController.m; sourceTree = "<group>"; };
 		26C9E54B2592BF80001FF50F /* LGImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGImageLoader.h; sourceTree = "<group>"; };
 		26C9E54C2592BF80001FF50F /* LGImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGImageLoader.m; sourceTree = "<group>"; };
+		26D5CFCE25AC6C9300F64CBD /* Animation5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation5ViewController.h; sourceTree = "<group>"; };
+		26D5CFCF25AC6C9300F64CBD /* Animation5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation5ViewController.m; sourceTree = "<group>"; };
+		26D5CFD125AC867B00F64CBD /* MyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
+		26D5CFD225AC867B00F64CBD /* MyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTableViewCell.m; sourceTree = "<group>"; };
 		26ECBF4825A70F91002E2754 /* 粒子.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "粒子.png"; sourceTree = "<group>"; };
 		26ECBF4A25A7238F002E2754 /* Animation3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation3ViewController.h; sourceTree = "<group>"; };
 		26ECBF4B25A7238F002E2754 /* Animation3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation3ViewController.m; sourceTree = "<group>"; };
@@ -320,6 +326,10 @@
 				2646998925AC032C002940DF /* Animation4ViewController.m */,
 				2646998B25AC0499002940DF /* CustomerView.h */,
 				2646998C25AC0499002940DF /* CustomerView.m */,
+				26D5CFCE25AC6C9300F64CBD /* Animation5ViewController.h */,
+				26D5CFCF25AC6C9300F64CBD /* Animation5ViewController.m */,
+				26D5CFD125AC867B00F64CBD /* MyTableViewCell.h */,
+				26D5CFD225AC867B00F64CBD /* MyTableViewCell.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -418,6 +428,7 @@
 				26C9E53A2590CAD4001FF50F /* UIViewController+EventTracking.m in Sources */,
 				26AD95C0258F9A0A00CCA46C /* NSObject+LGBaseModel.m in Sources */,
 				2671902225A6FDB3001E06C4 /* Animation2ViewController.m in Sources */,
+				26D5CFD025AC6C9300F64CBD /* Animation5ViewController.m in Sources */,
 				26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */,
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
@@ -442,6 +453,7 @@
 				2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
 				2646998A25AC032C002940DF /* Animation4ViewController.m in Sources */,
+				26D5CFD325AC867B00F64CBD /* MyTableViewCell.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */,
 				26B203FE2590373700C93FE7 /* UIButton+Block.m in Sources */,

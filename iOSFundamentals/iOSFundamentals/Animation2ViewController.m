@@ -20,7 +20,7 @@
     /*
      粒子动画
      */
-//    [self emitterLayer];
+    [self emitterLayer];
     
     /*
      渐变动画
@@ -35,7 +35,7 @@
     /*
      形状动画
      */
-    [self shapeLayer];
+//    [self shapeLayer];
 }
 
 - (void)emitterLayer {
