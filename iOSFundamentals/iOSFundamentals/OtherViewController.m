@@ -10,7 +10,7 @@
 #import "LGPerson.h"
 #import "NSObject+LGKVO.h"
 
-@interface OtherViewController ()
+@interface OtherViewController () <NSXMLParserDelegate>
 
 @property (nonatomic, strong) LGPerson *person;
 
@@ -64,6 +64,13 @@
     self.person = [LGPerson new];
     [self setValue:@"35" forKeyPath:@"person.age"];
     [self.person LG_addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
+    
+    /*
+     XML文件读写及解析
+     */
+    NSString *xml_path = [[NSBundle mainBundle] pathForResource:@"ZYMaterialPlanPayView" ofType:@"xml"];
+    NSData *xml_data = [NSData dataWithContentsOfFile:xml_path];
+    [self xmlSAXParserWithData:xml_data];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -73,6 +80,22 @@
 #pragma mark - KVO callback
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     LGNSLog(@"KVO 观察到属性值 %@ %@", keyPath, change);
+}
+
+#pragma mark - XML
+- (void)xmlSAXParserWithData:(NSData *)data {
+    /*
+     使用apple提供的XML解析方法
+     */
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+    parser.delegate = self;
+    [parser parse];
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict {
+    if ([elementName isEqualToString:@"outlet"]) {
+        LGNSLog(@"%@", attributeDict);
+    }
 }
 
 @end
