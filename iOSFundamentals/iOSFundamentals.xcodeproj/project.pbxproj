@@ -72,6 +72,7 @@
 		26F8093925B5228A00EEC893 /* ZYMaterialPlanPayView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */; };
 		26F8094A25B528AF00EEC893 /* libGDataXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8094925B528AF00EEC893 /* libGDataXML.a */; };
 		26F8094F25B52C2E00EEC893 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8094E25B52C2E00EEC893 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26F8095625B538AF00EEC893 /* zh.json in Resources */ = {isa = PBXBuildFile; fileRef = 26F8095525B538AF00EEC893 /* zh.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,6 +196,7 @@
 		26F8094925B528AF00EEC893 /* libGDataXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDataXML.a; sourceTree = "<group>"; };
 		26F8094D25B52C2E00EEC893 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
 		26F8094E25B52C2E00EEC893 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		26F8095525B538AF00EEC893 /* zh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zh.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -353,6 +355,7 @@
 		26F8094C25B52C2E00EEC893 /* GDataXML */ = {
 			isa = PBXGroup;
 			children = (
+				26F8095525B538AF00EEC893 /* zh.json */,
 				26F8094D25B52C2E00EEC893 /* GDataXMLNode.h */,
 				26F8094E25B52C2E00EEC893 /* GDataXMLNode.m */,
 			);
@@ -425,6 +428,7 @@
 				26ECBF5625A76C22002E2754 /* 图册0.jpg in Resources */,
 				26ECBF5225A76C22002E2754 /* 图册1.jpg in Resources */,
 				26ECBF5325A76C22002E2754 /* 图册3.jpg in Resources */,
+				26F8095625B538AF00EEC893 /* zh.json in Resources */,
 				26ECBF4925A70F91002E2754 /* 粒子.png in Resources */,
 				26C9E54725920287001FF50F /* 背景图.jpeg in Resources */,
 			);

@@ -77,6 +77,13 @@
      XML文件读写及解析——DOM
      */
     [self xmlDOMParserWithData:xml_data];
+    
+    /*
+     Json读取和解析
+     */
+    NSString *json_path = [[NSBundle mainBundle] pathForResource:@"zh" ofType:@"json"];
+    NSData *json_data = [NSData dataWithContentsOfFile:json_path];
+    [self jsonParserWithData:json_data];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -88,7 +95,7 @@
     LGNSLog(@"KVO 观察到属性值 %@ %@", keyPath, change);
 }
 
-#pragma mark - XML
+#pragma mark - XML/JSON
 - (void)xmlSAXParserWithData:(NSData *)data {
     /*
      使用apple提供的XML解析方法
@@ -119,6 +126,12 @@
             }
         }
     }
+}
+
+- (void)jsonParserWithData:(NSData *)data {
+    NSError *error;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+    LGNSLog(@"解析json文件：%@", dic);
 }
 
 @end
