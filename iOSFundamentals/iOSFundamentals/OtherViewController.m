@@ -108,9 +108,16 @@
     NSError *err;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data options:0 error:&err];
     GDataXMLElement *root = doc.rootElement;
-    NSArray *elements = [root elementsForName:@"device"];
+    NSArray *elements = [root elementsForName:@"objects"];
     if ([elements count]>0) {
-        LGNSLog(@"%@", elements);
+        for (GDataXMLElement *el in elements) {
+            NSArray *children = el.children;
+            for (GDataXMLNode *node in children) {
+                if ([node.name isEqualToString:@"view"]) {
+                    LGNSLog(@"%@", node);
+                }
+            }
+        }
     }
 }
 
