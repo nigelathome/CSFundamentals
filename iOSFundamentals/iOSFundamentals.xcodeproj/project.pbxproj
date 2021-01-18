@@ -70,6 +70,8 @@
 		26ECBF5625A76C22002E2754 /* 图册0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF5125A76C21002E2754 /* 图册0.jpg */; };
 		26F8092F25B511E100EEC893 /* LGSon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8092E25B511E100EEC893 /* LGSon.m */; };
 		26F8093925B5228A00EEC893 /* ZYMaterialPlanPayView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */; };
+		26F8094A25B528AF00EEC893 /* libGDataXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8094925B528AF00EEC893 /* libGDataXML.a */; };
+		26F8094F25B52C2E00EEC893 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8094E25B52C2E00EEC893 /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +192,9 @@
 		26F8092D25B511E100EEC893 /* LGSon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGSon.h; sourceTree = "<group>"; };
 		26F8092E25B511E100EEC893 /* LGSon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGSon.m; sourceTree = "<group>"; };
 		26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ZYMaterialPlanPayView.xml; sourceTree = "<group>"; };
+		26F8094925B528AF00EEC893 /* libGDataXML.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDataXML.a; sourceTree = "<group>"; };
+		26F8094D25B52C2E00EEC893 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		26F8094E25B52C2E00EEC893 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F8094A25B528AF00EEC893 /* libGDataXML.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,10 +228,12 @@
 		268A5BC624639A7F00B0438E /* iOSFundamentals */ = {
 			isa = PBXGroup;
 			children = (
+				26F8094C25B52C2E00EEC893 /* GDataXML */,
 				26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */,
 				268A5BE124639B9A00B0438E /* GCDViewController.h */,
 				268A5BE224639B9A00B0438E /* GCDViewController.m */,
 				268A5BC724639A7F00B0438E /* AppDelegate.h */,
+				26F8094925B528AF00EEC893 /* libGDataXML.a */,
 				268A5BC824639A7F00B0438E /* AppDelegate.m */,
 				268A5BCD24639A7F00B0438E /* ViewController.h */,
 				268A5BCE24639A7F00B0438E /* ViewController.m */,
@@ -342,6 +350,15 @@
 			path = iOSFundamentals;
 			sourceTree = "<group>";
 		};
+		26F8094C25B52C2E00EEC893 /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				26F8094D25B52C2E00EEC893 /* GDataXMLNode.h */,
+				26F8094E25B52C2E00EEC893 /* GDataXMLNode.m */,
+			);
+			path = GDataXML;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -421,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				267190132594803C001E06C4 /* NSTimer+block.m in Sources */,
+				26F8094F25B52C2E00EEC893 /* GDataXMLNode.m in Sources */,
 				26AD95BD258F999600CCA46C /* LGExpertInfo.m in Sources */,
 				26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */,
 				268A5BCF24639A7F00B0438E /* ViewController.m in Sources */,
@@ -616,10 +634,15 @@
 				DEVELOPMENT_TEAM = GCQM6S64H6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = iOSFundamentals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSFundamentals",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.zhangyutv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -637,10 +660,15 @@
 				DEVELOPMENT_TEAM = GCQM6S64H6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = iOSFundamentals/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSFundamentals",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.zhangyutv;
 				PRODUCT_NAME = "$(TARGET_NAME)";

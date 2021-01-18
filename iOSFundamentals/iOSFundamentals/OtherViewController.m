@@ -9,6 +9,7 @@
 #import "OtherViewController.h"
 #import "LGPerson.h"
 #import "NSObject+LGKVO.h"
+#import "GDataXML/GDataXMLNode.h"
 
 @interface OtherViewController () <NSXMLParserDelegate>
 
@@ -66,11 +67,16 @@
     [self.person LG_addObserver:self forKeyPath:@"age" options:NSKeyValueObservingOptionNew context:nil];
     
     /*
-     XML文件读写及解析
+     XML文件读写及解析——SAX
      */
     NSString *xml_path = [[NSBundle mainBundle] pathForResource:@"ZYMaterialPlanPayView" ofType:@"xml"];
     NSData *xml_data = [NSData dataWithContentsOfFile:xml_path];
     [self xmlSAXParserWithData:xml_data];
+    
+    /*
+     XML文件读写及解析——DOM
+     */
+    [self xmlDOMParserWithData:xml_data];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -95,6 +101,16 @@
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(nullable NSString *)namespaceURI qualifiedName:(nullable NSString *)qName attributes:(NSDictionary<NSString *, NSString *> *)attributeDict {
     if ([elementName isEqualToString:@"outlet"]) {
         LGNSLog(@"%@", attributeDict);
+    }
+}
+
+- (void)xmlDOMParserWithData:(NSData *)data {
+    NSError *err;
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:data options:0 error:&err];
+    GDataXMLElement *root = doc.rootElement;
+    NSArray *elements = [root elementsForName:@"device"];
+    if ([elements count]>0) {
+        LGNSLog(@"%@", elements);
     }
 }
 
