@@ -7,6 +7,8 @@
 //
 
 #import "CopyViewController.h"
+#import "LGFather.h"
+#import "LGSon.h"
 
 @interface CopyViewController ()
 
@@ -74,5 +76,19 @@
     
     
     LGNSLog(@"%@ %d", [str class], [str isKindOfClass:[NSConstantString class]]);
+    
+    /*
+     自定义对象的copy
+     */
+    LGFather *father = [[LGFather alloc] init];
+    father.money = 10000000;
+    LGFather *father_1 = [father copy];
+    LGNSLog(@"%@", father_1);
+    LGSon *son = [[LGSon alloc] init];
+    son.hobbies = @[@"tennis", @"movies", @"jogging", @"promotion"];
+    son.age = 32;
+    son.height = 171;
+    LGSon *son_1 = [son copy];
+    LGNSLog(@"%@", son_1);
 }
 @end

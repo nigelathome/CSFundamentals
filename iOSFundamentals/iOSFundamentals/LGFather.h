@@ -10,9 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LGFather : NSObject
+@interface LGFather : NSObject <NSCopying>
 
 - (void)sitdown;
+@property (nonatomic, assign) CGFloat money;
 
 @end
 
