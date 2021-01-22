@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) long height;
 @property (nonatomic, strong) NSString *hobby;
 
+@property (nonatomic, copy) NSString *location;
+
 - (void)print;
 - (void)func;
 //- (void)myFunc;

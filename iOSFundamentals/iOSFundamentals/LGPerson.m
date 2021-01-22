@@ -10,6 +10,7 @@
 
 @interface LGPerson () {
     NSString *_secret;
+    NSString *_location;
 }
 
 @property (nonatomic, copy) NSString *name;
@@ -111,6 +112,21 @@
     LGNSLog(@"%s", __FUNCTION__);
     LGNSLog(@"%@", [self class]);
     LGNSLog(@"%@", [super class]);
+}
+
+@dynamic location;
+- (NSString *)location {
+    if (nil == _location) {
+        _location = @"";
+    }
+    return _location;
+}
+
+- (void)setLocation:(NSString *)location {
+    if (_location != location) {
+        _location = nil;
+        _location = [location copy];
+    }
 }
 
 @end

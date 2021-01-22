@@ -185,6 +185,12 @@
         LGNSLog(@"点击按钮6666");
     }];
     [self.view addSubview:btn2];
+    
+    /*
+     @dynamic关键字的使用
+     */
+    LGPerson *per = [[LGPerson alloc] init];
+    per.location = @"HAK";
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
