@@ -14,6 +14,7 @@
 #import "UIButton+Block.h"
 #import "UIAlertView+Block.h"
 #import "LGAlertButton.h"
+#import "LGHuman.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
@@ -191,6 +192,12 @@
      */
     LGPerson *per = [[LGPerson alloc] init];
     per.location = @"HAK";
+    
+    /*
+     description方法
+     */
+    LGHuman *human = [LGHuman new];
+    NSLog(@"%@", human);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

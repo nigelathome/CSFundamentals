@@ -84,6 +84,7 @@
 		26F809A225B9653F00EEC893 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8099425B9653E00EEC893 /* NSString+MJExtension.m */; };
 		26F809A325B9653F00EEC893 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8099525B9653E00EEC893 /* MJPropertyKey.m */; };
 		26F809A525B9653F00EEC893 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8099A25B9653E00EEC893 /* MJFoundation.m */; };
+		26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809B925BAD7CF00EEC893 /* LGHuman.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,8 @@
 		26F8099725B9653E00EEC893 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
 		26F8099825B9653E00EEC893 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
 		26F8099A25B9653E00EEC893 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		26F809B825BAD7CF00EEC893 /* LGHuman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGHuman.h; sourceTree = "<group>"; };
+		26F809B925BAD7CF00EEC893 /* LGHuman.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGHuman.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +426,8 @@
 				26F8099725B9653E00EEC893 /* NSObject+MJKeyValue.h */,
 				26F8099825B9653E00EEC893 /* NSObject+MJCoding.h */,
 				26F8099A25B9653E00EEC893 /* MJFoundation.m */,
+				26F809B825BAD7CF00EEC893 /* LGHuman.h */,
+				26F809B925BAD7CF00EEC893 /* LGHuman.m */,
 			);
 			path = MJExtension;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
 				2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
+				26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				26C9E5402591D768001FF50F /* ThreadKeepAliveViewController.m in Sources */,
 				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
