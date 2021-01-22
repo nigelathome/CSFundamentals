@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define  ANIMATION_DURATION 3.0f
+
+extern NSInteger const kAnimationDuration;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OtherViewController : UIViewController
