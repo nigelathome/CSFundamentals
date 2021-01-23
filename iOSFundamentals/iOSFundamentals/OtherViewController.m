@@ -11,6 +11,7 @@
 #import "NSObject+LGKVO.h"
 #import "GDataXML/GDataXMLNode.h"
 #import "MusicModel.h"
+#import "LGDownloadImageDemo.h"
 
 extern NSInteger const kAnimationDuration = 3.0f;
 
@@ -95,6 +96,12 @@ extern NSInteger const kAnimationDuration = 3.0f;
     NSString *music_string = @"{\"status\":200,\"data\":{\"curtime\":\"1469025820\",\"issmarter\":\"0\",\"xmusicnum\":\"3\",\"picurl\":[],\"playlist\":[{\"xqusic_mid\":\"000aB5HG4dioBi \",\"xqusic_id\":\"4831024\",\"xctype\":\"3\",\"xexpire_time\":\"0\",\"xdesc\":\" \",\"xsong_name\":\"海誓山盟亦会分开 \",\"xsinger_name\":\"本兮 \",\"xsong_url\":\"http://stream6.qqmusic.qq.com/16831024.wma \",\"xsong_size\":\"2496570\",\"xsong_playtime\":\"289\",\"xsong_diskname\":\"无底线 \",\"xsong_dissmid\":[\"004LrhoF44bRf2 \",\"004LrhoF44bRf2 \"],\"xsong_dissid\":\"193826\",\"xis_word\":\"0\",\"xcopy_right\":\"0\",\"xsinger_id\":\"4545\",\"xsinger_mid\":\"003LaMHm42u7qS \"},{\"xqusic_mid\":\"0019kz9c1QBWNA \",\"xqusic_id\":\"2633764432\",\"xctype\":\"1\",\"xexpire_time\":\"0\",\"xdesc\":\" \",\"xsinger_name\":\"文艺范电台 \",\"xsong_name\":\"文艺范电台 \",\"xsong_url\":\"http://img.wenyifan.net/20131221/5/1387627094890.mp3 \",\"xsong_size\":\"0\",\"xsong_playtime\":\"0\",\"xsong_diskname\":\"0\",\"xsong_dissmid\":\"0047airw212ppN \",\"xsong_dissid\":\"0\",\"xis_word\":\"-999\",\"xcopy_right\":\"-999\",\"xsinger_id\":\"-999\"},{\"xqusic_mid\":\"001rVHgt15aRmM \",\"xqusic_id\":\"699379606\",\"xctype\":\"5\",\"xexpire_time\":\"0\",\"xdesc\":\" \",\"xsinger_name\":\"soso \",\"xsong_name\":\"8446666&#46;mp3 \",\"xsong_url\":\"http://streamrdt.music.qq.com/8138.83a798500d5cb2b63f442ec3ee215a8d/1081067841469025820/8138.83a798500d.html \",\"xsong_size\":\"0\",\"xsong_playtime\":\"0\",\"xsong_diskname\":\"0\",\"xsong_dissmid\":\"0047airw212ppN \",\"xsong_dissid\":\"0\",\"xis_word\":\"-999\",\"xcopy_right\":\"-999\",\"xsinger_id\":\"-999\"}],\"systemtime\":\"1469025820\"},\"type\":\"json\"}";
     MusicModel *music = [MusicModel mj_objectWithKeyValues:music_string];
     LGNSLog(@"%@ %@", music.type, music.data.playlist[0].xsong_name);
+    
+    /*
+     NSCache的使用
+     */
+    LGDownloadImageDemo *imageDownloader = [[LGDownloadImageDemo alloc] init];
+    [imageDownloader downloadWithURL:[NSURL URLWithString:@"https://cn.bing.com/images/search?view=detailV2&ccid=HBsy4%2fic&id=8E0DA8A94CBAD03BC918A10391A649DEE94F7F39&thid=OIP.HBsy4_icdhBQ6TdOyNxc-AHaFO&mediaurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR1c1b32e3f89c761050e9374ec8dc5cf8%3frik%3dOX9P6d5JppEDoQ%26riu%3dhttp%253a%252f%252fpicapi.zhituad.com%252fphoto%252f44%252f45%252f17DFC.jpg%26ehk%3ddlYZBHmM5cBIiIDbyYxHVA63vnyEcMfGA71%252bFgw0FiU%253d%26risl%3d%26pid%3dImgRaw&exph=459&expw=650&q=%e5%9b%be%e7%89%87&simid=608006716406628762&ck=352E154B758D88937F1EF592AB3E2506&selectedIndex=4&qpvt=%e5%9b%be%e7%89%87&FORM=IRPRST&ajaxhist=0"]];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

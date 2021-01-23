@@ -85,6 +85,7 @@
 		26F809A325B9653F00EEC893 /* MJPropertyKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8099525B9653E00EEC893 /* MJPropertyKey.m */; };
 		26F809A525B9653F00EEC893 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8099A25B9653E00EEC893 /* MJFoundation.m */; };
 		26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809B925BAD7CF00EEC893 /* LGHuman.m */; };
+		26F809BE25BC131300EEC893 /* LGDownloadImageDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +235,8 @@
 		26F8099A25B9653E00EEC893 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
 		26F809B825BAD7CF00EEC893 /* LGHuman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGHuman.h; sourceTree = "<group>"; };
 		26F809B925BAD7CF00EEC893 /* LGHuman.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGHuman.m; sourceTree = "<group>"; };
+		26F809BC25BC131300EEC893 /* LGDownloadImageDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGDownloadImageDemo.h; sourceTree = "<group>"; };
+		26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGDownloadImageDemo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +391,8 @@
 				26F8092E25B511E100EEC893 /* LGSon.m */,
 				26F8095825B93B0200EEC893 /* MusicModel.h */,
 				26F8095925B93B0200EEC893 /* MusicModel.m */,
+				26F809BC25BC131300EEC893 /* LGDownloadImageDemo.h */,
+				26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -530,6 +535,7 @@
 				26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				26C9E5402591D768001FF50F /* ThreadKeepAliveViewController.m in Sources */,
+				26F809BE25BC131300EEC893 /* LGDownloadImageDemo.m in Sources */,
 				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
 				26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */,
 				26C9E53A2590CAD4001FF50F /* UIViewController+EventTracking.m in Sources */,
