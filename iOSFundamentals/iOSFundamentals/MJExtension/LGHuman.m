@@ -15,4 +15,16 @@
     return [NSString stringWithFormat:@"<%@: %p 属性：%@>", [self class], self, @{@"age" : self.age ? @(self.age) : @0, @"gender" : self.gender ? : @""}];
 }
 
++ (void)load {
+    //main函数执行前调用实现加载
+    LGNSLog(@"%p", __FUNCTION__);
+}
+
++ (void)initialize {
+    //使用该类的时候才进行调用实现加载
+    LGNSLog(@"%p", __FUNCTION__);
+}
+
+
+
 @end
