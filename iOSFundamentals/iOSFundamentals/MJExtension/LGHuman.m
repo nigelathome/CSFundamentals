@@ -25,6 +25,4 @@
     LGNSLog(@"%p", __FUNCTION__);
 }
 
-
-
 @end
