@@ -102,6 +102,15 @@ extern NSInteger const kAnimationDuration = 3.0f;
      */
     LGDownloadImageDemo *imageDownloader = [[LGDownloadImageDemo alloc] init];
     [imageDownloader downloadWithURL:[NSURL URLWithString:@"https://cn.bing.com/images/search?view=detailV2&ccid=HBsy4%2fic&id=8E0DA8A94CBAD03BC918A10391A649DEE94F7F39&thid=OIP.HBsy4_icdhBQ6TdOyNxc-AHaFO&mediaurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR1c1b32e3f89c761050e9374ec8dc5cf8%3frik%3dOX9P6d5JppEDoQ%26riu%3dhttp%253a%252f%252fpicapi.zhituad.com%252fphoto%252f44%252f45%252f17DFC.jpg%26ehk%3ddlYZBHmM5cBIiIDbyYxHVA63vnyEcMfGA71%252bFgw0FiU%253d%26risl%3d%26pid%3dImgRaw&exph=459&expw=650&q=%e5%9b%be%e7%89%87&simid=608006716406628762&ck=352E154B758D88937F1EF592AB3E2506&selectedIndex=4&qpvt=%e5%9b%be%e7%89%87&FORM=IRPRST&ajaxhist=0"]];
+    
+    /*
+     CoreFoundation <=> Foundation转换
+     */
+    NSArray *arr1 = @[@1, @2, @3, @4];
+    CFArrayRef cf_arr1 = (__bridge CFArrayRef)arr1;
+    LGNSLog(@"CF数组个数：%li", CFArrayGetCount(cf_arr1));
+    NSArray *arr2 = (__bridge NSArray *)cf_arr1;
+    LGNSLog(@"NS数组个数：%li", arr2.count);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
