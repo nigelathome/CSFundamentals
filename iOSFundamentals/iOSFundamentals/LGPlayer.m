@@ -15,7 +15,7 @@ static __strong LGPlayer *_player = nil;
 
 @implementation LGPlayer
 
-+ (instancetype)shareInstance {
++ (instancetype)sharedInstance {
     //单例：只有一个实例变量并且常驻内存
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

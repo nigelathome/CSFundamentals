@@ -127,9 +127,9 @@ extern NSInteger const kAnimationDuration = 3.0f;
     /*
      单例的使用
      */
-    LGPlayer *player1 = [LGPlayer shareInstance];
-    LGPlayer *player2 = [LGPlayer shareInstance];
-    LGPlayer *player3 = [LGPlayer shareInstance];
+    LGPlayer *player1 = [LGPlayer sharedInstance];
+    LGPlayer *player2 = [LGPlayer sharedInstance];
+    LGPlayer *player3 = [LGPlayer sharedInstance];
     LGNSLog(@"player1:%@ player2:%@ player3:%@", player1, player2, player3);
 }
 
