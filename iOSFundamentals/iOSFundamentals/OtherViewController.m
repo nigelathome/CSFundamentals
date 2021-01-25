@@ -18,6 +18,7 @@ extern NSInteger const kAnimationDuration = 3.0f;
 @interface OtherViewController () <NSXMLParserDelegate>
 
 @property (nonatomic, strong) LGPerson *person;
+@property (nonatomic, assign) NSUInteger ticketCount;
 
 @end
 
@@ -110,6 +111,17 @@ extern NSInteger const kAnimationDuration = 3.0f;
     LGNSLog(@"CF数组个数：%li", CFArrayGetCount(cf_arr1));
     NSArray *arr2 = (__bridge NSArray *)cf_arr1;
     LGNSLog(@"NS数组个数：%li", arr2.count);
+    
+    /*
+     多线程的使用——买票
+     */
+    self.ticketCount = 50;
+    NSThread *t1 = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
+    [t1 setName:@"Jack"];
+    [t1 start];
+    NSThread *t2 = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
+    [t2 setName:@"Rose"];
+    [t2 start];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -158,6 +170,21 @@ extern NSInteger const kAnimationDuration = 3.0f;
     NSError *error;
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
     LGNSLog(@"解析json文件：%@", dic);
+}
+
+- (void)runThread {
+    while (YES) {
+        @synchronized (self) {//加锁
+            if (self.ticketCount > 0) {
+                self.ticketCount--;
+                LGNSLog(@"剩余票数%lu， 买家：%@", self.ticketCount, [NSThread currentThread].name);
+                [NSThread sleepForTimeInterval:2];
+            } else {
+                LGNSLog(@"票已经卖完");
+                break;
+            }
+        }
+    }
 }
 
 @end
