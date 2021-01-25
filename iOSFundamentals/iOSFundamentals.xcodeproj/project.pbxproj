@@ -240,6 +240,7 @@
 		26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGDownloadImageDemo.m; sourceTree = "<group>"; };
 		26F809C325BEB3D000EEC893 /* LGPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
 		26F809C425BEB3D000EEC893 /* LGPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPlayer.m; sourceTree = "<group>"; };
+		26F809C725BEB7F800EEC893 /* singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +399,7 @@
 				26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */,
 				26F809C325BEB3D000EEC893 /* LGPlayer.h */,
 				26F809C425BEB3D000EEC893 /* LGPlayer.m */,
+				26F809C725BEB7F800EEC893 /* singleton.h */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";

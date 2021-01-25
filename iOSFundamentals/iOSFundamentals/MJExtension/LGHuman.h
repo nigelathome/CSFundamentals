@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "singleton.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSInteger age;
 @property (nonatomic, copy) NSString *gender;
+
+singleton_h(LGHuman)
 
 @end
 

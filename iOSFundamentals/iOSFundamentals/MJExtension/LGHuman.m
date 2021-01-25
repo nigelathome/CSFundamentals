@@ -25,4 +25,6 @@
     LGNSLog(@"%p", __FUNCTION__);
 }
 
+singleton_m(LGHuman)
+
 @end

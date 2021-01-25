@@ -13,6 +13,7 @@
 #import "MusicModel.h"
 #import "LGDownloadImageDemo.h"
 #import "LGPlayer.h"
+#import "LGHuman.h"
 
 extern NSInteger const kAnimationDuration = 3.0f;
 
@@ -131,6 +132,14 @@ extern NSInteger const kAnimationDuration = 3.0f;
     LGPlayer *player2 = [LGPlayer sharedInstance];
     LGPlayer *player3 = [LGPlayer sharedInstance];
     LGNSLog(@"player1:%@ player2:%@ player3:%@", player1, player2, player3);
+    
+    /*
+     使用封装的单例宏——single##name
+     */
+    LGHuman *human1 = [LGHuman sharedLGHuman];
+    LGHuman *human2 = [LGHuman sharedLGHuman];
+    LGHuman *human3 = [LGHuman sharedLGHuman];
+    LGNSLog(@"human1:%@ human2:%@ human3:%@", human1, human2, human3);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
