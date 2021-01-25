@@ -87,6 +87,8 @@
 		26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809B925BAD7CF00EEC893 /* LGHuman.m */; };
 		26F809BE25BC131300EEC893 /* LGDownloadImageDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */; };
 		26F809C525BEB3D000EEC893 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809C425BEB3D000EEC893 /* LGPlayer.m */; };
+		26F809CB25BECCF400EEC893 /* ImageDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809CA25BECCF400EEC893 /* ImageDownloadViewController.m */; };
+		26F809CF25BED1A900EEC893 /* LGSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809CE25BED1A900EEC893 /* LGSDWebImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +243,10 @@
 		26F809C325BEB3D000EEC893 /* LGPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
 		26F809C425BEB3D000EEC893 /* LGPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPlayer.m; sourceTree = "<group>"; };
 		26F809C725BEB7F800EEC893 /* singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
+		26F809C925BECCF400EEC893 /* ImageDownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageDownloadViewController.h; sourceTree = "<group>"; };
+		26F809CA25BECCF400EEC893 /* ImageDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadViewController.m; sourceTree = "<group>"; };
+		26F809CD25BED1A900EEC893 /* LGSDWebImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGSDWebImage.h; sourceTree = "<group>"; };
+		26F809CE25BED1A900EEC893 /* LGSDWebImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGSDWebImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +406,10 @@
 				26F809C325BEB3D000EEC893 /* LGPlayer.h */,
 				26F809C425BEB3D000EEC893 /* LGPlayer.m */,
 				26F809C725BEB7F800EEC893 /* singleton.h */,
+				26F809C925BECCF400EEC893 /* ImageDownloadViewController.h */,
+				26F809CA25BECCF400EEC893 /* ImageDownloadViewController.m */,
+				26F809CD25BED1A900EEC893 /* LGSDWebImage.h */,
+				26F809CE25BED1A900EEC893 /* LGSDWebImage.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -553,6 +563,7 @@
 				26D5CFD025AC6C9300F64CBD /* Animation5ViewController.m in Sources */,
 				26F8099E25B9653F00EEC893 /* NSObject+MJCoding.m in Sources */,
 				26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */,
+				26F809CB25BECCF400EEC893 /* ImageDownloadViewController.m in Sources */,
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
 				26F8099C25B9653F00EEC893 /* NSObject+MJKeyValue.m in Sources */,
@@ -568,6 +579,7 @@
 				26ECBF4C25A7238F002E2754 /* Animation3ViewController.m in Sources */,
 				26C9E54D2592BF80001FF50F /* LGImageLoader.m in Sources */,
 				26C9E54A25924C64001FF50F /* MRCViewController.m in Sources */,
+				26F809CF25BED1A900EEC893 /* LGSDWebImage.m in Sources */,
 				26F8092F25B511E100EEC893 /* LGSon.m in Sources */,
 				265DEB1E2569FFE800DEFE55 /* MemManagerViewController.m in Sources */,
 				26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */,
