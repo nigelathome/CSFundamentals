@@ -115,7 +115,7 @@ extern NSInteger const kAnimationDuration = 3.0f;
     LGNSLog(@"NS数组个数：%li", arr2.count);
     
     /*
-     多线程的使用——买票
+     多线程的应用——买票 NSThread
      */
     self.ticketCount = 50;
     NSThread *t1 = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
@@ -140,6 +140,24 @@ extern NSInteger const kAnimationDuration = 3.0f;
     LGHuman *human2 = [LGHuman sharedLGHuman];
     LGHuman *human3 = [LGHuman sharedLGHuman];
     LGNSLog(@"human1:%@ human2:%@ human3:%@", human1, human2, human3);
+    
+    /*
+     多线程的应用——NSOperation
+     */
+    //invocation operation
+    NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(runOperation) object:nil];
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    //block operation
+    NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+        LGNSLog(@"blockOperation is running %@", [NSThread currentThread]);
+    }];
+    [blockOperation addExecutionBlock:^{
+        LGNSLog(@"blockOperation is running append block %@", [NSThread currentThread]);
+    }];
+    //添加依赖 设置线程执行先后 要求：blockOperation执行完成后才执行invocationOperation
+    [invocationOperation addDependency:blockOperation];
+    [queue addOperation:invocationOperation];
+    [queue addOperation:blockOperation];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -203,6 +221,10 @@ extern NSInteger const kAnimationDuration = 3.0f;
             }
         }
     }
+}
+
+- (void)runOperation {
+    LGNSLog(@"invocationOperation is running %@", [NSThread currentThread]);
 }
 
 @end
