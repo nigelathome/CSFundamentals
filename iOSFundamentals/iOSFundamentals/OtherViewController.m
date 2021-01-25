@@ -12,6 +12,7 @@
 #import "GDataXML/GDataXMLNode.h"
 #import "MusicModel.h"
 #import "LGDownloadImageDemo.h"
+#import "LGPlayer.h"
 
 extern NSInteger const kAnimationDuration = 3.0f;
 
@@ -122,6 +123,14 @@ extern NSInteger const kAnimationDuration = 3.0f;
     NSThread *t2 = [[NSThread alloc] initWithTarget:self selector:@selector(runThread) object:nil];
     [t2 setName:@"Rose"];
     [t2 start];
+    
+    /*
+     单例的使用
+     */
+    LGPlayer *player1 = [LGPlayer shareInstance];
+    LGPlayer *player2 = [LGPlayer shareInstance];
+    LGPlayer *player3 = [LGPlayer shareInstance];
+    LGNSLog(@"player1:%@ player2:%@ player3:%@", player1, player2, player3);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

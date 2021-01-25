@@ -86,6 +86,7 @@
 		26F809A525B9653F00EEC893 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8099A25B9653E00EEC893 /* MJFoundation.m */; };
 		26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809B925BAD7CF00EEC893 /* LGHuman.m */; };
 		26F809BE25BC131300EEC893 /* LGDownloadImageDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */; };
+		26F809C525BEB3D000EEC893 /* LGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809C425BEB3D000EEC893 /* LGPlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,8 @@
 		26F809B925BAD7CF00EEC893 /* LGHuman.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGHuman.m; sourceTree = "<group>"; };
 		26F809BC25BC131300EEC893 /* LGDownloadImageDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGDownloadImageDemo.h; sourceTree = "<group>"; };
 		26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGDownloadImageDemo.m; sourceTree = "<group>"; };
+		26F809C325BEB3D000EEC893 /* LGPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGPlayer.h; sourceTree = "<group>"; };
+		26F809C425BEB3D000EEC893 /* LGPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -393,6 +396,8 @@
 				26F8095925B93B0200EEC893 /* MusicModel.m */,
 				26F809BC25BC131300EEC893 /* LGDownloadImageDemo.h */,
 				26F809BD25BC131300EEC893 /* LGDownloadImageDemo.m */,
+				26F809C325BEB3D000EEC893 /* LGPlayer.h */,
+				26F809C425BEB3D000EEC893 /* LGPlayer.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -571,6 +576,7 @@
 				2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
 				2646998A25AC032C002940DF /* Animation4ViewController.m in Sources */,
+				26F809C525BEB3D000EEC893 /* LGPlayer.m in Sources */,
 				26D5CFD325AC867B00F64CBD /* MyTableViewCell.m in Sources */,
 				2608B82B258620EB0052FC1F /* UIEventRespViewController.m in Sources */,
 				26F809A125B9653F00EEC893 /* NSObject+MJClass.m in Sources */,
