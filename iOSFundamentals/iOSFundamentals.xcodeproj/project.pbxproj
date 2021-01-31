@@ -39,6 +39,7 @@
 		268A5BE324639B9A00B0438E /* GCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BE224639B9A00B0438E /* GCDViewController.m */; };
 		269E11762579FC84008D362B /* RuntimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E11752579FC84008D362B /* RuntimeViewController.m */; };
 		269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */; };
+		26AC390225C65E4B000B27D2 /* LockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AC390125C65E4B000B27D2 /* LockViewController.m */; };
 		26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95A7258ECA2600CCA46C /* LGFather.m */; };
 		26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AA258EED7A00CCA46C /* LGCat.m */; };
 		26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95AD258F01FA00CCA46C /* LGDog.m */; };
@@ -155,6 +156,8 @@
 		269E11752579FC84008D362B /* RuntimeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeViewController.m; sourceTree = "<group>"; };
 		269E117A257B54C9008D362B /* NSMutableArray+SafeMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SafeMutableArray.h"; sourceTree = "<group>"; };
 		269E117B257B54C9008D362B /* NSMutableArray+SafeMutableArray.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SafeMutableArray.m"; sourceTree = "<group>"; };
+		26AC390025C65E4B000B27D2 /* LockViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockViewController.h; sourceTree = "<group>"; };
+		26AC390125C65E4B000B27D2 /* LockViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LockViewController.m; sourceTree = "<group>"; };
 		26AD95A6258ECA2600CCA46C /* LGFather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGFather.h; sourceTree = "<group>"; };
 		26AD95A7258ECA2600CCA46C /* LGFather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGFather.m; sourceTree = "<group>"; };
 		26AD95A9258EED7A00CCA46C /* LGCat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGCat.h; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 				26F809CA25BECCF400EEC893 /* ImageDownloadViewController.m */,
 				26F809CD25BED1A900EEC893 /* LGSDWebImage.h */,
 				26F809CE25BED1A900EEC893 /* LGSDWebImage.m */,
+				26AC390025C65E4B000B27D2 /* LockViewController.h */,
+				26AC390125C65E4B000B27D2 /* LockViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
 				26C9E5402591D768001FF50F /* ThreadKeepAliveViewController.m in Sources */,
+				26AC390225C65E4B000B27D2 /* LockViewController.m in Sources */,
 				26F809BE25BC131300EEC893 /* LGDownloadImageDemo.m in Sources */,
 				2608B82825860D460052FC1F /* ReuseCellViewController.m in Sources */,
 				26AD95A8258ECA2600CCA46C /* LGFather.m in Sources */,
