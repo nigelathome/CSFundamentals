@@ -20,6 +20,7 @@
 		2660A8512565717D001801C4 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A8502565717D001801C4 /* BlockViewController.m */; };
 		2660A85625662D16001801C4 /* CopyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85525662D16001801C4 /* CopyViewController.m */; };
 		2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2660A85825675855001801C4 /* TaggedPointerViewController.m */; };
+		266BB7B325DF358000ADD80A /* DatabaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 266BB7B225DF358000ADD80A /* DatabaseViewController.m */; };
 		26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FF72592DC23001E06C4 /* UITableViewCell+IndexPath.m */; };
 		26718FFB25930AA0001E06C4 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26718FFA25930AA0001E06C4 /* OtherViewController.m */; };
 		2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671900C2594310E001E06C4 /* NSObject+LGKVO.m */; };
@@ -120,6 +121,8 @@
 		2660A85525662D16001801C4 /* CopyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CopyViewController.m; sourceTree = "<group>"; };
 		2660A85725675855001801C4 /* TaggedPointerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaggedPointerViewController.h; sourceTree = "<group>"; };
 		2660A85825675855001801C4 /* TaggedPointerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaggedPointerViewController.m; sourceTree = "<group>"; };
+		266BB7B125DF358000ADD80A /* DatabaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseViewController.h; sourceTree = "<group>"; };
+		266BB7B225DF358000ADD80A /* DatabaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseViewController.m; sourceTree = "<group>"; };
 		26718FF62592DC23001E06C4 /* UITableViewCell+IndexPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+IndexPath.h"; sourceTree = "<group>"; };
 		26718FF72592DC23001E06C4 /* UITableViewCell+IndexPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+IndexPath.m"; sourceTree = "<group>"; };
 		26718FF925930AA0001E06C4 /* OtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				26F809CE25BED1A900EEC893 /* LGSDWebImage.m */,
 				26AC390025C65E4B000B27D2 /* LockViewController.h */,
 				26AC390125C65E4B000B27D2 /* LockViewController.m */,
+				266BB7B125DF358000ADD80A /* DatabaseViewController.h */,
+				266BB7B225DF358000ADD80A /* DatabaseViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */,
 				2660A85925675855001801C4 /* TaggedPointerViewController.m in Sources */,
+				266BB7B325DF358000ADD80A /* DatabaseViewController.m in Sources */,
 				26C9E5402591D768001FF50F /* ThreadKeepAliveViewController.m in Sources */,
 				26AC390225C65E4B000B27D2 /* LockViewController.m in Sources */,
 				26F809BE25BC131300EEC893 /* LGDownloadImageDemo.m in Sources */,

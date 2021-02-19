@@ -27,6 +27,7 @@
 #import "Animation5ViewController.h"
 #import "ImageDownloadViewController.h"
 #import "LockViewController.h"
+#import "DatabaseViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -167,6 +168,11 @@
         }
             break;
         case 19: {
+            DatabaseViewController *databaseVC = [[DatabaseViewController alloc] init];
+            [self.navigationController pushViewController:databaseVC animated:YES];
+        }
+            break;
+        case 20: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
         }
@@ -180,7 +186,7 @@
 #pragma mark -property
 - (NSArray *)dataArray {
     if (!_dataArray) {
-        _dataArray = @[@"类和对象", @"GCD的应用", @"block的应用", @"深浅拷贝测试", @"标记指针", @"runloop的应用", @"runtime的应用", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"基础动画的应用", @"CALayer子类的应用", @"CoreAnimation框架应用", @"CALayer渲染方法的应用", @"页面卡顿优化应用", @"多线程应用——图片下载",  @"常见锁的使用", @"其他主题"];
+        _dataArray = @[@"类和对象", @"GCD的应用", @"block的应用", @"深浅拷贝测试", @"标记指针", @"runloop的应用", @"runtime的应用", @"cell复用机制", @"UI事件响应链", @"内存管理", @"定时器释放", @"线程安全", @"基础动画的应用", @"CALayer子类的应用", @"CoreAnimation框架应用", @"CALayer渲染方法的应用", @"页面卡顿优化应用", @"多线程应用——图片下载",  @"常见锁的使用", @"DB的使用", @"其他主题"];
     }
     return _dataArray;
 }
