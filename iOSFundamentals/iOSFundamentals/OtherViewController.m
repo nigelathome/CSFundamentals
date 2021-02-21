@@ -9,7 +9,7 @@
 #import "OtherViewController.h"
 #import "LGPerson.h"
 #import "NSObject+LGKVO.h"
-#import "GDataXML/GDataXMLNode.h"
+#import "GDataXMLNode.h"
 #import "MusicModel.h"
 #import "LGDownloadImageDemo.h"
 #import "LGPlayer.h"

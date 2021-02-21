@@ -93,6 +93,18 @@
 		26F809CF25BED1A900EEC893 /* LGSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F809CE25BED1A900EEC893 /* LGSDWebImage.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		26D34BA725E3277900D1CC14 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2608B82625860D460052FC1F /* ReuseCellViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReuseCellViewController.h; sourceTree = "<group>"; };
 		2608B82725860D460052FC1F /* ReuseCellViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReuseCellViewController.m; sourceTree = "<group>"; };
@@ -286,13 +298,11 @@
 		268A5BC624639A7F00B0438E /* iOSFundamentals */ = {
 			isa = PBXGroup;
 			children = (
-				26F8098425B9653E00EEC893 /* MJExtension */,
-				26F8094C25B52C2E00EEC893 /* GDataXML */,
+				26D34BAB25E3293600D1CC14 /* Framework */,
 				26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */,
 				268A5BE124639B9A00B0438E /* GCDViewController.h */,
 				268A5BE224639B9A00B0438E /* GCDViewController.m */,
 				268A5BC724639A7F00B0438E /* AppDelegate.h */,
-				26F8094925B528AF00EEC893 /* libGDataXML.a */,
 				268A5BC824639A7F00B0438E /* AppDelegate.m */,
 				268A5BCD24639A7F00B0438E /* ViewController.h */,
 				268A5BCE24639A7F00B0438E /* ViewController.m */,
@@ -424,6 +434,16 @@
 			path = iOSFundamentals;
 			sourceTree = "<group>";
 		};
+		26D34BAB25E3293600D1CC14 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				26F8094925B528AF00EEC893 /* libGDataXML.a */,
+				26F8098425B9653E00EEC893 /* MJExtension */,
+				26F8094C25B52C2E00EEC893 /* GDataXML */,
+			);
+			path = Framework;
+			sourceTree = "<group>";
+		};
 		26F8094C25B52C2E00EEC893 /* GDataXML */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +494,7 @@
 				268A5BC024639A7F00B0438E /* Sources */,
 				268A5BC124639A7F00B0438E /* Frameworks */,
 				268A5BC224639A7F00B0438E /* Resources */,
+				26D34BA725E3277900D1CC14 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -756,6 +777,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GCQM6S64H6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSFundamentals",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -766,7 +791,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/iOSFundamentals",
+					"$(PROJECT_DIR)/iOSFundamentals/Framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.zhangyutv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -782,6 +807,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = GCQM6S64H6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iOSFundamentals",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
@@ -792,7 +821,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/iOSFundamentals",
+					"$(PROJECT_DIR)/iOSFundamentals/Framework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangyu.zhangyutv;
 				PRODUCT_NAME = "$(TARGET_NAME)";
