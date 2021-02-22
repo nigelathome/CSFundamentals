@@ -31,6 +31,7 @@
 		2671901C259976A9001E06C4 /* AnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901B259976A9001E06C4 /* AnimationViewController.m */; };
 		2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671901E25A6E6F9001E06C4 /* MyLayer.m */; };
 		2671902225A6FDB3001E06C4 /* Animation2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2671902125A6FDB3001E06C4 /* Animation2ViewController.m */; };
+		2678FE9425E3F59C007977DA /* LGEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 2678FE9325E3F59C007977DA /* LGEmployee.m */; };
 		268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BC824639A7F00B0438E /* AppDelegate.m */; };
 		268A5BCF24639A7F00B0438E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 268A5BCE24639A7F00B0438E /* ViewController.m */; };
 		268A5BD224639A7F00B0438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 268A5BD024639A7F00B0438E /* Main.storyboard */; };
@@ -159,6 +160,8 @@
 		2671901E25A6E6F9001E06C4 /* MyLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLayer.m; sourceTree = "<group>"; };
 		2671902025A6FDB3001E06C4 /* Animation2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation2ViewController.h; sourceTree = "<group>"; };
 		2671902125A6FDB3001E06C4 /* Animation2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation2ViewController.m; sourceTree = "<group>"; };
+		2678FE9225E3F59C007977DA /* LGEmployee.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGEmployee.h; sourceTree = "<group>"; };
+		2678FE9325E3F59C007977DA /* LGEmployee.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGEmployee.m; sourceTree = "<group>"; };
 		268A5BC424639A7F00B0438E /* iOSFundamentals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSFundamentals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		268A5BC724639A7F00B0438E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		268A5BC824639A7F00B0438E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -440,6 +443,8 @@
 				266BB7B225DF358000ADD80A /* DatabaseViewController.m */,
 				26D34BAF25E32AA200D1CC14 /* DBManager.h */,
 				26D34BB025E32AA200D1CC14 /* DBManager.m */,
+				2678FE9225E3F59C007977DA /* LGEmployee.h */,
+				2678FE9325E3F59C007977DA /* LGEmployee.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				26AD95BA258F515600CCA46C /* LGPatch.m in Sources */,
 				26F809A225B9653F00EEC893 /* NSString+MJExtension.m in Sources */,
 				268A5BC924639A7F00B0438E /* AppDelegate.m in Sources */,
+				2678FE9425E3F59C007977DA /* LGEmployee.m in Sources */,
 				2671901925984630001E06C4 /* ThreadSafetyViewController.m in Sources */,
 				268A5BDA24639A8100B0438E /* main.m in Sources */,
 				26F809BA25BAD7CF00EEC893 /* LGHuman.m in Sources */,
