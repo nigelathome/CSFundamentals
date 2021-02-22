@@ -61,6 +61,9 @@
 		26C9E54725920287001FF50F /* 背景图.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 26C9E54625920287001FF50F /* 背景图.jpeg */; };
 		26C9E54A25924C64001FF50F /* MRCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54925924C64001FF50F /* MRCViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26C9E54D2592BF80001FF50F /* LGImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E54C2592BF80001FF50F /* LGImageLoader.m */; };
+		26D34BAD25E32A4E00D1CC14 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D34BAC25E32A4E00D1CC14 /* FMDB.framework */; };
+		26D34BAE25E32A5E00D1CC14 /* FMDB.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26D34BAC25E32A4E00D1CC14 /* FMDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26D34BB125E32AA200D1CC14 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D34BB025E32AA200D1CC14 /* DBManager.m */; };
 		26D5CFD025AC6C9300F64CBD /* Animation5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D5CFCF25AC6C9300F64CBD /* Animation5ViewController.m */; };
 		26D5CFD325AC867B00F64CBD /* MyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D5CFD225AC867B00F64CBD /* MyTableViewCell.m */; };
 		26ECBF4925A70F91002E2754 /* 粒子.png in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF4825A70F91002E2754 /* 粒子.png */; };
@@ -100,6 +103,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				26D34BAE25E32A5E00D1CC14 /* FMDB.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +216,9 @@
 		26C9E54925924C64001FF50F /* MRCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MRCViewController.m; sourceTree = "<group>"; };
 		26C9E54B2592BF80001FF50F /* LGImageLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGImageLoader.h; sourceTree = "<group>"; };
 		26C9E54C2592BF80001FF50F /* LGImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGImageLoader.m; sourceTree = "<group>"; };
+		26D34BAC25E32A4E00D1CC14 /* FMDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FMDB.framework; sourceTree = "<group>"; };
+		26D34BAF25E32AA200D1CC14 /* DBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		26D34BB025E32AA200D1CC14 /* DBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		26D5CFCE25AC6C9300F64CBD /* Animation5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animation5ViewController.h; sourceTree = "<group>"; };
 		26D5CFCF25AC6C9300F64CBD /* Animation5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Animation5ViewController.m; sourceTree = "<group>"; };
 		26D5CFD125AC867B00F64CBD /* MyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTableViewCell.h; sourceTree = "<group>"; };
@@ -273,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26F8094A25B528AF00EEC893 /* libGDataXML.a in Frameworks */,
+				26D34BAD25E32A4E00D1CC14 /* FMDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +438,8 @@
 				26AC390125C65E4B000B27D2 /* LockViewController.m */,
 				266BB7B125DF358000ADD80A /* DatabaseViewController.h */,
 				266BB7B225DF358000ADD80A /* DatabaseViewController.m */,
+				26D34BAF25E32AA200D1CC14 /* DBManager.h */,
+				26D34BB025E32AA200D1CC14 /* DBManager.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -437,6 +447,7 @@
 		26D34BAB25E3293600D1CC14 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				26D34BAC25E32A4E00D1CC14 /* FMDB.framework */,
 				26F8094925B528AF00EEC893 /* libGDataXML.a */,
 				26F8098425B9653E00EEC893 /* MJExtension */,
 				26F8094C25B52C2E00EEC893 /* GDataXML */,
@@ -603,6 +614,7 @@
 				269E117C257B54C9008D362B /* NSMutableArray+SafeMutableArray.m in Sources */,
 				2671901025947BE6001E06C4 /* TimerRelaseViewController.m in Sources */,
 				2671901625981C60001E06C4 /* LGSafetyDictionary.m in Sources */,
+				26D34BB125E32AA200D1CC14 /* DBManager.m in Sources */,
 				26C9E53D2591AE48001FF50F /* TimerViewController.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
@@ -780,6 +792,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOSFundamentals",
+					"$(PROJECT_DIR)/iOSFundamentals/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
@@ -810,6 +823,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iOSFundamentals",
+					"$(PROJECT_DIR)/iOSFundamentals/Framework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iOSFundamentals/PrefixHeader.pch;
