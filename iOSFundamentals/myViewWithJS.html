@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>
+			
+		</title>
+	</head>
+	<body>
+		<div id="div1">My Div1</div>
+		<div>My Div2</div>
+		<input id = "input1" type="text", value="Good idea"/>
+		<div id = "div2">
+			<span>
+				My name is Nigel.
+			</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//获取div里面的内容
+		var result = document.getElementById('div2').innerText;
+		alert(result);
+
+		//根据id获取标签内容
+		var content = document.getElementById('input1').value;
+		alert(content);
+
+		//根据标签名获取对象
+		var arr = document.getElementsByTagName('div');
+		alert(arr.length);
+
+		//标签内容原样输出
+		//innerText 只打印标签的文本
+		//innerHTML 打印标签的所有内容
+		var tagContent = document.getElementById('div2').innerHTML;
+		alert(tagContent);
+	</script>
+</html>
+
