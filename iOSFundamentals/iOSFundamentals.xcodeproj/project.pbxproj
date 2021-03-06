@@ -52,6 +52,7 @@
 		26AD95C0258F9A0A00CCA46C /* NSObject+LGBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95BF258F9A0A00CCA46C /* NSObject+LGBaseModel.m */; };
 		26AD95C32590192E00CCA46C /* LGExpertInfo+Additional.m in Sources */ = {isa = PBXBuildFile; fileRef = 26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */; };
 		26B203FE2590373700C93FE7 /* UIButton+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B203FD2590373700C93FE7 /* UIButton+Block.m */; };
+		26C1831B25F36F400077D6EB /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C1831A25F36F400077D6EB /* WebViewController.m */; };
 		26C9E531259053C1001FF50F /* LGAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E530259053C1001FF50F /* LGAlertButton.m */; };
 		26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5332590557B001FF50F /* UIAlertView+Block.m */; };
 		26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */; };
@@ -200,6 +201,8 @@
 		26AD95C22590192E00CCA46C /* LGExpertInfo+Additional.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LGExpertInfo+Additional.m"; sourceTree = "<group>"; };
 		26B203FC2590373700C93FE7 /* UIButton+Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Block.h"; sourceTree = "<group>"; };
 		26B203FD2590373700C93FE7 /* UIButton+Block.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Block.m"; sourceTree = "<group>"; };
+		26C1831925F36F400077D6EB /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		26C1831A25F36F400077D6EB /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		26C9E52F259053C1001FF50F /* LGAlertButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGAlertButton.h; sourceTree = "<group>"; };
 		26C9E530259053C1001FF50F /* LGAlertButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGAlertButton.m; sourceTree = "<group>"; };
 		26C9E5322590557B001FF50F /* UIAlertView+Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 				26D34BB025E32AA200D1CC14 /* DBManager.m */,
 				2678FE9225E3F59C007977DA /* LGEmployee.h */,
 				2678FE9325E3F59C007977DA /* LGEmployee.m */,
+				26C1831925F36F400077D6EB /* WebViewController.h */,
+				26C1831A25F36F400077D6EB /* WebViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -581,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				267190132594803C001E06C4 /* NSTimer+block.m in Sources */,
+				26C1831B25F36F400077D6EB /* WebViewController.m in Sources */,
 				26F8099D25B9653F00EEC893 /* MJProperty.m in Sources */,
 				26F8094F25B52C2E00EEC893 /* GDataXMLNode.m in Sources */,
 				26AD95BD258F999600CCA46C /* LGExpertInfo.m in Sources */,
