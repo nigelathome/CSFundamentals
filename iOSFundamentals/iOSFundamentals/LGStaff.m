@@ -8,7 +8,24 @@
 
 #import "LGStaff.h"
 
+/*
+ 匿名分类 仅共类内部使用——（class continuation）
+ */
+@interface LGStaff ()
+
+@property (nonatomic, strong) NSString *department;
+
+@end
+
 @implementation LGStaff
+
+- (instancetype)init {
+    self  = [super init];
+    if (self) {
+        self.department = @"NBA center";
+    }
+    return self;
+}
 
 #pragma mark - LGCompanyDelegate
 - (void)developiOSAPP {
@@ -16,6 +33,10 @@
 }
 
 - (void)doUT {
+    /*
+     匿名分类定义的属性只能在该类内部使用
+     */
+    LGNSLog(@"匿名分类 %@", self.department);
     LGNSLog(@"%@ %s", [self class], __FUNCTION__);
 }
 
