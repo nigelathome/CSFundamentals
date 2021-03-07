@@ -9,6 +9,7 @@
 #import "ProtocolCategoryBlockViewController.h"
 #import "LGCompany.h"
 #import "LGStaff.h"
+#import "LGStaff+TeamLeader.h"
 
 @interface ProtocolCategoryBlockViewController ()
 
@@ -30,6 +31,11 @@
     self.stafff = [[LGStaff alloc] init];
     self.company.delegate = self.stafff;//设置staff是委托company的代理
     [self.company doRegularRoutine];
+    
+    /*
+     分类中可以定义只读的属性 并且可以正常使用。因为本质没有增加成员变量
+     */
+    LGNSLog(@"%@", self.stafff.title);
 }
 
 @end

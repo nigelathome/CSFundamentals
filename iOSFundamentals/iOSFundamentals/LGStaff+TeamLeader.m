@@ -28,6 +28,10 @@
     LGNSLog(@"分类 %@ %s", [self class], __FUNCTION__);
 }
 
+- (NSString *)title {
+    return @"team leader";
+}
+
 #pragma clang diagnostic pop
 
 @end

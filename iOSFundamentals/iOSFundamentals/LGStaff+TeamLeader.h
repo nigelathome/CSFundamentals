@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)checkTeamMemberWeeklyReport;
 - (void)developiOSAPP;
 
+@property (nonatomic, strong, readonly) NSString *title;
+
 @end
 
 NS_ASSUME_NONNULL_END
