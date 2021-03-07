@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NSInteger (^BiggerBlock)(void);
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProtocolCategoryBlockViewController : UIViewController
+
+@property (nonatomic, copy) BiggerBlock biggerBlock;
 
 @end
 
