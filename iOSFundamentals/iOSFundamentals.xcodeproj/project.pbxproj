@@ -56,6 +56,7 @@
 		26C1831E25F478A40077D6EB /* ProtocolCategoryBlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C1831D25F478A40077D6EB /* ProtocolCategoryBlockViewController.m */; };
 		26C1832125F478F90077D6EB /* LGCompany.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C1832025F478F90077D6EB /* LGCompany.m */; };
 		26C1832425F47A570077D6EB /* LGStaff.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C1832325F47A570077D6EB /* LGStaff.m */; };
+		26C1832725F484720077D6EB /* LGStaff+TeamLeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C1832625F484720077D6EB /* LGStaff+TeamLeader.m */; };
 		26C9E531259053C1001FF50F /* LGAlertButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E530259053C1001FF50F /* LGAlertButton.m */; };
 		26C9E5342590557B001FF50F /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5332590557B001FF50F /* UIAlertView+Block.m */; };
 		26C9E5372590A6B3001FF50F /* NSArray+SafeArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C9E5362590A6B3001FF50F /* NSArray+SafeArray.m */; };
@@ -212,6 +213,8 @@
 		26C1832025F478F90077D6EB /* LGCompany.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGCompany.m; sourceTree = "<group>"; };
 		26C1832225F47A570077D6EB /* LGStaff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGStaff.h; sourceTree = "<group>"; };
 		26C1832325F47A570077D6EB /* LGStaff.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGStaff.m; sourceTree = "<group>"; };
+		26C1832525F484720077D6EB /* LGStaff+TeamLeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LGStaff+TeamLeader.h"; sourceTree = "<group>"; };
+		26C1832625F484720077D6EB /* LGStaff+TeamLeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LGStaff+TeamLeader.m"; sourceTree = "<group>"; };
 		26C9E52F259053C1001FF50F /* LGAlertButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGAlertButton.h; sourceTree = "<group>"; };
 		26C9E530259053C1001FF50F /* LGAlertButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGAlertButton.m; sourceTree = "<group>"; };
 		26C9E5322590557B001FF50F /* UIAlertView+Block.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				26C1832025F478F90077D6EB /* LGCompany.m */,
 				26C1832225F47A570077D6EB /* LGStaff.h */,
 				26C1832325F47A570077D6EB /* LGStaff.m */,
+				26C1832525F484720077D6EB /* LGStaff+TeamLeader.h */,
+				26C1832625F484720077D6EB /* LGStaff+TeamLeader.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -659,6 +664,7 @@
 				26AD95B7258F06D100CCA46C /* LGPig.m in Sources */,
 				2671900D2594310E001E06C4 /* NSObject+LGKVO.m in Sources */,
 				265DEB35256DF8D200DEFE55 /* ClassObjectViewController.m in Sources */,
+				26C1832725F484720077D6EB /* LGStaff+TeamLeader.m in Sources */,
 				26C9E5452591FEA0001FF50F /* ScrollSmothViewController.m in Sources */,
 				2671901F25A6E6F9001E06C4 /* MyLayer.m in Sources */,
 				26AD95AE258F01FA00CCA46C /* LGDog.m in Sources */,
