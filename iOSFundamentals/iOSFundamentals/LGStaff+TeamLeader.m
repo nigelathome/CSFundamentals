@@ -8,6 +8,9 @@
 
 #import "LGStaff+TeamLeader.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+
 @implementation LGStaff (TeamLeader)
 
 - (void)doTeamReport {
@@ -24,5 +27,7 @@
 - (void)developiOSAPP {
     LGNSLog(@"分类 %@ %s", [self class], __FUNCTION__);
 }
+
+#pragma clang diagnostic pop
 
 @end
