@@ -79,6 +79,7 @@
 		26ECBF5425A76C22002E2754 /* 图册2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF4F25A76C20002E2754 /* 图册2.jpg */; };
 		26ECBF5525A76C22002E2754 /* 图册4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF5025A76C21002E2754 /* 图册4.jpg */; };
 		26ECBF5625A76C22002E2754 /* 图册0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF5125A76C21002E2754 /* 图册0.jpg */; };
+		26F33CDE27A5811D002C1A24 /* BuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F33CDD27A5811D002C1A24 /* BuilderViewController.m */; };
 		26F8092F25B511E100EEC893 /* LGSon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8092E25B511E100EEC893 /* LGSon.m */; };
 		26F8093925B5228A00EEC893 /* ZYMaterialPlanPayView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */; };
 		26F8094A25B528AF00EEC893 /* libGDataXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8094925B528AF00EEC893 /* libGDataXML.a */; };
@@ -249,6 +250,8 @@
 		26ECBF4F25A76C20002E2754 /* 图册2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "图册2.jpg"; sourceTree = "<group>"; };
 		26ECBF5025A76C21002E2754 /* 图册4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "图册4.jpg"; sourceTree = "<group>"; };
 		26ECBF5125A76C21002E2754 /* 图册0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "图册0.jpg"; sourceTree = "<group>"; };
+		26F33CDC27A5811D002C1A24 /* BuilderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuilderViewController.h; sourceTree = "<group>"; };
+		26F33CDD27A5811D002C1A24 /* BuilderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuilderViewController.m; sourceTree = "<group>"; };
 		26F8092D25B511E100EEC893 /* LGSon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGSon.h; sourceTree = "<group>"; };
 		26F8092E25B511E100EEC893 /* LGSon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGSon.m; sourceTree = "<group>"; };
 		26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ZYMaterialPlanPayView.xml; sourceTree = "<group>"; };
@@ -470,6 +473,8 @@
 				26C1832325F47A570077D6EB /* LGStaff.m */,
 				26C1832525F484720077D6EB /* LGStaff+TeamLeader.h */,
 				26C1832625F484720077D6EB /* LGStaff+TeamLeader.m */,
+				26F33CDC27A5811D002C1A24 /* BuilderViewController.h */,
+				26F33CDD27A5811D002C1A24 /* BuilderViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				26D5CFD025AC6C9300F64CBD /* Animation5ViewController.m in Sources */,
 				26F8099E25B9653F00EEC893 /* NSObject+MJCoding.m in Sources */,
 				26718FF82592DC23001E06C4 /* UITableViewCell+IndexPath.m in Sources */,
+				26F33CDE27A5811D002C1A24 /* BuilderViewController.m in Sources */,
 				26F809CB25BECCF400EEC893 /* ImageDownloadViewController.m in Sources */,
 				2608B831258621420052FC1F /* ViewB.m in Sources */,
 				2660A85625662D16001801C4 /* CopyViewController.m in Sources */,
