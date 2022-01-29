@@ -42,13 +42,16 @@
 //    [self gcdTest21];
 //    [self gcdTest22];
 //    [self gcdTest23];
+    for(NSUInteger i = 0; i < 3; i++) {
+        [self gcdTest24];
+    }
 //    [self ABC];
 //    [self ABC1];
 //    [self ABC2];
-    [self fastLoop];
+//    [self fastLoop];
     
     //GCD 定时器
-    [self addGCDTimer];
+//    [self addGCDTimer];
 }
 
 - (void)gcdTest1 {
@@ -428,6 +431,29 @@
     
     //执行顺序是3-2-1 与gcdTest22不同 队列不是主队列 那么异步执行会开启新线程执行
     //1和2任务追加到主队列顺序晚于3此时先执行3，而1是耗时任务会结束的晚于2 所以是2-1
+}
+
+- (void)gcdTest24 {
+    dispatch_queue_t newQueue = dispatch_queue_create("new queue", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(newQueue, ^{
+        LGNSLog(@"1");
+    });
+    dispatch_async(newQueue, ^{
+        LGNSLog(@"2");
+    });
+    dispatch_sync(newQueue, ^{
+        LGNSLog(@"3");
+    });
+    LGNSLog(@"0");
+    dispatch_async(newQueue, ^{
+        LGNSLog(@"7");
+    });
+    dispatch_async(newQueue, ^{
+        LGNSLog(@"8");
+    });
+    dispatch_async(newQueue, ^{
+        LGNSLog(@"9");
+    });
 }
 
 #pragma mark - 实现这样的需求：A和B两个任务异步执行 C任务需要等待A任务执行完才执行
