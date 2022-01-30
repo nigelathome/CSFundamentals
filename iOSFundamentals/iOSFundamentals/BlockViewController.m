@@ -67,6 +67,9 @@
 - (void)_3typesBlock {
     /*
      block的isa指向block的类型：全局GlobalBlock、堆MallocBlock、栈StackBlock
+     捕获外界变量——堆block
+     弱引用——栈block
+     不使用函数内部的变量——全局block
      */
 
     //全局block
