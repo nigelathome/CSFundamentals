@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void (^MyBlock) (void);
+typedef NSInteger (^GetSum) (NSInteger, NSInteger);
 
 NS_ASSUME_NONNULL_BEGIN
 

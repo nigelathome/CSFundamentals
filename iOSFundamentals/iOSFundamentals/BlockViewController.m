@@ -65,20 +65,35 @@
 }
 
 - (void)_3typesBlock {
+    /*
+     block的isa指向block的类型：全局GlobalBlock、堆MallocBlock、栈StackBlock
+     */
+
     //全局block
     void (^globalBlk)(void) = ^{
         LGNSLog(@"全局block");
     };
     globalBlk();
+
+    NSInteger (^sumBlk)(NSInteger, NSInteger) = ^(NSInteger val1, NSInteger val2) {
+        return val1 + val2;
+    };
+    NSInteger result = sumBlk(3, 7);
+    LGNSLog(@"result = %ld", result);
     
     //ARC下栈的block都会自动copy到堆block 自动释放
     int a = 3;
     void (^mallocBlk)(void) = ^{
-        LGNSLog(@"栈block, %d", a);
+        LGNSLog(@"堆block, %d", a);
     };
     mallocBlk();
     
-    //MRC下才会有栈block
+    //栈block
+    int b = 7;
+    void (^ __weak stackBlk)(void) = ^{
+        LGNSLog(@"栈block, b=%d", b);
+    };
+    LGNSLog(@"栈block %@", stackBlk);
 }
 
 @end
