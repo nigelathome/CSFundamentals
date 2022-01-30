@@ -10,6 +10,7 @@
 
 typedef void (^MyBlock) (void);
 typedef NSInteger (^GetSum) (NSInteger, NSInteger);
+typedef void (^ShowSumBlock) (NSInteger, NSInteger);
 
 NS_ASSUME_NONNULL_BEGIN
 
