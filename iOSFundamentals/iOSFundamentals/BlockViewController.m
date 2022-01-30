@@ -30,7 +30,8 @@
     [self _3typesBlock];
 
 //    [self makeReleaseIssue];
-    [self makeReleaseIssueWithWeak];
+//    [self makeReleaseIssueWithWeak];
+    [self weakStrongDance];
 #pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
 }
 
@@ -132,6 +133,27 @@
         //如果这个block是一个网络请求任务 通过异步的方式进行网络调用 将会出现异常
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSInteger res = weakSelf.leftVal * val1 + weakSelf.rightVal * val2;
+            LGNSLog(@"延迟任务开始执行---》执行结果 %ld", res);
+        });
+    };
+    self.showSumBlock(1, 1);
+    LGNSLog(@"弱引用---》结束");
+}
+
+- (void)weakStrongDance {
+    self.leftVal = 5;
+    self.rightVal = 7;
+    __weak typeof(self) weakSelf = self;
+    self.showSumBlock = ^(NSInteger val1 , NSInteger val2) {
+        LGNSLog(@"延迟任务等待执行---》");
+        //使用weakSelf可以解决循环引用的问题
+        //因为延迟调用的原因 如果在调用的时候对象本身已经被释放了 那么调用结果将显示异常
+        //如果退出本vc 但这个block还没有执行 那么vc被释放了 当block执行的时候res的值将异常
+        //如果这个block是一个网络请求任务 通过异步的方式进行网络调用 将会出现异常
+        //使用__strong延迟vc本身的释放 保证延迟任务执行完成才释放vc
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSInteger res = strongSelf.leftVal * val1 + strongSelf.rightVal * val2;
             LGNSLog(@"延迟任务开始执行---》执行结果 %ld", res);
         });
     };
