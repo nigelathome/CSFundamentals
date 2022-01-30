@@ -10,6 +10,10 @@
 
 @interface BlockViewController ()
 
+@property (nonatomic, copy) GetSum mySumBlock;
+@property (nonatomic, assign) NSInteger leftVal;
+@property (nonatomic, assign) NSInteger rightVal;
+
 @end
 
 @implementation BlockViewController
@@ -23,6 +27,8 @@
     
     //3中类型block
     [self _3typesBlock];
+
+    [self makeReleaseIssue];
 #pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
 }
 
@@ -61,7 +67,7 @@
 }
 
 - (void)dealloc {
-    LGNSLog(@"release %@", [self class]);
+    LGNSLog(@"释放 %@", [self class]);
 }
 
 - (void)_3typesBlock {
@@ -97,6 +103,19 @@
         LGNSLog(@"栈block, b=%d", b);
     };
     LGNSLog(@"栈block %@", stackBlk);
+}
+
+- (void)makeReleaseIssue {
+    self.leftVal = 5;
+    self.rightVal = 7;
+    self.mySumBlock = ^(NSInteger val1, NSInteger val2) {
+        LGNSLog(@"弱引用---》");
+        NSInteger res = self.leftVal * val1 + self.rightVal * val2;
+        LGNSLog(@"弱引用---》block中的结果 %ld", res);
+        return res;
+    };
+    NSInteger result = self.mySumBlock(1, 1);
+    LGNSLog(@"弱引用---》结果 %ld", result);
 }
 
 @end
