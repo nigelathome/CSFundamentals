@@ -14,6 +14,7 @@
 @property (nonatomic, assign) NSInteger leftVal;
 @property (nonatomic, assign) NSInteger rightVal;
 @property (nonatomic, copy) ShowSumBlock showSumBlock;
+@property (nonatomic, copy) CalTwoValueBlock calTwoValueBlock;
 
 @end
 
@@ -182,6 +183,15 @@
     self.showSumBlock(1, 1);
     LGNSLog(@"弱引用---》结束");
 
+    //传参的方式 行参方式不再直接持有 从而解决循环引用
+    self.leftVal = 9;
+    self.rightVal = 10;
+    self.calTwoValueBlock = ^(NSInteger val1, NSInteger val2) {
+        NSInteger result = val1 * val2;
+        LGNSLog(@"calTwoValueBlock = %ld", result);
+    };
+    self.calTwoValueBlock(self.leftVal, self.rightVal);
+    LGNSLog(@"调用---》结束");
 }
 
 @end
