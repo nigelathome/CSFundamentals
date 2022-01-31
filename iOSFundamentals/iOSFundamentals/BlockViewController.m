@@ -31,7 +31,8 @@
 
 //    [self makeReleaseIssue];
 //    [self makeReleaseIssueWithWeak];
-    [self weakStrongDance];
+//    [self weakStrongDance];
+    [self resolveRetainCycleByBlock];
 #pragma mark - 执行 xcrun -sdk iphonesimulator clang -rewrite-objc BlockViewController.m 转成cpp文件
 }
 
@@ -159,6 +160,28 @@
     };
     self.showSumBlock(1, 1);
     LGNSLog(@"弱引用---》结束");
+}
+
+- (void)resolveRetainCycleByBlock {
+    /*
+     block 引起的循环引用
+     原因：self持有block block的函数体包含了self的属性从而持有self；self -1-> block -2-> self
+     解决办法1：上将block设置成weak，但这样会导致因为block引用计数=0创建之后会被里面释放
+     解决办法2：打破block持有self weak-strong-dance
+     解决办法3：中介变量 self->block ; 中间变量弱引用self；block -> 中间变量
+     解决办法4：通过block传参拿到self的属性而不是直接持有self
+     */
+    //中介变量
+    self.leftVal = 5;
+    self.rightVal = 7;
+    __weak typeof(self) vc = self;
+    self.showSumBlock = ^(NSInteger val1 , NSInteger val2) {
+        NSInteger res = vc.leftVal * val1 + vc.rightVal * val2;
+        LGNSLog(@"延迟任务开始执行---》执行结果 %ld", res);
+    };
+    self.showSumBlock(1, 1);
+    LGNSLog(@"弱引用---》结束");
+
 }
 
 @end
