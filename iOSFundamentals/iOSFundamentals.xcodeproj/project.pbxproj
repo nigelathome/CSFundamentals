@@ -80,6 +80,7 @@
 		26ECBF5525A76C22002E2754 /* 图册4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF5025A76C21002E2754 /* 图册4.jpg */; };
 		26ECBF5625A76C22002E2754 /* 图册0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26ECBF5125A76C21002E2754 /* 图册0.jpg */; };
 		26F33CDE27A5811D002C1A24 /* BuilderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F33CDD27A5811D002C1A24 /* BuilderViewController.m */; };
+		26F33CE127A8C513002C1A24 /* MemoryLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F33CE027A8C513002C1A24 /* MemoryLayoutViewController.m */; };
 		26F8092F25B511E100EEC893 /* LGSon.m in Sources */ = {isa = PBXBuildFile; fileRef = 26F8092E25B511E100EEC893 /* LGSon.m */; };
 		26F8093925B5228A00EEC893 /* ZYMaterialPlanPayView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */; };
 		26F8094A25B528AF00EEC893 /* libGDataXML.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8094925B528AF00EEC893 /* libGDataXML.a */; };
@@ -252,6 +253,8 @@
 		26ECBF5125A76C21002E2754 /* 图册0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "图册0.jpg"; sourceTree = "<group>"; };
 		26F33CDC27A5811D002C1A24 /* BuilderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuilderViewController.h; sourceTree = "<group>"; };
 		26F33CDD27A5811D002C1A24 /* BuilderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuilderViewController.m; sourceTree = "<group>"; };
+		26F33CDF27A8C513002C1A24 /* MemoryLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoryLayoutViewController.h; sourceTree = "<group>"; };
+		26F33CE027A8C513002C1A24 /* MemoryLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoryLayoutViewController.m; sourceTree = "<group>"; };
 		26F8092D25B511E100EEC893 /* LGSon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGSon.h; sourceTree = "<group>"; };
 		26F8092E25B511E100EEC893 /* LGSon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGSon.m; sourceTree = "<group>"; };
 		26F8093825B5228A00EEC893 /* ZYMaterialPlanPayView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ZYMaterialPlanPayView.xml; sourceTree = "<group>"; };
@@ -475,6 +478,8 @@
 				26C1832625F484720077D6EB /* LGStaff+TeamLeader.m */,
 				26F33CDC27A5811D002C1A24 /* BuilderViewController.h */,
 				26F33CDD27A5811D002C1A24 /* BuilderViewController.m */,
+				26F33CDF27A8C513002C1A24 /* MemoryLayoutViewController.h */,
+				26F33CE027A8C513002C1A24 /* MemoryLayoutViewController.m */,
 			);
 			path = iOSFundamentals;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				2671901625981C60001E06C4 /* LGSafetyDictionary.m in Sources */,
 				26D34BB125E32AA200D1CC14 /* DBManager.m in Sources */,
 				26C9E53D2591AE48001FF50F /* TimerViewController.m in Sources */,
+				26F33CE127A8C513002C1A24 /* MemoryLayoutViewController.m in Sources */,
 				265DEB22256A19F600DEFE55 /* RunloopViewController.m in Sources */,
 				26AD95AB258EED7A00CCA46C /* LGCat.m in Sources */,
 				2660A8512565717D001801C4 /* BlockViewController.m in Sources */,
