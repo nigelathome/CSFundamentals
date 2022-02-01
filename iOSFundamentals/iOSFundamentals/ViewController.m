@@ -191,10 +191,11 @@
             [self.navigationController pushViewController:builderVC animated:YES];
         }
             break;
-        case 23:
+        case 23: {
             MemoryLayoutViewController *memoryLayoutVC = [[MemoryLayoutViewController alloc] init];
             [self.navigationController pushViewController:memoryLayoutVC animated:YES];
-            break;;
+        }
+            break;
         case 24: {
             OtherViewController *otherVC = [[OtherViewController alloc] init];
             [self.navigationController pushViewController:otherVC animated:YES];
