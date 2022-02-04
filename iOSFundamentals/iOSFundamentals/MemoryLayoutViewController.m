@@ -49,8 +49,10 @@
 
     NSString *str1 = @"Happy new year 2022, Feb 1st";
     NSString *str2 = @"To be a specalist in iOS development";
+    NSString *str3 = [[NSString alloc] initWithFormat:@"a"]; //NSTaggedPointerString小对象
+    NSString *str4 = @"a";//CFConstantString 存在常量区
 
-    LGNSLog(@"idx = %p, offset = %p, str1 = %p, str2 = %p", &idx, &offset, str1, str2);
+    LGNSLog(@"idx = %p, offset = %p, str1 = %p, str2 = %p, str3 = %p, str4 = %p", &idx, &offset, str1, str2, str3, str4);
     LGNSLog(@"floatBlock = %p, showBlock = %p, captureValueBlock = %p, integerBlock = %p", floatBlock, showBlock, captureValueBlock, integerBlock);
     LGNSLog(@"vc = %p, obj = %p", vc, obj);
     LGNSLog(@"self = %p", self);
